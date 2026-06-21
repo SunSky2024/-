@@ -6,6 +6,8 @@
 
 https://sunsky2024.github.io/-/
 
+发布分支：`gh-pages`
+
 当前内容：
 
 - 统计学习期末中文讲义
