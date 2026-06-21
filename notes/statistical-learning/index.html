@@ -606,7 +606,7 @@
 <li><a href="#sec-006-03">6.3 RKHS 的基本思想</a></li>
 <li><a href="#sec-006-04">6.4 RKHS 的构造：从核函数到希尔伯特空间（Hilbert space）</a></li>
 <li><a href="#sec-006-05">6.5 再生性质（Reproducing property）：为什么叫“再生”</a></li>
-<li><a href="#sec-006-06">6.6 核函数（Kernel）与 RKHS 的一一对应</a></li>
+<li><a href="#sec-006-06">6.6 核函数（kernel）与 RKHS 的一一对应</a></li>
 <li><a href="#sec-006-07">6.7 表示定理（Representer Theorem）：无限维问题的有限维表示</a></li>
 <li><a href="#sec-006-08">6.8 表示定理（Representer Theorem）的证明思路</a></li>
 <li><a href="#sec-006-09">6.9 从普通岭回归（Ridge Regression）到核岭回归（Kernel Ridge Regression）</a></li>
@@ -644,19 +644,19 @@
 <li><a href="#sec-008-01">8.1 本讲定位与 ESL-CN 对应阅读</a></li>
 <li><a href="#sec-008-02">8.2 核密度估计（Kernel Density Estimation）：问题设定</a></li>
 <li><a href="#sec-008-03">8.3 直方图估计量（Histogram estimator）：从直方图开始理解密度</a></li>
-<li><a href="#sec-008-04">8.4 核函数（Kernel functions）与带宽（bandwidth）</a></li>
+<li><a href="#sec-008-04">8.4 核函数与带宽（kernel functions, bandwidth）</a></li>
 <li><a href="#sec-008-05">8.5 常见核函数（kernels）</a></li>
 <li><a href="#sec-008-06">8.6 Parzen 估计量（Parzen estimator）与高斯核密度估计（Gaussian KDE）</a></li>
 <li><a href="#sec-008-07">8.7 KDE 的期望与渐近无偏性</a></li>
 <li><a href="#sec-008-08">8.8 积分偏差平方（Integrated Bias^2）、方差（Variance）与渐近平均积分平方误差（AMISE）</a></li>
-<li><a href="#sec-008-09">8.9 核函数（Kernel）选择与带宽（bandwidth）选择</a></li>
+<li><a href="#sec-008-09">8.9 核函数选择与带宽选择（kernel, bandwidth）</a></li>
 <li><a href="#sec-008-10">8.10 KDE 的 R 实现（R implementation）</a></li>
-<li><a href="#sec-008-11">8.11 核回归（Kernel regression）与 kNN 平滑器（kNN smoother）</a></li>
-<li><a href="#sec-008-12">8.12 核平滑器（Kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）</a></li>
-<li><a href="#sec-008-13">8.13 核回归（Kernel regression）中带宽（bandwidth）\lambda 的选择</a></li>
-<li><a href="#sec-008-14">8.14 局部平均（Local averaging）的缺点：边界偏差（boundary bias）</a></li>
-<li><a href="#sec-008-15">8.15 局部线性回归（Local Linear Regression）的矩阵形式</a></li>
-<li><a href="#sec-008-16">8.16 局部多项式回归（Local Polynomial Regression）与曲率偏差（curvature bias）</a></li>
+<li><a href="#sec-008-11">8.11 核回归与 kNN 平滑器（kernel regression, kNN smoother）</a></li>
+<li><a href="#sec-008-12">8.12 核平滑器（kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）</a></li>
+<li><a href="#sec-008-13">8.13 核回归中带宽 \lambda 的选择（kernel regression, bandwidth）</a></li>
+<li><a href="#sec-008-14">8.14 局部平均的缺点：边界偏差（local averaging, boundary bias）</a></li>
+<li><a href="#sec-008-15">8.15 局部线性回归的矩阵形式（local linear regression）</a></li>
+<li><a href="#sec-008-16">8.16 局部多项式回归与曲率偏差（local polynomial regression, curvature bias）</a></li>
 <li><a href="#sec-008-17">8.17 loess 与局部回归的 R 实现（R implementation）</a></li>
 <li><a href="#sec-008-18">8.18 本讲考试速记与易错点</a></li>
 <li><a href="#sec-008-19">8.19 教材源码练习题</a></li>
@@ -683,7 +683,7 @@
 <li><a href="#sec-009-16">9.16 补充发展（Additional developments）：极端随机树（extra trees）与斜切随机森林（oblique random forests）</a></li>
 <li><a href="#sec-009-17">9.17 另一种观点（Alternative view）：随机森林作为自适应核（Random Forest as adaptive kernel）</a></li>
 <li><a href="#sec-009-18">9.18 RF 核（RF kernel）的自适应性</a></li>
-<li><a href="#sec-009-19">9.19 偏差、方差与一致性（Bias, variance and consistency）的直觉</a></li>
+<li><a href="#sec-009-19">9.19 偏差、方差与一致性的直觉（bias, variance, consistency）</a></li>
 <li><a href="#sec-009-20">9.20 方差界（Variance bound）与高维一致性（high-dimensional consistency）</a></li>
 <li><a href="#sec-009-21">9.21 正态性（Normality）与 U 统计量（U-statistics）</a></li>
 <li><a href="#sec-009-22">9.22 本讲考试速记与易错点</a></li>
@@ -709,7 +709,7 @@
 <li><a href="#sec-010-14">10.14 双重稳健估计量（Doubly robust estimator）</a></li>
 <li><a href="#sec-010-15">10.15 G 估计（G-estimation）</a></li>
 <li><a href="#sec-010-16">10.16 因果图（Causal diagrams）与 DAG 基础</a></li>
-<li><a href="#sec-010-17">10.17 后门路径（backdoor paths）、碰撞点（colliders）与被阻断路径（blocked paths）</a></li>
+<li><a href="#sec-010-17">10.17 后门路径、碰撞点与被阻断路径（backdoor paths, colliders, blocked paths）</a></li>
 <li><a href="#sec-010-18">10.18 DAG 的统计含义与 Markov 分解（Markov factorization）</a></li>
 <li><a href="#sec-010-19">10.19 DAG 与混杂（DAGs and confounding）</a></li>
 <li><a href="#sec-010-20">10.20 d 分离（d-separation）与后门路径准则（backdoor path criterion）</a></li>
@@ -945,7 +945,7 @@
 <li><a href="#sec-006-03">6.3 RKHS 的基本思想</a></li>
 <li><a href="#sec-006-04">6.4 RKHS 的构造：从核函数到希尔伯特空间（Hilbert space）</a></li>
 <li><a href="#sec-006-05">6.5 再生性质（Reproducing property）：为什么叫“再生”</a></li>
-<li><a href="#sec-006-06">6.6 核函数（Kernel）与 RKHS 的一一对应</a></li>
+<li><a href="#sec-006-06">6.6 核函数（kernel）与 RKHS 的一一对应</a></li>
 <li><a href="#sec-006-07">6.7 表示定理（Representer Theorem）：无限维问题的有限维表示</a></li>
 <li><a href="#sec-006-08">6.8 表示定理（Representer Theorem）的证明思路</a></li>
 <li><a href="#sec-006-09">6.9 从普通岭回归（Ridge Regression）到核岭回归（Kernel Ridge Regression）</a></li>
@@ -981,19 +981,19 @@
 <li><a href="#sec-008-01">8.1 本讲定位与 ESL-CN 对应阅读</a></li>
 <li><a href="#sec-008-02">8.2 核密度估计（Kernel Density Estimation）：问题设定</a></li>
 <li><a href="#sec-008-03">8.3 直方图估计量（Histogram estimator）：从直方图开始理解密度</a></li>
-<li><a href="#sec-008-04">8.4 核函数（Kernel functions）与带宽（bandwidth）</a></li>
+<li><a href="#sec-008-04">8.4 核函数与带宽（kernel functions, bandwidth）</a></li>
 <li><a href="#sec-008-05">8.5 常见核函数（kernels）</a></li>
 <li><a href="#sec-008-06">8.6 Parzen 估计量（Parzen estimator）与高斯核密度估计（Gaussian KDE）</a></li>
 <li><a href="#sec-008-07">8.7 KDE 的期望与渐近无偏性</a></li>
 <li><a href="#sec-008-08">8.8 积分偏差平方（Integrated Bias^2）、方差（Variance）与渐近平均积分平方误差（AMISE）</a></li>
-<li><a href="#sec-008-09">8.9 核函数（Kernel）选择与带宽（bandwidth）选择</a></li>
+<li><a href="#sec-008-09">8.9 核函数选择与带宽选择（kernel, bandwidth）</a></li>
 <li><a href="#sec-008-10">8.10 KDE 的 R 实现（R implementation）</a></li>
-<li><a href="#sec-008-11">8.11 核回归（Kernel regression）与 kNN 平滑器（kNN smoother）</a></li>
-<li><a href="#sec-008-12">8.12 核平滑器（Kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）</a></li>
-<li><a href="#sec-008-13">8.13 核回归（Kernel regression）中带宽（bandwidth）\lambda 的选择</a></li>
-<li><a href="#sec-008-14">8.14 局部平均（Local averaging）的缺点：边界偏差（boundary bias）</a></li>
-<li><a href="#sec-008-15">8.15 局部线性回归（Local Linear Regression）的矩阵形式</a></li>
-<li><a href="#sec-008-16">8.16 局部多项式回归（Local Polynomial Regression）与曲率偏差（curvature bias）</a></li>
+<li><a href="#sec-008-11">8.11 核回归与 kNN 平滑器（kernel regression, kNN smoother）</a></li>
+<li><a href="#sec-008-12">8.12 核平滑器（kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）</a></li>
+<li><a href="#sec-008-13">8.13 核回归中带宽 \lambda 的选择（kernel regression, bandwidth）</a></li>
+<li><a href="#sec-008-14">8.14 局部平均的缺点：边界偏差（local averaging, boundary bias）</a></li>
+<li><a href="#sec-008-15">8.15 局部线性回归的矩阵形式（local linear regression）</a></li>
+<li><a href="#sec-008-16">8.16 局部多项式回归与曲率偏差（local polynomial regression, curvature bias）</a></li>
 <li><a href="#sec-008-17">8.17 loess 与局部回归的 R 实现（R implementation）</a></li>
 <li><a href="#sec-008-18">8.18 本讲考试速记与易错点</a></li>
 <li><a href="#sec-008-19">8.19 教材源码练习题</a></li>
@@ -1019,7 +1019,7 @@
 <li><a href="#sec-009-16">9.16 补充发展（Additional developments）：极端随机树（extra trees）与斜切随机森林（oblique random forests）</a></li>
 <li><a href="#sec-009-17">9.17 另一种观点（Alternative view）：随机森林作为自适应核（Random Forest as adaptive kernel）</a></li>
 <li><a href="#sec-009-18">9.18 RF 核（RF kernel）的自适应性</a></li>
-<li><a href="#sec-009-19">9.19 偏差、方差与一致性（Bias, variance and consistency）的直觉</a></li>
+<li><a href="#sec-009-19">9.19 偏差、方差与一致性的直觉（bias, variance, consistency）</a></li>
 <li><a href="#sec-009-20">9.20 方差界（Variance bound）与高维一致性（high-dimensional consistency）</a></li>
 <li><a href="#sec-009-21">9.21 正态性（Normality）与 U 统计量（U-statistics）</a></li>
 <li><a href="#sec-009-22">9.22 本讲考试速记与易错点</a></li>
@@ -1044,7 +1044,7 @@
 <li><a href="#sec-010-14">10.14 双重稳健估计量（Doubly robust estimator）</a></li>
 <li><a href="#sec-010-15">10.15 G 估计（G-estimation）</a></li>
 <li><a href="#sec-010-16">10.16 因果图（Causal diagrams）与 DAG 基础</a></li>
-<li><a href="#sec-010-17">10.17 后门路径（backdoor paths）、碰撞点（colliders）与被阻断路径（blocked paths）</a></li>
+<li><a href="#sec-010-17">10.17 后门路径、碰撞点与被阻断路径（backdoor paths, colliders, blocked paths）</a></li>
 <li><a href="#sec-010-18">10.18 DAG 的统计含义与 Markov 分解（Markov factorization）</a></li>
 <li><a href="#sec-010-19">10.19 DAG 与混杂（DAGs and confounding）</a></li>
 <li><a href="#sec-010-20">10.20 d 分离（d-separation）与后门路径准则（backdoor path criterion）</a></li>
@@ -1133,7 +1133,7 @@
 <tr><td>ESL 6.1 One-Dimensional Kernel Smoothers</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.1-One-Dimensional-Kernel-Smoothers/index.html">https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.1-One-Dimensional-Kernel-Smoothers/index.html</a></td></tr>
 <tr><td>ESL 6.2 Selecting the Width of the Kernel</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.2-Selecting-the-Width-of-the-Kernel/index.html">https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.2-Selecting-the-Width-of-the-Kernel/index.html</a></td></tr>
 <tr><td>ESL 6.3 Local Regression in Rp</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.3-Local-Regression-in-Rp/index.html">https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.3-Local-Regression-in-Rp/index.html</a></td></tr>
-<tr><td>ESL 6.6 核密度估计（Kernel Density Estimation） and Classification</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html">https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html</a></td></tr>
+<tr><td>ESL 6.6 核密度估计与分类（Kernel Density Estimation and Classification）</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html">https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html</a></td></tr>
 <tr><td>ESL 9.2 Tree-Based Methods</td><td><a href="https://esl.hohoweiya.xyz/09-Additive-Models-Trees-and-Related-Methods/9.2-Tree-Based-Methods/index.html">https://esl.hohoweiya.xyz/09-Additive-Models-Trees-and-Related-Methods/9.2-Tree-Based-Methods/index.html</a></td></tr>
 <tr><td>ESL 8.7 自助聚合（Bagging）</td><td><a href="https://esl.hohoweiya.xyz/08-Model-Inference-and-Averaging/8.7-Bagging/index.html">https://esl.hohoweiya.xyz/08-Model-Inference-and-Averaging/8.7-Bagging/index.html</a></td></tr>
 <tr><td>ESL 15.1 Introduction</td><td><a href="https://esl.hohoweiya.xyz/15-Random-Forests/15.1-Introduction/index.html">https://esl.hohoweiya.xyz/15-Random-Forests/15.1-Introduction/index.html</a></td></tr>
@@ -1592,7 +1592,7 @@ d^2(u,v)
 =\sum_{i=1}^p (u_i-v_i)^2.
 
 $$</div>
-<p>问题是：邻域对变量尺度不 invariant。举例说，如果一个变量用“米”计量，另一个用“毫米”计量，那么毫米变量的数值差可能巨大，会主导距离，即使它并不更重要。</p>
+<p>问题是：邻域对变量尺度不 不变（invariant）。举例说，如果一个变量用“米”计量，另一个用“毫米”计量，那么毫米变量的数值差可能巨大，会主导距离，即使它并不更重要。</p>
 <h4 id="sec-001-12-02">1.12.2 标准化距离<a class="heading-link" href="#sec-001-12-02" aria-label="复制本节链接">#</a></h4>
 <p>课件建议在使用 kNN 时经常对变量做边际缩放，使距离变为</p>
 <div class="math-block">$$
@@ -2785,7 +2785,7 @@ $$</div>
 <p>这正是 ridge regression 的解。直观上，先验 \(\beta\sim N(0,\sigma^2/\lambda)\) 表示我们事先相信系数应接近 0；\(\lambda\) 越大，先验方差越小，收缩越强。</p>
 <h4 id="sec-003-06-05">3.6.5 预测变量尺度问题<a class="heading-link" href="#sec-003-06-05" aria-label="复制本节链接">#</a></h4>
 <p>课件特别强调：</p>
-<p><strong>The solution is not invariant with respect to the scale of the predictors!</strong></p>
+<p><strong>The solution is not 不变（invariant） with respect to the scale of the predictors!</strong></p>
 <p>岭回归和 Lasso 的惩罚项直接作用在系数上。如果某个变量被放大 100 倍，它对应的系数会缩小 100 倍，惩罚强度也会改变。因此必须标准化变量。</p>
 <p>常见做法：</p>
 <ul>
@@ -2804,7 +2804,7 @@ $$</div>
 <ul>
 <li>Lasso的formulation；</li>
 <li>\(X\) 正交时的解；</li>
-<li>计算方法和 solution 路径（path）。</li>
+<li>计算方法和 解路径（solution path）。</li>
 </ul>
 <h4 id="sec-003-07-02">3.7.2 Lasso 定义<a class="heading-link" href="#sec-003-07-02" aria-label="复制本节链接">#</a></h4>
 <p>Lasso是Least Absolute Shrinkage and Selection Operator，由 Tibshirani (1996) 提出：</p>
@@ -2940,7 +2940,7 @@ $$</div>
 <h4 id="sec-003-10-02">3.10.2 Least Angle Regression<a class="heading-link" href="#sec-003-10-02" aria-label="复制本节链接">#</a></h4>
 <p>Least angle regression，LARS，来自 Efron et al. (2004)。特点：</p>
 <ul>
-<li>solution 路径（path） 关于 \(\lambda\)是piecewise linear；</li>
+<li>解路径（solution path） 关于 \(\lambda\)是piecewise linear；</li>
 <li>计算成本大约等于一次最小二乘计算：</li>
 </ul>
 <div class="math-block">$$
@@ -2956,7 +2956,7 @@ $$</div>
 O(np).
 
 $$</div>
-<p>它还会为整个 \(\lambda\) 序列提供 solution 路径（path），从最大的 \(\lambda\) 开始。对较小 \(\lambda\)，使用前一个 \(\beta\) 估计作为 warm start，提高计算效率。</p>
+<p>它还会为整个 \(\lambda\) 序列提供 解路径（solution path），从最大的 \(\lambda\) 开始。对较小 \(\lambda\)，使用前一个 \(\beta\) 估计作为 warm start，提高计算效率。</p>
 <h3 id="sec-003-11">3.11 \(\ell_q\) 惩罚项（Penalties）、弹性网（Elastic Net）与 R 函数<a class="heading-link" href="#sec-003-11" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P41-P42。ESL 阅读：3.4、3.8、3.9。</p>
 <h4 id="sec-003-11-01">3.11.1 \(\ell_q\) 惩罚族<a class="heading-link" href="#sec-003-11-01" aria-label="复制本节链接">#</a></h4>
@@ -3176,7 +3176,7 @@ $$</div>
 $$</div>
 <p>这表示模型最终选出来的非零变量集合正好等于真实变量集合。</p>
 <ol start="2">
-<li><strong>Asymptotic normality with 最优（optimal） estimation 速率（rate）</strong>：</li>
+<li><strong>Asymptotic 正态性（normality） with 最优（optimal） estimation 速率（rate）</strong>：</li>
 </ol>
 <div class="math-block">$$
 \sqrt n(\hat\beta_S-\beta_S)
@@ -3581,7 +3581,7 @@ $$</div>
 <li>Penalization and variable selection：惩罚方法既服务于预测，也服务于变量选择。</li>
 <li>Recent research direction：Lasso 及其变体仍然是高维统计中的研究主题。</li>
 <li>Debias of the Lasso estimator：如何修正 Lasso 估计偏差，使它可用于推断。</li>
-<li>Hypothesis testing and confidence intervals：变量选择之后如何做假设检验和置信区间。</li>
+<li>Hypothesis testing and 置信区间（confidence intervals）：变量选择之后如何做假设检验和置信区间。</li>
 <li>Account for complicated data structures：如何处理分组、顺序、多数据源等复杂结构。</li>
 </ol>
 <h4 id="sec-004-14-01">4.14.1 最容易考的对比<a class="heading-link" href="#sec-004-14-01" aria-label="复制本节链接">#</a></h4>
@@ -4572,7 +4572,7 @@ $$</div>
 <p>因此，训练离散型 朴素贝叶斯（Naive Bayes） 时，“用极大似然估计概率参数”具体就是数频数、除以对应总数。</p>
 <h3 id="sec-005-16">5.16 逻辑回归（Logistic Regression）与 LDA 的关系<a class="heading-link" href="#sec-005-16" aria-label="复制本节链接">#</a></h3>
 <p>课件最后比较 逻辑回归（Logistic Regression） 和 LDA。</p>
-<p>在二分类 LDA 中，class 1 与 class 0的log-posterior odds 对 \(x\) 是线性的：</p>
+<p>在二分类 LDA 中，第 1 类（class 1） 与 class 0的log-posterior odds 对 \(x\) 是线性的：</p>
 <div class="math-block">$$
 \log
 \frac{P(Y=1\mid X=x)}
@@ -4872,7 +4872,7 @@ f(x)=\langle f,K(x,\cdot)\rangle_{\mathcal H}.
 $$</div>
 <p>名字里的 “reproducing” 指的是：函数在点 \(x\) 的取值，可以由函数 \(f\) 和核切片 \(K(x,\cdot)\) 的内积“再生”出来。</p>
 <p>课件图中展示了多个 \(K(x_i,\cdot)\) 的线性组合。例如黑色曲线可以看成若干红、橙、蓝色核函数切片的加权组合。这说明 RKHS 中的函数可以由训练点周围的核函数叠加得到。</p>
-<h3 id="sec-006-06">6.6 核函数（Kernel）与 RKHS 的一一对应<a class="heading-link" href="#sec-006-06" aria-label="复制本节链接">#</a></h3>
+<h3 id="sec-006-06">6.6 核函数（kernel）与 RKHS 的一一对应<a class="heading-link" href="#sec-006-06" aria-label="复制本节链接">#</a></h3>
 <p>课件给出两个定理层面的结论：</p>
 <ol>
 <li>Riesz 表示定理（Riesz representation theorem）：任何 RKHS 都必须关联一个唯一的再生核（reproducing kernel） \(K\)。</li>
@@ -5231,7 +5231,7 @@ $$</div>
 \sum_{i=1}^n\hat\alpha_iK(x_0,x_i).
 
 $$</div>
-<p>调参参数 \(\lambda\) 可以用 cross-validation 选择。</p>
+<p>调参参数 \(\lambda\) 可以用 交叉验证（cross-validation）选择。</p>
 <h3 id="sec-006-12">6.12 KRR 的优缺点与考试速记<a class="heading-link" href="#sec-006-12" aria-label="复制本节链接">#</a></h3>
 <p>核岭回归（Kernel ridge regression） 的优势是可以拟合非线性函数 \(f(x)\)，而不需要显式构造高维特征 \(\Phi(x)\)。只要指定核函数（kernel），就能在隐含的 RKHS 中做岭回归（Ridge regression）。</p>
 <p>计算代价也很明确：</p>
@@ -5803,7 +5803,7 @@ $$</div>
 <li>Large \(C\)：更重视 misclassification 速率（rate），尽量少错分，可能 margin 较窄。</li>
 <li>Small \(C\)：更重视宽 margin，允许更多点进入 margin 或错分。</li>
 <li>Separable case 可以看成 \(C=\infty\)，因为完全不允许 slack。</li>
-<li>\(C\) 通常用 cross-validation 选择。</li>
+<li>\(C\) 通常用 交叉验证（cross-validation）选择。</li>
 </ol>
 <p>课件图中的标注说明：不可分情况下，一些点位于 margin 内，一些点甚至落在错误一侧；软间隔（soft margin） 允许这些情况，但会为它们付出 \(\xi_i\) 的代价。</p>
 <h3 id="sec-007-09">7.9 带松弛变量（slack variables）的对偶问题与 KKT 分类<a class="heading-link" href="#sec-007-09" aria-label="复制本节链接">#</a></h3>
@@ -6298,7 +6298,7 @@ $$</div>
 <li><code>gamma</code> 或 RBF 宽度参数：控制 radial kernel 的局部性。</li>
 <li><code>degree</code>：多项式核的次数。</li>
 </ol>
-<p>一般应通过 cross-validation 选择这些参数，而不是只看训练误差。</p>
+<p>一般应通过 交叉验证（cross-validation）选择这些参数，而不是只看训练误差。</p>
 <h3 id="sec-007-16">7.16 本讲考试速记与易错点<a class="heading-link" href="#sec-007-16" aria-label="复制本节链接">#</a></h3>
 <h4 id="sec-007-16-01">7.16.1 核心公式<a class="heading-link" href="#sec-007-16-01" aria-label="复制本节链接">#</a></h4>
 <p>线性分类函数：</p>
@@ -6417,10 +6417,10 @@ $$</div>
 <p>本讲课件的标题是核密度与回归估计量（Kernel Density and Regression Estimators），核心是“核光滑”。这里的核函数（kernel）与前面 SVM/RKHS 中的核函数有联系但用途不同：本讲的核函数更像一个以目标点为中心的权重函数，用来做局部平均或局部加权回归；SVM 中的核函数（kernel）主要表示隐式特征空间里的内积。</p>
 <p>本讲会引入一类非参数估计（nonparametric estimations）。非参数（nonparametric）不代表“没有参数”，而是说模型不预先假设一个有限维参数族，例如不先假定 \(f\) 一定是高斯密度或 \(Y\) 一定是线性函数。它的中心思想是：</p>
 <p>也就是：局部估计（estimate things locally），但偏差-方差权衡（bias-variance trade-off）仍然存在。</p>
-<p>课件把核函数（kernel function） 用在两个地方：</p>
+<p>课件把核函数（kernel function）用在两个地方：</p>
 <ol>
 <li>核密度估计（Kernel density estimation）：无监督地估计概率密度函数。</li>
-<li>核回归（Kernel regression）：监督学习中估计回归函数 \(f(x)=E(Y\mid X=x)\)。</li>
+<li>核回归（kernel regression）：监督学习中估计回归函数 \(f(x)=E(Y\mid X=x)\)。</li>
 </ol>
 <p>本讲义补充阅读可在 ESL-CN 的以下位置查看：</p>
 <div class="table-wrap"><table>
@@ -6428,28 +6428,28 @@ $$</div>
 <tbody>
 <tr><td>一维 核平滑器（kernel smoother）、Nadaraya-Watson、局部平均</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.1-One-Dimensional-Kernel-Smoothers/index.html">ESL 6.1 One-Dimensional Kernel Smoothers</a></td></tr>
 <tr><td>带宽选择、偏差-方差权衡（bias-variance trade-off）、交叉验证</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.2-Selecting-the-Width-of-the-Kernel/index.html">ESL 6.2 Selecting the Width of the Kernel</a></td></tr>
-<tr><td>local regression、<code>loess</code>、局部多项式回归</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.3-Local-Regression-in-Rp/index.html">ESL 6.3 Local Regression in Rp</a></td></tr>
-<tr><td>核密度估计与分类中的密度估计思想</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html">ESL 6.6 核密度估计（Kernel Density Estimation） and Classification</a></td></tr>
+<tr><td>局部回归（local regression）、<code>loess</code>、局部多项式回归</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.3-Local-Regression-in-Rp/index.html">ESL 6.3 Local Regression in Rp</a></td></tr>
+<tr><td>核密度估计与分类中的密度估计思想</td><td><a href="https://esl.hohoweiya.xyz/06-Kernel-Smoothing-Methods/6.6-Kernel-Density-Estimation-and-Classification/index.html">ESL 6.6 核密度估计与分类（Kernel Density Estimation and Classification）</a></td></tr>
 <tr><td>kNN 与局部方法的联系</td><td><a href="https://esl.hohoweiya.xyz/02-Overview-of-Supervised-Learning/2.3-Two-Simple-Approaches-to-Prediction/index.html">ESL 2.3 Two Simple Approaches to Prediction</a></td></tr>
 </tbody></table></div>
 <p>本讲课件使用 \(\lambda\) 表示 带宽（bandwidth），也就是局部窗口宽度。请注意它和 Ridge/SVM 里的正则化参数 \(\lambda\) 不是同一个含义。这里的 \(\lambda\) 越小越局部，\(\lambda\) 越大越平滑。</p>
 <h3 id="sec-008-02">8.2 核密度估计（Kernel Density Estimation）：问题设定<a class="heading-link" href="#sec-008-02" aria-label="复制本节链接">#</a></h3>
-<p>核密度估计（Kernel Density Estimation），简称 KDE，目标是从未知分布的样本中估计概率密度函数。课件设定为：</p>
+<p>核密度估计（Kernel Density Estimation, KDE），目标是从未知分布的样本中估计概率密度函数。课件设定为：</p>
 <div class="math-block">$$
 X_1,\ldots,X_n \overset{\mathrm{i.i.d.}}{\sim} f(\cdot).
 
 $$</div>
-<p>这里 \(f(\cdot)\) 是未知的 概率密度函数（probability density function），简称 pdf。我们只看到样本 \(X_1,\ldots,X_n\)，想估计整条密度曲线 \(f(x)\)。</p>
+<p>这里 \(f(\cdot)\) 是未知的概率密度函数（probability density function），简称 pdf。我们只看到样本 \(X_1,\ldots,X_n\)，想估计整条密度曲线 \(f(x)\)。</p>
 <p>这是一个无监督问题（unsupervised problem），因为只有 \(X_i\)，没有响应变量 \(Y_i\)。但同一类技术后面可以用于回归（regression）：把“估计局部密度”换成“估计局部平均响应”。</p>
 <p>课件列出两类常见方法：</p>
 <ol>
-<li>Assume a family of distributions，例如假设</li>
+<li>假设一个分布族（assume a family of distributions），例如假设</li>
 </ol>
 <div class="math-block">$$
 f_\theta(\cdot)
 
 $$</div>
-<p>属于 Gaussian family，然后估计参数 \(\theta\)。如果假设正确，这种方法效率很高；如果假设错了，估计会系统性偏差。</p>
+<p>属于高斯分布族（Gaussian family），然后估计参数 \(\theta\)。如果假设正确，这种方法效率很高；如果假设错了，估计会系统性偏差。</p>
 <ol start="2">
 <li>核密度估计量（Kernel density estimator）：不强行指定有限维分布族，而是用样本附近的局部信息拼出密度曲线。</li>
 </ol>
@@ -6505,10 +6505,10 @@ $$</div>
 <li>看有多少样本落在 \(x\) 附近宽度为 \(\lambda\) 的小区间里。</li>
 <li>用样本比例除以区间宽度 \(\lambda\)，得到单位长度上的概率质量。</li>
 </ol>
-<p>直方图是可视化连续数据最常用的方法之一。但课件指出：这种估计 bumpy and non-smooth。原因是 indicator function 是突然从 1 跳到 0，窗口边界附近的点只要稍微移动，就可能让估计值跳变。</p>
+<p>直方图是可视化连续数据最常用的方法之一。但课件指出：这种估计不平整且不光滑（bumpy and non-smooth）。原因是示性函数（indicator function）会突然从 1 跳到 0，窗口边界附近的点只要稍微移动，就可能让估计值跳变。</p>
 <p>课件又从另一个角度解释同一个 estimator：</p>
 <ol>
-<li>对每个观测 \(x_i\)，放置 \(1/n\)的point mass。</li>
+<li>对每个观测 \(x_i\)，放置 \(1/n\) 的点质量（point mass）。</li>
 <li>再把这 \(1/n\) 的概率质量均匀铺到宽度为 \(\lambda\) 的区间</li>
 </ol>
 <div class="math-block">$$
@@ -6533,9 +6533,9 @@ $$</div>
 }{\lambda n}.
 
 $$</div>
-<p>课件最后问：如果不用均匀分布（uniform distribution），而用别的形状来扩散每个点的概率质量，会怎样？这就引出 核函数（kernel function）。</p>
-<h3 id="sec-008-04">8.4 核函数（Kernel functions）与带宽（bandwidth）<a class="heading-link" href="#sec-008-04" aria-label="复制本节链接">#</a></h3>
-<p>课件记 \(K\) 为以 0 为中心（centered at 0）的核函数（kernel function）。通常我们使用一个 密度函数（density function） \(K(\cdot)\)，满足：</p>
+<p>课件最后问：如果不用均匀分布（uniform distribution），而用别的形状来扩散每个点的概率质量，会怎样？这就引出核函数（kernel function）。</p>
+<h3 id="sec-008-04">8.4 核函数与带宽（kernel functions, bandwidth）<a class="heading-link" href="#sec-008-04" aria-label="复制本节链接">#</a></h3>
+<p>课件记 \(K\) 为以 0 为中心（centered at 0）的核函数（kernel function）。通常我们使用一个密度函数（density function） \(K(\cdot)\)，满足：</p>
 <div class="math-block">$$
 \int K(u)\,du=1,
 
@@ -6591,7 +6591,7 @@ K_\lambda(u)
 $$</div>
 <p>这说明 直方图估计量（histogram estimator） 其实就是使用均匀核（uniform kernel）的KDE。不同核函数（kernel）只是把“硬窗口”换成更平滑的权重形状。</p>
 <h3 id="sec-008-05">8.5 常见核函数（kernels）<a class="heading-link" href="#sec-008-05" aria-label="复制本节链接">#</a></h3>
-<p>课件列出 对称 Beta 族核函数（Symmetric Beta family kernel）：</p>
+<p>课件列出对称 Beta 族核函数（Symmetric Beta family kernel）：</p>
 <div class="math-block">$$
 K(u,d)
 =
@@ -6599,7 +6599,7 @@ K(u,d)
 \mathbf 1\{|u|\le1\}.
 
 $$</div>
-<p>其中 \(B(\cdot,\cdot)\)是Beta function。不同 \(d\) 对应不同常见核：</p>
+<p>其中 \(B(\cdot,\cdot)\)是Beta 函数（Beta function）。不同 \(d\) 对应不同常见核：</p>
 <p>1.均匀核（Uniform kernel）：</p>
 <div class="math-block">$$
 d=0.
@@ -6674,7 +6674,7 @@ $$</div>
 <li>每条小曲线面积为 \(1/n\)。</li>
 <li>所有小曲线叠加后就是估计密度。</li>
 </ol>
-<p>课件图中 Blue: Truth 表示真实密度曲线；图中每个样本点附近的小曲线是 单个核函数（individual kernels）；它们叠加后形成整体 KDE 曲线。若 \(\lambda\) 太小，曲线会有很多尖峰，方差（variance）高；若 \(\lambda\) 太大，曲线会过度平滑，偏差（bias）高。</p>
+<p>课件图中“蓝色：真实曲线（Blue: Truth）”表示真实密度曲线；图中每个样本点附近的小曲线是 单个核函数（individual kernels）；它们叠加后形成整体 KDE 曲线。若 \(\lambda\) 太小，曲线会有很多尖峰，方差（variance）高；若 \(\lambda\) 太大，曲线会过度平滑，偏差（bias）高。</p>
 <h3 id="sec-008-07">8.7 KDE 的期望与渐近无偏性<a class="heading-link" href="#sec-008-07" aria-label="复制本节链接">#</a></h3>
 <p>课件在正则性假设（regularity assumptions） 下说明：核密度估计量（kernel density estimator） 在目标点 \(x\) 处渐近无偏（asymptotically unbiased）。也就是说，当样本量大、带宽（bandwidth） 合理趋近于 0 时，</p>
 <div class="math-block">$$
@@ -6716,7 +6716,7 @@ E[\hat f(x)]
 K(t)f(x-t\lambda)\,dt.
 
 $$</div>
-<p>对 \(f(x-t\lambda)\)在\(x\) 附近做 Taylor expansion：</p>
+<p>对 \(f(x-t\lambda)\) 在 \(x\) 附近做泰勒展开（Taylor expansion）：</p>
 <div class="math-block">$$
 f(x-t\lambda)
 =
@@ -6778,14 +6778,14 @@ E[\hat f(x)]\to f(x).
 $$</div>
 <p>这就是课件中的渐近无偏（asymptotically unbiased）。它还告诉我们一件更重要的事：bias 的主导项与 \(\lambda^2\) 成正比，也与 \(f''(x)\) 有关。曲率越大，局部平均越容易有偏。</p>
 <h3 id="sec-008-08">8.8 积分偏差平方（Integrated Bias\(^2\)）、方差（Variance）与渐近平均积分平方误差（AMISE）<a class="heading-link" href="#sec-008-08" aria-label="复制本节链接">#</a></h3>
-<p>课件进一步给出 integrated Bias\(^2\)。先定义</p>
+<p>课件进一步给出积分偏差平方（integrated Bias\(^2\)）。先定义</p>
 <div class="math-block">$$
 \sigma_K^2
 =
 \int_{-\infty}^{\infty}K(t)t^2\,dt.
 
 $$</div>
-<p>由上一节可知 pointwise bias 的主导项为</p>
+<p>由上一节可知点态偏差（pointwise bias）的主导项为</p>
 <div class="math-block">$$
 E[\hat f(x)]-f(x)
 \approx
@@ -6806,7 +6806,7 @@ E[\hat f(x)]-f(x)
 \left[f''(x)\right]^2dx.
 
 $$</div>
-<p>课件给出的 integrated variance 近似为</p>
+<p>课件给出的积分方差（integrated variance）近似为</p>
 <div class="math-block">$$
 \mathrm{Var}
 \approx
@@ -6819,7 +6819,7 @@ $$</div>
 <li>Bias\(^2\) 约为 \(O(\lambda^4)\)。\(\lambda\) 越大，越平滑，bias 越大。</li>
 <li>方差（Variance） 约为 \(O((n\lambda)^{-1})\)。\(\lambda\) 越小，有效样本越少，variance 越大。</li>
 </ol>
-<p>课件定义 渐近平均积分平方误差（AMISE），即 asymptotic mean integ速率（rate）d squared error：</p>
+<p>课件定义 渐近平均积分平方误差（AMISE），即 渐近平均积分平方误差（asymptotic mean integrated squared error）：</p>
 <div class="math-block">$$
 \mathrm{AMISE}
 \approx
@@ -6851,10 +6851,10 @@ O(n^{-4/5}).
 
 $$</div>
 <p>这比普通参数估计中的 \(O(n^{-1})\) MSE 慢，原因是我们估计的是整条函数曲线，而不是有限维参数。</p>
-<h3 id="sec-008-09">8.9 核函数（Kernel）选择与带宽（bandwidth）选择<a class="heading-link" href="#sec-008-09" aria-label="复制本节链接">#</a></h3>
+<h3 id="sec-008-09">8.9 核函数选择与带宽选择（kernel, bandwidth）<a class="heading-link" href="#sec-008-09" aria-label="复制本节链接">#</a></h3>
 <p>课件指出 Epanechnikov 核（Epanechnikov kernel）最小化（minimizes） 渐近平均积分平方误差（AMISE），因此在渐近意义下是 最优（optimal）。核效率（Kernel efficiency） 常用相对于 Epanechnikov 核（Epanechnikov kernel） 的效率来衡量。课件给出：</p>
 <div class="table-wrap"><table>
-<thead><tr><th>核函数（Kernel）</th><th>效率（Efficiency）</th></tr></thead>
+<thead><tr><th>核函数（kernel）</th><th>效率（Efficiency）</th></tr></thead>
 <tbody>
 <tr><td>Biweight</td><td>0.994</td></tr>
 <tr><td>Triangular</td><td>0.986</td></tr>
@@ -6864,7 +6864,7 @@ $$</div>
 <p>这些数字说明：不同核函数（kernel）的效率差距其实不大。课件强调：</p>
 <p>选择核函数没有选择带宽重要（choosing kernel is not as important as choosing the bandwidth）。</p>
 <p>这句话非常重要。实际中 KDE 的好坏主要由 带宽（bandwidth） 决定。核函数形状（kernel shape）通常是二阶因素。</p>
-<p>课件给出 Silverman (1986)在univariate case 中的 rule of thumb：</p>
+<p>课件给出 Silverman (1986) 在一维情形（univariate case）中的经验法则（rule of thumb）：</p>
 <div class="math-block">$$
 \hat\lambda
 =
@@ -6877,7 +6877,7 @@ $$</div>
 n^{-1/(p+4)}.
 
 $$</div>
-<p>这也暴露了 curse of dimensionality：当 \(p\) 增大时，带宽（bandwidth） 收缩得很慢，局部区域里需要非常多样本才能稳定估计。</p>
+<p>这也暴露了维数灾难（curse of dimensionality）：当 \(p\) 增大时，带宽（bandwidth） 收缩得很慢，局部区域里需要非常多样本才能稳定估计。</p>
 <h3 id="sec-008-10">8.10 KDE 的 R 实现（R implementation）<a class="heading-link" href="#sec-008-10" aria-label="复制本节链接">#</a></h3>
 <p>课件列出的 R 实现：</p>
 <div class="table-wrap"><table>
@@ -6889,8 +6889,8 @@ $$</div>
 <tr><td><code>locfit::locfit</code></td><td>可做 局部多项式回归与密度估计（local polynomial regressions and density estimation）</td></tr>
 </tbody></table></div>
 <p>初学者使用 <code>density</code> 时，重点参数通常是核函数（kernel）和带宽（bandwidth）。考试中更需要理解的是：<code>density</code> 背后就是把每个观测点变成一个 核函数小峰（kernel bump），然后叠加并归一化。</p>
-<h3 id="sec-008-11">8.11 核回归（Kernel regression）与 kNN 平滑器（kNN smoother）<a class="heading-link" href="#sec-008-11" aria-label="复制本节链接">#</a></h3>
-<p>课件后半转向 核回归（Kernel regression）。目标从估计密度</p>
+<h3 id="sec-008-11">8.11 核回归与 kNN 平滑器（kernel regression, kNN smoother）<a class="heading-link" href="#sec-008-11" aria-label="复制本节链接">#</a></h3>
+<p>课件后半转向 核回归（kernel regression）。目标从估计密度</p>
 <div class="math-block">$$
 f_X(x)
 
@@ -6900,7 +6900,7 @@ $$</div>
 f(x)=E(Y\mid X=x).
 
 $$</div>
-<p>先回忆 k-Nearest Neighbor averaging：</p>
+<p>先回忆 k 近邻平均（k-nearest-neighbor averaging）：</p>
 <div class="math-block">$$
 \hat f(x)
 =
@@ -6917,19 +6917,19 @@ w(x,x_i)
 \end{cases}
 
 $$</div>
-<p>\(N_k(x)\) 表示离目标点 \(x\) 最近的 \(k\) 个训练点。这个估计器的权重会在邻域边界外 abrupt drop off to zero。课件指出，这会导致 fitted curve 看起来 jagged。</p>
-<p>图中 Nearest-Neighbor Kernel 与 Epanechnikov Kernel 的对比说明：</p>
+<p>\(N_k(x)\) 表示离目标点 \(x\) 最近的 \(k\) 个训练点。这个估计器的权重会在邻域边界外 突然降为 0（abrupt drop off to zero）。课件指出，这会导致 拟合曲线（fitted curve）看起来有锯齿（jagged）。</p>
+<p>图中 最近邻核（Nearest-Neighbor Kernel）与 Epanechnikov 核（Epanechnikov Kernel） 的对比说明：</p>
 <ol>
 <li>nearest-neighbor/rectangular 权重是硬截断，邻域内权重一样，邻域外权重为 0。</li>
 <li>Epanechnikov 核（Epanechnikov kernel） 让离 \(x_0\) 越远的点权重逐渐降低。</li>
 <li>平滑权重通常带来更平滑的拟合曲线。</li>
 </ol>
 <p>这和 KDE 一样：突然截断的 indicator 往往造成不平滑；平滑核函数（kernel）能缓和这种跳变。</p>
-<h3 id="sec-008-12">8.12 核平滑器（Kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）<a class="heading-link" href="#sec-008-12" aria-label="复制本节链接">#</a></h3>
+<h3 id="sec-008-12">8.12 核平滑器（kernel smoother）与 Nadaraya-Watson 估计量（Nadaraya-Watson estimator）<a class="heading-link" href="#sec-008-12" aria-label="复制本节链接">#</a></h3>
 <p>课件说我们仍然使用 局部平均（local averaging） idea：</p>
 <ol>
-<li>在每个点 \(x\) 处，只用离它近的 observations 来拟合一个简单模型。</li>
-<li>localization 通过 weighting function \(K(x,x_i)\) 实现。</li>
+<li>在每个点 \(x\) 处，只用离它近的观测（observations）来拟合一个简单模型。</li>
+<li>局部化（localization）通过权重函数（weighting function） \(K(x,x_i)\) 实现。</li>
 <li>\(x_i\) 的权重基于它与 \(x\) 的距离。</li>
 <li>离 \(x\) 越远，权重越小。</li>
 </ol>
@@ -6956,7 +6956,7 @@ $$</div>
 <p>这个估计器叫 Nadaraya-Watson 核估计量（Nadaraya-Watson kernel estimator）。它和 KDE 的直觉一致，但有一个关键替换：</p>
 <ol>
 <li>KDE 中每个点贡献的是 \(1/n\) 的概率质量。</li>
-<li>核回归（Kernel regression） 中每个点贡献的是响应值 \(y_i\)。</li>
+<li>核回归（kernel regression） 中每个点贡献的是响应值 \(y_i\)。</li>
 <li>分母 \(\sum_iK_\lambda(x,x_i)\) 用来归一化，使权重和为 1。</li>
 </ol>
 <p>可以定义归一化权重：</p>
@@ -6974,9 +6974,9 @@ $$</div>
 \sum_i\tilde w_i(x)=1.
 
 $$</div>
-<p>课件还指出：Nadaraya-Watson 估计量（Nadaraya-Watson estimator） requires little or no training time；all the work gets done during prediction，same as kNN。也就是说，这类方法训练阶段几乎只是保存数据，预测新点时才计算距离、权重和加权平均。</p>
-<h3 id="sec-008-13">8.13 核回归（Kernel regression）中带宽（bandwidth）\(\lambda\) 的选择<a class="heading-link" href="#sec-008-13" aria-label="复制本节链接">#</a></h3>
-<p>课件再次强调：带宽（bandwidth） \(\lambda\) 控制估计量有多局部（controls how local the estimator is）。对许多 紧支撑核函数（紧支撑（compact support） kernels），只有在目标点附近区间内的点会收到正权重。课件写作：</p>
+<p>课件还指出：Nadaraya-Watson 估计量（Nadaraya-Watson estimator）几乎不需要训练时间（requires little or no training time）；主要计算都发生在预测阶段（all the work gets done during prediction），这一点和 kNN 相同。也就是说，这类方法训练阶段几乎只是保存数据，预测新点时才计算距离、权重和加权平均。</p>
+<h3 id="sec-008-13">8.13 核回归中带宽 \(\lambda\) 的选择（kernel regression, bandwidth）<a class="heading-link" href="#sec-008-13" aria-label="复制本节链接">#</a></h3>
+<p>课件再次强调：带宽 \(\lambda\) 控制估计量有多局部（controls how local the estimator is）。对许多紧支撑核函数（compact support kernels），只有目标点附近区间内的点会收到正权重。课件写作：</p>
 <div class="math-block">$$
 [x-\lambda,\ x+\lambda].
 
@@ -6984,23 +6984,23 @@ $$</div>
 <p>不同核函数（kernel）的支持区间定义略有差异；如果基本核函数（kernel）支持在 \([-1,1]\)，缩放后就是这个区间。</p>
 <p>小 \(\lambda\)：</p>
 <ol>
-<li>rougher estimate。</li>
+<li>估计更粗糙（rougher estimate）。</li>
 <li>偏差下降（bias decreases）。</li>
 <li>方差上升（variance increases）。</li>
 </ol>
 <p>大 \(\lambda\)：</p>
 <ol>
-<li>smoother estimate。</li>
+<li>估计更平滑（smoother estimate）。</li>
 <li>偏差上升（bias increases）。</li>
 <li>方差下降（variance decreases）。</li>
 </ol>
 <p>这和 KDE 完全同构。直觉是：小窗口只看附近少数点，能追踪局部变化，但容易被噪声影响；大窗口使用更多点，曲线稳定但可能抹掉真实结构。</p>
-<p>课件提到 Fan and Gijbels (1992, 1995) 给出过一些 theoretical values for 最优（optimal） \(\lambda\)，但这些理论值在实践中可能失败，因为假设（assumptions） 可能被违反。因此实际中常用 cross-validation 选择 \(\lambda\)。</p>
-<h3 id="sec-008-14">8.14 局部平均（Local averaging）的缺点：边界偏差（boundary bias）<a class="heading-link" href="#sec-008-14" aria-label="复制本节链接">#</a></h3>
+<p>课件提到 Fan and Gijbels (1992, 1995) 给出过一些 最优 \(\lambda\) 的理论取值（theoretical values for optimal \(\lambda\)），但这些理论值在实践中可能失败，因为假设（assumptions） 可能被违反。因此实际中常用 交叉验证（cross-validation）选择 \(\lambda\)。</p>
+<h3 id="sec-008-14">8.14 局部平均的缺点：边界偏差（local averaging, boundary bias）<a class="heading-link" href="#sec-008-14" aria-label="复制本节链接">#</a></h3>
 <p>核平均（Kernel averaging）在定义域边界（domain boundary） 附近可能 偏差很大（badly biased）。原因是边界处 核函数（kernel）的左右信息不对称。</p>
 <p>例如 \(x_0\) 接近最左端边界时，左边没有数据，右边有数据。即使 核函数（kernel）形状本身是对称的，实际可用样本也只来自一侧。Nadaraya-Watson 只做局部常数平均，容易把边界处的函数值往内部样本的平均方向拉偏。</p>
-<p>课件说 Locally weighted 线性回归（linear regression） can make a first order correction，也就是用 straight lines vs. constants。局部常数模型只估计一个水平值，局部线性模型在 \(x_0\) 附近拟合一条直线，因此能修正一阶趋势。</p>
-<p>课件的 objective function 是：</p>
+<p>课件说 局部加权线性回归（locally weighted linear regression）可以做一阶修正（first order correction），也就是用直线而不是常数（straight lines vs. constants）。局部常数模型只估计一个水平值，局部线性模型在 \(x_0\) 附近拟合一条直线，因此能修正一阶趋势。</p>
+<p>课件的目标函数（objective function）是：</p>
 <div class="math-block">$$
 \min_{\beta_0(x_0),\beta_1(x_0)}
 \sum_{i=1}^n
@@ -7017,14 +7017,14 @@ $$</div>
 \hat\beta_0(x_0)+\hat\beta_1(x_0)x_0.
 
 $$</div>
-<p>课件强调 估计非常简单（the estimation is extremely simple），因为它本质上就是 加权最小二乘（weighted least squares）。与 Nadaraya-Watson 相比，局部线性回归（local linear regression） 可以 修正核估计量的边界偏差（correct the boundary bias of the kernel estimator）。</p>
-<p>课件图 Kernel Boundary Bias 中：</p>
+<p>课件强调 估计非常简单，因为它本质上就是 加权最小二乘（weighted least squares）。与 Nadaraya-Watson 相比，局部线性回归（local linear regression） 可以 修正核估计量的边界偏差（correct the boundary bias of the kernel estimator）。</p>
+<p>课件图“核方法的边界偏差（Kernel Boundary Bias）”中：</p>
 <ol>
-<li>N-W Kernel at Boundary 在边界处用局部常数平均，拟合容易偏离真实曲线。</li>
-<li>局部线性回归（Local Linear Regression） at Boundary 在局部拟合斜率，边界处更贴近真实趋势。</li>
+<li>N-W 核方法在边界处（N-W Kernel at Boundary）用局部常数平均，拟合容易偏离真实曲线。</li>
+<li>边界处的局部线性回归（Local Linear Regression at Boundary） 在局部拟合斜率，边界处更贴近真实趋势。</li>
 </ol>
-<h3 id="sec-008-15">8.15 局部线性回归（Local Linear Regression）的矩阵形式<a class="heading-link" href="#sec-008-15" aria-label="复制本节链接">#</a></h3>
-<p>课件把上一节的 objective 写成 weighted 线性回归（linear regression）。对目标点 \(x_0\)，定义权重矩阵</p>
+<h3 id="sec-008-15">8.15 局部线性回归的矩阵形式（local linear regression）<a class="heading-link" href="#sec-008-15" aria-label="复制本节链接">#</a></h3>
+<p>课件把上一节的目标函数写成加权线性回归（weighted linear regression）（linear regression）。对目标点 \(x_0\)，定义权重矩阵</p>
 <div class="math-block">$$
 W(x_0)
 =
@@ -7067,8 +7067,8 @@ $$</div>
 
 $$</div>
 <p>这里 \(W=W(x_0)\)。注意每个目标点 \(x_0\) 都有自己的权重矩阵，因此每个 \(x_0\) 都要解一次局部加权最小二乘。</p>
-<h3 id="sec-008-16">8.16 局部多项式回归（Local Polynomial Regression）与曲率偏差（curvature bias）<a class="heading-link" href="#sec-008-16" aria-label="复制本节链接">#</a></h3>
-<p>局部线性回归（local linear regression） 能处理一阶趋势，但在曲率很强的区域，仅用直线仍可能有 bias。课件进一步给出 局部加权（locally weighted） \(d\) polynomial regression。</p>
+<h3 id="sec-008-16">8.16 局部多项式回归与曲率偏差（local polynomial regression, curvature bias）<a class="heading-link" href="#sec-008-16" aria-label="复制本节链接">#</a></h3>
+<p>局部线性回归（local linear regression） 能处理一阶趋势，但在曲率很强的区域，仅用直线仍可能有偏差（bias）。课件进一步给出 \(d\) 次局部加权多项式回归（locally weighted polynomial regression）。</p>
 <p>目标函数为</p>
 <div class="math-block">$$
 \min_{\beta_0(x_0),\beta_r(x_0)}
@@ -7080,7 +7080,7 @@ y_i-\beta_0(x_0)
 \right]^2.
 
 $$</div>
-<p>这仍然是每个目标点 \(x_0\) 处的 weighted 线性回归（linear regression） problem，因为对系数 \(\beta_r(x_0)\) 来说，模型是线性的。</p>
+<p>这仍然是每个目标点 \(x_0\) 处的加权线性回归问题（weighted linear regression problem），因为对系数 \(\beta_r(x_0)\) 来说，模型是线性的。</p>
 <p>估计函数在 \(x_0\) 处取值：</p>
 <div class="math-block">$$
 \hat f(x_0)
@@ -7091,16 +7091,16 @@ $$</div>
 \hat\beta_r(x_0)x_0^r.
 
 $$</div>
-<p>课件总结 local polynomial regression 的作用：</p>
+<p>课件总结局部多项式回归（local polynomial regression）的作用：</p>
 <ol>
 <li>修正核估计量的边界偏差（correct the boundary bias of the kernel estimator）。</li>
-<li>reduce bias in regions of curvature。</li>
+<li>降低曲率区域的偏差（reduce bias in regions of curvature）。</li>
 <li>代价是 更高方差（higher variance）。</li>
 </ol>
-<p>图 Kernel Curvature Bias 中，Local Linear in Interior 用直线逼近弯曲区域，可能低估或高估峰值；Local Quadratic in Interior 用二次曲线局部拟合，能更好贴合曲率，但由于参数更多，variance 会更高。</p>
+<p>图“核方法的曲率偏差（Kernel Curvature Bias）”中，内部点的局部线性回归（Local Linear in Interior） 用直线逼近弯曲区域，可能低估或高估峰值；内部点的局部二次回归（Local Quadratic in Interior） 用二次曲线局部拟合，能更好贴合曲率，但由于参数更多，方差（variance）会更高。</p>
 <p>这就是局部多项式的阶数选择问题：阶数太低，bias 大；阶数太高，variance 大，也更容易在局部噪声上波动。</p>
 <h3 id="sec-008-17">8.17 <code>loess</code> 与局部回归的 R 实现（R implementation）<a class="heading-link" href="#sec-008-17" aria-label="复制本节链接">#</a></h3>
-<p>课件列出 R function <code>loess</code>，它 provides fitting of the local polynomial regressions。</p>
+<p>课件列出 R 函数 <code>loess</code>，它用于拟合局部多项式回归（local polynomial regressions）。</p>
 <p>最重要参数是</p>
 <div class="math-block">$$
 \texttt{span}=\alpha.
@@ -7111,12 +7111,12 @@ $$</div>
 \alpha n
 
 $$</div>
-<p>个点来形成 neighborhood</p>
+<p>个点来形成邻域（neighborhood）</p>
 <div class="math-block">$$
 N(x).
 
 $$</div>
-<p>然后在这个 neighborhood 里拟合 weighted least-squares 线性回归（linear regression）。</p>
+<p>然后在这个 邻域（neighborhood）里拟合加权最小二乘（weighted least-squares）线性回归（linear regression）。</p>
 <p>课件给出三立方核（tri-cube kernel） 权重：</p>
 <div class="math-block">$$
 w_{x,i}=(1-u_i^3)^3,
@@ -7130,7 +7130,7 @@ u_i
 {\max_{N(x)}|x_j-x|}.
 
 $$</div>
-<p>直觉是：在 neighborhood 里，离 \(x\) 最近的点 \(u_i\) 小，权重大；接近 neighborhood 边界的点 \(u_i\) 接近 1，权重接近 0。</p>
+<p>直觉是：在邻域（neighborhood）里，离 \(x\) 最近的点 \(u_i\) 小，权重大；接近邻域（neighborhood）边界的点 \(u_i\) 接近 1，权重接近 0。</p>
 <p><code>degree</code> 参数指定 多项式次数（polynomial degree）。其他实现包括：</p>
 <ol>
 <li><code>locfit</code>。</li>
@@ -7208,19 +7208,19 @@ $$</div>
 {\sum_iK_\lambda(x,x_i)}.
 
 $$</div>
-<p>Local linear objective：</p>
+<p>局部线性目标函数（local linear objective）：</p>
 <div class="math-block">$$
 \min_{\beta_0(x_0),\beta_1(x_0)}
 \sum_iK_\lambda(x_0,x_i)
 \left[y_i-\beta_0(x_0)-\beta_1(x_0)x_i\right]^2.
 
 $$</div>
-<p>Weighted least squares solution：</p>
+<p>加权最小二乘解（Weighted least squares solution）：</p>
 <div class="math-block">$$
 \hat\beta=(X^\top WX)^{-1}X^\top Wy.
 
 $$</div>
-<p>Local polynomial objective：</p>
+<p>局部多项式目标函数（local polynomial objective）：</p>
 <div class="math-block">$$
 \min_{\beta_0(x_0),\beta_r(x_0)}
 \sum_iK_\lambda(x_0,x_i)
@@ -7238,9 +7238,9 @@ $$</div>
 <li>核函数形状（kernel shape）通常没有 带宽（bandwidth） 重要。</li>
 <li>高斯核（Gaussian kernel） 没有有限支持集；Epanechnikov、tri-cube 等常有 紧支撑（compact support）。</li>
 <li>Nadaraya-Watson 是局部常数估计，边界处容易有 bias。</li>
-<li>Local 线性回归（linear regression） 用局部直线修正 边界偏差（boundary bias）。</li>
+<li>局部线性回归（local linear regression） 用局部直线修正 边界偏差（boundary bias）。</li>
 </ol>
-<p>9.局部多项式次数（local polynomial degree） 越高不一定越好，因为 variance 会升高。</p>
+<p>9.局部多项式次数（local polynomial degree） 越高不一定越好，因为 方差（variance）会升高。</p>
 <ol start="10">
 <li><code>loess</code>的<code>span</code> 控制使用多少邻近点；<code>degree</code> 控制局部多项式次数。</li>
 </ol>
@@ -7255,9 +7255,7 @@ $$</div>
 <li>说明为什么 KDE 的最优 MISE 速度是 $n^{-4/5}$，并解释为什么这比参数模型的 $n^{-1}$ 慢。</li>
 <li>用自己的话比较 $k$NN 回归、Nadaraya--Watson 核回归和局部线性回归。</li>
 <li>设 $x_0$ 位于定义域左边界附近，画图解释为什么局部常数估计有边界偏差。</li>
-</ul>
-<p>-在R 或 Python 中模拟 $Y=\sin(4X)+\epsilon$，比较不同带宽下的核回归拟合。</p>
-<ul>
+<li>在 R 或 Python 中模拟 $Y=\sin(4X)+\epsilon$，比较不同带宽下的核回归拟合。</li>
 <li>尝试不同核函数但保持同一带宽，观察拟合差异；再固定核函数改变带宽，比较二者影响大小。</li>
 </ul>
 <h2 id="lecture-09">第九讲：树模型与随机森林<a class="heading-link" href="#lecture-09" aria-label="复制本节链接">#</a></h2>
@@ -7304,11 +7302,11 @@ $$</div>
 <li>分类与回归树（Classification and Regression Trees），简称 CART，来自 Breiman、Friedman、Olshen and Stone (1984)。</li>
 <li>ID3/C4.5，来自 Quinlan (1986, 1993)。</li>
 </ol>
-<p>二者都属于 data mining 中非常重要的算法。统计学习文献里 CART 更常见，所以本讲以 CART 为主。</p>
+<p>二者都属于数据挖掘（data mining）中非常重要的算法。统计学习文献里 CART 更常见，所以本讲以 CART 为主。</p>
 <p>树模型可以同时用于：</p>
 <ol>
-<li>classification：终端节点输出类别或类别概率。</li>
-<li>regression：终端节点输出连续响应的均值。</li>
+<li>分类（classification）：终端节点输出类别或类别概率。</li>
+<li>回归（regression）：终端节点输出连续响应的均值。</li>
 </ol>
 <p>这也是 CART 中 分类与回归树（Classification and Regression Trees） 这个名字的含义。</p>
 <h3 id="sec-009-03">9.3 圆形分类例子：树如何用矩形近似非线性边界<a class="heading-link" href="#sec-009-03" aria-label="复制本节链接">#</a></h3>
@@ -7322,7 +7320,7 @@ $$</div>
 x_1^2+x_2^2&lt;0.6
 
 $$</div>
-<p>内部，观测类别为 class 1 的概率为 90%；在圆外，观测类别为 class 2 的概率为 90%。图中蓝色点主要在圆内，橙色点主要在圆外。</p>
+<p>内部，观测类别为 第 1 类（class 1） 的概率为 90%；在圆外，观测类别为 第 2 类（class 2） 的概率为 90%。图中蓝色点主要在圆内，橙色点主要在圆外。</p>
 <p>前面已经介绍过的分类方法处理这个问题时通常需要额外机制：</p>
 <ol>
 <li>SVM 需要空间变换（transformation of the space） 或 核技巧（kernel trick）。</li>
@@ -7350,7 +7348,11 @@ $$</div>
 \end{cases}
 
 $$</div>
-<p>生成二分类响应。 4.用<code>rpart(as.factor(y) ~ x1 + x2, data = data.frame(x1, x2, y))</code> 拟合 CART。 5.用<code>plot(cart.fit)</code> 和 <code>text(cart.fit)</code> 画树。</p>
+<p>生成二分类响应。</p>
+<ol start="4">
+<li>用 <code>rpart(as.factor(y) ~ x1 + x2, data = data.frame(x1, x2, y))</code> 拟合 CART。</li>
+<li>用 <code>plot(cart.fit)</code> 和 <code>text(cart.fit)</code> 画树。</li>
+</ol>
 <p>课件中的示例树包含若干切分，例如</p>
 <div class="math-block">$$
 x_2&lt;-0.6444,\qquad
@@ -7368,38 +7370,38 @@ x_1&lt;-0.4283.
 $$</div>
 <p>终端节点输出 0 或 1。读树时，从根节点开始，按照条件向左或向右走，直到 终端节点（terminal node），然后输出该 终端节点（terminal node） 的预测。</p>
 <h3 id="sec-009-04">9.4 为什么使用树模型<a class="heading-link" href="#sec-009-04" aria-label="复制本节链接">#</a></h3>
-<p>课件总结 Why 基于树的方法（tree-based methods）：</p>
+<p>课件总结为什么使用基于树的方法（tree-based methods）：</p>
 <ol>
-<li>基于树的方法（Tree-based methods）是non-parametric，model structure flexible。</li>
-<li>可以自然处理 high-dimensional data，不需要修改算法。不过课件提醒 CART may not work well in this setting。</li>
-<li>Single tree model 给出 simple decision rules，容易解释。</li>
-<li>集成（Ensemble） tree model 通常有 high prediction accuracy。</li>
+<li>基于树的方法（Tree-based methods）是非参数的（non-parametric），模型结构灵活（model structure flexible）。</li>
+<li>可以自然处理高维数据（high-dimensional data），不需要修改算法。不过课件提醒：CART 在这种设定下未必表现好（may not work well in this setting）。</li>
+<li>单棵树模型（single tree model）给出简单决策规则（simple decision rules），容易解释。</li>
+<li>树集成模型（ensemble tree model）通常有较高预测准确率（high prediction accuracy）。</li>
 </ol>
 <p>单棵树的可解释性来自路径规则。例如一条路径可能是：</p>
 <div class="math-block">$$
 \text{Age}\le45,\quad \text{Female}=\text{Yes},
 
 $$</div>
-<p>则进入某个终端节点 \(T_3\)，在这个节点上输出 \(\hat f(x)\)。这就是 if-then decision rule。</p>
+<p>则进入某个终端节点 \(T_3\)，在这个节点上输出 \(\hat f(x)\)。这就是 如果-那么决策规则（if-then decision rule）。</p>
 <p>但单棵树也有明显缺点：非常不稳定。训练数据稍微变化，前几次 切分（split） 可能就会变，从而整棵树结构完全不同。随机森林就是为缓解这个问题而出现的。</p>
 <h3 id="sec-009-05">9.5 单棵树：递归划分（recursive partitioning）<a class="heading-link" href="#sec-009-05" aria-label="复制本节链接">#</a></h3>
 <p>课件用多页动画解释 单棵树方法（single tree methods）的递归划分（recursive partitioning）：</p>
 <ol>
-<li>初始化 root node：所有训练数据都在根节点。</li>
-<li>找一个 切分（split）ting rule：</li>
+<li>初始化根节点（root node）：所有训练数据都在根节点。</li>
+<li>找一个切分规则（splitting rule）：</li>
 </ol>
 <div class="math-block">$$
 \mathbf 1\{X^{(j)}\le c\}.
 
 $$</div>
 <ol start="3">
-<li>用这个规则把当前节点分成两个 daughter nodes。</li>
-<li>在每个 daughter node 上递归重复这个过程。</li>
-<li>最后在每个 终端节点（terminal node） 内用 within-node data 做预测。</li>
+<li>用这个规则把当前节点分成两个子节点（daughter nodes）。</li>
+<li>在每个子节点（daughter node）上递归重复这个过程。</li>
+<li>最后在每个 终端节点（terminal node） 内用 节点内数据（within-node data） 做预测。</li>
 </ol>
 <p>课件图中有一个示例树：</p>
 <ol>
-<li>root node 先按 <code>Age \(\le45\)</code> 分裂。</li>
+<li>根节点（root node）先按 <code>Age \(\le45\)</code> 分裂。</li>
 <li>若满足条件，进入左侧 内部节点（internal node）；否则进入 终端节点（terminal node） \(T_1\)。</li>
 <li>左侧 内部节点（internal node） 再按 <code>Female</code> 分裂，得到 \(T_2\) 和 \(T_3\)。</li>
 <li>对每个 终端节点（terminal node） \(T_l\)，预测写作</li>
@@ -7411,18 +7413,18 @@ $$</div>
 <p>对回归树，\(\hat f(x)\) 通常是该节点内 \(y_i\) 的平均值；对分类树，通常是多数类或类别概率。</p>
 <p>构造树的关键问题是：</p>
 <ol>
-<li>classification problems 中如何构造 切分（split）ting rules。</li>
-<li>continuous predictors 和 categorical predictors 怎么处理。</li>
-<li>回归问题（regression problems） 怎么定义 impurity。</li>
-<li>如何 tree 剪枝（pruning）。</li>
+<li>分类问题（classification problems）中如何构造切分规则（splitting rules）。</li>
+<li>如何处理连续预测变量（continuous predictors）和类别预测变量（categorical predictors）。</li>
+<li>回归问题（regression problems） 怎么定义 不纯度（impurity）。</li>
+<li>如何做树剪枝（tree pruning）。</li>
 </ol>
 <h3 id="sec-009-06">9.6 连续变量的分类树切分：基尼指数（Gini index）<a class="heading-link" href="#sec-009-06" aria-label="复制本节链接">#</a></h3>
-<p>对 continuous predictors，切分形式为</p>
+<p>对连续预测变量（continuous predictors），切分形式为</p>
 <div class="math-block">$$
 \mathbf 1\{X^{(j)}\le c\}.
 
 $$</div>
-<p>考虑某个节点 \(\mathcal T\)，我们想把它分成两个 子节点（子节点（child nodes））。先用 基尼指数（Gini index） 衡量这个节点的 impurity。假设响应有 \(K\) 个类别：</p>
+<p>考虑某个节点 \(\mathcal T\)，我们想把它分成两个子节点（child nodes）。先用 基尼指数（Gini index） 衡量这个节点的 不纯度（impurity）。假设响应有 \(K\) 个类别：</p>
 <div class="math-block">$$
 1,\ldots,K.
 
@@ -7458,7 +7460,7 @@ $$</div>
 <ol start="2">
 <li>如果节点很混杂，多个类别比例接近，\(\sum_k\hat p_k^2\) 变小，Gini 变大。</li>
 </ol>
-<p>二分类时，如果 \(p\)是class 1 的比例，则</p>
+<p>二分类时，如果 \(p\)是第 1 类（class 1） 的比例，则</p>
 <div class="math-block">$$
 \mathrm{Gini}=2p(1-p).
 
@@ -7513,16 +7515,16 @@ $$</div>
 \sum_{k=1}^K\hat p_k\log(\hat p_k).
 
 $$</div>
-<p>这在 ID3/C4.5 中常用。也可以像 Gini 一样，用 entropy reduction 搜索最佳 切分（split）。</p>
-<p>另一种是 misclassification error：</p>
+<p>这在 ID3/C4.5 中常用。也可以像 Gini 一样，用 熵下降（entropy reduction） 搜索最佳 切分（split）。</p>
+<p>另一种是 误分类误差（misclassification error）：</p>
 <div class="math-block">$$
 \mathrm{Error}(\mathcal T)
 =
 1-\max_{k=1,\ldots,K}\hat p_k.
 
 $$</div>
-<p>课件还指出 C4.5 与 CART 有其他差异，例如 C4.5 可以从一个节点创建多个 子节点（子节点（child nodes）），而 CART 通常是二叉树。</p>
-<p>课件给出比较表。父节点 \(\mathcal T\) 中 class 1 有 7 个、class 2 有 3 个：</p>
+<p>课件还指出 C4.5 与 CART 有其他差异，例如 C4.5 可以从一个节点创建多个子节点（child nodes），而 CART 通常是二叉树。</p>
+<p>课件给出比较表。父节点 \(\mathcal T\) 中 第 1 类（class 1） 有 7 个、第 2 类（class 2） 有 3 个：</p>
 <div class="math-block">$$
 \hat p_1=\frac7{10},\qquad \hat p_2=\frac3{10}.
 
@@ -7536,8 +7538,8 @@ $$</div>
 $$</div>
 <p>候选 切分（split） 后：</p>
 <ol>
-<li>左节点 \(\mathcal T_{\mathrm{left}}\)：class 1 有 3 个、class 2 有 0 个，所以 Gini、Entropy、Error 都为 0。</li>
-<li>右节点 \(\mathcal T_{\mathrm{right}}\)：class 1 有 4 个、class 2 有 3 个，所以</li>
+<li>左节点 \(\mathcal T_{\mathrm{left}}\)：第 1 类（class 1） 有 3 个、第 2 类（class 2） 有 0 个，所以 Gini、Entropy、Error 都为 0。</li>
+<li>右节点 \(\mathcal T_{\mathrm{right}}\)：第 1 类（class 1） 有 4 个、第 2 类（class 2） 有 3 个，所以</li>
 </ol>
 <div class="math-block">$$
 \mathrm{Gini}=0.490,\quad
@@ -7586,14 +7588,14 @@ $$</div>
 \mathbf 1\{X^{(j)}\in A\}
 
 $$</div>
-<p>产生 子节点（子节点（child nodes））。</p>
+<p>产生子节点（child nodes）。</p>
 <p>最多可能有</p>
 <div class="math-block">$$
 2^{M-1}-1
 
 $$</div>
-<p>个不同二分方式。当 \(M\) 很大时，搜索会非常耗时。实践中可用 heuristic methods，例如随机抽取一部分类别放入某个子节点（child node），比较若干随机 切分（split）。</p>
-<p>对 regression tree，当 \(y_i\) 是连续变量时，只需要换一个不纯度度量（impurity measure）。课件考虑 加权方差下降（weighted variance reduction）：</p>
+<p>个不同二分方式。当 \(M\) 很大时，搜索会非常耗时。实践中可用 启发式方法（heuristic methods），例如随机抽取一部分类别放入某个子节点（child node），比较若干随机 切分（split）。</p>
+<p>对回归树（regression tree），当 \(y_i\) 是连续变量时，只需要换一个不纯度度量（impurity measure）。课件考虑 加权方差下降（weighted variance reduction）：</p>
 <div class="math-block">$$
 \mathrm{得分（score）}_{\mathrm{Var}}
 =
@@ -7663,7 +7665,10 @@ $$</div>
 <h3 id="sec-009-11">9.11 最弱链接剪枝（Weakest-link cutting）、缺失值与单棵树优缺点<a class="heading-link" href="#sec-009-11" aria-label="复制本节链接">#</a></h3>
 <p>直接穷举 \(T_{\max}\) 的所有子树非常昂贵。课件说不需要穷举所有可能子树（exhaust all possible sub-trees），而是使用最弱链接剪枝（weakest-link cutting）。</p>
 <p>设 \(t\)是\(T_{\max}\) 中的一个 内部节点（internal node），从 \(t\) 开始的整个分支记为 \(T_t\)。比较两种操作：</p>
-<p>1.保留 \(T_t\)（keep \(T_t\)）：保留整条分支。 2.删除 \(T_t\)（remove \(T_t\)）：把整条分支 collapse 成一个 终端节点（terminal node） \(t\)。</p>
+<ol>
+<li>保留 \(T_t\)（keep \(T_t\)）：保留整条分支。</li>
+<li>删除 \(T_t\)（remove \(T_t\)）：把整条分支 合并成（collapse into）一个 终端节点（terminal node） \(t\)。</li>
+</ol>
 <p>当</p>
 <div class="math-block">$$
 C_\alpha(T_t)\le C_\alpha(t)
@@ -7676,7 +7681,7 @@ $$</div>
 \frac{C(t)-C(T_t)}{|T_t|-1}.
 
 $$</div>
-<p>最弱链接剪枝（weakest-link cutting） 每次剪掉右侧值最小的分支，也就是 smallest \(\alpha\) 对应的 weakest link，然后迭代。这样可以得到一条从小 \(\alpha\) 到大 \(\alpha\)的solution 路径（path）。</p>
+<p>最弱链接剪枝（weakest-link cutting） 每次剪掉右侧值最小的分支，也就是 最小 \(\alpha\) 对应的最弱链接（weakest link），然后迭代。这样可以得到一条从小 \(\alpha\) 到大 \(\alpha\)的解路径（solution path）。</p>
 <p>缺失值方面，课件给出一个直观数字：如果每个变量有 5% 概率缺失，50 个变量时，完整观测比例只有</p>
 <div class="math-block">$$
 0.95^{50}\approx 7.7\%.
@@ -7684,27 +7689,27 @@ $$</div>
 $$</div>
 <p>传统方法是丢弃缺失观测或 impute。树模型可以更自然地处理缺失：</p>
 <ol>
-<li>把缺失作为 sepa速率（rate） category。</li>
-<li>当 切分（split）ting variable 缺失时，使用 surrogate variables。</li>
+<li>把缺失作为单独类别（separate category）。</li>
+<li>当 切分变量（splitting variable） 缺失时，使用 替代变量（surrogate variables）。</li>
 </ol>
 <p>课件总结树模型优点：</p>
 <ol>
-<li>简单自然地同时处理 categorical 和 continuous variables。</li>
-<li>对变量的 monotone transformations 不变。</li>
-<li>对 outliers robust。</li>
-<li>结构灵活，可以捕捉 interactions，容易解释。</li>
+<li>简单自然地同时处理类别变量和连续变量（categorical and continuous variables）。</li>
+<li>对变量的单调变换（monotone transformations）不变。</li>
+<li>对异常值稳健（robust to outliers）。</li>
+<li>结构灵活，可以捕捉变量交互（interactions），容易解释。</li>
 </ol>
 <p>限制：</p>
 <ol>
-<li>数据的小变化可能导致完全不同的 切分（split） sequence。</li>
-<li>预测函数 non-smooth。</li>
+<li>数据的小变化可能导致完全不同的 切分序列（split sequence）。</li>
+<li>预测函数不光滑（non-smooth）。</li>
 <li>MARS 等方法可用于生成更平滑的模型。</li>
 </ol>
 <h3 id="sec-009-12">9.12 弱学习器（Weak learners）、自助聚合（Bagging）与树集成<a class="heading-link" href="#sec-009-12" aria-label="复制本节链接">#</a></h3>
-<p>课件进入 随机森林（Random Forests） 前，先讲 弱学习器与强学习器（weak and 强学习器（strong learner）s）。1990 年代中后期，研究者开始研究：把很多 弱学习器（weak learners） 聚合起来，能不能得到 强学习器（strong learner）？</p>
+<p>课件进入 随机森林（Random Forests） 前，先讲 弱学习器与强学习器（weak and strong learners）。1990 年代中后期，研究者开始研究：把很多 弱学习器（weak learners） 聚合起来，能不能得到 强学习器（strong learner）？</p>
 <p>课件提到：</p>
 <ol>
-<li>自助聚合（Bagging）、boosting、随机森林（random forests） 都沿着这条思路发展。</li>
+<li>自助聚合（Bagging）、提升法（boosting）、随机森林（random forests） 都沿着这条思路发展。</li>
 <li>自助聚合（Bagging）和随机森林（random forests） 学习很多带随机扰动的 单棵树（individual trees），然后对它们取平均（average them）。</li>
 <li>Boosting 逐步学习小幅度模型，然后把它们相加（add them）。</li>
 <li>通常预测性能排序为</li>
@@ -7719,12 +7724,12 @@ $$</div>
 <li>对每个 自助样本（bootstrap sample） 拟合一棵 CART。</li>
 <li>将这些树的预测做平均或投票。</li>
 </ol>
-<p>动机是：CART 不稳定，但 perturbing and averaging 可以提高稳定性和准确率。</p>
-<p>对分类问题，bagging 预测为 majority vote：</p>
+<p>动机是：CART 不稳定，但“扰动并平均”（perturbing and averaging）可以提高稳定性和准确率。</p>
+<p>对分类问题，自助聚合（bagging）预测为多数投票（majority vote）：</p>
 <div class="math-block">$$
 \hat f_{\mathrm{bag}}(x)
 =
-\mathrm{Majority\ Vote}\{\hat f_b(x)\}_{b=1}^B.
+\mathrm{多数投票\ (Majority\ Vote)}\{\hat f_b(x)\}_{b=1}^B.
 
 $$</div>
 <p>对回归问题：</p>
@@ -7741,17 +7746,17 @@ $$</div>
 $$</div>
 <p>自助聚合（Bagging） 能 显著降低单个学习器的方差（dramatically reduce the variance of individual learners）。CART 也可以替换成其他 弱学习器（weak learners）。</p>
 <h3 id="sec-009-13">9.13 自助聚合（Bagging）的局限与随机森林（Random Forest）的 mtry<a class="heading-link" href="#sec-009-13" aria-label="复制本节链接">#</a></h3>
-<p>课件用图比较 CART vs. 自助聚合（Bagging）。自助聚合（Bagging） 的边界比单棵树更稳定，测试误差（test error） 曲线通常低于原始单棵树（original tree），但仍可能不够满意。</p>
+<p>课件用图比较 CART 与自助聚合（Bagging）的对比（Bagging）。自助聚合（Bagging） 的边界比单棵树更稳定，测试误差（test error） 曲线通常低于原始单棵树（original tree），但仍可能不够满意。</p>
 <p>原因是：</p>
 <ol>
-<li>自助聚合（Bagging） 可以显著降低不稳定 弱学习器（weak learners）的variance。</li>
+<li>自助聚合（Bagging）可以显著降低不稳定弱学习器（weak learners）的方差（variance）。</li>
 <li>但树的简单结构会丢失，所以不容易解释。</li>
 <li>不同自助树（bootstrap trees） 之间仍可能高度相关（highly correlated）。</li>
-<li>如果树之间相关性高，average 就不会非常有效。</li>
+<li>如果树之间相关性高，简单平均（average）就不会非常有效。</li>
 </ol>
 <p>关键问题是：如何降低树之间的相关性（How to de-correlate trees）？</p>
 <p>随机森林（Random forests） 的核心就是进一步降低树之间相关性。课件提到 Ho (1998)的随机子空间方法（random subspace method）：每棵树使用随机选出的 特征子集（feature subset）。Breiman的随机森林（random forests） 更进一步：</p>
-<p>随机森林（Random forests） 的进一步之处是：每次切分规则只考虑一个随机变量子集（each 切分（split）ting rule only considers a random subset）.</p>
+<p>随机森林（Random forests）的进一步之处是：每次切分规则只考虑一个随机变量子集（each splitting rule only considers a random subset）。</p>
 <p>随机森林（Random forests） 的重要调参参数是 <code>mtry</code>。在每个 切分（split）：</p>
 <ol>
 <li>从全部特征 \(\{1,\ldots,p\}\) 中随机选取 <code>mtry</code> 个变量。</li>
@@ -7765,8 +7770,8 @@ $$</div>
 n_{\min},
 
 $$</div>
-<p>即 终端节点（terminal node） size。课件也称它为 <code>nodesize</code>。</p>
-<p>随机森林（Random forests） 不再进行剪枝（does not perform 剪枝（pruning） anymore）。也就是说，随机森林通常不先长大树再剪枝，而是不断 切分（split），直到 终端节点（terminal node） size 小于或等于 \(n_{\min}\)，然后使用整棵树。</p>
+<p>即 终端节点（terminal node）大小（size）。课件也称它为 <code>nodesize</code>。</p>
+<p>随机森林（Random forests） 不再进行剪枝（does not perform pruning anymore）。也就是说，随机森林通常不先长大树再剪枝，而是不断 切分（split），直到 终端节点（terminal node）大小（size） 小于或等于 \(n_{\min}\)，然后使用整棵树。</p>
 <p>\(n_{\min}\) 控制单棵树的偏差-方差权衡（bias-variance trade-off）：</p>
 <ol>
 <li>\(n_{\min}\) 小：树更深，每个叶节点样本少，单棵树 bias 低但 方差（variance）高。</li>
@@ -7777,34 +7782,34 @@ $$</div>
 n_{\min}=1
 
 $$</div>
-<p>表示几乎精确拟合每个观测，但课件强调 this is not 1-NN。Lin and Jeon (2004) 把随机森林表述为 potential nearest neighbor，它的 neighborhood 比 kNN 大得多。</p>
-<p>课件总结 R package <code>randomForest</code> 中的重要参数：</p>
+<p>表示几乎精确拟合每个观测，但课件强调 这不是 1-NN（this is not 1-NN）。Lin and Jeon (2004) 把随机森林表述为 潜在最近邻（potential nearest neighbor），它的 neighborhood 比 kNN 大得多。</p>
+<p>课件总结 R 包 <code>randomForest</code> 中的重要参数：</p>
 <div class="table-wrap"><table>
 <thead><tr><th>参数</th><th>含义</th></tr></thead>
 <tbody>
 <tr><td><code>ntree</code></td><td>树的数量，设得较大；默认 500</td></tr>
 <tr><td><code>mtry</code></td><td>每次 切分（split） 考虑的变量数；回归默认 \(p/3\)，分类默认 \(\sqrt p\)</td></tr>
-<tr><td><code>nodesize</code></td><td>终端节点（terminal node） size，即 \(n_{\min}\)；回归默认 5，分类默认 1</td></tr>
+<tr><td><code>nodesize</code></td><td>终端节点（terminal node）大小（size），即 \(n_{\min}\)；回归默认 5，分类默认 1</td></tr>
 </tbody></table></div>
 <p>总体来说，随机森林（random forests） 中 调参很关键（tuning is quite crucial）。</p>
-<p>课件图 CART vs. 自助聚合（Bagging） vs. RF 中给出一个例子：</p>
+<p>课件图 CART 与自助聚合（Bagging）的对比（Bagging） vs. RF 中给出一个例子：</p>
 <div class="math-block">$$
 \text{RF: ntree}=1000,\quad \text{mtry}=1,\quad \text{nodesize}=25.
 
 $$</div>
 <p>随机森林边界比单棵树更平滑稳定，也比普通 bagging 更能去相关。</p>
 <h3 id="sec-009-15">9.15 变量重要性（Variable importance）：OOB 置换思想<a class="heading-link" href="#sec-009-15" aria-label="复制本节链接">#</a></h3>
-<p>随机森林有一个内置特征叫 variable importance。它利用 bootstrap 没抽到的样本，也就是 out-of-bag data，简称 OOB data。</p>
+<p>随机森林有一个内置特征叫 变量重要性（variable importance）。它利用 bootstrap 没抽到的样本，也就是 袋外数据（out-of-bag data），简称 OOB data。</p>
 <p>课件给出的算法：</p>
 <ol>
-<li>对第 \(m\) 棵树，用 out-of-bag data 作为 testing set，得到预测错误：</li>
+<li>对第 \(m\) 棵树，用袋外数据（out-of-bag data）作为测试集（testing set），得到预测错误：</li>
 </ol>
 <div class="math-block">$$
 \mathrm{Err}_m^0.
 
 $$</div>
 <ol start="2">
-<li>对每个变量 \(j\)，在 testing samples 中随机打乱变量 \(X^{(j)}\) 的取值，重新计算预测错误：</li>
+<li>对每个变量 \(j\)，在测试样本（testing samples）中随机打乱变量 \(X^{(j)}\) 的取值，重新计算预测错误：</li>
 </ol>
 <div class="math-block">$$
 \mathrm{Err}_m^j.
@@ -7847,19 +7852,19 @@ y_i-\hat f(x_i)
 $$</div>
 <p>其中：</p>
 <ol>
-<li>\(\mathcal L_m^o\)是out-of-bag sample。</li>
-<li>\(\hat f\) 使用 in-bag sample \(\mathcal L_m\) 拟合。</li>
-<li>\(x_i^{(-j)}\) 是去掉第 \(j\) 个分量 \(x_i^{(j)}\) 后的 sub-vector。</li>
-<li>\(\tilde x_i^{(j)}\) 是从 \(x^{(j)}\)的marginal distribution 中抽取的 independent copy，在实践中通常通过置换 OOB 样本的第 \(j\) 列实现。</li>
+<li>\(\mathcal L_m^o\) 是袋外样本（out-of-bag sample）。</li>
+<li>\(\hat f\) 使用袋内样本（in-bag sample）\(\mathcal L_m\) 拟合。</li>
+<li>\(x_i^{(-j)}\) 是去掉第 \(j\) 个分量 \(x_i^{(j)}\) 后的子向量（sub-vector）。</li>
+<li>\(\tilde x_i^{(j)}\) 是从 \(x^{(j)}\)的边际分布（marginal distribution） 中抽取的 独立副本（independent copy），在实践中通常通过置换 OOB 样本的第 \(j\) 列实现。</li>
 </ol>
 <p>变量选择性质：</p>
 <div class="math-block">$$
 E[\mathrm{VI}_{mj}]\approx0
 
 $$</div>
-<p>如果 \(\hat f\) consistent 且 \(x^{(j)}\) irrelevant。</p>
-<p>课件还强调，在很多实践领域，随机森林（random forests） variable importance measure 使用非常广泛。通常用 misclassification error 代替 基尼指数（Gini index）。更高的 VI 表示丢失 \(X^{(j)}\) 信息导致 accuracy 损失更大，因此变量更重要。</p>
-<p>课件图中在圆形分类例子基础上添加 48 个 noise variables。变量重要性图显示 \(x_1\) 和 \(x_2\) 明显更重要，其他噪声变量的重要性围绕较低水平波动。</p>
+<p>如果 \(\hat f\) 一致（consistent）且 \(x^{(j)}\) 与响应无关（irrelevant）。</p>
+<p>课件还强调，在很多实践领域，随机森林（random forests） 变量重要性度量（变量重要性（variable importance） measure） 使用非常广泛。通常用 误分类误差（misclassification error） 代替 基尼指数（Gini index）。更高的 VI 表示丢失 \(X^{(j)}\) 信息导致 准确率（accuracy）损失更大，因此变量更重要。</p>
+<p>课件图中在圆形分类例子基础上添加 48 个 噪声变量（noise variables）。变量重要性图显示 \(x_1\) 和 \(x_2\) 明显更重要，其他噪声变量的重要性围绕较低水平波动。</p>
 <h3 id="sec-009-16">9.16 补充发展（Additional developments）：极端随机树（extra trees）与斜切随机森林（oblique random forests）<a class="heading-link" href="#sec-009-16" aria-label="复制本节链接">#</a></h3>
 <p>课件列出随机森林的两个发展方向。</p>
 <p>第一，随机切分点（random splitting point）。普通 CART 在每个变量上搜索所有候选切点（possible cuts）；极端随机树（extremely randomized trees），Geurts et al. (2006)，只生成若干 随机切点（random cutting points），然后从中选最好的。这对大数据集计算更快。</p>
@@ -7873,7 +7878,7 @@ $$</div>
 \mathbf 1\{\beta^\top X\le c\}.
 
 $$</div>
-<p>其中 \(\beta\) 可以通过 ridge regression 等方式搜索。课件引用 Menze et al. (2011)。这类 切分（split） 不再只平行于坐标轴，可以产生斜切边界。</p>
+<p>其中 \(\beta\) 可以通过 岭回归（ridge regression）等方式搜索。课件引用 Menze et al. (2011)。这类 切分（split） 不再只平行于坐标轴，可以产生斜切边界。</p>
 <h3 id="sec-009-17">9.17 另一种观点（Alternative view）：随机森林作为自适应核（Random Forest as adaptive kernel）<a class="heading-link" href="#sec-009-17" aria-label="复制本节链接">#</a></h3>
 <p>课件后半提供一个理解随机森林的视角：自适应核（adaptive kernel）。</p>
 <p>虽然 随机森林（random forests） 长期被视为 黑箱算法（black-box algorithm），但现在我们更能理解其 机制（mechanics）。最直观的方式是把它看作 核方法（kernel method）。</p>
@@ -7888,13 +7893,13 @@ $$</div>
 }.
 
 $$</div>
-<p>随机森林（Random forest）可以看成某种特殊的 核距离（kernel distance） \(K_\lambda(x,x_i)\)，见 Scornet (2016)。这里 \(\lambda\) 符号上表示 multidimensional 带宽（bandwidth），但在 random forest 中，\(K_\lambda(\cdot)\)是随机且数据自适应的量（random and 数据自适应（data adaptive） quantity）。</p>
+<p>随机森林（Random forest）可以看成某种特殊的 核距离（kernel distance） \(K_\lambda(x,x_i)\)，见 Scornet (2016)。这里 \(\lambda\) 符号上表示 多维带宽（multidimensional bandwidth），但在随机森林（random forest）中，\(K_\lambda(\cdot)\)是随机且数据自适应的量（random and data adaptive quantity）。</p>
 <p>对一个 目标点（target point） \(x_0\)，先看单棵树。设这棵树的 终端节点（terminal nodes） 集合为</p>
 <div class="math-block">$$
 \mathcal A=\{A_k\}_{k\in\mathcal K}.
 
 $$</div>
-<p>定义 closeness：</p>
+<p>定义接近性（closeness）：</p>
 <div class="math-block">$$
 \mathcal A(x_i,x_0)
 =
@@ -7913,7 +7918,7 @@ $$</div>
 \end{cases}
 
 $$</div>
-<p>这就是 树诱导核函数（tree induced 核函数（kernel function）），取值只有 0 和 1。若 \(x_i\) 与 \(x_0\) 落在同一个 终端节点（terminal node），则它们是“近”的；否则权重为 0。</p>
+<p>这就是 树诱导核函数（tree-induced kernel function），取值只有 0 和 1。若 \(x_i\) 与 \(x_0\) 落在同一个 终端节点（terminal node），则它们是“近”的；否则权重为 0。</p>
 <p>单棵树估计器可以写成 Nadaraya-Watson 形式：</p>
 <div class="math-block">$$
 \hat f(x_0)
@@ -7925,7 +7930,7 @@ $$</div>
 }.
 
 $$</div>
-<p>把所有树的 核函数（kernel functions） stack 起来，得到 forest kernel estimator：</p>
+<p>把所有树的核函数（kernel functions）叠加起来（stack），得到森林核估计量（forest kernel estimator）：</p>
 <div class="math-block">$$
 \hat f(x_0)
 =
@@ -7940,7 +7945,7 @@ $$</div>
 $$</div>
 <p>这说明随机森林本质上也是局部平均，只是它的“邻域”由很多随机树共同决定。</p>
 <h3 id="sec-009-18">9.18 RF 核（RF kernel）的自适应性<a class="heading-link" href="#sec-009-18" aria-label="复制本节链接">#</a></h3>
-<p>课件图 RF 的核视角（Kernel View of RF）和森林诱导核权重（Forest Induced Kernel Weights） 展示：对某个目标预测点（target prediction point），随机森林会给附近样本不同权重。权重形状不是固定圆形或固定矩形，而是随数据和树的 切分（split） 改变。</p>
+<p>课件图“RF 的核视角（Kernel View of RF）”和“森林诱导核权重（Forest Induced Kernel Weights）”展示：对某个目标预测点（target prediction point），随机森林会给附近样本不同权重。权重形状不是固定圆形或固定矩形，而是随数据和树的 切分（split） 改变。</p>
 <p>课件总结 随机森林（Random Forests）是一种具有自适应带宽（adaptive bandwidth）的核方法（kernel method）：</p>
 <ol>
 <li>每棵树定义一个核函数（kernel）：在每个 终端节点（terminal node） 内是 均匀权重（uniform weights）。</li>
@@ -7951,8 +7956,8 @@ $$</div>
 <li>在高维稀疏模型（high-dimensional sparse model） 中，随机森林（random forests） 理论和实践上都可能优于 非自适应局部方法（non-adaptive local methods）。</li>
 </ol>
 <p>这部分和上一讲 核平滑器（kernel smoother） 联系很紧密：普通 核平滑器（kernel smoother） 用固定 带宽（bandwidth）；随机森林（random forest）的带宽（bandwidth） 是局部、随机、数据自适应的。</p>
-<h3 id="sec-009-19">9.19 偏差、方差与一致性（Bias, variance and consistency）的直觉<a class="heading-link" href="#sec-009-19" aria-label="复制本节链接">#</a></h3>
-<p>课件接着说，理解随机森林（random forest）或诱导核（induced kernel）很难，因为 树拟合过程（tree-fitting process） 里有太多 随机成分（random components），而且 切分规则高度依赖数据（切分（split）ting rule highly data dependent）。分析一致性（consistency）时，可以从 偏差-方差分解（bias-variance breakdown） 开始。</p>
+<h3 id="sec-009-19">9.19 偏差、方差与一致性的直觉（bias, variance, consistency）<a class="heading-link" href="#sec-009-19" aria-label="复制本节链接">#</a></h3>
+<p>课件接着说，理解随机森林（random forest）或诱导核（induced kernel）很难，因为 树拟合过程（tree-fitting process） 里有太多 随机成分（random components），而且 切分规则高度依赖数据（splitting rule is highly data-dependent）。分析一致性（consistency）时，可以从 偏差-方差分解（bias-variance breakdown） 开始。</p>
 <p>先考虑一个简单情形：</p>
 <ol>
 <li>只有一个变量，且</li>
@@ -7969,8 +7974,8 @@ Y=f(X)+\epsilon.
 
 $$</div>
 <ol start="3">
-<li>\(f(X)\)是\(L\)-Lipschitz continuous。</li>
-<li>每次都在当前节点的 median 处 切分（split），这样 切分（split）是data independent。</li>
+<li>\(f(X)\) 是 \(L\)-Lipschitz 连续的（L-Lipschitz continuous）。</li>
+<li>每次都在当前节点的中位数（median）处 切分（split），这样 切分（split）与数据无关（data independent）。</li>
 </ol>
 <p>课件问：这种随机森林模型（random forest model） 是什么？答案是 直方图估计量（histogram estimator）。</p>
 <p>如果设置</p>
@@ -7988,24 +7993,24 @@ $$</div>
 2^{-\log_2(n/k)}=\frac{k}{n}.
 
 $$</div>
-<p>所以 带宽（bandwidth）是\(k/n\)，bias 与这个宽度有关。每个 终端节点（terminal node） 大约有 \(k\) 个观测，因此均值估计的 variance 约为</p>
+<p>所以 带宽（bandwidth）是\(k/n\)，bias 与这个宽度有关。每个终端节点（terminal node）大约有 \(k\) 个观测，因此均值估计的方差（variance） 约为</p>
 <div class="math-block">$$
 \frac1k.
 
 $$</div>
-<p>在这个极简情形下，其他 调节参数（tuning parameter）s 基本不重要。</p>
-<p>真实随机森林（random forest）不这么简单，因为 cutting 点（points）是数据自适应（data adaptive）。课件提到：</p>
+<p>在这个极简情形下，其他调节参数（tuning parameters） 基本不重要。</p>
+<p>真实随机森林（random forest）不这么简单，因为切点（cutting points）是数据自适应的（data adaptive）。课件提到：</p>
 <ol>
-<li>在某些条件下，切分（split） 会发生在 derivative 最陡的位置，Ishwaran (2015)。</li>
-<li>比较不同变量时，signal size 更大的变量更受偏好，Lin and Jeon (2006)。</li>
+<li>在某些条件下，切分（split） 会发生在导数（derivative）最陡的位置，Ishwaran (2015)。</li>
+<li>比较不同变量时，信号大小（signal size）更大的变量更受偏好，Lin and Jeon (2006)。</li>
 <li>因此 随机森林（random forest）通常比非自适应核估计量（non-adaptive kernel estimator） 有更好的 收敛速率（convergence rate）。</li>
-<li>它能 adaptive select the 切分（split）ting variable 和切点（cutting point）。</li>
-<li>它在 局部多维带宽选择（local multidimensional bandwidth selection） 上具有某种 最优（optimal）ity。</li>
+<li>它能 自适应地选择切分变量（adaptively select the splitting variable） 和切点（cutting point）。</li>
+<li>它在 局部多维带宽选择（local multidimensional bandwidth selection） 上具有某种 最优性（optimality）。</li>
 </ol>
-<p>但这些很难证明。常见 consistency 分析会考虑随机选择变量和切点，Breiman (2000)。速率（rate） depends on \(p\)。如果切点随机选，最优 速率（rate） 会比 median 切分（split） 稍差，课件引用 Lin and Jeon (2006)、Biau (2012)、Cui et al. (2022)。</p>
+<p>但这些很难证明。常见 一致性（consistency）分析会考虑随机选择变量和切点，Breiman (2000)。速率（rate）依赖 \(p\)。如果切点随机选，最优 速率（rate） 会比 中位数切分（median split） 稍差，课件引用 Lin and Jeon (2006)、Biau (2012)、Cui et al. (2022)。</p>
 <h3 id="sec-009-20">9.20 方差界（Variance bound）与高维一致性（high-dimensional consistency）<a class="heading-link" href="#sec-009-20" aria-label="复制本节链接">#</a></h3>
-<p>课件说 方差可能比偏差更容易分析（variance can be easier than bias），并引用 Wager and Walther (2015) 关于树和随机森林（trees and random forests）（random forests）的变差界（variation bound）。这些结果可用于 高维（high dimensions）。</p>
-<p>对 variance，只要 切分（split）ting rule 性质良好（nicely behaved），就不需要关心它具体如何选择。课件给出 \(\{\alpha,k\}\)-valid partitions 的条件：</p>
+<p>课件说 方差可能比偏差更容易分析（variance can be easier than bias），并引用 Wager and Walther (2015) 关于树和随机森林（trees and random forests）的变差界（variation bound）。这些结果可用于 高维（high dimensions）。</p>
+<p>对方差（variance）来说，只要 切分规则（splitting rule）性质良好（nicely behaved），就不需要关心它具体如何选择。课件给出 \(\{\alpha,k\}\)-有效划分（valid partitions） 的条件：</p>
 <ol>
 <li>切分（split） 一个节点时，每个子节点（child node） 至少包含父节点（parent node） 中</li>
 </ol>
@@ -8017,18 +8022,18 @@ $$</div>
 <ol start="2">
 <li>每个 终端节点（terminal node） 至少包含 \(k\) 个观测。</li>
 </ol>
-<p>所有这类 partitions 组成集合</p>
+<p>所有这类划分（partitions） 组成集合</p>
 <div class="math-block">$$
 \mathcal V_{\alpha,k}(\mathcal X),
 
 $$</div>
-<p>随着 \(n\to\infty\)，这是一个 expanding set。</p>
+<p>随着 \(n\to\infty\)，这是一个扩张集合（expanding set）。</p>
 <p>若观测数据为</p>
 <div class="math-block">$$
 \{X_i,Y_i\},
 
 $$</div>
-<p>并建立树估计量（tree estimator），则 tree structure 必须是 \(\mathcal V_{\alpha,k}(\mathcal X)\) 的一个元素。设这个树估计量（tree estimator） 为 \(\hat T\)。令 \(T^*\) 表示固定树结构、让 \(n\to\infty\) 时 \(\hat T\)的expectation。</p>
+<p>并建立树估计量（tree estimator），则 树结构（tree structure） 必须是 \(\mathcal V_{\alpha,k}(\mathcal X)\) 的一个元素。设这个树估计量（tree estimator） 为 \(\hat T\)。令 \(T^*\) 表示固定树结构、让 \(n\to\infty\) 时 \(\hat T\)的期望（expectation）。</p>
 <p>课件给出高概率界：</p>
 <div class="math-block">$$
 \sup_{x\in[0,1]^p,\ \hat T\in\mathcal V_{\alpha,k}}
@@ -8042,37 +8047,35 @@ $$</div>
 
 $$</div>
 <p>同样的界（bound）也可以为森林（forest）建立。</p>
-<p>Consistency 部分课件总结：</p>
+<p>一致性（consistency）部分课件总结：</p>
 <ol>
-<li>多数 consistency 结果在 low dimension。</li>
-<li>常考虑 random 切分（split）ting rule /切点（cutting point）。</li>
-<li>其他设定包括 Scornet and Biau (2015)的加性（additive） model：</li>
+<li>多数一致性（consistency）结果是在低维（low dimension）情形下得到的。</li>
+<li>常考虑 随机切分规则（random splitting rule） /切点（cutting point）。</li>
+<li>其他设定包括 Scornet and Biau (2015)的加性模型（additive model）：</li>
 </ol>
 <div class="math-block">$$
 f(x)=\sum_{j=1}^p g_j(x^{(j)}).
 
 $$</div>
 <ol start="4">
-<li>Zhu et al. (2015) 使用 variable importance 选择 切分（split）ting variable。</li>
-<li>Chipman et al. (2010) 讨论 Bayesian trees。</li>
+<li>Zhu et al. (2015) 使用 变量重要性（variable importance） 选择 切分变量（splitting variable）。</li>
+<li>Chipman et al. (2010) 讨论贝叶斯树（Bayesian trees）。</li>
 </ol>
-<p>High-dimensional consistency 的基本思想：</p>
+<p>高维一致性（high-dimensional consistency）的基本思想：</p>
 <ol>
-<li>假设模型 sparse。</li>
-<li>covariates independent 或 weakly dependent。</li>
-</ol>
-<p>3.在early 切分（split）s 中有机制检测 strong-signal variables，并在整棵树中保留它们。</p>
-<ol start="4">
-<li>noise variables 被移出模型。</li>
+<li>假设模型稀疏（sparse）。</li>
+<li>协变量独立（independent）或弱相关（weakly dependent）。</li>
+<li>在早期切分（early splits）中有机制检测 强信号变量（strong-signal variables），并在整棵树中保留它们。</li>
+<li>噪声变量（noise variables） 被移出模型。</li>
 </ol>
 <h3 id="sec-009-21">9.21 正态性（Normality）与 U 统计量（U-statistics）<a class="heading-link" href="#sec-009-21" aria-label="复制本节链接">#</a></h3>
-<p>课件最后讨论 normality。随机森林（Random forest）是基于 自助样本（bootstrap samples）的模型集成平均（averaged ensemble of models）。U 统计量（U statistics） 可以用来刻画 渐近行为（asymptotic behaviour）。</p>
+<p>课件最后讨论 正态性（normality）。随机森林（Random forest）是基于 自助样本（bootstrap samples）的模型集成平均（averaged ensemble of models）。U 统计量（U statistics） 可以用来刻画 渐近行为（asymptotic behaviour）。</p>
 <p>设</p>
 <div class="math-block">$$
 Z_i=\{X_i,Y_i\}.
 
 $$</div>
-<p>设 \(h\) 是某个 estimator，例如一棵 tree，且</p>
+<p>设 \(h\) 是某个估计器（estimator），例如一棵树（tree），且</p>
 <div class="math-block">$$
 \theta=E(h).
 
@@ -8082,7 +8085,7 @@ $$</div>
 Z_{i_1},\ldots,Z_{i_r}
 
 $$</div>
-<p>是从原始数据中抽取的 size \(r\) subsamples，则如果穷尽所有这种 subsamples，\(\theta\)的最小方差无偏估计量（minimum variance unbiased estimator） 为</p>
+<p>是从原始数据中抽取的 大小为 \(r\) 的子样本（subsamples），则如果穷尽所有这种 subsamples，\(\theta\)的最小方差无偏估计量（minimum variance unbiased estimator） 为</p>
 <div class="math-block">$$
 U_n
 =
@@ -8091,7 +8094,7 @@ U_n
 h(Z_{i_1},\ldots,Z_{i_r}).
 
 $$</div>
-<p>当 \(r\) 较小时，\(U_n\)的variance 近似为</p>
+<p>当 \(r\) 较小时，\(U_n\) 的方差（variance） 近似为</p>
 <div class="math-block">$$
 \frac{r^2}{n}\zeta_{1,r},
 
@@ -8107,13 +8110,13 @@ h(Z_1,Z_2',\ldots,Z_r')
 \right].
 
 $$</div>
-<p>它表示两个估计器只共享一个 共同观测（common observation） 时的 covariance。</p>
-<p>在 random forest context 中，可以把 \(h(\cdot)\) 看成树估计量（tree estimator）。如果没有穷尽所有 size \(r\)的subsamples，就得到 不完全 U 统计量（incomplete U-statistic）。</p>
-<p>Mentch and Hooker (2016) 给出了 不完全 U 统计量（incomplete U-statistic）的variance 量化结果。variance 可以通过观察只共享一个 共同观测（common observation） 的树来估计。</p>
+<p>它表示两个估计器只共享一个 共同观测（common observation） 时的协方差（covariance）。</p>
+<p>在 随机森林语境（random forest context） 中，可以把 \(h(\cdot)\) 看成树估计量（tree estimator）。如果没有穷尽所有大小为 \(r\) 的子样本（subsamples），就得到 不完全 U 统计量（incomplete U-statistic）。</p>
+<p>Mentch and Hooker (2016) 给出了 不完全 U 统计量（incomplete U-statistic）的方差（variance）量化结果。方差（variance）可以通过观察只共享一个 共同观测（common observation） 的树来估计。</p>
 <p>这可用于：</p>
 <ol>
-<li>目标点（target point） 上的 confidence intervals。</li>
-<li>与其他模型比较的 hypothesis tests。</li>
+<li>目标点（target point） 上的 置信区间（confidence intervals）。</li>
+<li>与其他模型比较的 假设检验（hypothesis tests）。</li>
 </ol>
 <p>限制：</p>
 <ol>
@@ -8137,14 +8140,14 @@ $$</div>
 1-\sum_{k=1}^K\hat p_k^2.
 
 $$</div>
-<p>Entropy：</p>
+<p>熵（Entropy）：</p>
 <div class="math-block">$$
 \mathrm{Entropy}(\mathcal T)
 =
 -\sum_{k=1}^K\hat p_k\log(\hat p_k).
 
 $$</div>
-<p>Misclassification error：</p>
+<p>误分类误差（Misclassification error）：</p>
 <div class="math-block">$$
 \mathrm{Error}(\mathcal T)
 =
@@ -8164,7 +8167,7 @@ $$</div>
 \right).
 
 $$</div>
-<p>Regression tree variance：</p>
+<p>回归树方差（Regression tree variance）：</p>
 <div class="math-block">$$
 \mathrm{Var}(\mathcal T)
 =
@@ -8177,7 +8180,7 @@ $$</div>
 C_\alpha(T)=C(T)+\alpha|T|.
 
 $$</div>
-<p>自助聚合（Bagging） regression：</p>
+<p>自助聚合回归（Bagging regression）：</p>
 <div class="math-block">$$
 \hat f_{\mathrm{bag}}(x)
 =
@@ -8214,17 +8217,17 @@ $$</div>
 $$</div>
 <h4 id="sec-009-22-02">9.22.2 易错点<a class="heading-link" href="#sec-009-22-02" aria-label="复制本节链接">#</a></h4>
 <ol>
-<li>CART 通常做 二叉切分（binary 切分（split）），而 C4.5 可产生多个 子节点（子节点（child nodes））。</li>
-<li>Gini/Entropy 用来建树更敏感；misclassification error 更适合评价树。</li>
+<li>CART 通常做 二叉切分（binary split），而 C4.5 可产生多个子节点（child nodes）。</li>
+<li>Gini/Entropy 用来建树更敏感；误分类误差（misclassification error） 更适合评价树。</li>
 <li>树模型的单次 切分（split） 是轴平行切分，复杂边界来自多次递归切分。</li>
 <li>单棵树可解释但不稳定；随机森林准确但解释性下降。</li>
-<li>Pruning 不是从小树慢慢加，而是先 grow large tree，再 prune。</li>
+<li>剪枝（Pruning）不是从小树慢慢加，而是先长出大树（grow large tree），再剪枝（prune）。</li>
 <li>\(\alpha\) 越大，代价复杂度剪枝（代价复杂度剪枝（cost-complexity pruning）） 得到的树越小。</li>
 <li>自助聚合（Bagging） 降低 variance，但树之间若高度相关，平均效果有限。</li>
 <li>随机森林（Random forest）的 <code>mtry</code> 通过随机候选变量降低树间相关性。</li>
 <li>随机森林（Random forest）通常不做 剪枝（pruning），而由 <code>nodesize</code> 控制树深度。</li>
 <li>变量重要性（Variable importance） 高表示打乱该变量会造成更大精度损失。</li>
-<li>随机森林（Random forest）kernel 是数据自适应的，不是固定带宽 kernel。</li>
+<li>随机森林（Random forest）核函数（kernel）是数据自适应的，不是固定带宽核函数（fixed-bandwidth kernel）。</li>
 <li>\(n_{\min}=1\) 不等于 1-NN；随机森林邻域来自树叶节点和集成。</li>
 </ol>
 <h3 id="sec-009-23">9.23 教材源码练习题<a class="heading-link" href="#sec-009-23" aria-label="复制本节链接">#</a></h3>
@@ -8246,19 +8249,19 @@ $$</div>
 <h2 id="lecture-10">第十讲：因果推断导论<a class="heading-link" href="#lecture-10" aria-label="复制本节链接">#</a></h2>
 <p>对应课件：<code>ppt/10.causal_intro_slides.pdf</code>，源 PDF 共 81 页；课件页脚编号为 1/78 到 78/78，部分 PDF 页面来自动画或导出分页。本讲从“预测”转向“因果效应”。统计学习里常见的问题是给定 \(X\) 预测 \(Y\)，而因果推断要回答的是：如果我们主动把处理 \(A\) 设成另一个值，\(Y\) 会怎样变化？</p>
 <h3 id="sec-010-01">10.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-010-01" aria-label="复制本节链接">#</a></h3>
-<p>ESL-CN 主要讲预测建模，不系统讲因果推断。因此本讲里的 counterfactual、G 公式（G-formula）、IPTW、d 分离（d-separation）、backdoor criterion 等内容大多不在 ESL 主线中。可辅助阅读的位置是：</p>
+<p>ESL-CN 主要讲预测建模，不系统讲因果推断。因此本讲里的 反事实（counterfactual）、G 公式（G-formula）、IPTW、d 分离（d-separation）、后门准则（backdoor criterion） 等内容大多不在 ESL 主线中。可辅助阅读的位置是：</p>
 <ul>
 <li><a href="https://esl.hohoweiya.xyz/02-Overview-of-Supervised-Learning/2.1-Introduction/index.html">ESL-CN 2.1 Introduction</a>：理解统计学习通常关注 \(E(Y\mid X=x)\)、预测误差和训练/测试泛化。这能帮助区分“预测 \(Y\)”和“估计干预 \(A\) 对 \(Y\) 的效应”。</li>
 <li><a href="https://esl.hohoweiya.xyz/03-Linear-Methods-for-Regression/3.2-Linear-Regression-Models-and-Least-Squares/index.html">ESL-CN 3.2 Linear Regression Models and Least Squares</a>：本讲的 结局回归（outcome regression）、标准化和 G-computation 常把 \(E(Y\mid A,L)\) 建模成线性回归或广义回归。</li>
 <li><a href="https://esl.hohoweiya.xyz/04-Linear-Methods-for-Classification/4.4-Logistic-Regression/index.html">ESL-CN 4.4 逻辑回归（Logistic Regression）</a>：倾向评分 \(f_{A\mid L}(1\mid L)=\Pr(A=1\mid L)\) 常用 逻辑回归（logistic regression） 建模，可回看分类中的 逻辑回归（logistic regression）。</li>
-<li><a href="https://esl.hohoweiya.xyz/07-Model-Assessment-and-Selection/7.10-Cross-Validation/index.html">ESL-CN 7.10 Cross-Validation</a>：当 \(L\) 维度较高时，需要估计 结局模型（outcome model）或 propensity model，模型选择和过拟合问题仍然重要；但因果识别假设本身不能靠交叉验证证明。</li>
+<li><a href="https://esl.hohoweiya.xyz/07-Model-Assessment-and-Selection/7.10-Cross-Validation/index.html">ESL-CN 7.10 Cross-Validation</a>：当 \(L\) 维度较高时，需要估计 结局模型（outcome model）或 倾向评分模型（propensity model），模型选择和过拟合问题仍然重要；但因果识别假设本身不能靠交叉验证证明。</li>
 </ul>
 <p>要记住：ESL 的预测模型可以作为本讲估计 \(E(Y\mid A,L)\) 或 \(\Pr(A=1\mid L)\) 的工具，但因果结论还额外依赖一致性、无未测混杂、正值性（positivity）、DAG 可解释性等假设。</p>
 <h3 id="sec-010-02">10.2 因果问题的两种方向<a class="heading-link" href="#sec-010-02" aria-label="复制本节链接">#</a></h3>
-<p>课件一开始区分两种 causation：</p>
+<p>课件一开始区分两种因果问题（causation）：</p>
 <ol>
-<li><strong>Cause of an effect</strong>：先观察到一个事件或结果，然后追问它由哪些原因导致。例如某个病人发病后寻找病因。这类问题更像回溯诊断。</li>
-<li><strong>Effect of a cause</strong>：先给定一个清楚定义的暴露或干预，再评估它对结果的影响。例如 smoking 是否导致 lung cancer，AZT 是否能防止 HIV 感染者发展成 AIDS。</li>
+<li><strong>结果的原因（cause of an effect）</strong>：先观察到一个事件或结果，然后追问它由哪些原因导致。例如某个病人发病后寻找病因。这类问题更像回溯诊断。</li>
+<li><strong>原因的效应（effect of a cause）</strong>：先给定一个清楚定义的暴露或干预，再评估它对结果的影响。例如 吸烟（smoking）是否导致肺癌（lung cancer），AZT 是否能防止 HIV 感染者发展成 AIDS。</li>
 </ol>
 <p>本讲处理第二类问题，也就是原因的效应（effect of a cause）。这里“cause”必须是可定义的处理、暴露或干预，否则“如果把它改变”这句话没有数学意义。</p>
 <p>课件给出的因果推断范式包含四步：</p>
@@ -8281,13 +8284,13 @@ $$</div>
 Y^1=Y^0.
 
 $$</div>
-<p>如果 \(Y^1&gt;Y^0\)，在课件的二元结果编码下表示 阿司匹林有有益的因果效应（beneficial causal effect）（causal effect）；如果 \(Y^1&lt;Y^0\)，表示有害的因果效应（harmful causal effect）（causal effect）。注意这只是个人层面的定义，真正数据中通常无法同时看到 \(Y^0\) 和 \(Y^1\)。</p>
+<p>如果 \(Y^1&gt;Y^0\)，在课件的二元结果编码下表示 阿司匹林有有益的因果效应（beneficial causal effect）；如果 \(Y^1&lt;Y^0\)，表示有害的因果效应（harmful causal effect）。注意这只是个人层面的定义，真正数据中通常无法同时看到 \(Y^0\) 和 \(Y^1\)。</p>
 <p>令 \(A\in\{0,1\}\) 表示实际是否吃 aspirin。实际观察到的结果满足一致性形式：</p>
 <div class="math-block">$$
 Y=AY^1+(1-A)Y^0=Y^A.
 
 $$</div>
-<p>若某人 \(A=1\)，我们观察到 \(Y^1\)，而 \(Y^0\) 缺失；若 \(A=0\)，我们观察到 \(Y^0\)，而 \(Y^1\) 缺失。因此 个体因果效应（individual causal effect）（causal effect）</p>
+<p>若某人 \(A=1\)，我们观察到 \(Y^1\)，而 \(Y^0\) 缺失；若 \(A=0\)，我们观察到 \(Y^0\)，而 \(Y^1\) 缺失。因此 个体因果效应（individual causal effect）</p>
 <div class="math-block">$$
 Y^1-Y^0
 
@@ -8319,7 +8322,7 @@ $$</div>
 \psi=\frac{1}{4}-\frac{1}{2}=-\frac{1}{4}.
 
 $$</div>
-<p>这个 estimand 只依赖 \(Y^0\) 和 \(Y^1\) 的两个 边际分布（marginal distributions），不需要知道同一个人 \(Y^0,Y^1\)的联合分布（joint distribution）。这很重要：ATE 是总体平均意义上的因果量，不是要求每个人的因果效应都可观测。</p>
+<p>这个目标量（estimand）只依赖 \(Y^0\) 和 \(Y^1\) 的两个 边际分布（marginal distributions），不需要知道同一个人 \(Y^0,Y^1\)的联合分布（joint distribution）。这很重要：ATE 是总体平均意义上的因果量，不是要求每个人的因果效应都可观测。</p>
 <h3 id="sec-010-05">10.5 随机化如何识别因果效应<a class="heading-link" href="#sec-010-05" aria-label="复制本节链接">#</a></h3>
 <p>假设把头痛患者随机分配到 aspirin 或 no aspirin，每组概率都是 \(1/2\)。课件给出的随机化观测表为：</p>
 <div class="table-wrap"><table>
@@ -8341,17 +8344,17 @@ E(Y\mid A=1)-E(Y\mid A=0)=\frac14-\frac24=-\frac14,
 $$</div>
 <p>恰好等于上面的 ACE。随机化识别依赖三个假设：</p>
 <ul>
-<li><strong>CA, Consistency Assumption</strong>：</li>
+<li><strong>CA，一致性假设（Consistency Assumption）</strong>：</li>
 </ul>
 <p>$$ Y=Y^A\quad \text{w.p. }1.</p>
 <p>$$ 实际接受的处理 \(A\) 对应的潜在结果就是实际观测结果。</p>
 <ul>
-<li><strong>RA, Randomization Assumption</strong>：</li>
+<li><strong>RA，随机化假设（Randomization Assumption）</strong>：</li>
 </ul>
 <p>$$ (Y^0,Y^1)\perp A.</p>
 <p>$$ 处理分配与潜在结果独立。</p>
 <ul>
-<li><strong>PA, Positivity Assumption</strong>：</li>
+<li><strong>PA，正值性假设（Positivity Assumption）</strong>：</li>
 </ul>
 <p>$$ 0&lt;\Pr(A=1)&lt;1.</p>
 <p>$$ 每种处理都有正概率被观察到。</p>
@@ -8365,7 +8368,7 @@ $$</div>
 \end{aligned}
 
 $$</div>
-<p>直观解释：随机化让 \(A\) 像抛硬币一样决定，它与病人的 pretreatment characteristics 无关。可以把 \((Y^0,Y^1)\) 看成处理前已经存在的潜在变量，因此随机分配不会偏向更容易好转或更不容易好转的人。</p>
+<p>直观解释：随机化让 \(A\) 像抛硬币一样决定，它与病人的 处理前特征（pretreatment characteristics） 无关。可以把 \((Y^0,Y^1)\) 看成处理前已经存在的潜在变量，因此随机分配不会偏向更容易好转或更不容易好转的人。</p>
 <h3 id="sec-010-06">10.6 随机试验中的基线协变量（baseline covariates）<a class="heading-link" href="#sec-010-06" aria-label="复制本节链接">#</a></h3>
 <p>随机试验中常同时观察处理前风险因素 \(L\)。由于随机化，\(L\perp A\)，于是</p>
 <div class="math-block">$$
@@ -8379,7 +8382,7 @@ E(Y^a)
 $$</div>
 <p>这给 ATE 提供了一个利用 基线协变量（baseline covariates） 的表示。虽然随机化下不调整 \(L\) 也能无偏识别因果效应，但如果 \(L\)是\(Y\) 的强预测变量，调整 \(L\) 往往可以提高估计效率。这一点后面“效率悖论（efficiency paradox）”会再次出现。</p>
 <h3 id="sec-010-07">10.7 观测研究、NUCA与正值性（positivity）<a class="heading-link" href="#sec-010-07" aria-label="复制本节链接">#</a></h3>
-<p>现在考虑 点暴露观测研究（点暴露（point exposure） observational study），观测数据为</p>
+<p>现在考虑 点暴露观测研究（point exposure observational study），观测数据为</p>
 <div class="math-block">$$
 O=(L,A,Y).
 
@@ -8389,7 +8392,7 @@ $$</div>
 \text{(NUCA)}\qquad (Y^0,Y^1)\perp A\mid L.
 
 $$</div>
-<p>NUCA是无未测混杂假设（no 未测混杂（unmeasured confounding） assumption），意思是：在 \(L\) 的每个水平内，处理分配好像一个随机试验，只是随机化概率可以依赖 \(L\)。概念上，这要求我们测量了 \(A\) 和 \(Y\) 的所有共同原因，也就是所有同时影响处理和结果的 混杂因素（confounders）。</p>
+<p>NUCA 是无未测混杂假设（no unmeasured confounding assumption），意思是：在 \(L\) 的每个水平内，处理分配好像一个随机试验，只是随机化概率可以依赖 \(L\)。概念上，这要求我们测量了 \(A\) 和 \(Y\) 的所有共同原因，也就是所有同时影响处理和结果的 混杂因素（confounders）。</p>
 <p>观测研究还需要条件版 正值性（positivity）：</p>
 <div class="math-block">$$
 f_L(l)&gt;0 \quad\Longrightarrow\quad \Pr(A=a\mid L=l)&gt;0.
@@ -8451,7 +8454,7 @@ $$</div>
 =E(Y\mid A=a).
 
 $$</div>
-<p>G 公式（G-formula） 还可以看成 intervention law。对离散变量：</p>
+<p>G 公式（G-formula）还可以看成干预分布法则（intervention law）。对离散变量：</p>
 <div class="math-block">$$
 E(Y^a)
 =\sum_{y,a^\ast,l} y f(y\mid A=a^\ast,L=l)\mathbf 1(a^\ast=a)f_L(l).
@@ -8467,7 +8470,7 @@ $$</div>
 f(y\mid A=a^\ast,L=l)\mathbf 1(a^\ast=a)f_L(l).
 
 $$</div>
-<p>所以 ATE 对实际 treatment process \(f(A\mid L)\)是invariant 的；我们关心的是“人为设定 \(A=a\)”后的结果分布。</p>
+<p>所以 ATE 对实际 处理过程（treatment process） \(f(A\mid L)\)是不变（invariant） 的；我们关心的是“人为设定 \(A=a\)”后的结果分布。</p>
 <h3 id="sec-010-09">10.9 G 计算估计量（G-computation estimator）<a class="heading-link" href="#sec-010-09" aria-label="复制本节链接">#</a></h3>
 <p>给定观测数据</p>
 <div class="math-block">$$
@@ -8479,12 +8482,12 @@ $$</div>
 E(Y^a)=g(a)=\sum_l E(Y\mid A=a,L=l)f_L(l)
 
 $$</div>
-<p>做非参数推断。自然的 plug-in estimator 需要估计 结局回归（outcome regression）</p>
+<p>做非参数推断。自然的 代入估计量（plug-in estimator） 需要估计 结局回归（outcome regression）</p>
 <div class="math-block">$$
 b(a,l)=E(Y\mid A=a,L=l)
 
 $$</div>
-<p>和 \(f_L(l)\)。如果 \(A,L\) 都是低到中等水平数的 categorical variables，则</p>
+<p>和 \(f_L(l)\)。如果 \(A,L\) 都是低到中等水平数的分类变量（categorical variables），则</p>
 <div class="math-block">$$
 \hat b(a,l)
 =
@@ -8507,7 +8510,7 @@ $$</div>
 $$</div>
 <p>初学者可以把 G-computation 看成两步：先在每个 \(L\) 分层里估计“如果 \(A=a\) 的平均结果”，再把这些分层均值按总体 \(L\) 分布平均。</p>
 <h3 id="sec-010-10">10.10 IPTW/IPW：不建结局模型（outcome model）的另一条路<a class="heading-link" href="#sec-010-10" aria-label="复制本节链接">#</a></h3>
-<p>IPTW/IPW是inverse probability treatment weighting。它估计 G 公式（G-formula） 的思路不直接建模</p>
+<p>IPTW/IPW 是逆概率处理加权（inverse probability treatment weighting）。它估计 G 公式（G-formula） 的思路不直接建模</p>
 <div class="math-block">$$
 \Pr(Y=1\mid A,L)\quad \text{或}\quad E(Y\mid A,L),
 
@@ -8558,7 +8561,7 @@ $$</div>
 W=\frac1{f(a\mid L)}.
 
 $$</div>
-<p>由于 \(0&lt;f(a\mid L)&lt;1\)，所以 \(W&gt;1\)。每个被观察到 \(Y^a\) 的人不仅代表自己，还代表同一 \(L\) 层里那些没有接受 \(a\)、因此缺失 \(Y^a\) 的人。权重构造出一个 pseudo-population，使加权样本中不再有 \(L\) 引起的混杂。</p>
+<p>由于 \(0&lt;f(a\mid L)&lt;1\)，所以 \(W&gt;1\)。每个被观察到 \(Y^a\) 的人不仅代表自己，还代表同一 \(L\) 层里那些没有接受 \(a\)、因此缺失 \(Y^a\) 的人。权重构造出一个伪总体（pseudo-population），使加权样本中不再有 \(L\) 引起的混杂。</p>
 <h3 id="sec-010-11">10.11 IPTW 数值例子与对偶表示（dual representation）<a class="heading-link" href="#sec-010-11" aria-label="复制本节链接">#</a></h3>
 <p>课件设 \(L\) 为二元变量，观测：</p>
 <div class="table-wrap"><table>
@@ -8607,7 +8610,7 @@ $$</div>
 <tr><td>8000</td><td>\(2/3\)</td><td>\(8000\times 3/2=12000\)</td><td>0</td><td>0</td><td>10</td></tr>
 <tr><td>9000</td><td>\(3/4\)</td><td>\(9000\times 4/3=12000\)</td><td>0</td><td>1</td><td>22</td></tr>
 </tbody></table></div>
-<p>在 pseudo-population 中，\(A=1\) 组的 \(L=0\) 与 \(L=1\) 各占 \(1/2\)，于是粗分析给出：</p>
+<p>在伪总体（pseudo-population）中，\(A=1\) 组的 \(L=0\) 与 \(L=1\) 各占 \(1/2\)，于是粗分析给出：</p>
 <div class="math-block">$$
 E_{ps}(Y\mid A=1)=24\times\frac12+36\times\frac12=\frac{210}{7}=E(Y^1).
 
@@ -8641,9 +8644,9 @@ $$</div>
 \sum_{i=1}^n \mathbf 1(A_i=a)\{Y_i-\hat\mu(a)\}=0.
 
 $$</div>
-<p>如果 \(f_{A\mid L}(a\mid L_i)=f_A(a)\)，则 \(E(Y\mid A=a)=E(Y^a)\)，关联（association） is causation。若 \(f_{A\mid L}(a\mid L_i)\ne f_A(a)\) 且 \(L\)是\(Y\) 的风险因素，就必须用 \(\hat f_{A\mid L}^{-1}(a\mid L_i)\) 加权来调整 \(L\) 引起的混杂。</p>
+<p>如果 \(f_{A\mid L}(a\mid L_i)=f_A(a)\)，则 \(E(Y\mid A=a)=E(Y^a)\)，关联就是因果（association is causation）。若 \(f_{A\mid L}(a\mid L_i)\ne f_A(a)\) 且 \(L\)是\(Y\) 的风险因素，就必须用 \(\hat f_{A\mid L}^{-1}(a\mid L_i)\) 加权来调整 \(L\) 引起的混杂。</p>
 <h3 id="sec-010-12">10.12 随机试验中的 IPTW 效率悖论（efficiency paradox）<a class="heading-link" href="#sec-010-12" aria-label="复制本节链接">#</a></h3>
-<p>回到随机化情形，设 \(L\)是treatment 前 categorical covariate，且强烈预测 \(Y\)。随机化给出</p>
+<p>回到随机化情形，设 \(L\) 是处理前分类协变量（pre-treatment categorical covariate），且强烈预测 \(Y\)。随机化给出</p>
 <div class="math-block">$$
 (Y^0,Y^1,L)\perp A.
 
@@ -8684,7 +8687,7 @@ $$</div>
 
 $$</div>
 <p>也就是说，若 \(L\) 足以控制混杂，则一维摘要 \(f_{A\mid L}(1\mid L)\) 也足以控制混杂。这在高维 \(L\) 时很有用。</p>
-<p><strong>Propensity 得分（score） regression</strong> 使用</p>
+<p><strong>倾向评分回归（propensity score regression）</strong> 使用</p>
 <div class="math-block">$$
 \begin{aligned}
 E(Y^a)
@@ -8700,13 +8703,13 @@ $$</div>
 <li>回归 \(Y\) 对 \(\{A,\hat f_{A\mid L}(1\mid L;\hat\alpha)\}\)，得到</li>
 </ol>
 <p>\[ \hat E\{Y\mid A=a,\hat f_{A\mid L}(1\mid L;\hat\alpha)\}. \]</p>
-<p>这种方法同时要求 倾向评分模型（倾向评分（propensity score） model）和第二阶段 结局模型（outcome model） 正确，比 IPTW、结局回归（outcome regression）、双重稳健估计量（DR estimators） 分别需要更多建模假设。</p>
+<p>这种方法同时要求 倾向评分模型（propensity score model）和第二阶段 结局模型（outcome model） 正确，比 IPTW、结局回归（outcome regression）、双重稳健估计量（DR estimators） 分别需要更多建模假设。</p>
 <p>课件还给出一个鲁棒性特例：若</p>
 <div class="math-block">$$
 E(Y\mid A=1,L)-E(Y\mid A=0,L)=\psi
 
 $$</div>
-<p>在 \(L\) 的各层内是常数，则对 working model</p>
+<p>在 \(L\) 的各层内是常数，则对 工作模型（working model）</p>
 <div class="math-block">$$
 E\{Y\mid A=a,f_{A\mid L}(1\mid L;\alpha);\eta\}
 =\psi A+\eta_1 f_{A\mid L}(1\mid L;\alpha)+\eta_0
@@ -8719,7 +8722,7 @@ E\{Y\mid A=a,f_{A\mid L}(1\mid L)\}
 E\{Y\mid A=a,f_{A\mid L}(1\mid L);\eta\}
 
 $$</div>
-<p>对所有 \(\eta\) 都不完全正确，\(\hat\psi\) 仍一致估计 \(E(Y^1)-E(Y^0)\)。但这个鲁棒性依赖 无暴露-混杂因素交互（no 暴露（exposure）-混杂因素（confounder） interaction） 和 恒等链接（identity link）；若使用 非线性链接（nonlinear link），例如 log 或 logit，且工作模型错设，则 \(\psi\) 以及标准化后的均值通常没有因果解释。</p>
+<p>对所有 \(\eta\) 都不完全正确，\(\hat\psi\) 仍一致估计 \(E(Y^1)-E(Y^0)\)。但这个鲁棒性依赖 无暴露-混杂因素交互（无暴露-混杂因素交互（no exposure-confounder interaction）） 和 恒等链接（identity link）；若使用 非线性链接（nonlinear link），例如 log 或 logit，且工作模型错设，则 \(\psi\) 以及标准化后的均值通常没有因果解释。</p>
 <p><strong>Matching</strong> 在课件中用被匹配的反事实结果表示：</p>
 <div class="math-block">$$
 \widehat{ATT}
@@ -8741,7 +8744,7 @@ $$</div>
 $$</div>
 <p>其中 \(\hat Y_{0i}\) 或 \(\hat Y_{1i}\) 来自匹配到的相似个体。ATT是已处理者（treated） 平均效应，ATNT是未处理者（untreated） 平均效应，ATE 是总体平均效应。</p>
 <h3 id="sec-010-14">10.14 双重稳健估计量（Doubly robust estimator）<a class="heading-link" href="#sec-010-14" aria-label="复制本节链接">#</a></h3>
-<p>对 \(\psi=E(Y^1)-E(Y^0)\)，课件给出 efficient influence function 形式：</p>
+<p>对 \(\psi=E(Y^1)-E(Y^0)\)，课件给出 有效影响函数（efficient influence function） 形式：</p>
 <div class="math-block">$$
 \begin{aligned}
 EIF(\psi)
@@ -8769,7 +8772,7 @@ $$</div>
 
 $$</div>
 <p>其中 \(P_n\) 表示样本平均。</p>
-<p>双重稳健的意思是：只要 倾向评分模型（倾向评分（propensity score） model） \(\hat f(A\mid L)\) 或 结局回归（outcome regression） \(\hat E(Y\mid A,L)\) 至少一个正确，估计仍一致。课件证明先看 \(\psi=E(Y^1)\)，\(Y^0\) 同理。定义极限模型 \(\tilde f,\tilde E\)：</p>
+<p>双重稳健的意思是：只要 倾向评分模型（propensity score model） \(\hat f(A\mid L)\) 或 结局回归（outcome regression） \(\hat E(Y\mid A,L)\) 至少一个正确，估计仍一致。课件证明先看 \(\psi=E(Y^1)\)，\(Y^0\) 同理。定义极限模型 \(\tilde f,\tilde E\)：</p>
 <div class="math-block">$$
 \tilde\psi_{DR}
 =
@@ -8850,14 +8853,14 @@ E\left[
 $$</div>
 <p>偏差是两个误差的乘积：倾向评分误差乘 结局回归（outcome regression） 误差。所以如果其中一个误差为 0，总偏差为 0；如果两个都小，乘积通常更小。</p>
 <h3 id="sec-010-15">10.15 G 估计（G-estimation）<a class="heading-link" href="#sec-010-15" aria-label="复制本节链接">#</a></h3>
-<p>G 估计（G-estimation） 从 blip function 表达个体或条件平均因果效应。课件写：</p>
+<p>G 估计（G-estimation） 从 blip 函数（blip function） 表达个体或条件平均因果效应。课件写：</p>
 <div class="math-block">$$
 \gamma_0(A,L)=Y^A-Y^0\quad \text{w.p. }1.
 
 $$</div>
-<p>\(\gamma_0(a,l)=0\) 编码 sharp null hypothesis：</p>
+<p>\(\gamma_0(a,l)=0\) 编码 尖锐零假设（尖锐零假设（sharp null） hypothesis）：</p>
 <div class="math-block">$$
-Y^a=Y^0\quad \text{for all }a.
+Y^a=Y^0\quad \text{对所有 }a\text{（for all }a\text{）}.
 
 $$</div>
 <p>由 consistency，</p>
@@ -8921,7 +8924,7 @@ $$</div>
 {P_n[A\{A-\hat\pi(L)\}]}.
 
 $$</div>
-<p>G 估计（G-estimation）是半参数方法（semiparametric approach）：在 倾向评分模型（倾向评分（propensity score） model） \(M_\pi\) 正确时，不需要建模 结局分布（outcome distribution） 就能估计 \(\psi_0\)。在 \(M_\pi\) 下，还可加入任意 \(t(L)\) 扩增项：</p>
+<p>G 估计（G-estimation）是半参数方法（semiparametric approach）：在 倾向评分模型（propensity score model） \(M_\pi\) 正确时，不需要建模 结局分布（outcome distribution） 就能估计 \(\psi_0\)。在 \(M_\pi\) 下，还可加入任意 \(t(L)\) 扩增项：</p>
 <div class="math-block">$$
 P_n[H(\hat\psi_g)\{A-\hat\pi(L)\}m(L)]
 +P_n[t(L)\{A-\hat\pi(L)\}]=0.
@@ -8972,12 +8975,12 @@ Y=\psi_0 A+(1,L^\prime)\eta+\epsilon,
 
 $$</div>
 <p>这就是 结局回归（outcome regression） estimation。</p>
-<p>最后，rank preserving model</p>
+<p>最后，秩保持模型（rank-preserving model）</p>
 <div class="math-block">$$
 Y^0=Y^A-\gamma_0(A,L)\quad \text{w.p. }1
 
 $$</div>
-<p>在健康科学中通常不现实，因为它排除了未观测预测因子与治疗交互的存在，例如未知基因因素与治疗反应交互。课件说明 估计方程（estimating equation） 方法仍可在 population mean scale 下使用：</p>
+<p>在健康科学中通常不现实，因为它排除了未观测预测因子与治疗交互的存在，例如未知基因因素与治疗反应交互。课件说明 估计方程（estimating equation） 方法仍可在 总体均值尺度（population mean scale） 下使用：</p>
 <div class="math-block">$$
 \gamma_0(a,l)=E(Y^a-Y^0\mid L=l).
 
@@ -8986,7 +8989,7 @@ $$</div>
 <h3 id="sec-010-16">10.16 因果图（Causal diagrams）与 DAG 基础<a class="heading-link" href="#sec-010-16" aria-label="复制本节链接">#</a></h3>
 <p>课件用 Greenland et al. (1999) 的假想研究说明 因果图（causal diagrams）：研究小学一年级儿童抗组胺治疗（antihistamine treatment） 与哮喘发生（asthma incidence） 的关系。变量为：</p>
 <ul>
-<li>\(A\)：空气污染水平（air pollution level）。</li>
+<li>\(A\)：空气污染水平（空气污染（air pollution） level）。</li>
 <li>\(B\)：性别（sex）。</li>
 <li>\(C\)：支气管反应性（bronchial reactivity）。</li>
 <li>\(D\)：哮喘（asthma）。</li>
@@ -8995,21 +8998,21 @@ $$</div>
 <p>背景知识：</p>
 <ol>
 <li>污染与性别独立（Pollution independent of sex），即 \(A\) 与 \(B\) 独立。</li>
-<li>Sex 只通过支气管反应性（bronchial reactivity） 影响抗组胺药使用（antihistamine administration），但会直接影响哮喘风险（asthma risk）。</li>
-<li>Industrial air pollution 只通过 antihistamine use 和支气管反应性（bronchial reactivity） 导致哮喘发作（asthma attacks）。</li>
-<li>除 sex、支气管反应性（bronchial reactivity）、air pollution 外，没有其他重要混杂因素。</li>
+<li>性别（Sex）只通过支气管反应性（bronchial reactivity） 影响抗组胺药使用（antihistamine administration），但会直接影响哮喘风险（asthma risk）。</li>
+<li>工业空气污染（Industrial 空气污染（air pollution））只通过抗组胺药使用（antihistamine use） 和支气管反应性（bronchial reactivity） 导致哮喘发作（asthma attacks）。</li>
+<li>除性别（sex）、支气管反应性（bronchial reactivity）、空气污染（air pollution） 外，没有其他重要混杂因素。</li>
 </ol>
 <p>对应 DAG 的箭头关系是：</p>
 <div class="math-block">$$
 A\to C,\quad A\to E,\quad B\to C,\quad B\to D,\quad C\to E,\quad C\to D,\quad E\to D.
 
 $$</div>
-<p>图中的 点（points）是顶点/节点（vertices/nodes），连接变量的线或箭头是 弧/边（arcs/edges）。箭头表示从 cause 到 effect的直接连接（direct link），且不被其他变量中介。例如 \(A\to C\) 表示 \(A\) 对 \(C\) 的直接效应。</p>
-<p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial air pollution） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
-<p>路径（path） 是连接变量的路径。一个节点若位于路径内部，称为 intercept the 路径（path）。例如 \(C\) 截住 \(A-C-D\) 和 \(E-C-D\) 这两条路径。</p>
-<p>若存在从 \(X\) 出发到 \(Y\)的有向路径（directed path），则 \(X\)是\(Y\)的祖先节点/原因（ancestor/cause），\(Y\)是\(X\)的后代节点/结果（descendant/effect）。上图中 \(A,B,C\)是\(E,D\)的祖先节点（ancestors），而 \(E,D\)是\(A,B,C\)的后代节点（descendants）。</p>
+<p>图中的 点（points）是顶点/节点（vertices/nodes），连接变量的线或箭头是 弧/边（arcs/edges）。箭头表示从 cause 到 结果（effect）的直接连接（direct link），且不被其他变量中介。例如 \(A\to C\) 表示 \(A\) 对 \(C\) 的直接效应。</p>
+<p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial 空气污染（air pollution）） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
+<p>路径（path） 是连接变量的路径。一个节点若位于路径内部，称为截住路径（intercept the path）。例如 \(C\) 截住 \(A-C-D\) 和 \(E-C-D\) 这两条路径。</p>
+<p>若存在从 \(X\) 出发到 \(Y\)的有向路径（directed path），则 \(X\)是\(Y\)的祖先节点/原因（ancestor/cause），\(Y\)是\(X\)的后代节点/结果（后代节点（descendant）/effect）。上图中 \(A,B,C\)是\(E,D\)的祖先节点（ancestors），而 \(E,D\)是\(A,B,C\)的后代节点（descendants）。</p>
 <p>若有单箭头 \(X\to Y\)，则 \(X\)是\(Y\)的父节点（parent），\(Y\)是\(X\)的子节点（child）。例如 \(A,C\)是\(E\)的父节点（parents）；\(C,E\)是\(A\)的子节点（children） 这句话在课件上下文中应理解为图中列举父节点（parent）/子节点（child） 关系，具体按箭头方向判定。</p>
-<h3 id="sec-010-17">10.17 后门路径（backdoor paths）、碰撞点（colliders）与被阻断路径（blocked paths）<a class="heading-link" href="#sec-010-17" aria-label="复制本节链接">#</a></h3>
+<h3 id="sec-010-17">10.17 后门路径、碰撞点与被阻断路径（backdoor paths, colliders, blocked paths）<a class="heading-link" href="#sec-010-17" aria-label="复制本节链接">#</a></h3>
 <p>从 \(X\) 到 \(Y\)的路径（path） 若有箭头指向 \(X\)，称为 后门路径（backdoor path）。对研究 \(E\) 对 \(D\) 的效应而言，除了直接路径 \(E\to D\) 以外，图中所有从 \(E\) 到 \(D\) 的路径都是 后门路径（backdoor paths）。</p>
 <p>碰撞点（collider） 的定义：若路径进入和离开某变量 \(X\) 时都通过 箭头端（arrowhead） 指向 \(X\)，则路径在 \(X\) 处 碰撞（collide），\(X\)是碰撞点（collider）。例如路径</p>
 <div class="math-block">$$
@@ -9021,7 +9024,7 @@ $$</div>
 E-A-C-D
 
 $$</div>
-<p>没有 碰撞点（collider），因此是 unblocked 后门路径（backdoor path）。</p>
+<p>没有碰撞点（collider），因此是未阻断的后门路径（unblocked backdoor path）。</p>
 <p>有向（Directed） 无环（Acyclic） Graph (DAG) 的含义：</p>
 <ul>
 <li>有向（Directed）：所有弧（arcs）都是箭头（arrows）；有向路径（directed path） 对应 因果路径（causal path）。</li>
@@ -9031,12 +9034,12 @@ $$</div>
 <p>不需要把所有变量都放进 DAG；不关心且不是共同原因的变量可以不包括。</p>
 <h3 id="sec-010-18">10.18 DAG 的统计含义与 Markov 分解（Markov factorization）<a class="heading-link" href="#sec-010-18" aria-label="复制本节链接">#</a></h3>
 <p>DAG 是非参数的：它不对图上变量的联合分布施加函数形式限制。一个 cause 要产生 effect，图上必须存在从 cause 到 effect的有向路径（directed path）。例如 \(A\) 与 \(B\) 间没有 有向路径（directed path），意味着 \(A\) 对 \(B\) 没有因果效应，也没有 \(A\) 通过 \(B\) 对 \(D\) 的效应。</p>
-<p>DAG 也编码 关联（关联（association）s）：若两个变量之间没有 unblocked path，则它们统计独立。例如图中 \(A\) 与 \(B\) 边际独立（marginally independent）。一般地，两个变量统计相关只有两类原因：</p>
+<p>DAG 也编码关联（associations）：若两个变量之间没有 未阻断路径（unblocked path），则它们统计独立。例如图中 \(A\) 与 \(B\) 边际独立（marginally independent）。一般地，两个变量统计相关只有两类原因：</p>
 <ul>
 <li>它们共享共同原因。</li>
 <li>一个变量导致另一个变量。</li>
 </ul>
-<p>在上述 DAG 中，observed data pdf 因 Markov 分解（Markov factorization） 分解为</p>
+<p>在上述 DAG 中，观测数据密度（observed data pdf） 因 Markov 分解（Markov factorization） 分解为</p>
 <div class="math-block">$$
 f(A,E,C,B,D)
 =f(D\mid B,C,E)f(C\mid A,B)f(E\mid A,C)f(A)f(B).
@@ -9051,7 +9054,7 @@ $$</div>
 <p>其中 \(pa(V)\)是\(V\)的父节点（parents）。直观上，每个变量在给定父节点（parents） 后，独立于非父母祖先。</p>
 <p>DAG 中只有两类未阻断路径（unblocked paths）：</p>
 <ol>
-<li>有向路径（directed path）：关联（association）至少部分是因果性的（causal），结果是原因的后代节点（effect is a descendant of the cause）。</li>
+<li>有向路径（directed path）：关联（association）至少部分是因果性的（causal），结果是原因的后代节点（effect is a 后代节点（descendant） of the cause）。</li>
 <li>后门路径（backdoor path）通过共同祖先（through a shared ancestor）：关联（association） 至少部分是被混杂（confounded）。</li>
 </ol>
 <p>对 \(E\) 与 \(D\)，两类情况可以同时存在：\(E\to D\)是有向路径（directed path），而 \(E\leftarrow A\to C\to D\) 等是 后门路径（backdoor paths）。</p>
@@ -9062,11 +9065,11 @@ $$</div>
 <p>在 DAG 中检查的方法：</p>
 <ol>
 <li>删除所有 暴露（exposure） effects，即删掉从 暴露（exposure） 发出的箭头。</li>
-<li>在新图中检查 暴露（exposure） 到 disease 是否仍有 unblocked path。</li>
+<li>在新图中检查 暴露（exposure） 到疾病（disease）是否仍有 未阻断路径（unblocked path）。</li>
 </ol>
-<p>这个算法问的是：在 \(E\) 对 \(D\) 没有因果效应的 null 情况下，\(E\) 与 \(D\) 是否仍共享共同祖先而相关？疾病（disease）的后果在这个算法中不起作用，因为通过 disease后代节点（descendants） 的路径会经过 碰撞点（collider），因此被阻断。</p>
+<p>这个算法问的是：在 \(E\) 对 \(D\) 没有因果效应的零假设（null）情况下，\(E\) 与 \(D\) 是否仍共享共同祖先而相关？疾病（disease）的后果在这个算法中不起作用，因为通过疾病（disease）的后代节点（descendants） 的路径会经过 碰撞点（collider），因此被阻断。</p>
 <p>应用到抗组胺药 DAG，\(A,C,B\) 都是 potential 混杂因素（confounders）。自然问题是如何 控制混杂（control confounding） 来评估 \(E\) 对 \(D\) 的效应。</p>
-<p>若只 条件化于（condition on） \(A\)，可以阻断 \(E-A-C-D\)，但 \(E-C-D\) 和 \(E-C-B-D\) 仍 unblocked。若只 条件化于（condition on） \(B\)，可以阻断 \(E-C-B-D\)，但 \(E-C-D\) 和 \(E-A-C-D\) 仍 unblocked。</p>
+<p>若只 条件化于（condition on） \(A\)，可以阻断 \(E-A-C-D\)，但 \(E-C-D\) 和 \(E-C-B-D\) 仍未阻断（unblocked）。若只 条件化于（condition on） \(B\)，可以阻断 \(E-C-B-D\)，但 \(E-C-D\) 和 \(E-A-C-D\) 仍未阻断（unblocked）。</p>
 <p>若只 条件化于（condition on） \(C\)，看起来会阻断 \(E-A-C-D\)、\(E-C-B-D\)、\(E-C-D\)，于是传统逻辑会说调整 \(C\) 后 \(A,B\) 不再是 混杂因素（confounders）。</p>
 <p>但课件给出数值例子说明这可能错误。考虑：</p>
 <div class="table-wrap"><table>
@@ -9090,28 +9093,28 @@ $$</div>
 \Pr(C=1\mid A,B=1)-\Pr(C=1\mid A,B=0)=0.2,
 
 $$</div>
-<p>这与 \(A\to C\leftarrow B\)的DAG 一致。然而在 \(C\)的strata 内，\(A\)-\(B\)的conditional odds ratio 不是 1，而是 \(2/3\)。也就是说，条件化于（conditioning on） \(C\) 会让原本边际独立的 \(A\) 与 \(B\) 产生关联。</p>
-<p>这是 碰撞点（collider）/selection bias 的基本规则：如果 \(C\)是\(A\) 和 \(B\) 的共同结果，则在 \(C\) 的水平内，\(A\) 与 \(B\) 的关联通常不同于边际关联。</p>
-<p>回到原 DAG，条件化于（conditioning on） \(C\) 会创造从 \(E\) 到 \(D\)的unblocked 后门路径（backdoor path）：\(A\) 与 \(B\)在\(C\) 层内的关联会使 \(A\) 通过 \(B\) 间接关联到 \(D\)。因此只调整 \(A\)、只调整 \(B\)、或只调整 \(C\) 都不足以控制混杂；调整 \(\{A,C\}\) 或 \(\{B,C\}\) 是充分的。</p>
+<p>这与 \(A\to C\leftarrow B\)的DAG 一致。然而在 \(C\)的分层（strata）内，\(A\)-\(B\)的条件优势比（conditional odds ratio） 不是 1，而是 \(2/3\)。也就是说，条件化于（conditioning on） \(C\) 会让原本边际独立的 \(A\) 与 \(B\) 产生关联。</p>
+<p>这是 碰撞点（collider）/选择偏倚（selection bias） 的基本规则：如果 \(C\)是\(A\) 和 \(B\) 的共同结果，则在 \(C\) 的水平内，\(A\) 与 \(B\) 的关联通常不同于边际关联。</p>
+<p>回到原 DAG，条件化于（conditioning on） \(C\) 会创造从 \(E\) 到 \(D\) 的未阻断后门路径（unblocked backdoor path）：\(A\) 与 \(B\)在\(C\) 层内的关联会使 \(A\) 通过 \(B\) 间接关联到 \(D\)。因此只调整 \(A\)、只调整 \(B\)、或只调整 \(C\) 都不足以控制混杂；调整 \(\{A,C\}\) 或 \(\{B,C\}\) 是充分的。</p>
 <p>课件还给出一个“传统经验（conventional wisdom） 会出错”的例子：图中唯一 后门路径（backdoor path）</p>
 <div class="math-block">$$
 E-A-C-B-D
 
 $$</div>
-<p>被 \(C\) 这个 碰撞点（collider） 阻断，所以按因果 DAG（causal DAG） 没有混杂。但传统经验可能发现 \(C\) 与 \(E\) 相关，且给定 \(E\) 后 \(C\) 与 \(D\) 相关，于是误把 \(C\) 当成混杂因素（confounder） 来调整，反而打开 碰撞路径（碰撞点（collider） 路径（path））。</p>
+<p>被 \(C\) 这个 碰撞点（collider） 阻断，所以按因果 DAG（causal DAG） 没有混杂。但传统经验可能发现 \(C\) 与 \(E\) 相关，且给定 \(E\) 后 \(C\) 与 \(D\) 相关，于是误把 \(C\) 当成混杂因素（confounder） 来调整，反而打开 碰撞点路径（collider path）。</p>
 <h3 id="sec-010-20">10.20 d 分离（d-separation）与后门路径准则（backdoor path criterion）<a class="heading-link" href="#sec-010-20" aria-label="复制本节链接">#</a></h3>
-<p>d 分离（d-separation）是DAG 上判断“路径是否被给定变量集合阻断”的形式规则。定义：在 DAG \(G\) 中，节点 \(A\) 与 \(Y\) 之间的一条 路径迹（trail） 被与 \(\{A,Y\}\) 不相交的节点集合 \(B\) d-sepa速率（rate）d 或 blocked，当且仅当：</p>
+<p>d 分离（d-separation）是DAG 上判断“路径是否被给定变量集合阻断”的形式规则。定义：在 DAG \(G\) 中，节点 \(A\) 与 \(Y\) 之间的一条 路径迹（trail） 被与 \(\{A,Y\}\) 不相交的节点集合 \(B\) d 分离（d-separated）或被阻断（blocked），当且仅当：</p>
 <ol>
-<li>路径迹（trail） 包含一个 碰撞点（collider），且该 碰撞点（collider） 及其任一 descendant 都不在 \(B\) 中；或</li>
+<li>路径迹（trail） 包含一个 碰撞点（collider），且该 碰撞点（collider） 及其任一 后代节点（descendant） 都不在 \(B\) 中；或</li>
 <li>路径迹（trail） 包含 chain 或 fork，且其顶点在 \(B\) 中。</li>
 </ol>
-<p>节点 \(A\) 与节点 \(Y\) 被 \(B\) d-sepa速率（rate）d，是指 \(A\) 与 \(Y\) 之间所有 路径迹（trail）s 都被 \(B\) d-sepa速率（rate）d。若 \(A,Y\) 本身是节点集合，则要求 \(B\) 阻断 \(A\) 中每个节点与 \(Y\) 中每个节点之间的所有 路径迹（trail）s。</p>
+<p>节点 \(A\) 与节点 \(Y\) 被 \(B\) d 分离（d-separated），是指 \(A\) 与 \(Y\) 之间所有 路径迹（trails） 都被 \(B\) d 分离（d-separated）。若 \(A,Y\) 本身是节点集合，则要求 \(B\) 阻断 \(A\) 中每个节点与 \(Y\) 中每个节点之间的所有 路径迹（trails）。</p>
 <p>直观规则：</p>
 <ul>
-<li>所有从 \(A\) 到 \(Y\)的unblocked path 都要被 \(B\) 中某个变量截住。</li>
-<li>若调整 \(B\) 会打开某些 碰撞路径（碰撞点（collider） 路径（path）），那么这些新打开的路径也必须被 \(B\) 中变量截住。</li>
+<li>所有从 \(A\) 到 \(Y\)的未阻断路径（unblocked path） 都要被 \(B\) 中某个变量截住。</li>
+<li>若调整 \(B\) 会打开某些 碰撞点路径（collider path），那么这些新打开的路径也必须被 \(B\) 中变量截住。</li>
 </ul>
-<p>没有被 d-sepa速率（rate）d 的节点称为 unblocked 或 d 连通（d-connected）。d 分离（d-separation） 中的 \(d\) 表示 DAG 中的 separation。记号</p>
+<p>没有被 d 分离（d-separated）的节点称为未阻断（unblocked）或 d 连通（d-connected）。d 分离（d-separation） 中的 \(d\) 表示 DAG 中的 separation。记号</p>
 <div class="math-block">$$
 (A\perp Y\mid B)_G
 
@@ -9125,29 +9128,29 @@ $$</div>
 <p>课件第 73 页的四个小图说明：</p>
 <ul>
 <li>空集下红色路径 \(A-Q-B-Y\)是d 连通（d-connected） 路径（path），因此 \(A\) 与 \(Y\)在DAG 中 d 连通（d-connected）。</li>
-<li>空集下蓝色路径因 碰撞点（collider） 结构被 d-sepa速率（rate）d。</li>
+<li>空集下蓝色路径因 碰撞点（collider） 结构被 d 分离（d-separated）。</li>
 <li>给定 \(\{Q\}\) 后，原本经过 \(Q\)的chain/fork 路径可被阻断。</li>
-<li>给定 \(\{Q\}\) 后，也可能打开涉及 \(Q\) 或其 descendant的碰撞点（collider） 路径，使 \(A\) 与 \(Y\) 重新 d 连通（d-connected）。</li>
+<li>给定 \(\{Q\}\) 后，也可能打开涉及 \(Q\) 或其 后代节点（descendant）的碰撞点（collider） 路径，使 \(A\) 与 \(Y\) 重新 d 连通（d-connected）。</li>
 </ul>
-<p>Backdoor 路径（path） criterion：在给定 DAG 下，一个变量集合 \(S\) 足以控制 confounding，如果：</p>
+<p>后门路径准则（backdoor path criterion）：在给定 DAG 下，一个变量集合 \(S\) 足以控制混杂（confounding），如果：</p>
 <ol>
 <li>\(S\) 不包含 暴露（exposure） \(E\)的后代节点（descendants）；</li>
-<li>在删除所有从 \(E\) 发出的箭头后的图中，\(S\) d-sepa速率（rate）s \(E\) 和 \(D\)。</li>
+<li>在删除所有从 \(E\) 发出的箭头后的图中，\(S\) d 分离（d-separates） \(E\) 和 \(D\)。</li>
 </ol>
-<p>在抗组胺药-哮喘例子中，backdoor criterion 给出</p>
+<p>在抗组胺药-哮喘例子中，后门准则（backdoor criterion） 给出</p>
 <div class="math-block">$$
 S=\{A,C\}\quad \text{或}\quad S=\{B,C\}.
 
 $$</div>
 <h3 id="sec-010-21">10.21 课件末尾 DAG 练习图与数值例子<a class="heading-link" href="#sec-010-21" aria-label="复制本节链接">#</a></h3>
-<p>课件最后几页给出一些 DAG 示例，重点是判断 \(Z\)是混杂因素（confounder）、中介变量（mediator）、碰撞点（collider）、descendant，还是只是预测变量。</p>
+<p>课件最后几页给出一些 DAG 示例，重点是判断 \(Z\)是混杂因素（confounder）、中介变量（mediator）、碰撞点（collider）、后代节点（descendant），还是只是预测变量。</p>
 <ol>
-<li>图 \(A\to M\to Y\)，且 \(M\to Z\)。这里 \(M\)是\(A\) 到 \(Y\)的中介变量（mediator），\(Z\)是中介变量（mediator）的descendant。若目标是 总效应（total effect） of \(A\) on \(Y\)，通常不应调整 中介变量（mediator） 或其后代。</li>
+<li>图 \(A\to M\to Y\)，且 \(M\to Z\)。这里 \(M\)是\(A\) 到 \(Y\)的中介变量（mediator），\(Z\)是中介变量（mediator）的后代节点（descendant）。若目标是 \(A\) 对 \(Y\) 的总效应（total effect of A on Y），通常不应调整 中介变量（mediator） 或其后代。</li>
 <li>图 \(A\to M\to Y\)，且 \(Z\to M\)。\(Z\)是中介变量（mediator） 的原因；是否调整取决于它是否也构成 \(A-Y\) 后门路径（backdoor path） 的一部分。</li>
 <li>图 \(Z\to A\to Y\)。若 \(Z\) 只影响 \(A\) 不影响 \(Y\)，它不是混杂因子；但它可能提高处理模型的预测。</li>
-<li>图 \(A\to Y\)，且 \(A\to Z\)。\(Z\)是treatment的descendant；按 backdoor criterion 不应作为控制混杂的集合成员。</li>
-<li>图 \(A\to Y\)，且 \(Z\to Y\)。\(Z\)是outcome 的原因；若不影响 \(A\)，不是混杂因子，但可在随机试验或 结局回归（outcome regression） 中提高效率。</li>
-<li>图 \(A\to Y\to Z\)。\(Z\)是outcome的descendant；通常不用于控制 \(A\) 对 \(Y\) 的混杂。</li>
+<li>图 \(A\to Y\)，且 \(A\to Z\)。\(Z\)是处理（treatment）的后代节点（descendant）；按 后门准则（backdoor criterion） 不应作为控制混杂的集合成员。</li>
+<li>图 \(A\to Y\)，且 \(Z\to Y\)。\(Z\)是结局（outcome）的原因；若不影响 \(A\)，不是混杂因子，但可在随机试验或 结局回归（outcome regression） 中提高效率。</li>
+<li>图 \(A\to Y\to Z\)。\(Z\)是outcome的后代节点（descendant）；通常不用于控制 \(A\) 对 \(Y\) 的混杂。</li>
 </ol>
 <p>最后一页是一个中文表格，展示按 sex 分层与总体合并会得到相反方向的比较：</p>
 <div class="table-wrap"><table>
@@ -9185,7 +9188,7 @@ $$</div>
 <p>ESL-CN 不系统覆盖 纵向因果推断（longitudinal causal inference）、MSM、SNM、序贯随机化（sequential randomization） 或 时间变化处理的逆概率加权（inverse probability weighting for 时间变化处理（time-varying treatment）s）。这些是因果推断专门内容，不属于 ESL 的主线。可作为背景阅读的是：</p>
 <ul>
 <li><a href="https://esl.hohoweiya.xyz/02-Overview-of-Supervised-Learning/2.1-Introduction/index.html">ESL-CN 2.1 Introduction</a>：帮助区分“预测 \(Y\)”与“比较不同动态处理历史 \(\bar a\) 下的 \(Y^{\bar a}\)”。</li>
-<li><a href="https://esl.hohoweiya.xyz/03-Linear-Methods-for-Regression/3.2-Linear-Regression-Models-and-Least-Squares/index.html">ESL-CN 3.2 Linear Regression Models and Least Squares</a>：本讲中的 linear 结局模型（outcome model）、加权最小二乘（weighted least squares）、恒等链接（identity link） 下的 SMM/SNM 估计都需要线性回归背景。</li>
+<li><a href="https://esl.hohoweiya.xyz/03-Linear-Methods-for-Regression/3.2-Linear-Regression-Models-and-Least-Squares/index.html">ESL-CN 3.2 Linear Regression Models and Least Squares</a>：本讲中的 线性结局模型（linear outcome model）、加权最小二乘（weighted least squares）、恒等链接（identity link） 下的 SMM/SNM 估计都需要线性回归背景。</li>
 <li><a href="https://esl.hohoweiya.xyz/04-Linear-Methods-for-Classification/4.4-Logistic-Regression/index.html">ESL-CN 4.4 逻辑回归（Logistic Regression）</a>：本讲 IPTW 流程（IPTW procedure） 中要用 逻辑回归模型（logistic regressions） 估计 \(f(A_0\mid L_0)\)、\(f(A_1\mid L_1,A_0,L_0)\)。</li>
 <li><a href="https://esl.hohoweiya.xyz/07-Model-Assessment-and-Selection/7.10-Cross-Validation/index.html">ESL-CN 7.10 Cross-Validation</a>：当处理模型、删失模型、结局模型（outcome model）需要用机器学习估计时，泛化误差和过拟合仍重要；但因果识别假设不能由预测精度自动保证。</li>
 </ul>
@@ -9197,7 +9200,7 @@ $$</div>
 <li>结构嵌套模型（Structural Nested Model）s，简称 SNM。</li>
 <li>MSM 与 SNM 对比（MSM vs. SNM）。</li>
 </ol>
-<p>设研究终点在 \(K+1\) 时刻测量连续结果 \(Y\)，处理是 time-varying dichotomous treatment。记号如下：</p>
+<p>设研究终点在 \(K+1\) 时刻测量连续结果 \(Y\)，处理是 时间变化二元处理（time-varying dichotomous treatment）。记号如下：</p>
 <div class="math-block">$$
 \bar A=\bar A_K,\qquad \bar A_k=(A_0,A_1,\ldots,A_k),
 
@@ -9209,20 +9212,20 @@ $$</div>
 <p>\(\bar A_k\) 是截至 \(k\) 时刻的处理历史，\(\bar L_k\) 是截至 \(k\) 时刻的协变量历史。纵向因果推断困难在于：\(L_k\) 既可能是过去处理的结果，又可能是未来处理和最终结果的共同原因。普通“把所有 \(L_k\) 放进回归”的方法可能会调整掉中介路径，或者引入选择偏差。</p>
 <h3 id="sec-011-03">11.3 纵向识别假设<a class="heading-link" href="#sec-011-03" aria-label="复制本节链接">#</a></h3>
 <p>本讲使用三个识别假设。</p>
-<p><strong>Consistency</strong>：如果实际处理历史等于某条处理路径 \(\bar a\)，则观测结果等于该路径下的潜在结果：</p>
+<p><strong>一致性（Consistency）</strong>：如果实际处理历史等于某条处理路径 \(\bar a\)，则观测结果等于该路径下的潜在结果：</p>
 <div class="math-block">$$
 \bar A=\bar a \quad\Longrightarrow\quad Y=Y^{\bar a}.
 
 $$</div>
-<p><strong>Sequential randomization</strong>：在每个时间点，给定过去处理历史和当前协变量历史后，当期处理像随机分配一样，与未来潜在结果无关：</p>
+<p><strong>序贯随机化（Sequential randomization）</strong>：在每个时间点，给定过去处理历史和当前协变量历史后，当期处理像随机分配一样，与未来潜在结果无关：</p>
 <div class="math-block">$$
 Y^{\bar a}\perp A_k
 \mid
 \bar A_{k-1}=\bar a_{k-1},\bar L_k,
 
 $$</div>
-<p>对所有可能的 \(\bar a\) 都成立。它也叫 sequential exchangeability 或 no unmeasured time-varying confounding。</p>
-<p><strong>Positivity</strong>：若某个历史 \((\bar a_{k-1},\bar l_k)\) 在数据中有正概率出现，则每个当期处理值 \(a_k\) 也必须有正概率：</p>
+<p>对所有可能的 \(\bar a\) 都成立。它也叫 序贯可交换性（sequential exchangeability），也叫无未测时间变化混杂（no unmeasured time-varying confounding）。</p>
+<p><strong>正值性（Positivity）</strong>：若某个历史 \((\bar a_{k-1},\bar l_k)\) 在数据中有正概率出现，则每个当期处理值 \(a_k\) 也必须有正概率：</p>
 <div class="math-block">$$
 f_{\bar A_{k-1},\bar L_k}(\bar a_{k-1},\bar l_k)\ne 0
 \quad\Longrightarrow\quad
@@ -9243,7 +9246,7 @@ E(Y\mid \bar A=\bar a,\bar L=\bar l)
 f(l_k\mid \bar A_{k-1}=\bar a_{k-1},\bar L_{k-1}=\bar l_{k-1}).
 
 $$</div>
-<p>当 \(L_t\) 连续时，上式的求和换成积分。这里 \(k=0\) 的历史为空，因而第一项就是 baseline covariate distribution \(f(l_0)\)。</p>
+<p>当 \(L_t\) 连续时，上式的求和换成积分。这里 \(k=0\) 的历史为空，因而第一项就是 基线协变量分布（baseline covariate distribution） \(f(l_0)\)。</p>
 <p>两阶段例子的证明如下：</p>
 <div class="math-block">$$
 \begin{aligned}
@@ -9257,9 +9260,9 @@ E(Y^{a_0,a_1})
 \end{aligned}
 
 $$</div>
-<p>第一步用全期望公式；第二步用 序贯随机化（sequential randomization）；第三步展开 \(L_1\)；最后一步用 consistency。纵向 g 公式（g-formula） 的思想与第十讲单时间点版本一致，只是现在每个时间点的协变量分布都要按过去干预历史递推。</p>
+<p>第一步用全期望公式；第二步用 序贯随机化（sequential randomization）；第三步展开 \(L_1\)；最后一步用一致性（consistency）。纵向 g 公式（g-formula） 的思想与第十讲单时间点版本一致，只是现在每个时间点的协变量分布都要按过去干预历史递推。</p>
 <h3 id="sec-011-05">11.5 零效应悖论（Null paradox）<a class="heading-link" href="#sec-011-05" aria-label="复制本节链接">#</a></h3>
-<p>课件指出，直接给 g 公式（g-formula） 的所有组成部分建标准参数模型会遇到 null paradox：在标准参数化下，模型中没有一个单独参数能编码“\((a_0,a_1)\) 无 joint effect”的原假设。</p>
+<p>课件指出，直接给 g 公式（g-formula） 的所有组成部分建标准参数模型会遇到零效应悖论（null paradox）：在标准参数化下，模型中没有一个单独参数能编码“\((a_0,a_1)\) 无联合效应（joint effect）”的原假设。</p>
 <p>考虑图中 \(L_1\) 为二元变量、\(Y\) 为连续变量。g 公式（g-formula） 为</p>
 <div class="math-block">$$
 E(Y^{a_0,a_1})
@@ -9288,7 +9291,7 @@ $$</div>
 \alpha=(\alpha_0,\alpha_1)^\top.
 
 $$</div>
-<p>于是 counterfactual mean 为</p>
+<p>于是反事实均值（counterfactual mean）为</p>
 <div class="math-block">$$
 \begin{aligned}
 E(Y^{a_0,a_1})
@@ -9319,7 +9322,7 @@ $$</div>
 \gamma_3\ne0,\qquad \alpha_1\ne0.
 
 $$</div>
-<p>因为 \(L_1\) 影响 \(Y\)，且 \(A_0\) 影响 \(L_1\)。所以“没有 联合因果效应（joint causal effect）”不是某个简单回归系数等于 0，而是 结局模型（outcome model） 与 协变量过程模型（covariate process model） 的跨模型限制。这就是 null paradox 的核心。</p>
+<p>因为 \(L_1\) 影响 \(Y\)，且 \(A_0\) 影响 \(L_1\)。所以“没有 联合因果效应（joint causal effect）”不是某个简单回归系数等于 0，而是 结局模型（outcome model） 与 协变量过程模型（covariate process model） 的跨模型限制。这就是零效应悖论（null paradox）的核心。</p>
 <h3 id="sec-011-06">11.6 边际结构模型（Marginal structural models）<a class="heading-link" href="#sec-011-06" aria-label="复制本节链接">#</a></h3>
 <p>MSM 的替代思路是：不直接给 g 公式（g-formula） 的每个条件分布建完整模型，而是直接给边际干预均值</p>
 <div class="math-block">$$
@@ -9341,7 +9344,7 @@ $$</div>
 E(Y^{a_0,a_1};\psi)=\psi_0+\psi_1a_1.
 
 $$</div>
-<p>这里 \(\psi\) 有直接因果解释，因为它是 Marginal 结构均值模型（Structural Mean Model） 的参数。</p>
+<p>这里 \(\psi\) 有直接因果解释，因为它是 边际结构模型（Marginal Structural Model） 的参数。</p>
 <p>MSM 关注所有可能处理路径 \(\bar a\) 下的</p>
 <div class="math-block">$$
 E(Y^{\bar A=\bar a}).
@@ -9364,7 +9367,7 @@ $$</div>
 $$</div>
 <p>MSM 的优势是把 因果零假设（causal null） 写成参数限制，而不是隐藏在多个 辅助模型（nuisance models） 的组合里。</p>
 <h3 id="sec-011-07">11.7 均值 MSM（Mean MSMs）与 IPTW 估计方程（estimating equation）<a class="heading-link" href="#sec-011-07" aria-label="复制本节链接">#</a></h3>
-<p>对 mean MSM</p>
+<p>对 均值 MSM（mean MSM）</p>
 <div class="math-block">$$
 E(Y^{\bar a})=\mu_\psi(\bar a),
 
@@ -9388,15 +9391,15 @@ f^\star(A_k\mid \bar A_{k-1})
 }.
 
 $$</div>
-<p>这里 \(f^\star\) 表示目标 pseudo-population 中的处理分配机制。因为 估计方程（estimating equation） 中是除以 \(W\)，所以实际加权因子是 \(W^{-1}\)。</p>
-<p>IPTW 给出 \(E(Y^{\bar a})\) 的估计方式：在 subset \((\bar A=\bar a)\) 中，对 \(Y\) 做 pseudo-population 平均。课件写出 subject-specific weights：</p>
+<p>这里 \(f^\star\) 表示目标伪总体（pseudo-population） 中的处理分配机制。因为 估计方程（estimating equation） 中是除以 \(W\)，所以实际加权因子是 \(W^{-1}\)。</p>
+<p>IPTW 给出 \(E(Y^{\bar a})\) 的估计方式：在子集（subset）\((\bar A=\bar a)\) 中，对 \(Y\) 做伪总体（pseudo-population）平均。课件写出 个体特异权重（subject-specific weights）：</p>
 <div class="math-block">$$
 W=
 \prod_{k=0}^{K}
 f(A_k\mid \bar A_{k-1},\bar L_k),
 
 $$</div>
-<p>或 stabilized weights：</p>
+<p>或 稳定化权重（stabilized weights）：</p>
 <div class="math-block">$$
 SW=
 \prod_{k=0}^{K}
@@ -9408,24 +9411,24 @@ f^\star(A_k\mid \bar A_{k-1})
 
 $$</div>
 <p>与上一页一致，通常进入估计时使用 \(W^{-1}\) 或 \(SW^{-1}\)。直观上，某人的实际处理路径越“不容易”在其历史下发生，这个人在代表同类历史下本应走该路径的人时权重越大。</p>
-<p>IPTW 创建 pseudo-population，其中：</p>
+<p>IPTW 创建伪总体（pseudo-population），其中：</p>
 <ul>
 <li>\(Y^{\bar a}\) 的均值与真实总体中的均值相同；</li>
 <li>每个时间点的处理最多只依赖过去处理历史，而不依赖当前协变量历史。</li>
 </ul>
-<p>例如非稳定化 pseudo-population 中</p>
+<p>例如非稳定化伪总体（pseudo-population）中</p>
 <div class="math-block">$$
 P_{ps}(A_k=1\mid \bar A_{k-1},\bar L_k)=\frac12,
 
 $$</div>
-<p>而 stabilized pseudo-population 中</p>
+<p>而稳定化伪总体（stabilized pseudo-population）中</p>
 <div class="math-block">$$
 P_{ps}(A_k=1\mid \bar A_{k-1},\bar L_k)
 =
 P(A_k=1\mid \bar A_{k-1}).
 
 $$</div>
-<p>因此真实总体中的 \(E(Y^{\bar a})\) 等于 pseudo-population 中的</p>
+<p>因此真实总体中的 \(E(Y^{\bar a})\) 等于 伪总体（pseudo-population）中的</p>
 <div class="math-block">$$
 E_{ps}(Y\mid \bar A=\bar a).
 
@@ -9437,7 +9440,10 @@ $$</div>
 <li>对每个个体计算</li>
 </ol>
 <p>$$ \hat W=\hat f(A_0\mid L_0;\hat\alpha_0)\hat f(A_1\mid L_1,A_0,L_0;\hat\alpha_1),</p>
-<p>$$ 这是该个体 observed treatment 的估计概率。 3.用weights \(\hat W^{-1}\) 对 \(Y\) 关于 \(A_0,A_1\) 做 加权最小二乘（weighted least squares）。</p>
+<p>$$ 这是该个体 观察到的处理（observed treatment） 的估计概率。</p>
+<ol start="3">
+<li>用权重（weights） \(\hat W^{-1}\) 对 \(Y\) 关于 \(A_0,A_1\) 做 加权最小二乘（weighted least squares）。</li>
+</ol>
 <p>课件给出 证明思路（proof sketch），核心等式是：</p>
 <div class="math-block">$$
 \begin{aligned}
@@ -9456,7 +9462,7 @@ E(Y^{a_0,a_1})h(a_0,a_1)\\
 
 $$</div>
 <p>所以加权后的 估计方程（estimating equation） 可把观测 \(Y\) 与对应干预均值联系起来。</p>
-<p>删失也可用类似权重处理。令 \(C_k=0\) 表示 lost-to-follow-up，\(C_k=1\) 表示 follow-up。每个个体的 stabilized weight是\(SW^+\times SW\)，其中课件给出</p>
+<p>删失也可用类似权重处理。令 \(C_k=0\) 表示失访（lost-to-follow-up），\(C_k=1\) 表示被随访到（follow-up）。每个个体的 稳定化权重（stabilized weight）是\(SW^+\times SW\)，其中课件给出</p>
 <div class="math-block">$$
 SW^+
 =
@@ -9529,7 +9535,7 @@ E\{\exp(\psi A(t))\{W(t)\}^{-1}I(Y\ge t)\}
 \right]=0.
 
 $$</div>
-<p>这与普通 Cox 部分似然的风险集思想类似，只是风险集中每个个体带有 time-varying IPTW 权重。</p>
+<p>这与普通 Cox 部分似然的风险集思想类似，只是风险集中每个个体带有时间变化 IPTW（time-varying IPTW）权重。</p>
 <h3 id="sec-011-10">11.10 结构均值模型（Structural Mean Model）：点暴露情形<a class="heading-link" href="#sec-011-10" aria-label="复制本节链接">#</a></h3>
 <p>结构均值模型（Structural Mean Model） (SMM)在点暴露（point exposure） 情形下建模的是条件因果对比：</p>
 <div class="math-block">$$
@@ -9555,7 +9561,7 @@ Y^0\perp A\mid L.
 $$</div>
 <p>它只要求未处理潜在结果 \(Y^0\) 在给定 \(L\) 后与处理独立，比要求所有 \(Y^a\) 与 \(A\) 独立弱一些；但模型本身还要正确描述 \(Y^a\) 和 \(Y^0\) 的差异。</p>
 <h3 id="sec-011-11">11.11 SMM 参数估计<a class="heading-link" href="#sec-011-11" aria-label="复制本节链接">#</a></h3>
-<p>构造变量 \(U^\ast(\psi)\)，使得它的条件均值等于“如果在该 subset 中移除 treatment 会看到的平均结果”：</p>
+<p>构造变量 \(U^\ast(\psi)\)，使得它的条件均值等于“如果在该子集（subset）中移除 treatment 会看到的平均结果”：</p>
 <div class="math-block">$$
 E\{U^\ast(\psi)\mid L,A\}=E(Y^0\mid L,A).
 
@@ -9565,7 +9571,7 @@ $$</div>
 U^\ast(\psi)=Y-\gamma^\ast(L,A;\psi).
 
 $$</div>
-<p>在这个构造和 weak ignorability 下，</p>
+<p>在这个构造和 弱可忽略性（weak ignorability） 下，</p>
 <div class="math-block">$$
 E\{U^\ast(\psi)\mid L,A\}
 =E(Y^0\mid L,A)
@@ -9650,7 +9656,7 @@ Y_m=Y_m^{\bar a_{m-1}}
 \bar A_{m-1}=\bar a_{m-1}.
 
 $$</div>
-<p>弱 sequential ignorability 为</p>
+<p>弱序贯可忽略性（weak sequential ignorability） 为</p>
 <div class="math-block">$$
 A_m\perp
 \underline Y_{m+1}^{\bar a_{m-1},0_m}
@@ -9684,7 +9690,7 @@ E\left\{
 
 $$</div>
 <p>对 \(m=0,\ldots,K\) 成立。这里 \(\gamma_m^\ast(\bar l_m,\bar a_m;\psi)\) 对每个 \(m\) 是一个 \(K+1-m\) 维函数，因为它可同时描述从 \(m+1\) 到 \(K+1\) 多个未来结果的对比。</p>
-<p>如果只关注 end-of-study outcome</p>
+<p>如果只关注研究末结局（end-of-study outcome）</p>
 <div class="math-block">$$
 Y=Y_{K+1},
 
@@ -9781,7 +9787,7 @@ E\{
 
 $$</div>
 <p>对 \(m=1,0\) 成立。</p>
-<p>在 weak sequential ignorability 下，</p>
+<p>在弱序贯可忽略性（weak sequential ignorability）下，</p>
 <div class="math-block">$$
 A_m\perp
 \underline Y_{m+1}^{\bar a_{m-1},0_m}
@@ -9851,7 +9857,7 @@ $$</div>
 A_0\to L_1\to A_1\to Y,
 
 $$</div>
-<p>同时 \(A_0\to Y\)、\(L_1\to Y\)、\(A_1\to Y\)，并且 \(U\) 影响 \(L_1\) 和 \(Y\)。这正是 time-varying confounding 的典型图。</p>
+<p>同时 \(A_0\to Y\)、\(L_1\to Y\)、\(A_1\to Y\)，并且 \(U\) 影响 \(L_1\) 和 \(Y\)。这正是 时间变化混杂（time-varying confounding） 的典型图。</p>
 <p>MSM 给定为</p>
 <div class="math-block">$$
 E(Y^{a_0,a_1})
@@ -9906,12 +9912,12 @@ $$</div>
 <h3 id="sec-011-17">11.17 本讲易错点<a class="heading-link" href="#sec-011-17" aria-label="复制本节链接">#</a></h3>
 <ol>
 <li>纵向因果推断中，\(L_k\) 既可能是过去处理的结果，又可能是未来处理的混杂因素；简单回归调整所有 \(L_k\) 不一定正确。</li>
-<li>Sequential randomization 是每个时间点的条件交换性，不是只在 baseline 随机一次。</li>
-<li>Positivity 要在每个历史层次上成立；某些历史下永远不会接受某处理会破坏识别。</li>
+<li>序贯随机化（sequential randomization）是每个时间点的条件交换性，不是只在 baseline 随机一次。</li>
+<li>正值性（positivity）要在每个历史层次上成立；某些历史下永远不会接受某处理会破坏识别。</li>
 <li>G 公式（G-formula） 直接模拟干预分布，但标准参数化可能产生 null paradox。</li>
 <li>MSM 直接建模 \(E(Y^{\bar a})\)，参数通常有边际因果解释。</li>
-<li>IPTW 的核心是构造 pseudo-population，使处理不再依赖 time-varying covariates。</li>
-<li>稳定化权重不是为了改变 estimand，而是为了减少权重方差和数值不稳定。</li>
+<li>IPTW 的核心是构造伪总体（pseudo-population），使处理不再依赖时间变化协变量（time-varying covariates）。</li>
+<li>稳定化权重不是为了改变 目标量（estimand），而是为了减少权重方差和数值不稳定。</li>
 <li>Censoring 也可通过类似逆概率权重处理。</li>
 <li>SMM/SNM 建模的是条件结构对比，不是边际均值。</li>
 <li>\(U^\ast(\psi)\) 的作用是“扣除处理效应”，使其在正确 \(\psi\) 下与处理残差正交。</li>
@@ -9951,40 +9957,40 @@ $$</div>
 <p>IV 方法（IV approach） 指一类方法：在存在 未测混杂（unmeasured confounding） 时，只要满足某些假设，就能恢复 暴露（exposure） 的某种 因果效应（causal effect）。这个思路在 计量经济学（econometrics） 中有很长传统，可追溯到 Wright (1928) 和 Goldberger (1972)的线性结构方程建模（linear structural equation modeling）。</p>
 <p>之后 Imbens and Angrist (1994)、Robins (1994)、Angrist, Imbens and Rubin (1996)、Heckman (1997)用潜在结果（potential outcomes）/反事实变量（counterfactual variables） 形式化了这些思想。</p>
 <h3 id="sec-012-03">12.3 工具变量的基本 DAG 与例子<a class="heading-link" href="#sec-012-03" aria-label="复制本节链接">#</a></h3>
-<p>IV 的关键贡献是：用 反事实语言（counterfactual language） 正式定义感兴趣的因果效应，并清楚写出识别所需假设。所有 IV 方法的核心是找到一个 暴露前无混杂（暴露前无混杂（pre-exposure unconfounded）） 工具变量（instrumental variable） \(Z\)，并满足 排除限制（exclusion restriction）：\(Z\) 对 \(Y\) 的影响只能通过 \(A\) 发生。</p>
+<p>IV 的关键贡献是：用 反事实语言（counterfactual language） 正式定义感兴趣的因果效应，并清楚写出识别所需假设。所有 IV 方法的核心是找到一个 暴露前无混杂的（pre-exposure unconfounded） 工具变量（instrumental variable） \(Z\)，并满足 排除限制（exclusion restriction）：\(Z\) 对 \(Y\) 的影响只能通过 \(A\) 发生。</p>
 <p>基本变量为：</p>
 <ul>
 <li>\(A\)：暴露（exposure）。</li>
-<li>\(Y\)：outcome。</li>
+<li>\(Y\)：结局（outcome）。</li>
 <li>\(Z\)：工具变量（instrumental variable）。</li>
-<li>\(U\)：未观测混杂因素（unobserved 混杂因素（confounders））。</li>
+<li>\(U\)：未观测混杂因素（unobserved confounders）。</li>
 </ul>
 <p>IV DAG 的核心关系是</p>
 <div class="math-block">$$
 Z\to A\to Y,\qquad U\to A,\qquad U\to Y,
 
 $$</div>
-<p>并且没有 \(Z\to Y\) 的直接箭头，也没有 \(U\to Z\) 的共同原因路径。有效 IV 很难找；但如果找到，它能缩小 observational study 与 experimental study 之间的证据差距。</p>
-<p><strong>MTO 例子。</strong> Moving To Opportunity 研究的问题是：从极高贫困公共住房搬到低贫困社区，是否改善母亲或儿童健康？随机实验中：</p>
+<p>并且没有 \(Z\to Y\) 的直接箭头，也没有 \(U\to Z\) 的共同原因路径。有效 IV 很难找；但如果找到，它能缩小 观测研究（observational study）与实验研究（experimental study） 之间的证据差距。</p>
+<p><strong>MTO 例子。</strong>“搬向机会”（Moving To Opportunity） 研究的问题是：从极高贫困公共住房搬到低贫困社区，是否改善母亲或儿童健康？随机实验中：</p>
 <ul>
 <li>\(Z\)：家庭是否被随机分配到 住房券（voucher），用于缓解从高贫困社区搬到低贫困社区的成本。</li>
-<li>\(A\)：是否 adhered to the random assignment。</li>
+<li>\(A\)：是否 遵守随机分配（adhered to the random assignment）。</li>
 <li>\(Y\)：10 年随访后儿童心理困扰。</li>
 </ul>
 <p>因为 \(A\) 不是随机的，不能排除 \(U\) 造成的未观测混杂：愿意搬家或能搬家的家庭可能本来就不同。</p>
-<p><strong>Malaria vaccine 例子。</strong> RTS,S/AS01 疟疾疫苗三期试验在 7 个非洲国家的婴儿中进行。6 到 12 周儿童被随机分配到候选疫苗或脑膜炎球菌对照疫苗；每个免疫项目含 3 剂，每月一剂。这里 \(Z\) 是随机分配到 RTS 疫苗组或对照组，\(A\) 表示 adherence，\(Y\)是12 个月随访的 malaria status。</p>
+<p><strong>疟疾疫苗（malaria vaccine）例子。</strong> RTS,S/AS01 疟疾疫苗三期试验在 7 个非洲国家的婴儿中进行。6 到 12 周儿童被随机分配到候选疫苗或脑膜炎球菌对照疫苗；每个免疫项目含 3 剂，每月一剂。这里 \(Z\) 是随机分配到 RTS 疟疾疫苗组或对照组，\(A\) 表示依从性（adherence），\(Y\)是12 个月随访的 疟疾状态（malaria status）。</p>
 <p><strong>孟德尔随机化（Mendelian randomization） 例子。</strong> 用随机基因型作为 IV，估计由这些基因型影响的 表型（phenotype） 对健康的 因果效应（causal effect）。例如：</p>
 <div class="math-block">$$
-Z=\text{FTO genetic variant},\quad
-A=\text{Body Mass Index},\quad
-Y=\text{depressive symptoms or mental disorder},
+Z=\text{FTO 基因变异（FTO genetic variant）},\quad
+A=\text{身体质量指数（Body Mass Index, BMI）},\quad
+Y=\text{抑郁症状或精神障碍（depressive symptoms or mental disorder）},
 
 $$</div>
 <p>\(U\) 是未知或未观测的环境和行为因素。</p>
 <p>其他 IV 例子包括：政策改变前后，例如标签规则、药房规则，特别是未普遍实施时；医生偏好；本地治疗模式；到服务提供者的距离；使患者不适合某治疗的特征。</p>
 <h3 id="sec-012-04">12.4 意向治疗（ITT）、按方案（per-protocol）、按实际治疗（as-treated）与 IV 的位置<a class="heading-link" href="#sec-012-04" aria-label="复制本节链接">#</a></h3>
-<p>MTO 和疟疾疫苗例子都是 randomized trials，其中 \(Z\) 表示随机分配，\(A\) 表示 adherence。</p>
-<p><strong>Intent-to-treat analysis</strong> 忽略 \(A\)，只关注 \(Z-Y\) 关系。在多数 placebo-controlled randomized trials 中，这是 preferred approach。因为在干预没有任何因果效应的 sharp null 下，意向治疗（ITT） 保证不会超过例如 \(\alpha=0.05\) 的显著性水平报告效应。</p>
+<p>MTO 和疟疾疫苗例子都是随机试验（randomized trials），其中 \(Z\) 表示随机分配，\(A\) 表示依从性（adherence）。</p>
+<p><strong>意向治疗分析（intent-to-treat analysis）</strong> 忽略 \(A\)，只关注 \(Z-Y\) 关系。在多数 安慰剂对照随机试验（placebo-controlled randomized trials） 中，这是首选分析（preferred approach）。因为在干预没有任何因果效应的 尖锐零假设（sharp null） 下，意向治疗（ITT） 保证不会超过例如 \(\alpha=0.05\) 的显著性水平报告效应。</p>
 <p>MTO 中就是只检验是否分配到 住房券（voucher）与心理痛苦（psychological distress）的关联。</p>
 <p><strong>按方案分析（Per-protocol analysis）</strong> 只比较遵守分配的人，即 限制在样本（restricted to sample） \(\{A=Z\}\)，比较 已处理者（treated） 与 未处理者（untreated）。</p>
 <p><strong>按实际治疗分析（as-treated analysis）</strong> 忽略随机化，只关注实际接受的治疗（treatment）\(A\) 对 \(Y\) 的效应。</p>
@@ -10080,47 +10086,47 @@ $$</div>
 \beta_A=E(Y_1-Y_0\mid U)=E(Y_1-Y_0),
 
 $$</div>
-<p>即 \(\beta_A\)是总体平均因果效应（population 平均因果效应（average causal effect））。</p>
+<p>即 \(\beta_A\)是总体平均因果效应（population average causal effect）。</p>
 <h3 id="sec-012-07">12.7 超越线性（Beyond linearity）：为什么还需要额外假设<a class="heading-link" href="#sec-012-07" aria-label="复制本节链接">#</a></h3>
 <p>前面线性假设往往过于限制。幸运的是，它们不是必要条件；可以考虑其他假设来识别 其他因果效应（alternative causal effects）。</p>
 <p>Imbens and Angrist (1994)、Angrist, Imbens and Rubin (1996) 使用 反事实（counterfactuals） 定义处理状态可被 IV 操纵个体的 处理效应（treatment effect），也就是 依从者平均处理效应（complier 平均处理效应（average treatment effect））。关键假设是 单调性（monotonicity）：IV 对 暴露（exposure）的effect 方向不会因个体而异。它支持非参数识别这一特定因果效应。</p>
-<p>另一条路线由 Robins (1994) 发展：在 已处理者（treated） 中定义 处理效应（treatment effect），假设 treatment 对 已处理者（treated）的effect 没有 残余异质性（residual heterogeneity），也叫 无当前处理值交互（no current treatment value interaction）。这一方法后来在 加性（additive）、乘性（multiplicative）、逻辑模型（logistic models） 下得到发展。</p>
+<p>另一条路线由 Robins (1994) 发展：在 已处理者（treated） 中定义 处理效应（treatment effect），假设处理（treatment）对已处理者（treated）的效应（effect）没有 残余异质性（residual heterogeneity），也叫 无当前处理值交互（no current treatment value interaction）。这一方法后来在 加性（additive）、乘性（multiplicative）、逻辑模型（logistic models） 下得到发展。</p>
 <h3 id="sec-012-08">12.8 二元处理的 Wald 目标量（Wald estimand）<a class="heading-link" href="#sec-012-08" aria-label="复制本节链接">#</a></h3>
 <p>当 \(A\) 为二元变量时，IV 目标量（IV estimand） 化为 Wald 目标量（Wald estimand）：</p>
 <div class="math-block">$$
-\frac{\text{效应（effect of） }Z\text{ on }Y}
-{\text{效应（effect of） }Z\text{ on }A}
+\frac{\text{Z 对 Y 的影响（effect of Z on Y）}}
+{\text{Z 对 A 的影响（effect of Z on A）}}
 =
 \frac{E(Y\mid Z=1)-E(Y\mid Z=0)}
 {\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0)}.
 
 $$</div>
-<p>若 \(Z\)是randomized treatment，\(A\)是adherence，则 Wald 目标量（Wald estimand） 为</p>
+<p>若 \(Z\) 是随机分配处理（randomized treatment），\(A\) 是依从性（adherence），则 Wald 目标量（Wald estimand） 为</p>
 <div class="math-block">$$
-\frac{\text{效应（effect of） randomization on }Y}
-{\text{效应（effect of） randomization on compliance}}
+\frac{\text{随机分配对 Y 的影响（effect of randomization on Y）}}
+{\text{随机分配对依从性的影响（effect of randomization on compliance）}}
 =
 \frac{E(Y\mid Z=1)-E(Y\mid Z=0)}
 {\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0)}.
 
 $$</div>
-<p>分子是 意向治疗（ITT） effect，分母是随机分配对 compliance 的影响。课件提醒：分母若小，Wald 目标量（Wald estimand） 会被放大，也更不稳定。</p>
+<p>分子是意向治疗效应（ITT effect），分母是随机分配对依从性（compliance）的影响。课件提醒：分母若小，Wald 目标量（Wald estimand） 会被放大，也更不稳定。</p>
 <p>不加额外假设时，Wald 目标量（Wald estimand） 不自动有因果解释。课件会在后面依次说明：在不同额外假设下，同一个 Wald 比值可解释为 CACE、ETT/ATT 或 ACE。</p>
 <h3 id="sec-012-09">12.9 IV 的形式化定义（Formal definition of IV）<a class="heading-link" href="#sec-012-09" aria-label="复制本节链接">#</a></h3>
 <p>课件给出 IV 的三个基础假设：</p>
-<p><strong>Assumption IV.1：相关性。</strong> \(Z\) 与 暴露（exposure） \(A\) 相关：</p>
+<p><strong>假设 IV.1（Assumption IV.1）：相关性。</strong> \(Z\) 与 暴露（exposure） \(A\) 相关：</p>
 <div class="math-block">$$
 Z\not\perp A.
 
 $$</div>
 <p>这可能是 \(Z\) 对 \(A\) 有因果效应，也可能是 \(Z,A\) 共享共同原因（common causes）。实际 IV 中通常希望 \(Z\) 能引起 \(A\) 的变化。</p>
-<p><strong>Assumption IV.2：排除限制。</strong> \(Z\) 只通过 \(A\) 影响 \(Y\)。用潜在结果写：</p>
+<p><strong>假设 IV.2（Assumption IV.2）：排除限制。</strong> \(Z\) 只通过 \(A\) 影响 \(Y\)。用潜在结果写：</p>
 <div class="math-block">$$
 Y_{z,a}=Y_a.
 
 $$</div>
 <p>也就是说没有 \(Z\to Y\) 的直接效应。</p>
-<p><strong>Assumption IV.3：无共同原因。</strong> \(Z\) 不与 outcome \(Y\) 共享共同原因，即 \(Z\) 对 \(Y\) 的效应无混杂。若写</p>
+<p><strong>假设 IV.3（Assumption IV.3）：无共同原因。</strong> \(Z\) 不与结局（outcome） \(Y\) 共享共同原因，即 \(Z\) 对 \(Y\) 的效应无混杂。若写</p>
 <div class="math-block">$$
 Y_{z,a}\perp (Z,A)\mid U,
 
@@ -10130,7 +10136,7 @@ $$</div>
 Z\perp U.
 
 $$</div>
-<p>课件还给出 <strong>非因果 IV（Non-causal IV）</strong> 的图：\(Z\) 对 \(A\)的作用（effect）不一定是因果性的（causal），仍可能是 有效 IV（valid IV）。图中存在 \(U^\ast\to A\) 与 \(U^\ast\to Z\)，使 \(Z,A\) 相关，但如果仍满足 causal IV 条件</p>
+<p>课件还给出 <strong>非因果 IV（Non-causal IV）</strong> 的图：\(Z\) 对 \(A\)的作用（effect）不一定是因果性的（causal），仍可能是 有效 IV（valid IV）。图中存在 \(U^\ast\to A\) 与 \(U^\ast\to Z\)，使 \(Z,A\) 相关，但如果仍满足因果 IV 条件（causal IV conditions）</p>
 <div class="math-block">$$
 Z\perp\!\!\!\perp (A_z,Y_{z,a}),
 
@@ -10141,12 +10147,12 @@ $$</div>
 <div class="table-wrap"><table>
 <thead><tr><th>类型</th><th>\(A_0\)</th><th>\(A_1\)</th><th>含义</th></tr></thead>
 <tbody>
-<tr><td>Never takers</td><td>0</td><td>0</td><td>不管 \(Z\) 如何都不接受处理</td></tr>
-<tr><td>Always takers</td><td>1</td><td>1</td><td>不管 \(Z\) 如何都接受处理</td></tr>
-<tr><td>Defiers</td><td>1</td><td>0</td><td>\(Z=1\) 反而不处理，\(Z=0\) 处理</td></tr>
-<tr><td>Compliers</td><td>0</td><td>1</td><td>\(Z=1\) 时处理，\(Z=0\) 时不处理</td></tr>
+<tr><td>从不接受者（Never takers）</td><td>0</td><td>0</td><td>不管 \(Z\) 如何都不接受处理</td></tr>
+<tr><td>总是接受者（Always takers）</td><td>1</td><td>1</td><td>不管 \(Z\) 如何都接受处理</td></tr>
+<tr><td>反向依从者（Defiers）</td><td>1</td><td>0</td><td>\(Z=1\) 反而不处理，\(Z=0\) 处理</td></tr>
+<tr><td>依从者（Compliers）</td><td>0</td><td>1</td><td>\(Z=1\) 时处理，\(Z=0\) 时不处理</td></tr>
 </tbody></table></div>
-<p><strong>Assumption IV.4：单调性（monotonicity）。</strong> 没有 反向依从者（defiers）：</p>
+<p><strong>假设 IV.4（Assumption IV.4）：单调性（monotonicity）。</strong> 没有 反向依从者（defiers）：</p>
 <div class="math-block">$$
 A_0\le A_1.
 
@@ -10206,7 +10212,7 @@ $$</div>
 \end{aligned}
 
 $$</div>
-<p>因此 依从者平均因果效应（complier average causal effect）（average causal effect），CACE，为</p>
+<p>因此 依从者平均因果效应（complier average causal effect, CACE），为</p>
 <div class="math-block">$$
 CACE
 =E[(Y_1-Y_0)\mid A_1&gt;A_0]
@@ -10216,14 +10222,14 @@ CACE
 
 $$</div>
 <p>在随机试验中，这就是会遵守分配的人群中的 因果效应（causal effect）。MTO 中对应“如果给 住房券（voucher） 就会搬家、不给 住房券（voucher） 就不会搬家”的家庭所经历的效应。</p>
-<p>CACE 的限制是：依从者（compliers） 不能被直接识别，因为同一个人永远不能同时观察 \(A_0,A_1\)。此外，在随机试验中发现的 依从者（compliers） 未必代表总体中的 依从者（compliers）；改变试验规则或激励后，依从者（compliers） 比例也可能改变。可在 单调性（monotonicity） 下估计 complier proportion：</p>
+<p>CACE 的限制是：依从者（compliers） 不能被直接识别，因为同一个人永远不能同时观察 \(A_0,A_1\)。此外，在随机试验中发现的 依从者（compliers） 未必代表总体中的 依从者（compliers）；改变试验规则或激励后，依从者（compliers） 比例也可能改变。可在 单调性（monotonicity） 下估计 依从者比例（complier proportion）：</p>
 <div class="math-block">$$
 \Pr(A_1&gt;A_0)=\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0).
 
 $$</div>
 <h3 id="sec-012-12">12.12 新药试验（New drug trial）与 ETT/ATT<a class="heading-link" href="#sec-012-12" aria-label="复制本节链接">#</a></h3>
 <p>课件提出另一种识别 已处理者（treated） effect 的假设。</p>
-<p><strong>Assumption IV.4'。</strong> 在新药 placebo-controlled randomized trial 中，如果新药不容易获得，则</p>
+<p><strong>假设 IV.4（Assumption IV.4）'。</strong> 在新药 安慰剂对照随机试验（placebo-controlled randomized trial） 中，如果新药不容易获得，则</p>
 <div class="math-block">$$
 A_0=0,
 
@@ -10245,9 +10251,9 @@ $$</div>
 \end{aligned}
 
 $$</div>
-<p>所以 IV 目标量（IV estimand） 也可识别被随机到 treatment 且实际治疗者中的 处理效应（treatment effect）。</p>
-<p>另一种针对 效应（effect of） treatment on the 已处理者（treated），ETT，也叫 ATT，的假设是：</p>
-<p><strong>Assumption IV.4\</strong>*：No current treatment value interaction。</p>
+<p>所以 IV 目标量（IV estimand） 也可识别被随机到处理组（treatment）且实际接受治疗者中的 处理效应（treatment effect）。</p>
+<p>另一种针对已处理者的处理效应（effect of treatment on the treated, ETT），也叫 ATT，的假设是：</p>
+<p>**假设 IV.4\*（Assumption IV.4\*）：无当前处理值交互（no current treatment value interaction）。</p>
 <div class="math-block">$$
 E(Y_1-Y_0\mid A=1,Z=1)
 =
@@ -10288,9 +10294,9 @@ $$</div>
 {\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0)}.
 
 $$</div>
-<p>ETT 在流行病学中有很长传统，有时是最相关的 estimand，例如实际暴露人群所经历的效应。对有害暴露，司法系统常关心这个效应。优点是不要求 单调性（monotonicity）；\(A\) 与 \(Z\) 的关系可对一些人增加、对另一些人减少。缺点是必须排除 已处理者（treated） 中 \(Z\) 对 \(A-Y\) 效应异质性的影响。</p>
+<p>ETT 在流行病学中有很长传统，有时是最相关的 目标量（estimand），例如实际暴露人群所经历的效应。对有害暴露，司法系统常关心这个效应。优点是不要求 单调性（monotonicity）；\(A\) 与 \(Z\) 的关系可对一些人增加、对另一些人减少。缺点是必须排除 已处理者（treated） 中 \(Z\) 对 \(A-Y\) 效应异质性的影响。</p>
 <h3 id="sec-012-13">12.13 从 CACE/ETT 到 ACE<a class="heading-link" href="#sec-012-13" aria-label="复制本节链接">#</a></h3>
-<p>若想把 Wald/IV 目标量（IV estimand） 解释为 总体平均因果效应（population 平均因果效应（average causal effect））</p>
+<p>若想把 Wald/IV 目标量（IV estimand） 解释为 总体平均因果效应（population average causal effect）</p>
 <div class="math-block">$$
 ACE=E(Y_1-Y_0),
 
@@ -10332,10 +10338,10 @@ E(Y_{a=1}-Y_{a=0}\mid A=1)
 $$</div>
 <p>这些同质性假设较难理解。课件给出 IV.4\# 的一种表述：只要求下列条件之一成立：</p>
 <ol>
-<li>\(E(Y_1-Y_0\mid U)\) 不依赖 \(U\)。即没有 潜在异质性（latent heterogeneity） of ACE，没有 未测混杂因素（unmeasured混杂因素（confounder）） 修改 \(A\to Y\) 效应。</li>
-<li>\(E(A\mid Z=1,U)-E(A\mid Z=0,U)\) 不依赖 \(U\)。即没有 未测混杂因素（unmeasured混杂因素（confounder）） 预测 compliance type，没有 未测混杂因素（unmeasured混杂因素（confounder）） 修改 \(Z\to A\) 关联。</li>
+<li>\(E(Y_1-Y_0\mid U)\) 不依赖 \(U\)。即没有 ACE 的潜在异质性（latent heterogeneity of ACE），没有未测混杂因素（unmeasured confounder） 修改 \(A\to Y\) 效应。</li>
+<li>\(E(A\mid Z=1,U)-E(A\mid Z=0,U)\) 不依赖 \(U\)。即没有未测混杂因素（unmeasured confounder） 预测依从类型（compliance type），没有未测混杂因素（unmeasured confounder） 修改 \(Z\to A\) 关联。</li>
 </ol>
-<p>在 IV.1-IV.4\# 下，population ACE 可由 IV 目标量（IV estimand） 非参数识别。课件说明：若条件 1 成立，结果几乎是把“平均效应相同”写进假设；若条件 2 成立，则较不直观，因为它限制的是 \(Z\to A\) 机制的第一阶段关系，而不是直接限制 \(A\to Y\) 的异质性。</p>
+<p>在 IV.1-IV.4\# 下，总体 ACE（population ACE） 可由 IV 目标量（IV estimand） 非参数识别。课件说明：若条件 1 成立，结果几乎是把“平均效应相同”写进假设；若条件 2 成立，则较不直观，因为它限制的是 \(Z\to A\) 机制的第一阶段关系，而不是直接限制 \(A\to Y\) 的异质性。</p>
 <p>证明使用前面推导过的表达：</p>
 <div class="math-block">$$
 Y_{z=1}-Y_{z=0}=(Y_1-Y_0)(A_1-A_0).
@@ -10352,15 +10358,15 @@ E(Y_{z=1}-Y_{z=0}\mid U)
 $$</div>
 <p>其中使用了给定 \(U\) 后无未测混杂。若 \(E(Y_1-Y_0\mid U)\) 或 \(E(A_1-A_0\mid U)\) 不随 \(U\) 变，平均掉 \(U\) 后得到 ACE 识别。</p>
 <h3 id="sec-012-14">12.14 例子（Illustration）：吸烟、香烟价格与体重增加<a class="heading-link" href="#sec-012-14" aria-label="复制本节链接">#</a></h3>
-<p>课件示例来自 *Causal Inference: What If*：</p>
+<p>课件示例来自教材 *Causal Inference: What If*：</p>
 <ul>
-<li>Exposure \(A\)：baseline 到 1982 年期间 quitting smoking，1 表示 yes，0 表示 no。</li>
-<li>Continuous outcome \(Y\)：weight gain，即 1982 年体重减去 baseline 体重，单位 kg。</li>
-<li>Proposed 工具变量（instrument） \(Z\)：1982 年一包香烟价格，按通胀调整到 2008 年美元。</li>
-<li>\(Z\) 被二分为 price higher than \$1.50，1 表示 yes，0 表示 no。</li>
-<li>\(Y\) 和 \(Z\) 对 1476 个 subjects 可用。</li>
+<li>暴露（Exposure）\(A\)：基线到 1982 年期间是否戒烟（quitting smoking），1 表示是（yes），0 表示否（no）。</li>
+<li>连续结局（continuous outcome）\(Y\)：体重增加（weight gain），即 1982 年体重减去基线（baseline）体重，单位 kg。</li>
+<li>候选工具变量（proposed instrument）\(Z\)：1982 年一包香烟价格，按通胀调整到 2008 年美元。</li>
+<li>\(Z\) 被二分为 价格是否高于 1.50 美元（price higher than \$1.50），1 表示 yes，0 表示 no。</li>
+<li>\(Y\) 和 \(Z\) 对 1476 个研究对象（subjects） 可用。</li>
 </ul>
-<p>Wald estimator 的分子为</p>
+<p>Wald 估计量（Wald estimator）的分子为</p>
 <div class="math-block">$$
 \hat E(Y\mid Z=1)-\hat E(Y\mid Z=0)
 =2.686-2.536=0.1503.
@@ -10383,9 +10389,9 @@ $$</div>
 <h3 id="sec-012-15">12.15 协变量的作用<a class="heading-link" href="#sec-012-15" aria-label="复制本节链接">#</a></h3>
 <p>若除了 \((A,Z,Y)\) 还观察到向量 \(C\)，其中包含 \((A,Y,Z)\) 的一些共同原因，则在 IV 中可以用 \(C\) 来：</p>
 <ol>
-<li>account for confounding of the effects of \(Z\) on \(Y\)；</li>
-<li>partially account for confounding of the effects of \(A\) on \(Y\)；</li>
-<li>explain variation in outcome \(Y\) to improve efficiency。</li>
+<li>控制 \(Z\) 对 \(Y\) 效应中的混杂（confounding of the effects of \(Z\) on \(Y\)）；</li>
+<li>部分控制 \(A\) 对 \(Y\) 效应中的混杂（confounding of the effects of \(A\) on \(Y\)）；</li>
+<li>解释结局 \(Y\) 的变异，从而提高效率（improve efficiency）。</li>
 </ol>
 <p>在 IV.1-IV.3 下，conditional IV 目标量（IV estimand） 为</p>
 <div class="math-block">$$
@@ -10407,12 +10413,12 @@ $$</div>
 $$</div>
 <h3 id="sec-012-16">12.16 两阶段最小二乘（Two-stage least squares, 2SLS）<a class="heading-link" href="#sec-012-16" aria-label="复制本节链接">#</a></h3>
 <p>实践中估计 因果效应（causal effect） \(\beta_1\) 最常用的是 两阶段最小二乘（two-stage least squares），2SLS，而不是直接使用 Wald 目标量（Wald estimand）。它连续拟合两个线性回归。</p>
-<p><strong>Stage 1.</strong> 回归 \(A\) 对 \(Z,C\)，计算 predicted value：</p>
+<p><strong>第一阶段（Stage 1）。</strong> 回归 \(A\) 对 \(Z,C\)，计算预测值（predicted value）：</p>
 <div class="math-block">$$
 \hat A=\hat E(A\mid Z,C)=\hat\alpha_0+\hat\alpha_1Z+\hat\alpha_2^\prime C.
 
 $$</div>
-<p><strong>Stage 2.</strong> 回归 \(Y\) 对 \(\hat A,C\)：</p>
+<p><strong>第二阶段（Stage 2）。</strong> 回归 \(Y\) 对 \(\hat A,C\)：</p>
 <div class="math-block">$$
 E(Y\mid \hat A,C)=\mu_0+\mu_1\hat A+\mu_2^\prime C.
 
@@ -10427,7 +10433,7 @@ $$</div>
 Y=\beta_0+\beta_1A+\beta_2^\prime C+\epsilon.
 
 $$</div>
-<p>由于 unobserved confounding，\(\epsilon\) 与 \(A\) 相关，即使给定 \(C\)，\(E(\epsilon\mid A,C)\) 也不一定为 0，所以 \(\beta_1\) 在这个模型中不能由普通回归识别。</p>
+<p>由于未观测混杂（unobserved confounding），\(\epsilon\) 与 \(A\) 相关，即使给定 \(C\)，\(E(\epsilon\mid A,C)\) 也不一定为 0，所以 \(\beta_1\) 在这个模型中不能由普通回归识别。</p>
 <p>若 \(E(A\mid Z,C)\) 已知，则</p>
 <div class="math-block">$$
 \begin{aligned}
@@ -10439,7 +10445,7 @@ Y
 \end{aligned}
 
 $$</div>
-<p>其中新的 residual error 为</p>
+<p>其中新的 残差项（residual error） 为</p>
 <div class="math-block">$$
 \varepsilon=\beta_1\{A-E(A\mid Z,C)\}+\epsilon.
 
@@ -10450,13 +10456,13 @@ $$</div>
 <p>在 孟德尔随机化（Mendelian randomization） 中，用 表型（phenotype） 识别 疾病的因果效应（causal effects） 所需的强假设往往不完全成立。这些假设在 MR 应用中也不总是被系统评估，但评估可以增加 MR 的可信度。</p>
 <p>Glymour, Tchetgen Tchetgen, Robins (AJE, 2012) 提出可用于 证伪（falsify） IV.2与 IV.3 的方法：</p>
 <ul>
-<li>利用已有因果假设（leverage prior causal assumption），例如已知混杂方向（confounding direction）；</li>
+<li>利用已有因果假设（leverage prior causal assumptions），例如已知混杂方向（confounding direction）；</li>
 <li>识别修饰子组（identify modifying subgroups）；</li>
 <li>工具变量不等式检验（instrumental inequality tests） 可检测极端违反；</li>
 <li>过度识别检验（overidentification tests） 使用多个 工具变量（instruments）。</li>
 </ul>
 <p>证伪检验（falsification tests） 即便 IV.2 和 IV.3 被违反，也可能不能拒绝某个 工具变量（instrument）；但执行这些测试仍可能增加对 IV 有效性的信心。</p>
-<p><strong>Leveraging 已有假设（prior assumptions） about confounding.</strong> 研究者有时只关心 conventional effect estimate 是否有偏：另一个方向的偏差可能不相关或不可信。可比较 IV effect estimate 和 conventional effect estimate。例如如果 conventional estimate 是正混杂，则应有 IV &lt; conventional。</p>
+<p><strong>利用关于混杂的已有假设（leveraging prior assumptions about confounding）。</strong> 研究者有时只关心 传统效应估计（conventional effect estimate） 是否有偏：另一个方向的偏差可能不相关或不可信。可比较 IV 效应估计（IV effect estimate） 和 传统效应估计（conventional effect estimate）。例如如果传统估计（conventional estimate）存在正向混杂，则应有 IV 估计小于传统估计（IV &lt; conventional）。</p>
 <p>该方法依赖对混杂方向（confounding direction） 的假设；如果不知道方向，测试不提供信息。在 非线性因果结构（nonlinear causal structures） 中也不能保证一致。</p>
 <p><strong>修饰因素（Modifying factors）.</strong> 识别会修改 IV-暴露（exposure） 关系的因素。在这些因素分层内比较 Wald 效应估计（Wald effect estimate），看 \(Z\) 与 \(A\) 的总体关联是否被消除或反向。只有当 偏倚路径（biasing 路径（path）way） 在两个 子组（subgroup） 中都活跃时，这种测试才可能发现 工具变量（instrument） 偏倚。</p>
 <p>课件的图示例用 FTO、male、BMI、mental disorder 与 unmeasured 表型（phenotype） 路径说明：分层可帮助暴露某些偏倚路径，但并非完全证明。</p>
@@ -10501,7 +10507,7 @@ Y_z\perp Z,\qquad Z\perp A.
 
 $$</div>
 <p>也可使用 Bonet inequalities，它们可更有力，但只适用于 categorical 表型（phenotype）s。课件强调：这些测试不特别强，主要检测极端违反；IV 越多，测试越敏感。</p>
-<p><strong>Overidentification tests.</strong> 使用多个 IV 可做 过度识别检验（overidentification tests）。例如其他 基因（genes） 或同一 gene的多态性（polymorphisms） 可能提供 额外（additional） 工具变量（instruments）。限制：</p>
+<p><strong>过度识别检验（overidentification tests）.</strong> 使用多个 IV 可做 过度识别检验（overidentification tests）。例如其他 基因（genes） 或同一 gene的多态性（polymorphisms） 可能提供 额外（additional） 工具变量（instruments）。限制：</p>
 <ul>
 <li>如果所有 工具变量（instruments） 有相同偏倚路径，就无法检测 IV 假设违反。</li>
 <li>即使所有 IV 都有效，如果模型被错误假设为线性，或 表型（phenotype）是composite，也可能错误拒绝。</li>
@@ -10510,9 +10516,9 @@ $$</div>
 <h3 id="sec-012-19">12.19 本讲易错点<a class="heading-link" href="#sec-012-19" aria-label="复制本节链接">#</a></h3>
 <ol>
 <li>\(Z\) 与 \(A\) 相关不够；还要 排除限制（exclusion restriction） 和 \(Z-Y\) 无共同原因。</li>
-<li>\(Y\not\perp Z\mid A\) 不一定说明 IV 无效，因为 条件化于（conditioning on） \(A\) 可能打开 碰撞路径（碰撞点（collider） 路径（path））。</li>
+<li>\(Y\not\perp Z\mid A\) 不一定说明 IV 无效，因为 条件化于（conditioning on） \(A\) 可能打开 碰撞点路径（collider path）。</li>
 <li>Wald 目标量（Wald estimand） 是一个比值，不自动等于 ACE；它的解释取决于额外假设。</li>
-<li>Monotonicity 排除 反向依从者（defiers），但只能被某些数据模式反驳，不能被完全证明。</li>
+<li>单调性（monotonicity） 排除 反向依从者（defiers），但只能被某些数据模式反驳，不能被完全证明。</li>
 <li>CACE是依从者（compliers） 的平均效应，不一定代表所有人。</li>
 <li>ETT/ATT 不要求 单调性（monotonicity），但要求 无当前处理值交互（no current treatment value interaction）。</li>
 <li>ACE 需要更强同质性假设，不能从 IV DAG 单独推出。</li>
@@ -10529,7 +10535,7 @@ $$</div>
 \widehat\Delta_{IV}=\frac{\bar Y_{Z=1}-\bar Y_{Z=0}}{\bar A_{Z=1}-\bar A_{Z=0}}.
 
 $$</div>
-<p>分子是工具变量对结局的 reduced-form 或 意向治疗（ITT） 效应；分母是工具变量对治疗的 第一阶段（first-stage） 或依从性效应。</p>
+<p>分子是工具变量对结局的 约化式（reduced-form） 或 意向治疗（ITT） 效应；分母是工具变量对治疗的 第一阶段（first-stage） 或依从性效应。</p>
 <p>\begin{exbox} <strong>题 2：</strong> 哪些情况违反排他性限制？ <strong>答：</strong> 若 $Z$ 通过未测量混杂与 $Y$ 相关，或 $Z$ 与 $Y$ 的测量误差相关，通常会违反排他性或独立性。$Z$ 与 $A$ 弱相关是相关性问题，不是排他性问题；$Z$ 仅对 $A=1$ 的群体有影响需要更精确地表述，通常涉及效应异质性或依从类型，不必然违反排他性。</p>
 <p>\begin{exbox} <strong>题 3：</strong> 若想识别 总是接受者（always-taker） 群体中的 ACE，需要什么额外假设？ <strong>答：</strong> 总是接受者（Always-taker）在$Z=0$ 与 $Z=1$ 下都接受治疗，因此其未治疗潜在结局 $Y_0$ 不能由工具变量直接揭示。需要额外的效应同质性、结构模型限制，或能够识别 总是接受者（always-taker） 未治疗结局的外部信息；否则仅靠标准 IV 假设无法识别该群体 ACE。</p>
 </main>
