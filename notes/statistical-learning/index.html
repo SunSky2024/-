@@ -8727,10 +8727,6 @@ E(Y^a)
 
 $$</div>
 <p>这也叫 \(E(Y\mid A=a,L)\)的直接标准化（direct standardization）。它是 longitudinal g 公式（g-formula） 的一个简单特例。</p>
-<figure class="note-figure">
-  <img src="assets/slides/lecture_10/p14_g_formula.png" alt="点暴露观测研究中 G 公式对离散和连续协变量的表达" loading="lazy" decoding="async">
-  <figcaption>图 10.1：G 公式与直接标准化的核心公式，课件截图（来源：10.causal_intro_slides.pdf P14）。</figcaption>
-</figure>
 <p>为什么 crude 关联（association） 不一定是 causation？因为</p>
 <div class="math-block">$$
 \sum_l E(Y\mid A=a,L=l)f_L(l)=E(Y^a)
@@ -8866,10 +8862,6 @@ W=\frac1{f(a\mid L)}.
 
 $$</div>
 <p>由于 \(0&lt;f(a\mid L)&lt;1\)，所以 \(W&gt;1\)。每个被观察到 \(Y^a\) 的人不仅代表自己，还代表同一 \(L\) 层里那些没有接受 \(a\)、因此缺失 \(Y^a\) 的人。权重构造出一个伪总体（pseudo-population），使加权样本中不再有 \(L\) 引起的混杂。</p>
-<figure class="note-figure">
-  <img src="assets/slides/lecture_10/p20_iptw_intro.png" alt="IPTW 通过建模倾向评分而非结局回归来估计 G 公式的思路" loading="lazy" decoding="async">
-  <figcaption>图 10.2：IPTW 的估计思路：不直接建结局模型，而用处理概率加权构造伪总体，课件截图（来源：10.causal_intro_slides.pdf P20）。</figcaption>
-</figure>
 <h3 id="sec-010-11">10.11 IPTW 数值例子与对偶表示（dual representation）<a class="heading-link" href="#sec-010-11" aria-label="复制本节链接">#</a></h3>
 <p>课件设 \(L\) 为二元变量，观测：</p>
 <div class="table-wrap"><table>
@@ -8923,10 +8915,6 @@ $$</div>
 E_{ps}(Y\mid A=1)=24\times\frac12+36\times\frac12=\frac{210}{7}=E(Y^1).
 
 $$</div>
-<figure class="note-figure">
-  <img src="assets/slides/lecture_10/p26_iptw_pseudo_population.png" alt="IPTW 数值例子中用逆概率权重重构伪总体的表格" loading="lazy" decoding="async">
-  <figcaption>图 10.3：IPTW 伪总体构造例子：每一行按 \(f(A\mid L)^{-1}\) 重新加权，课件截图（来源：10.causal_intro_slides.pdf P26）。</figcaption>
-</figure>
 <p>课件强调 G-computation 与 IPTW的对偶表示（dual representation）：当 \(L\) 维度低，例如单个二元 \(L\)，对 结局回归（outcome regression） 和 倾向评分（propensity score）） 做非参数估计会得到同一个点估计。因此低维非参数情形下二者没有点估计优势。</p>
 <p>代数上，</p>
 <div class="math-block">$$
@@ -9323,7 +9311,7 @@ $$</div>
 <p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial 空气污染（air pollution）） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/p55_causal_dag.png" alt="抗组胺药与哮喘例子的因果 DAG 节点和箭头示意" loading="lazy" decoding="async">
-  <figcaption>图 10.4：因果 DAG 的节点、箭头和无箭头含义示意，课件截图（来源：10.causal_intro_slides.pdf P55）。</figcaption>
+  <figcaption>图 10.1：因果 DAG 的节点、箭头和无箭头含义示意，课件截图（来源：10.causal_intro_slides.pdf P55）。</figcaption>
 </figure>
 <p>路径（path） 是连接变量的路径。一个节点若位于路径内部，称为截住路径（intercept the path）。例如 \(C\) 截住 \(A-C-D\) 和 \(E-C-D\) 这两条路径。</p>
 <p>若存在从 \(X\) 出发到 \(Y\)的有向路径（directed path），则 \(X\)是\(Y\)的祖先节点/原因（ancestor/cause），\(Y\)是\(X\)的后代节点/结果（后代节点（descendant）/effect）。上图中 \(A,B,C\)是\(E,D\)的祖先节点（ancestors），而 \(E,D\)是\(A,B,C\)的后代节点（descendants）。</p>
@@ -9343,7 +9331,7 @@ $$</div>
 <p>没有碰撞点（collider），因此是未阻断的后门路径（unblocked backdoor path）。</p>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/p58_backdoor_collider_path.png" alt="DAG 中后门路径 碰撞点和阻断路径的示意图" loading="lazy" decoding="async">
-  <figcaption>图 10.5：后门路径、碰撞点和阻断路径的基本判别，课件截图（来源：10.causal_intro_slides.pdf P58）。</figcaption>
+  <figcaption>图 10.2：后门路径、碰撞点和阻断路径的基本判别，课件截图（来源：10.causal_intro_slides.pdf P58）。</figcaption>
 </figure>
 <p>有向（Directed） 无环（Acyclic） Graph (DAG) 的含义：</p>
 <ul>
@@ -9418,7 +9406,7 @@ $$</div>
 <p>回到原 DAG，条件化于（conditioning on） \(C\) 会创造从 \(E\) 到 \(D\) 的未阻断后门路径（unblocked backdoor path）：\(A\) 与 \(B\)在\(C\) 层内的关联会使 \(A\) 通过 \(B\) 间接关联到 \(D\)。因此只调整 \(A\)、只调整 \(B\)、或只调整 \(C\) 都不足以控制混杂；调整 \(\{A,C\}\) 或 \(\{B,C\}\) 是充分的。</p>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/p71_conditioning_on_collider.png" alt="条件化于碰撞点会打开后门路径并引入偏倚的 DAG 示例" loading="lazy" decoding="async">
-  <figcaption>图 10.6：条件化于碰撞点会打开原本阻断的后门路径，课件截图（来源：10.causal_intro_slides.pdf P71）。</figcaption>
+  <figcaption>图 10.3：条件化于碰撞点会打开原本阻断的后门路径，课件截图（来源：10.causal_intro_slides.pdf P71）。</figcaption>
 </figure>
 <p>课件还给出一个“传统经验（conventional wisdom） 会出错”的例子：图中唯一 后门路径（backdoor path）</p>
 <div class="math-block">$$
@@ -9458,7 +9446,7 @@ $$</div>
 </ul>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/p73_d_separation.png" alt="d 分离中 chain fork collider 路径阻断和打开的规则图" loading="lazy" decoding="async">
-  <figcaption>图 10.7：d-separation 的路径阻断规则示意，课件截图（来源：10.causal_intro_slides.pdf P73）。</figcaption>
+  <figcaption>图 10.4：d-separation 的路径阻断规则示意，课件截图（来源：10.causal_intro_slides.pdf P73）。</figcaption>
 </figure>
 <p>后门路径准则（backdoor path criterion）：在给定 DAG 下，一个变量集合 \(S\) 足以控制混杂（confounding），如果：</p>
 <ol>
@@ -9482,7 +9470,7 @@ $$</div>
 </ol>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/p78_dag_adjustment_examples.png" alt="DAG 练习中区分中介 后代 混杂和预测变量的示例图" loading="lazy" decoding="async">
-  <figcaption>图 10.8：课件末尾 DAG 练习图，用于判断是否应调整 \(Z\)，课件截图（来源：10.causal_intro_slides.pdf P78）。</figcaption>
+  <figcaption>图 10.5：课件末尾 DAG 练习图，用于判断是否应调整 \(Z\)，课件截图（来源：10.causal_intro_slides.pdf P78）。</figcaption>
 </figure>
 <p>最后一页是一个中文表格，展示按 sex 分层与总体合并会得到相反方向的比较：</p>
 <div class="table-wrap"><table>

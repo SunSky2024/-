@@ -32,25 +32,25 @@
 | 第 7 讲 | 支持向量机 | 5 |
 | 第 8 讲 | 核密度估计与核回归估计 | 6 |
 | 第 9 讲 | 树模型与随机森林 | 6 |
-| 第 10 讲 | 因果推断导论 | 8 |
+| 第 10 讲 | 因果推断导论 | 5 |
 | 第 11 讲 | 纵向因果模型 | 6 |
 | 第 12 讲 | 工具变量 | 6 |
 
-合计：67 张图。
+合计：64 张图。
 
 ### 来自课件截图的图片
 
 以下图片来自课件 PDF 截图，并在图注中标明了来源 PDF 与页码：
 
-- 第 10 讲：`assets/slides/lecture_10/p14_g_formula.png`、`p20_iptw_intro.png`、`p26_iptw_pseudo_population.png`、`p55_causal_dag.png`、`p58_backdoor_collider_path.png`、`p71_conditioning_on_collider.png`、`p73_d_separation.png`、`p78_dag_adjustment_examples.png`
+- 第 10 讲：`assets/slides/lecture_10/p55_causal_dag.png`、`p58_backdoor_collider_path.png`、`p71_conditioning_on_collider.png`、`p73_d_separation.png`、`p78_dag_adjustment_examples.png`
 - 第 11 讲：`assets/slides/lecture_11/p05_longitudinal_dag.png`、`p15_mean_msm_weights.png`、`p18_iptw_procedure.png`、`p30_time_varying_setup.png`、`p34_two_stage_snm.png`、`p42_msm_snm_comparison.png`
 - 第 12 讲：`assets/slides/lecture_12/p12_iv_dag.png`、`p21_wald_estimand.png`、`p25_compliance_types.png`、`p29_complier_causal_effect.png`、`p45_two_stage_least_squares.png`、`p54_iv_inequality_test.png`
 
 ### 质量检查记录
 
-- `index.html` 中 67 个 `<img>` 的相对路径均存在，无 broken image。
+- `index.html` 中 64 个 `<img>` 的相对路径均存在，无 broken image。
 - 所有图片均包含 `alt`、`loading="lazy"`、`decoding="async"`。
-- 67 个 `<figure>` 均包含 `figcaption`。
+- 64 个 `<figure>` 均包含 `figcaption`。
 - 未发现连续 3 张以上图片直接堆叠。
 - 目录中的内部锚点均能在页面中找到对应 `id`。
 - MathJax、公式块、ESL 链接和 PPT/PDF 链接均保留。
@@ -59,6 +59,7 @@
 ### 后续可继续补图的位置
 
 - 第 6 讲目前只有 1 张图，后续可以补充 RKHS 几何直觉、表示定理和核岭回归解的结构图。
-- 第 10 至 12 讲已经使用课件截图，后续若追求更统一的视觉风格，可以把部分 DAG、IPTW、2SLS 流程重绘成教材风格示意图。
+- 第 10 讲当前只保留 DAG、后门路径、碰撞点、d-separation 和 DAG 练习这类解释性截图；后续若补图，应优先补“混杂调整流程”“IPTW 伪总体机制”这类重绘示意图，而不是公式截图。
+- 第 11 至 12 讲已经使用课件截图，后续若追求更统一的视觉风格，可以把部分 DAG、IPTW、2SLS 流程重绘成教材风格示意图。
 - 第 3 至 4 讲可继续补充不同惩罚路径随 `lambda` 变化的动态图或多图对照。
 - 第 5 讲可补充混淆矩阵、阈值变化与 ROC 曲线之间的对应图。
