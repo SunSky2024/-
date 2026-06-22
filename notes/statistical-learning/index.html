@@ -1809,6 +1809,15 @@ $$</div>
 </section>
 <h3 id="sec-001-18">1.18 教材源码练习题<a class="heading-link" href="#sec-001-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/01_knn_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先判断题目是在做 kNN 回归还是 kNN 分类，再写对应的预测规则。</li>
+<li>遇到偏差-方差问题时，先比较 \(k\) 变大或变小对模型复杂度的影响。</li>
+<li>涉及交叉验证时，注意目标是估计测试误差，而不是让训练误差最小。</li>
+<li>维数灾难题先从距离集中、邻域不再局部这两个角度分析。</li>
+</ul>
+</details>
 <h4 id="sec-001-18-01">1.18.1 练习题与答案提示<a class="heading-link" href="#sec-001-18-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-001-18-02">1.18.2 补充练习与答案提示<a class="heading-link" href="#sec-001-18-02" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-001-18-03">1.18.3 概念题<a class="heading-link" href="#sec-001-18-03" aria-label="复制本节链接">#</a></h4>
@@ -2451,6 +2460,15 @@ $$</div>
 </section>
 <h3 id="sec-002-15">2.15 教材源码练习题<a class="heading-link" href="#sec-002-15" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/02_linear_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先把线性回归写成矩阵形式 \(y=X\beta+\varepsilon\)，再决定是否需要正规方程。</li>
+<li>求导题先写 RSS 或负对数似然，再对 \(\beta\) 求导并令其为 0。</li>
+<li>模型选择题注意区分训练误差、测试误差和准则中的惩罚项。</li>
+<li>比较 AIC、BIC、\(C_p\) 时，重点看复杂度惩罚随 \(p\) 和 \(n\) 怎样变化。</li>
+</ul>
+</details>
 <h4 id="sec-002-15-01">2.15.1 练习题与答案提示<a class="heading-link" href="#sec-002-15-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-002-15-02">2.15.2 练习题<a class="heading-link" href="#sec-002-15-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -3158,6 +3176,16 @@ $$</div>
 </section>
 <h3 id="sec-003-13">3.13 教材源码练习题<a class="heading-link" href="#sec-003-13" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/03_penalized0_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先写出 Ridge 或 Lasso 的惩罚目标函数，再讨论约束形式的几何意义。</li>
+<li>Ridge 题常从 SVD 或特征值收缩角度看系数为什么被压小。</li>
+<li>Lasso 题先想正交设计下的软阈值，再解释为什么会产生 0 系数。</li>
+<li>涉及 \(\lambda\) 时，先判断惩罚强弱、自由度和偏差-方差如何变化。</li>
+<li>注意截距项通常不惩罚，变量尺度不同则要先标准化。</li>
+</ul>
+</details>
 <h4 id="sec-003-13-01">3.13.1 练习题与答案提示<a class="heading-link" href="#sec-003-13-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-003-13-02">3.13.2 练习题<a class="heading-link" href="#sec-003-13-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -3761,6 +3789,15 @@ $$</div>
 </section>
 <h3 id="sec-004-15">4.15 教材源码练习题<a class="heading-link" href="#sec-004-15" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/04_penalized1_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>比较不同惩罚函数时，先看惩罚形状和导数，而不是只看名称。</li>
+<li>Non-negative Garrote 题先把它看成对已有估计系数再做一次缩放。</li>
+<li>SCAD/MCP 题重点说明它们如何在保留稀疏性的同时减小大系数偏差。</li>
+<li>Group Lasso 和 Fused Lasso 题先判断结构是“成组选择”还是“相邻融合”。</li>
+</ul>
+</details>
 <h4 id="sec-004-15-01">4.15.1 练习题与答案提示<a class="heading-link" href="#sec-004-15-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-004-15-02">4.15.2 练习 1：选择一致性速率<a class="heading-link" href="#sec-004-15-02" aria-label="复制本节链接">#</a></h4>
 <p>在正交设计与正态误差下，解释为什么 $\lambda$ 需要至少与 $\sigma\sqrt{\log p/n}$ 同阶，才能控制把噪声变量误选进模型的概率。</p>
@@ -4805,6 +4842,15 @@ $$</div>
 </section>
 <h3 id="sec-005-18">5.18 教材源码练习题<a class="heading-link" href="#sec-005-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/05_classification_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>分类题先写条件后验概率，再用 Bayes rule 判断最优分类规则。</li>
+<li>逻辑回归求导题先写 log-likelihood，并记住 sigmoid 的导数形式。</li>
+<li>混淆矩阵题先列出 TP、FP、TN、FN，再计算 sensitivity、specificity 或 ROC 相关量。</li>
+<li>LDA/QDA 对比题重点看协方差矩阵是否相同，以及决策边界为何线性或二次。</li>
+</ul>
+</details>
 <h4 id="sec-005-18-01">5.18.1 练习题与答案提示<a class="heading-link" href="#sec-005-18-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-005-18-02">5.18.2 练习题<a class="heading-link" href="#sec-005-18-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -5424,6 +5470,15 @@ $$</div>
 </section>
 <h3 id="sec-006-13">6.13 教材源码练习题<a class="heading-link" href="#sec-006-13" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/06_rkhs_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先把核函数理解为隐式特征空间中的内积，不要把它当成距离。</li>
+<li>KRR 题先写出核矩阵 \(K\)，再看是否需要求解 \((K+\lambda I)\alpha=y\)。</li>
+<li>表示定理题重点说明最优解可写成训练样本核函数的线性组合。</li>
+<li>判断核是否合法时，可以从 Gram 矩阵半正定或核函数闭包性质入手。</li>
+</ul>
+</details>
 <h4 id="sec-006-13-01">6.13.1 练习题与答案提示<a class="heading-link" href="#sec-006-13-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-006-13-02">6.13.2 练习题与简要答案<a class="heading-link" href="#sec-006-13-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -6545,6 +6600,15 @@ $$</div>
 </section>
 <h3 id="sec-007-17">7.17 教材源码练习题<a class="heading-link" href="#sec-007-17" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/07_svm_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先区分“分类正确”与“满足间隔约束”，关键量是 \(y_i f(x_i)\)。</li>
+<li>硬间隔题先写可分约束；软间隔题再加入松弛变量和参数 \(C\)。</li>
+<li>对偶问题中先找支持向量：通常只有对应 \(\alpha_i>0\) 的样本影响边界。</li>
+<li>核技巧题不要显式展开高维特征，只把内积替换成 \(K(x_i,x_j)\)。</li>
+</ul>
+</details>
 <h4 id="sec-007-17-01">7.17.1 练习题与答案提示<a class="heading-link" href="#sec-007-17-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-007-17-02">7.17.2 补充七：练习题与复习清单<a class="heading-link" href="#sec-007-17-02" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-007-17-03">7.17.3 练习题<a class="heading-link" href="#sec-007-17-03" aria-label="复制本节链接">#</a></h4>
@@ -7428,6 +7492,15 @@ $$</div>
 </section>
 <h3 id="sec-008-19">8.19 教材源码练习题<a class="heading-link" href="#sec-008-19" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/08_kernel_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>先区分 KDE 是估计密度，核回归是估计条件均值。</li>
+<li>带宽题先判断局部窗口大小，再说明偏差和方差怎样变化。</li>
+<li>边界偏差题先画出边界附近缺少一侧样本的情形。</li>
+<li>局部常数和局部线性对比时，重点看是否能修正一阶边界偏差。</li>
+</ul>
+</details>
 <h4 id="sec-008-19-01">8.19.1 练习题与答案提示<a class="heading-link" href="#sec-008-19-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-008-19-02">8.19.2 练习题<a class="heading-link" href="#sec-008-19-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -8440,6 +8513,16 @@ $$</div>
 </section>
 <h3 id="sec-009-23">9.23 教材源码练习题<a class="heading-link" href="#sec-009-23" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/09_trees_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>树模型题先写切分准则，再判断用 Gini、entropy 还是误分类误差。</li>
+<li>剪枝题先写 cost-complexity 的目标，再讨论复杂度参数如何控制树大小。</li>
+<li>Bagging 题从“平均多个不稳定模型降低方差”入手。</li>
+<li>随机森林题重点解释 mtry 如何降低树之间的相关性，以及 OOB 如何估计误差。</li>
+<li>变量重要性题先说明置换某变量后 OOB 误差如何变化。</li>
+</ul>
+</details>
 <h4 id="sec-009-23-01">9.23.1 练习题与答案提示<a class="heading-link" href="#sec-009-23-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-009-23-02">9.23.2 练习题<a class="heading-link" href="#sec-009-23-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -9406,6 +9489,15 @@ $$</div>
 <p>分性别看，治疗组生存率都低于对照组：男性 \(60\%&lt;70\%\)，女性 \(20\%&lt;30\%\)。但总体合并后治疗组 \(50\%\) 高于对照组 \(40\%\)。这体现了混杂或分层权重改变造成的辛普森悖论式现象：不同处理组的性别构成不同，粗总体比较不一定有因果解释。</p>
 <h3 id="sec-010-22">10.22 教材源码练习题<a class="heading-link" href="#sec-010-22" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/10_causal_intro_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>因果题先明确 estimand：要估计的是 ACE、ATT 还是某个条件效应。</li>
+<li>画出 DAG，再判断后门路径、碰撞点和调整集是否合适。</li>
+<li>IPTW 题先写处理概率模型，注意正值性和极端权重问题。</li>
+<li>双重稳健题只说明思路：结果模型或处理模型有一个正确即可提供保护。</li>
+</ul>
+</details>
 <h4 id="sec-010-22-01">10.22.1 练习题与答案提示<a class="heading-link" href="#sec-010-22-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-010-22-02">10.22.2 补充讲义五：练习题<a class="heading-link" href="#sec-010-22-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -10191,6 +10283,15 @@ $$</div>
 </section>
 <h3 id="sec-011-18">11.18 教材源码练习题<a class="heading-link" href="#sec-011-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/11_causal_longitudinal_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>纵向题先按时间顺序画出 \(L_k,A_k,Y\)，再判断哪些变量既是结果又是混杂。</li>
+<li>G-formula 题按时间递推写条件分布，不要把所有协变量一次性粗暴调整。</li>
+<li>IPTW 题先写每个时间点的处理概率，再把权重按时间相乘。</li>
+<li>MSM 与 SNM 对比题先区分边际干预均值和给定历史的局部处理效应。</li>
+</ul>
+</details>
 <h4 id="sec-011-18-01">11.18.1 练习题与答案提示<a class="heading-link" href="#sec-011-18-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-011-18-02">11.18.2 练习题<a class="heading-link" href="#sec-011-18-02" aria-label="复制本节链接">#</a></h4>
 <ul>
@@ -10820,6 +10921,16 @@ $$</div>
 </section>
 <h3 id="sec-012-20">12.20 教材源码练习题<a class="heading-link" href="#sec-012-20" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/12_iv_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
+<details class="exercise-hints">
+<summary>查看做题提示</summary>
+<ul>
+<li>IV 题先逐条检查相关性、排除限制、独立性和单调性假设。</li>
+<li>Wald 估计量题先写“结果差异 / 处理差异”，再解释它何时对应 CACE。</li>
+<li>依从类型题先列 always-taker、never-taker、complier、defier。</li>
+<li>2SLS 题先写第一阶段预测处理，再写第二阶段用预测处理解释结局。</li>
+<li>DAG 题注意不要因为条件化于处理变量而打开碰撞点路径。</li>
+</ul>
+</details>
 <h4 id="sec-012-20-01">12.20.1 练习题与答案提示<a class="heading-link" href="#sec-012-20-01" aria-label="复制本节链接">#</a></h4>
 <h4 id="sec-012-20-02">12.20.2 考试型习题<a class="heading-link" href="#sec-012-20-02" aria-label="复制本节链接">#</a></h4>
 <p>\begin{exbox} <strong>题 1：</strong> 写出二值工具变量的 Wald 估计量，并解释分子和分母。 <strong>答：</strong></p>

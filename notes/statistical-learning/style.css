@@ -460,6 +460,38 @@ blockquote.callout-exercise {
   max-width: none;
 }
 
+.exercise-hints {
+  max-width: 78ch;
+  margin: 14px 0 22px;
+  border: 1px solid var(--read-border-soft);
+  border-left: 4px solid #5d7463;
+  border-radius: 7px;
+  background: #f6f9f4;
+  color: #233935;
+}
+
+.exercise-hints summary {
+  padding: 11px 14px;
+  cursor: pointer;
+  color: #334f3a;
+  font-weight: 700;
+}
+
+.exercise-hints ul {
+  margin: 0;
+  padding: 0 16px 14px 34px;
+  line-height: 1.78;
+}
+
+.exercise-hints li + li {
+  margin-top: 0.35rem;
+}
+
+.exercise-hints p,
+.exercise-hints li {
+  max-width: none;
+}
+
 .table-wrap {
   min-width: 0;
   max-width: 100%;
@@ -610,6 +642,7 @@ pre {
   .math-block,
   .table-wrap,
   .exam-card,
+  .exercise-hints,
   .note-figure,
   .figure-grid,
   pre {
@@ -682,6 +715,7 @@ pre {
   blockquote.callout,
   .exam-card,
   .answer-details,
+  .exercise-hints,
   .math-block,
   .table-wrap,
   .note-figure,
@@ -690,11 +724,13 @@ pre {
     break-inside: avoid;
   }
 
-  .answer-details {
+  .answer-details,
+  .exercise-hints {
     background: #fff;
   }
 
-  .answer-details summary {
+  .answer-details summary,
+  .exercise-hints summary {
     padding-left: 10px;
   }
 }
