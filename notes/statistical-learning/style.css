@@ -480,6 +480,49 @@ pre {
   border-radius: 7px;
 }
 
+.note-figure {
+  max-width: min(100%, 760px);
+  margin: 24px auto 28px;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid var(--read-border-soft);
+  border-radius: 8px;
+  background: #fbfcfb;
+  box-shadow: 0 8px 22px rgba(20, 45, 48, 0.08);
+  break-inside: avoid;
+}
+
+.note-figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.note-figure figcaption {
+  margin-top: 10px;
+  color: var(--read-muted);
+  font-size: 14px;
+  line-height: 1.58;
+  text-align: center;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 18px;
+  max-width: 100%;
+  margin: 24px 0 28px;
+}
+
+.figure-grid .note-figure {
+  max-width: 100%;
+  margin: 0;
+}
+
 @media screen and (max-width: 1180px) {
   .page-shell {
     grid-template-columns: minmax(0, 1fr);
@@ -522,9 +565,21 @@ pre {
 
   .math-block,
   .table-wrap,
+  .note-figure,
+  .figure-grid,
   pre {
     margin-left: -2px;
     margin-right: -2px;
+  }
+
+  .note-figure {
+    padding: 10px;
+    border-radius: 7px;
+  }
+
+  .note-figure figcaption {
+    font-size: 13.2px;
+    text-align: left;
   }
 
   .generated-toc .toc-module-index,
@@ -583,6 +638,8 @@ pre {
   .answer-details,
   .math-block,
   .table-wrap,
+  .note-figure,
+  .figure-grid,
   pre {
     break-inside: avoid;
   }

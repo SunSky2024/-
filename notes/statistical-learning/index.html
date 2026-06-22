@@ -1199,6 +1199,10 @@ $$</div>
 
 $$</div>
 <p>其中 \(N_k(x_0)\) 表示训练数据中在特征值意义下最接近 \(x_0\)的\(k\) 个样本点组成的集合。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_01/knn_regression_1nn.png" alt="一维 kNN 回归中 1NN 拟合曲线示意图" loading="lazy" decoding="async">
+<figcaption>图 1.1：1NN 回归用最近的一个训练样本预测目标点，拟合曲线会呈现阶梯状跳变。（来源：教材源码 lecture_01）</figcaption>
+</figure>
 <p>这条公式可以拆成三步理解：</p>
 <ol>
 <li>先定义“近”：通常用距离 \(d(x_i,x_0)\)，比如欧氏距离。</li>
