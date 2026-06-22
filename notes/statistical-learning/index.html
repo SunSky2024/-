@@ -1979,6 +1979,10 @@ $$</div>
 $$</div>
 <p>这和上一节经验风险最小化是一致的：在线性函数空间内最小化平方误差。</p>
 <p>P12 的图来自 ESL，画出三维空间中的线性回归拟合平面。红色竖线可以理解为观测点到拟合平面的残差。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/linear_regression_plane.png" alt="三维散点上的线性回归拟合平面和残差竖线" loading="lazy" decoding="async">
+<figcaption>图 2.1：这张图帮你记住：线性回归在多变量情形下是在拟合一个回归平面，残差就是观测点到平面的垂直差距；考试时看到 \(y=X\beta+e\) 要能把它和“平面 + 残差”联系起来。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <h3 id="sec-002-06">2.6 求解 \(\hat\beta\)：正规方程<a class="heading-link" href="#sec-002-06" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P13。ESL 阅读：3.2。</p>
 <p>为了估计 \(\beta\)，对 RSS 关于 \(\beta\) 求导并令其等于 0：</p>
@@ -2075,6 +2079,10 @@ X^\top r=0.
 
 $$</div>
 <p>P16 的图展示了这种几何结构：绿色平面是 \(X\) 的列空间，\(\hat y\)是\(y\) 投影到该平面上的点，残差 \(r=y-\hat y\) 垂直于这个平面。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/vector_space_projection.png" alt="响应向量投影到设计矩阵列空间并产生正交残差的示意图" loading="lazy" decoding="async">
+<figcaption>图 2.2：这张图帮你记住：帽子矩阵 \(H\) 的作用是把 \(y\) 投影到 \(X\) 的列空间，残差 \(r\) 与列空间正交；考试时遇到 \(H^2=H\)、\(X^\top r=0\) 都可以用这张投影图理解。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <p>这个图非常重要：最小二乘不是神秘公式，而是在找列空间里离 \(y\) 最近的点。</p>
 <h3 id="sec-002-08">2.8 \(\hat\beta\) 的性质<a class="heading-link" href="#sec-002-08" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P17-P18。ESL 阅读：3.2。</p>
@@ -2192,6 +2200,10 @@ $$</div>
 <li>training error decreases with \(p\)：训练误差随变量数 \(p\) 增大而下降；</li>
 <li>当 \(p\) 变大，这会造成严重问题。</li>
 </ul>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/train_test_error_vs_p.png" alt="变量数 p 增加时训练误差下降而测试误差上升的曲线" loading="lazy" decoding="async">
+<figcaption>图 2.3：这张图帮你记住：加入变量会让训练误差越来越乐观，但测试误差可能因为估计方差上升而变差；考试时不要用训练 RSS 直接判断模型好坏。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <p>这就是模型选择的动机：不能只看训练误差。</p>
 <h3 id="sec-002-10">2.10 变量选择<a class="heading-link" href="#sec-002-10" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P24。ESL 阅读：3.3。</p>
@@ -2241,6 +2253,10 @@ $$</div>
 $$</div>
 <p>其中 \(p\) 是模型中参数或预测变量的数量，\(\hat\sigma_{\mathrm{full}}^2\) 通常来自 full model。</p>
 <p>当 \(n\) 很大时，BIC 中新增一个变量的代价 \(\log(n)\) 比 AIC 或 \(C_p\) 中的 2 更大，因此 AIC 往往选择比 BIC 更大的模型。课件还说 \(C_p\) 的表现与 AIC 类似。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/criteria_penalty_compare.png" alt="Mallows Cp、AIC 和 BIC 对模型复杂度惩罚强度的比较" loading="lazy" decoding="async">
+<figcaption>图 2.4：这张图帮你记住：AIC 和 \(C_p\) 的复杂度惩罚较温和，BIC 的惩罚随 \(\log(n)\) 增大；考试时比较 AIC/BIC 选模倾向，就看谁对新增变量罚得更重。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <h3 id="sec-002-12">2.12 Mallows \(C_p\) 的理由<a class="heading-link" href="#sec-002-12" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P28-P29。ESL 阅读：7.5。</p>
 <p>课件回顾前面对训练误差和测试误差的分析，但这一次不再假设真实模型一定线性。设</p>
@@ -2296,6 +2312,10 @@ $$</div>
 <li>computational algorithm：计算算法，例如 Best subset、stepwise selection。</li>
 </ul>
 <p>不同算法有不同优势。准则回答“哪个模型好”，算法回答“怎么在大量候选模型中找到它”。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/model_selection_workflow.png" alt="线性模型变量选择中先定义评分准则再用搜索算法找模型的流程图" loading="lazy" decoding="async">
+<figcaption>图 2.5：这张图帮你记住：模型选择分两步，先用 \(C_p\)、AIC、BIC 等准则定义“好模型”，再用 best subset 或 stepwise 等算法去搜索；考试时要区分准则和算法，不要混为一谈。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <h4 id="sec-002-13-02">2.13.2 Best Subset Selection<a class="heading-link" href="#sec-002-13-02" aria-label="复制本节链接">#</a></h4>
 <p>最佳子集选择是 level-wise search algorithm。它对给定模型大小返回全局最优解，但只适合 \(p\) 不太大时使用，课件写的是 \(p&lt;50\)。</p>
 <p>算法：</p>
@@ -2330,6 +2350,10 @@ $$</div>
 </ul>
 <p>这里 null model 通常只含截距，不含其他预测变量。full model 则包含所有候选预测变量。</p>
 <p>逐步法的优点是计算快；缺点是贪心路径可能错过全局最优模型。例如前向选择早期加入了一个变量，后续搜索可能被这个选择限制。</p>
+<figure class="note-figure">
+<img src="assets/textbook/lecture_02/bias_variance_tradeoff_concept.png" alt="线性模型选择中模型复杂度、偏差和方差之间权衡的复习总结图" loading="lazy" decoding="async">
+<figcaption>图 2.6：这张图帮你记住：第二讲的主线仍是偏差-方差权衡，变量太少容易欠拟合，变量太多会增加方差；考试时可用它把训练误差、测试误差和模型选择准则串起来。（来源：教材源码 lecture_02）</figcaption>
+</figure>
 <h3 id="sec-002-14">2.14 本讲考试速记<a class="heading-link" href="#sec-002-14" aria-label="复制本节链接">#</a></h3>
 <h4 id="sec-002-14-01">2.14.1 必背公式<a class="heading-link" href="#sec-002-14-01" aria-label="复制本节链接">#</a></h4>
 <p>训练数据：</p>
