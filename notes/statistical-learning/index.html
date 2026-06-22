@@ -1723,6 +1723,7 @@ $$</div>
 </figure>
 <p>这就是 双重下降（double descent）：测试风险先下降、再上升、再下降。它不是否定偏差-方差权衡，而是提醒我们：在现代高维、过参数化模型中，经典 U 形图并不能解释所有泛化现象。</p>
 <h3 id="sec-001-17">1.17 考试速记与常见问法<a class="heading-link" href="#sec-001-17" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-001-17-01">1.17.1 必背公式<a class="heading-link" href="#sec-001-17-01" aria-label="复制本节链接">#</a></h4>
 <p>回归模型：</p>
 <div class="math-block">$$
@@ -1805,6 +1806,7 @@ $$</div>
 <li>高维中最近邻可能并不近，这是 kNN 的根本困难之一。</li>
 <li>交叉验证用于估计泛化误差，不是为了让训练误差最小。</li>
 </ol>
+</section>
 <h3 id="sec-001-18">1.18 教材源码练习题<a class="heading-link" href="#sec-001-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/01_knn_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-001-18-01">1.18.1 练习题与答案提示<a class="heading-link" href="#sec-001-18-01" aria-label="复制本节链接">#</a></h4>
@@ -2355,6 +2357,7 @@ $$</div>
 <figcaption>图 2.6：这张图帮你记住：第二讲的主线仍是偏差-方差权衡，变量太少容易欠拟合，变量太多会增加方差；考试时可用它把训练误差、测试误差和模型选择准则串起来。（来源：教材源码 lecture_02）</figcaption>
 </figure>
 <h3 id="sec-002-14">2.14 本讲考试速记<a class="heading-link" href="#sec-002-14" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-002-14-01">2.14.1 必背公式<a class="heading-link" href="#sec-002-14-01" aria-label="复制本节链接">#</a></h4>
 <p>训练数据：</p>
 <div class="math-block">$$
@@ -2445,6 +2448,7 @@ $$</div>
 <li>AIC 往往比 BIC 选择更大的模型，因为 BIC 的惩罚是 \(\log(n)p\)。</li>
 <li>Best subset 给定模型大小时能找全局最优，但计算贵；stepwise 计算快，但可能只是局部最优。</li>
 </ol>
+</section>
 <h3 id="sec-002-15">2.15 教材源码练习题<a class="heading-link" href="#sec-002-15" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/02_linear_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-002-15-01">2.15.1 练习题与答案提示<a class="heading-link" href="#sec-002-15-01" aria-label="复制本节链接">#</a></h4>
@@ -3079,6 +3083,7 @@ $$</div>
 </ul>
 <p>这些函数名考试中不一定要求记忆，但它们能帮助理解不同方法在软件中的对应关系。</p>
 <h3 id="sec-003-12">3.12 本讲考试速记<a class="heading-link" href="#sec-003-12" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-003-12-01">3.12.1 必背公式<a class="heading-link" href="#sec-003-12-01" aria-label="复制本节链接">#</a></h4>
 <p>Ridge：</p>
 <div class="math-block">$$
@@ -3150,6 +3155,7 @@ $$</div>
 <li>Lasso 的软阈值中，小于阈值的 OLS 系数会直接变成 0。</li>
 <li><code>glmnet</code> 中 <code>alpha = 0</code>是Ridge，<code>alpha = 1</code>是Lasso。</li>
 </ol>
+</section>
 <h3 id="sec-003-13">3.13 教材源码练习题<a class="heading-link" href="#sec-003-13" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/03_penalized0_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-003-13-01">3.13.1 练习题与答案提示<a class="heading-link" href="#sec-003-13-01" aria-label="复制本节链接">#</a></h4>
@@ -3672,6 +3678,7 @@ y\\
 $$</div>
 <p>于是它可以被当成一个新的“mega”设计矩阵和新的响应向量来处理，然后使用已有的回归与惩罚回归算法求参数。</p>
 <h3 id="sec-004-14">4.14 本讲结尾与考试速记<a class="heading-link" href="#sec-004-14" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <p>课件最后把本讲放回更大的研究背景：</p>
 <ol>
 <li>Penalization and variable selection：惩罚方法既服务于预测，也服务于变量选择。</li>
@@ -3751,6 +3758,7 @@ $$</div>
 \|y-X\beta\|^2+\|y-Z\theta\|^2+\|X\beta-Z\theta\|^2.
 
 $$</div>
+</section>
 <h3 id="sec-004-15">4.15 教材源码练习题<a class="heading-link" href="#sec-004-15" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/04_penalized1_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-004-15-01">4.15.1 练习题与答案提示<a class="heading-link" href="#sec-004-15-01" aria-label="复制本节链接">#</a></h4>
@@ -4727,6 +4735,7 @@ $$</div>
 </ol>
 <p>在 R 中，逻辑回归（Logistic regression） 通常写作 <code>glm(y ~ x1 + x2, family = binomial, data = dat)</code>。其中 <code>family = binomial</code> 告诉 <code>glm</code> 使用二项分布和默认 logit link。</p>
 <h3 id="sec-005-17">5.17 本讲考试速记<a class="heading-link" href="#sec-005-17" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-005-17-01">5.17.1 核心公式<a class="heading-link" href="#sec-005-17-01" aria-label="复制本节链接">#</a></h4>
 <p>逻辑回归（Logistic regression）：</p>
 <div class="math-block">$$
@@ -4793,6 +4802,7 @@ $$</div>
 <li>高维下 \(\hat\Sigma^{-1}\) 可能不存在，训练集分得开不一定代表泛化好。</li>
 <li>逻辑回归（Logistic regression） 比 LDA 分布假设更弱；LDA 如果高斯假设近似成立，估计可能更稳定。</li>
 </ol>
+</section>
 <h3 id="sec-005-18">5.18 教材源码练习题<a class="heading-link" href="#sec-005-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/05_classification_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-005-18-01">5.18.1 练习题与答案提示<a class="heading-link" href="#sec-005-18-01" aria-label="复制本节链接">#</a></h4>
@@ -5353,6 +5363,7 @@ $$</div>
 $$</div>
 <p>调参参数 \(\lambda\) 可以用 交叉验证（cross-validation）选择。</p>
 <h3 id="sec-006-12">6.12 KRR 的优缺点与考试速记<a class="heading-link" href="#sec-006-12" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <p>核岭回归（Kernel ridge regression） 的优势是可以拟合非线性函数 \(f(x)\)，而不需要显式构造高维特征 \(\Phi(x)\)。只要指定核函数（kernel），就能在隐含的 RKHS 中做岭回归（Ridge regression）。</p>
 <p>计算代价也很明确：</p>
 <ol>
@@ -5410,6 +5421,7 @@ $$</div>
 <li>普通 Ridge 主要反转 \(p\times p\) 矩阵；KRR 主要反转 \(n\times n\) 核矩阵。</li>
 <li>非线性能力来自 核技巧（kernel trick），不是来自显式手写非线性基函数。</li>
 </ol>
+</section>
 <h3 id="sec-006-13">6.13 教材源码练习题<a class="heading-link" href="#sec-006-13" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/06_rkhs_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-006-13-01">6.13.1 练习题与答案提示<a class="heading-link" href="#sec-006-13-01" aria-label="复制本节链接">#</a></h4>
@@ -6442,6 +6454,7 @@ $$</div>
 </ol>
 <p>一般应通过 交叉验证（cross-validation）选择这些参数，而不是只看训练误差。</p>
 <h3 id="sec-007-16">7.16 本讲考试速记与易错点<a class="heading-link" href="#sec-007-16" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-007-16-01">7.16.1 核心公式<a class="heading-link" href="#sec-007-16-01" aria-label="复制本节链接">#</a></h4>
 <p>线性分类函数：</p>
 <div class="math-block">$$
@@ -6529,6 +6542,7 @@ $$</div>
 <li>逻辑回归（Logistic regression） 估计概率或 log-odds；SVM 直接估计分类边界。</li>
 <li>RBF kernel 的灵活性来自隐式无限维特征映射，但调参不当也会过拟合。</li>
 </ol>
+</section>
 <h3 id="sec-007-17">7.17 教材源码练习题<a class="heading-link" href="#sec-007-17" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/07_svm_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-007-17-01">7.17.1 练习题与答案提示<a class="heading-link" href="#sec-007-17-01" aria-label="复制本节链接">#</a></h4>
@@ -7303,6 +7317,7 @@ $$</div>
 <li><code>locpoly</code>，课件说明其使用 高斯核（Gaussian kernel）。</li>
 </ol>
 <h3 id="sec-008-18">8.18 本讲考试速记与易错点<a class="heading-link" href="#sec-008-18" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-008-18-01">8.18.1 核心公式<a class="heading-link" href="#sec-008-18-01" aria-label="复制本节链接">#</a></h4>
 <p>直方图估计量（Histogram estimator）：</p>
 <div class="math-block">$$
@@ -7410,6 +7425,7 @@ $$</div>
 <ol start="10">
 <li><code>loess</code>的<code>span</code> 控制使用多少邻近点；<code>degree</code> 控制局部多项式次数。</li>
 </ol>
+</section>
 <h3 id="sec-008-19">8.19 教材源码练习题<a class="heading-link" href="#sec-008-19" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/08_kernel_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-008-19-01">8.19.1 练习题与答案提示<a class="heading-link" href="#sec-008-19-01" aria-label="复制本节链接">#</a></h4>
@@ -8320,6 +8336,7 @@ $$</div>
 <li>需要大量树（trees） 才能稳定估计方差（variance）。</li>
 </ol>
 <h3 id="sec-009-22">9.22 本讲考试速记与易错点<a class="heading-link" href="#sec-009-22" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <h4 id="sec-009-22-01">9.22.1 核心公式<a class="heading-link" href="#sec-009-22-01" aria-label="复制本节链接">#</a></h4>
 <p>基尼指数（Gini index）：</p>
 <div class="math-block">$$
@@ -8420,6 +8437,7 @@ $$</div>
 <li>随机森林（Random forest）核函数（kernel）是数据自适应的，不是固定带宽核函数（fixed-bandwidth kernel）。</li>
 <li>\(n_{\min}=1\) 不等于 1-NN；随机森林邻域来自树叶节点和集成。</li>
 </ol>
+</section>
 <h3 id="sec-009-23">9.23 教材源码练习题<a class="heading-link" href="#sec-009-23" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/09_trees_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-009-23-01">9.23.1 练习题与答案提示<a class="heading-link" href="#sec-009-23-01" aria-label="复制本节链接">#</a></h4>
@@ -10156,6 +10174,7 @@ $$</div>
 $$</div>
 <p>因此 MSM 参数是边际干预均值中的效应；SNM 参数是给定历史条件下的局部嵌套效应。二者可以转换，但转换依赖中间协变量 \(L_1\) 的分布以及效应修饰。</p>
 <h3 id="sec-011-17">11.17 本讲易错点<a class="heading-link" href="#sec-011-17" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <ol>
 <li>纵向因果推断中，\(L_k\) 既可能是过去处理的结果，又可能是未来处理的混杂因素；简单回归调整所有 \(L_k\) 不一定正确。</li>
 <li>序贯随机化（sequential randomization）是每个时间点的条件交换性，不是只在 baseline 随机一次。</li>
@@ -10169,6 +10188,7 @@ $$</div>
 <li>\(U^\ast(\psi)\) 的作用是“扣除处理效应”，使其在正确 \(\psi\) 下与处理残差正交。</li>
 <li>MSM 与 SNM 参数不一样：MSM 是边际对比，SNM 是给定历史的局部对比。</li>
 </ol>
+</section>
 <h3 id="sec-011-18">11.18 教材源码练习题<a class="heading-link" href="#sec-011-18" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/11_causal_longitudinal_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-011-18-01">11.18.1 练习题与答案提示<a class="heading-link" href="#sec-011-18-01" aria-label="复制本节链接">#</a></h4>
@@ -10784,6 +10804,7 @@ $$</div>
 <li>这些测试通常统计功效较低。</li>
 </ul>
 <h3 id="sec-012-19">12.19 本讲易错点<a class="heading-link" href="#sec-012-19" aria-label="复制本节链接">#</a></h3>
+<section class="exam-card">
 <ol>
 <li>\(Z\) 与 \(A\) 相关不够；还要 排除限制（exclusion restriction） 和 \(Z-Y\) 无共同原因。</li>
 <li>\(Y\not\perp Z\mid A\) 不一定说明 IV 无效，因为 条件化于（conditioning on） \(A\) 可能打开 碰撞点路径（collider path）。</li>
@@ -10796,6 +10817,7 @@ $$</div>
 <li>协变量 \(C\) 可提高效率或阻断 \(Z-Y\) 混杂，但错误控制 碰撞点（collider） 或 IV 后果仍可能出问题。</li>
 <li>IV inequality 和 过度识别检验（overidentification tests） 只能 证伪（falsify） 某些极端违反，不能证明 IV 有效。</li>
 </ol>
+</section>
 <h3 id="sec-012-20">12.20 教材源码练习题<a class="heading-link" href="#sec-012-20" aria-label="复制本节链接">#</a></h3>
 <p>本节只保留 <code>statistical_learning_12lectures_textbook_zh_final_source.zip</code> 中 <code>deep_chapters/12_iv_deep.tex</code> 的练习题、复习清单和配套答案提示；其它教材源码内容不放入网站正文。</p>
 <h4 id="sec-012-20-01">12.20.1 练习题与答案提示<a class="heading-link" href="#sec-012-20-01" aria-label="复制本节链接">#</a></h4>
