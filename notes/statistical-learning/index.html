@@ -8617,6 +8617,10 @@ E(Y^a)
 
 $$</div>
 <p>这也叫 \(E(Y\mid A=a,L)\)的直接标准化（direct standardization）。它是 longitudinal g 公式（g-formula） 的一个简单特例。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p14_g_formula.png" alt="点暴露观测研究中 G 公式对离散和连续协变量的表达" loading="lazy" decoding="async">
+  <figcaption>图 10.1：G 公式与直接标准化的核心公式，课件截图（来源：10.causal_intro_slides.pdf P14）。</figcaption>
+</figure>
 <p>为什么 crude 关联（association） 不一定是 causation？因为</p>
 <div class="math-block">$$
 \sum_l E(Y\mid A=a,L=l)f_L(l)=E(Y^a)
@@ -8752,6 +8756,10 @@ W=\frac1{f(a\mid L)}.
 
 $$</div>
 <p>由于 \(0&lt;f(a\mid L)&lt;1\)，所以 \(W&gt;1\)。每个被观察到 \(Y^a\) 的人不仅代表自己，还代表同一 \(L\) 层里那些没有接受 \(a\)、因此缺失 \(Y^a\) 的人。权重构造出一个伪总体（pseudo-population），使加权样本中不再有 \(L\) 引起的混杂。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p20_iptw_intro.png" alt="IPTW 通过建模倾向评分而非结局回归来估计 G 公式的思路" loading="lazy" decoding="async">
+  <figcaption>图 10.2：IPTW 的估计思路：不直接建结局模型，而用处理概率加权构造伪总体，课件截图（来源：10.causal_intro_slides.pdf P20）。</figcaption>
+</figure>
 <h3 id="sec-010-11">10.11 IPTW 数值例子与对偶表示（dual representation）<a class="heading-link" href="#sec-010-11" aria-label="复制本节链接">#</a></h3>
 <p>课件设 \(L\) 为二元变量，观测：</p>
 <div class="table-wrap"><table>
@@ -8805,6 +8813,10 @@ $$</div>
 E_{ps}(Y\mid A=1)=24\times\frac12+36\times\frac12=\frac{210}{7}=E(Y^1).
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p26_iptw_pseudo_population.png" alt="IPTW 数值例子中用逆概率权重重构伪总体的表格" loading="lazy" decoding="async">
+  <figcaption>图 10.3：IPTW 伪总体构造例子：每一行按 \(f(A\mid L)^{-1}\) 重新加权，课件截图（来源：10.causal_intro_slides.pdf P26）。</figcaption>
+</figure>
 <p>课件强调 G-computation 与 IPTW的对偶表示（dual representation）：当 \(L\) 维度低，例如单个二元 \(L\)，对 结局回归（outcome regression） 和 倾向评分（propensity score）） 做非参数估计会得到同一个点估计。因此低维非参数情形下二者没有点估计优势。</p>
 <p>代数上，</p>
 <div class="math-block">$$
@@ -9199,6 +9211,10 @@ A\to C,\quad A\to E,\quad B\to C,\quad B\to D,\quad C\to E,\quad C\to D,\quad E\
 $$</div>
 <p>图中的 点（points）是顶点/节点（vertices/nodes），连接变量的线或箭头是 弧/边（arcs/edges）。箭头表示从 cause 到 结果（effect）的直接连接（direct link），且不被其他变量中介。例如 \(A\to C\) 表示 \(A\) 对 \(C\) 的直接效应。</p>
 <p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial 空气污染（air pollution）） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p55_causal_dag.png" alt="抗组胺药与哮喘例子的因果 DAG 节点和箭头示意" loading="lazy" decoding="async">
+  <figcaption>图 10.4：因果 DAG 的节点、箭头和无箭头含义示意，课件截图（来源：10.causal_intro_slides.pdf P55）。</figcaption>
+</figure>
 <p>路径（path） 是连接变量的路径。一个节点若位于路径内部，称为截住路径（intercept the path）。例如 \(C\) 截住 \(A-C-D\) 和 \(E-C-D\) 这两条路径。</p>
 <p>若存在从 \(X\) 出发到 \(Y\)的有向路径（directed path），则 \(X\)是\(Y\)的祖先节点/原因（ancestor/cause），\(Y\)是\(X\)的后代节点/结果（后代节点（descendant）/effect）。上图中 \(A,B,C\)是\(E,D\)的祖先节点（ancestors），而 \(E,D\)是\(A,B,C\)的后代节点（descendants）。</p>
 <p>若有单箭头 \(X\to Y\)，则 \(X\)是\(Y\)的父节点（parent），\(Y\)是\(X\)的子节点（child）。例如 \(A,C\)是\(E\)的父节点（parents）；\(C,E\)是\(A\)的子节点（children） 这句话在课件上下文中应理解为图中列举父节点（parent）/子节点（child） 关系，具体按箭头方向判定。</p>
@@ -9215,6 +9231,10 @@ E-A-C-D
 
 $$</div>
 <p>没有碰撞点（collider），因此是未阻断的后门路径（unblocked backdoor path）。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p58_backdoor_collider_path.png" alt="DAG 中后门路径 碰撞点和阻断路径的示意图" loading="lazy" decoding="async">
+  <figcaption>图 10.5：后门路径、碰撞点和阻断路径的基本判别，课件截图（来源：10.causal_intro_slides.pdf P58）。</figcaption>
+</figure>
 <p>有向（Directed） 无环（Acyclic） Graph (DAG) 的含义：</p>
 <ul>
 <li>有向（Directed）：所有弧（arcs）都是箭头（arrows）；有向路径（directed path） 对应 因果路径（causal path）。</li>
@@ -9286,6 +9306,10 @@ $$</div>
 <p>这与 \(A\to C\leftarrow B\)的DAG 一致。然而在 \(C\)的分层（strata）内，\(A\)-\(B\)的条件优势比（conditional odds ratio） 不是 1，而是 \(2/3\)。也就是说，条件化于（conditioning on） \(C\) 会让原本边际独立的 \(A\) 与 \(B\) 产生关联。</p>
 <p>这是 碰撞点（collider）/选择偏倚（selection bias） 的基本规则：如果 \(C\)是\(A\) 和 \(B\) 的共同结果，则在 \(C\) 的水平内，\(A\) 与 \(B\) 的关联通常不同于边际关联。</p>
 <p>回到原 DAG，条件化于（conditioning on） \(C\) 会创造从 \(E\) 到 \(D\) 的未阻断后门路径（unblocked backdoor path）：\(A\) 与 \(B\)在\(C\) 层内的关联会使 \(A\) 通过 \(B\) 间接关联到 \(D\)。因此只调整 \(A\)、只调整 \(B\)、或只调整 \(C\) 都不足以控制混杂；调整 \(\{A,C\}\) 或 \(\{B,C\}\) 是充分的。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p71_conditioning_on_collider.png" alt="条件化于碰撞点会打开后门路径并引入偏倚的 DAG 示例" loading="lazy" decoding="async">
+  <figcaption>图 10.6：条件化于碰撞点会打开原本阻断的后门路径，课件截图（来源：10.causal_intro_slides.pdf P71）。</figcaption>
+</figure>
 <p>课件还给出一个“传统经验（conventional wisdom） 会出错”的例子：图中唯一 后门路径（backdoor path）</p>
 <div class="math-block">$$
 E-A-C-B-D
@@ -9322,6 +9346,10 @@ $$</div>
 <li>给定 \(\{Q\}\) 后，原本经过 \(Q\)的chain/fork 路径可被阻断。</li>
 <li>给定 \(\{Q\}\) 后，也可能打开涉及 \(Q\) 或其 后代节点（descendant）的碰撞点（collider） 路径，使 \(A\) 与 \(Y\) 重新 d 连通（d-connected）。</li>
 </ul>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p73_d_separation.png" alt="d 分离中 chain fork collider 路径阻断和打开的规则图" loading="lazy" decoding="async">
+  <figcaption>图 10.7：d-separation 的路径阻断规则示意，课件截图（来源：10.causal_intro_slides.pdf P73）。</figcaption>
+</figure>
 <p>后门路径准则（backdoor path criterion）：在给定 DAG 下，一个变量集合 \(S\) 足以控制混杂（confounding），如果：</p>
 <ol>
 <li>\(S\) 不包含 暴露（exposure） \(E\)的后代节点（descendants）；</li>
@@ -9342,6 +9370,10 @@ $$</div>
 <li>图 \(A\to Y\)，且 \(Z\to Y\)。\(Z\)是结局（outcome）的原因；若不影响 \(A\)，不是混杂因子，但可在随机试验或 结局回归（outcome regression） 中提高效率。</li>
 <li>图 \(A\to Y\to Z\)。\(Z\)是outcome的后代节点（descendant）；通常不用于控制 \(A\) 对 \(Y\) 的混杂。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/p78_dag_adjustment_examples.png" alt="DAG 练习中区分中介 后代 混杂和预测变量的示例图" loading="lazy" decoding="async">
+  <figcaption>图 10.8：课件末尾 DAG 练习图，用于判断是否应调整 \(Z\)，课件截图（来源：10.causal_intro_slides.pdf P78）。</figcaption>
+</figure>
 <p>最后一页是一个中文表格，展示按 sex 分层与总体合并会得到相反方向的比较：</p>
 <div class="table-wrap"><table>
 <thead><tr><th>分组</th><th>处理状态 \(A\)</th><th>生存人数</th><th>死亡人数</th><th>生存率</th></tr></thead>
@@ -9426,6 +9458,10 @@ $$</div>
 <p>初学者可以把它理解为：每一种可比较的历史状态中，都必须真的有人走过每条处理分支，否则无法从数据中估计该分支的结果。</p>
 <h3 id="sec-011-04">11.4 因果 DAG（Causal DAGs）与纵向 g 公式（g-formula）<a class="heading-link" href="#sec-011-04" aria-label="复制本节链接">#</a></h3>
 <p>课件的 纵向因果 DAG（longitudinal causal DAG） 包含节点 \(L_k,A_k,L_{k+1},A_{k+1},Y\)，并有未观测因素 \(U\)。图中表达的信息是：协变量和处理沿时间演化，过去处理会影响未来协变量，未来协变量会影响未来处理和结局，未观测 \(U\) 可能影响若干后续变量。识别假设的作用就是把这个复杂时间过程转化为可估计的干预分布。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p05_longitudinal_dag.png" alt="纵向因果 DAG 中处理 协变量 未观测因素和最终结局的时间结构" loading="lazy" decoding="async">
+  <figcaption>图 11.1：纵向处理和时间变化混杂的 DAG 结构，课件截图（来源：11.causal_longitudinal_slides.pdf P5）。</figcaption>
+</figure>
 <p>在三个假设下，若 \(L_t\) 离散，g 公式（g-formula） 为</p>
 <div class="math-block">$$
 E(Y^{\bar a})
@@ -9556,6 +9592,10 @@ $$</div>
 
 $$</div>
 <p>MSM 的优势是把 因果零假设（causal null） 写成参数限制，而不是隐藏在多个 辅助模型（nuisance models） 的组合里。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p15_mean_msm_weights.png" alt="均值边际结构模型的估计方程和 IPTW 权重定义" loading="lazy" decoding="async">
+  <figcaption>图 11.2：Mean MSM 的估计方程和权重形式，课件截图（来源：11.causal_longitudinal_slides.pdf P15）。</figcaption>
+</figure>
 <h3 id="sec-011-07">11.7 均值 MSM（Mean MSMs）与 IPTW 估计方程（estimating equation）<a class="heading-link" href="#sec-011-07" aria-label="复制本节链接">#</a></h3>
 <p>对 均值 MSM（mean MSM）</p>
 <div class="math-block">$$
@@ -9634,6 +9674,10 @@ $$</div>
 <ol start="3">
 <li>用权重（weights） \(\hat W^{-1}\) 对 \(Y\) 关于 \(A_0,A_1\) 做 加权最小二乘（weighted least squares）。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p18_iptw_procedure.png" alt="纵向 IPTW 中先估计处理概率 再计算权重 最后加权回归的流程" loading="lazy" decoding="async">
+  <figcaption>图 11.3：纵向 IPTW 的三步操作流程，课件截图（来源：11.causal_longitudinal_slides.pdf P18）。</figcaption>
+</figure>
 <p>课件给出 证明思路（proof sketch），核心等式是：</p>
 <div class="math-block">$$
 \begin{aligned}
@@ -9855,6 +9899,10 @@ A_m\perp
 
 $$</div>
 <p>对 \(m=0,\ldots,K\) 成立。它表示：给定截至 \(m\) 的协变量历史和过去处理历史后，当期处理 \(A_m\) 与“从此以后若不再处理”的未来潜在结果独立。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p30_time_varying_setup.png" alt="固定时间点收集处理 协变量和结局历史的纵向设定说明" loading="lazy" decoding="async">
+  <figcaption>图 11.4：时间变化处理和协变量历史的记号设定，课件截图（来源：11.causal_longitudinal_slides.pdf P30）。</figcaption>
+</figure>
 <h3 id="sec-011-13">11.13 结构嵌套模型（Structural Nested Model, SNM）<a class="heading-link" href="#sec-011-13" aria-label="复制本节链接">#</a></h3>
 <p>SNM 参数化的是在给定历史下，当期处理相对于“不再处理”的嵌套对比。课件写成：</p>
 <div class="math-block">$$
@@ -9942,6 +9990,10 @@ Y_1^{(a_0,0)}-Y_1^{(0,0)}
 
 $$</div>
 <p>第一条参数化 \(A_1\) 对 \(Y_2\) 的效应；第二条参数化 \(A_0\) 对 \(Y_2\) 的效应；第三条参数化 \(A_0\) 对 \(Y_1\) 的效应。所有对比都条件于所考虑时间点之前的 covariates 和 treatments。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p34_two_stage_snm.png" alt="两阶段线性结构嵌套模型中三个嵌套潜在结果对比方程" loading="lazy" decoding="async">
+  <figcaption>图 11.5：两阶段线性 SNM 的三个嵌套对比方程，课件截图（来源：11.causal_longitudinal_slides.pdf P34）。</figcaption>
+</figure>
 <h3 id="sec-011-15">11.15 SNM 参数估计<a class="heading-link" href="#sec-011-15" aria-label="复制本节链接">#</a></h3>
 <p>构造 \(U_m^\ast(\psi)\)，使它对应于去除从 \(m\) 时刻开始的处理效应后、未来潜在结果的均值。课件给出一般构造：在 恒等链接（identity link） 下，对每个 \(m\)，\(U_m^\ast(\psi)\) 是一个 \(K+1-m\) 维向量，其第 \(k\) 个分量为</p>
 <div class="math-block">$$
@@ -10075,6 +10127,10 @@ $$</div>
 E(Y^{1,0}-Y^{0,0})=\theta_0=\psi_0.
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_11/p42_msm_snm_comparison.png" alt="MSM 参数和 SNM 参数在两阶段纵向模型中的对应关系" loading="lazy" decoding="async">
+  <figcaption>图 11.6：MSM 与 SNM 参数解释的对比，课件截图（来源：11.causal_longitudinal_slides.pdf P42）。</figcaption>
+</figure>
 <p>这是 \(A_0\) 对 \(Y\) 的边际效应，且在该模型下与 SNM的\(\psi_0\) 一致。</p>
 <div class="math-block">$$
 E(Y^{0,1}-Y^{0,0})
@@ -10161,6 +10217,10 @@ Z\to A\to Y,\qquad U\to A,\qquad U\to Y,
 
 $$</div>
 <p>并且没有 \(Z\to Y\) 的直接箭头，也没有 \(U\to Z\) 的共同原因路径。有效 IV 很难找；但如果找到，它能缩小 观测研究（observational study）与实验研究（experimental study） 之间的证据差距。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p12_iv_dag.png" alt="工具变量 DAG 中 Z 影响 A A 影响 Y U 混杂 A 和 Y 的结构" loading="lazy" decoding="async">
+  <figcaption>图 12.1：IV 基本 DAG：\(Z\) 只通过 \(A\) 影响 \(Y\)，且 \(Z\) 与未观测混杂 \(U\) 无共同原因，课件截图（来源：12.iv_slides.pdf P12）。</figcaption>
+</figure>
 <p><strong>MTO 例子。</strong>“搬向机会”（Moving To Opportunity） 研究的问题是：从极高贫困公共住房搬到低贫困社区，是否改善母亲或儿童健康？随机实验中：</p>
 <ul>
 <li>\(Z\)：家庭是否被随机分配到 住房券（voucher），用于缓解从高贫困社区搬到低贫困社区的成本。</li>
@@ -10302,6 +10362,10 @@ $$</div>
 $$</div>
 <p>分子是意向治疗效应（ITT effect），分母是随机分配对依从性（compliance）的影响。课件提醒：分母若小，Wald 目标量（Wald estimand） 会被放大，也更不稳定。</p>
 <p>不加额外假设时，Wald 目标量（Wald estimand） 不自动有因果解释。课件会在后面依次说明：在不同额外假设下，同一个 Wald 比值可解释为 CACE、ETT/ATT 或 ACE。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p21_wald_estimand.png" alt="二元处理下 Wald estimand 等于 Z 对 Y 的效应除以 Z 对 A 的效应" loading="lazy" decoding="async">
+  <figcaption>图 12.2：Wald estimand 的比值形式：分子是 \(Z\) 对 \(Y\) 的影响，分母是 \(Z\) 对 \(A\) 的影响，课件截图（来源：12.iv_slides.pdf P21）。</figcaption>
+</figure>
 <h3 id="sec-012-09">12.9 IV 的形式化定义（Formal definition of IV）<a class="heading-link" href="#sec-012-09" aria-label="复制本节链接">#</a></h3>
 <p>课件给出 IV 的三个基础假设：</p>
 <p><strong>假设 IV.1（Assumption IV.1）：相关性。</strong> \(Z\) 与 暴露（exposure） \(A\) 相关：</p>
@@ -10347,6 +10411,10 @@ $$</div>
 A_0\le A_1.
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p25_compliance_types.png" alt="二元工具变量和处理下 never taker always taker defier complier 四种依从类型" loading="lazy" decoding="async">
+  <figcaption>图 12.3：四类 compliance types：never takers、always takers、defiers、compliers，课件截图（来源：12.iv_slides.pdf P25）。</figcaption>
+</figure>
 <p>这也写成：不存在 \(A_0=1,A_1=0\) 的个体。随机试验中，defier 是指总是做与分配相反事情的人。单调性是强假设，需要逐个应用场景论证。</p>
 <p>单调性可被经验反驳，因为它推出</p>
 <div class="math-block">$$
@@ -10411,6 +10479,10 @@ CACE
 {\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0)}.
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p29_complier_causal_effect.png" alt="Wald estimand 在 IV 假设和单调性下识别依从者平均因果效应" loading="lazy" decoding="async">
+  <figcaption>图 12.4：CACE 识别结论：Wald 比值识别依从者中的平均因果效应，课件截图（来源：12.iv_slides.pdf P29）。</figcaption>
+</figure>
 <p>在随机试验中，这就是会遵守分配的人群中的 因果效应（causal effect）。MTO 中对应“如果给 住房券（voucher） 就会搬家、不给 住房券（voucher） 就不会搬家”的家庭所经历的效应。</p>
 <p>CACE 的限制是：依从者（compliers） 不能被直接识别，因为同一个人永远不能同时观察 \(A_0,A_1\)。此外，在随机试验中发现的 依从者（compliers） 未必代表总体中的 依从者（compliers）；改变试验规则或激励后，依从者（compliers） 比例也可能改变。可在 单调性（monotonicity） 下估计 依从者比例（complier proportion）：</p>
 <div class="math-block">$$
@@ -10613,6 +10685,10 @@ $$</div>
 E(Y\mid \hat A,C)=\mu_0+\mu_1\hat A+\mu_2^\prime C.
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p45_two_stage_least_squares.png" alt="两阶段最小二乘中第一阶段预测 A 第二阶段用预测 A 回归 Y 的流程" loading="lazy" decoding="async">
+  <figcaption>图 12.5：2SLS 两步流程：先用 \(Z,C\) 预测 \(A\)，再用 \(\hat A,C\) 回归 \(Y\)，课件截图（来源：12.iv_slides.pdf P45）。</figcaption>
+</figure>
 <p>估计量 \(\hat\mu_1\) 收敛到目标 因果效应（causal effect），例如在 IV.1-IV.4 下</p>
 <div class="math-block">$$
 \beta_1=E(Y_1-Y_0\mid A_1=1,A_0=0,C).
@@ -10696,6 +10772,10 @@ $$</div>
 Y_z\perp Z,\qquad Z\perp A.
 
 $$</div>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_12/p54_iv_inequality_test.png" alt="二元 Y A Z 下 IV inequality test 对潜在结果概率给出的上下界" loading="lazy" decoding="async">
+  <figcaption>图 12.6：IV inequality test 用观测分布检验 IV 假设的极端违反，课件截图（来源：12.iv_slides.pdf P54）。</figcaption>
+</figure>
 <p>也可使用 Bonet inequalities，它们可更有力，但只适用于 categorical 表型（phenotype）s。课件强调：这些测试不特别强，主要检测极端违反；IV 越多，测试越敏感。</p>
 <p><strong>过度识别检验（overidentification tests）.</strong> 使用多个 IV 可做 过度识别检验（overidentification tests）。例如其他 基因（genes） 或同一 gene的多态性（polymorphisms） 可能提供 额外（additional） 工具变量（instruments）。限制：</p>
 <ul>
