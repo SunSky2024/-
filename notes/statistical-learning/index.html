@@ -4012,6 +4012,10 @@ y\text{-axis}=\mathrm{Sensitivity}
 
 $$</div>
 <p>ROC 曲线越靠近左上角，说明模型越能同时保持高 sensitivity 和低 false positive 速率（rate）。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_05/roc_curve.png" alt="ROC 曲线展示灵敏度和假阳性率随阈值变化的权衡" loading="lazy" decoding="async">
+  <figcaption>图 5.1：这张图帮你记住 ROC 的坐标含义：横轴是 \(1-\mathrm{Specificity}\)，纵轴是 Sensitivity；考试时看到阈值变化，就想到灵敏度和特异度的权衡。</figcaption>
+</figure>
 <h3 id="sec-005-07">5.7 贝叶斯规则（Bayes Rule）：最优分类规则<a class="heading-link" href="#sec-005-07" aria-label="复制本节链接">#</a></h3>
 <p>在 \(0\text{--}1\) loss 下，如果</p>
 <div class="math-block">$$
@@ -4105,6 +4109,10 @@ $$</div>
 <li>Degree = 2 时，Error = 0.04，二次项明显改善。</li>
 <li>课件备注：LDA can avoid this problem。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_05/masking_polynomials.png" alt="三分类指示矩阵线性和二次多项式拟合中的遮蔽问题示意图" loading="lazy" decoding="async">
+  <figcaption>图 5.2：这张图帮你记住遮蔽问题（masking problem）：逐类回归可能让某一类的得分被其他类别压住；复习时把它和 LDA/QDA 这类直接比较后验概率的判别方法区分开。</figcaption>
+</figure>
 <h4 id="sec-005-08-02">5.8.2 二分类方法如何扩展到多分类<a class="heading-link" href="#sec-005-08-02" aria-label="复制本节链接">#</a></h4>
 <p>课件说本讲重点仍放在 binary classifiers。但有些二分类方法天然或容易处理多分类，比如 LDA、QDA、朴素贝叶斯（Naive Bayes）、逻辑回归（Logistic Regression）、kNN、随机森林（random forests）。有些方法扩展较不平凡，例如 SVM。</p>
 <p>一些朴素但常用的扩展方式：</p>
@@ -4340,6 +4348,10 @@ $$</div>
 <li>如果想让 LDA 产生非线性边界，可以先加入二次特征，例如 \(X_1X_2\) 或 \(X_1^2\)，再做 LDA。</li>
 </ol>
 <p>课件图示比较了两种拟合二次边界的方法：左图是在五维空间 \(X_1,X_2,X_1X_2,X_1^2,X_2^2\) 中做 LDA，右图是 QDA 的二次边界。图注强调二者差异通常很小。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_05/lda_qda_quadratic.png" alt="LDA 在扩展特征空间和 QDA 在原空间产生二次边界的对比" loading="lazy" decoding="async">
+  <figcaption>图 5.3：这张图帮你记 LDA vs QDA 的核心差异：LDA 共用协方差，原空间边界线性；QDA 允许各类协方差不同，边界天然是二次的，也可用二次特征后的 LDA 近似得到。</figcaption>
+</figure>
 <h3 id="sec-005-13">5.13 Fisher 准则（Fisher's Criterion）与判别坐标<a class="heading-link" href="#sec-005-13" aria-label="复制本节链接">#</a></h3>
 <p>课件接着给出 LDA 的另一种 formulation：Fisher's criterion。</p>
 <p>类别中心 \((\mu_1,\ldots,\mu_K)\)的between-class variation 为</p>
@@ -4377,6 +4389,10 @@ $$</div>
 <li>图 4.4 把数据投影到二维 LDA 判别坐标，重圆点表示每类投影均值，类别重叠明显。</li>
 <li>图 4.11 在前两个 canonical variates 张成的二维子空间中画决策边界。由于更高维空间中的边界是高维仿射平面，投影到二维后不一定还是直线。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_05/discriminant_coordinates.png" alt="Fisher LDA 判别坐标中多类别样本和类别均值的二维投影" loading="lazy" decoding="async">
+  <figcaption>图 5.4：这张图帮你记 Fisher 判别坐标的目的：找让类间差异相对类内差异尽量大的投影方向；考试时把它和 PCA 区分开，PCA 不使用类别标签。</figcaption>
+</figure>
 <h3 id="sec-005-14">5.14 降秩 LDA（Reduced Rank LDA）与大 \(p\) 问题<a class="heading-link" href="#sec-005-14" aria-label="复制本节链接">#</a></h3>
 <p>课件指出：低维结构可以帮助降低噪声。我们可以先降维，再在低维空间做判别分析。</p>
 <p>降秩 LDA（Reduced Rank LDA） 的两个例子：</p>
@@ -4384,6 +4400,10 @@ $$</div>
 <li>简单 reduced-rank LDA：\(K\) 个中心 \((\mu_1,\ldots,\mu_K)\)在\(p\) 维输入空间中张成一个秩为 \(K-1\) 的子空间，记为 \(H\)。对任意点 \(x\)，先投影到 \(H\)，再在低维空间做 LDA。</li>
 <li>PCA：对整个数据做 PCA，取前几个特征向量张成子空间 \(H\)。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_05/reduced_subspace_boundaries.png" alt="降秩 LDA 在低维子空间中表示分类边界的示意图" loading="lazy" decoding="async">
+  <figcaption>图 5.5：这张图帮你记 reduced-rank LDA 的复习要点：先把数据压到更稳定的低维子空间，再做判别分析；它主要是为了减少高维噪声和协方差矩阵不可逆问题。</figcaption>
+</figure>
 <p>当 \(p\) 很大时，LDA/QDA 可能不可用，因为</p>
 <div class="math-block">$$
 \hat\Sigma^{-1}
@@ -4864,6 +4884,10 @@ $$</div>
 <li>如果在 RKHS 中求解带惩罚的损失函数，解有有限样本表示。也就是说，虽然 \(\mathcal H\) 可能是无限维的，最终解却只需要 \(n\) 个训练样本对应的系数。</li>
 </ol>
 <p>这两个优势分别对应“核技巧”和“表示定理（Representer theorem）”。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_06/rkhs_kernel_combination.png" alt="RKHS 中函数由多个核函数切片加权组合得到的直观示意图" loading="lazy" decoding="async">
+  <figcaption>图 6.1：这张图帮你记 RKHS 的直觉：函数可以由训练点对应的核切片 \(K(x_i,\cdot)\) 加权叠加而成；核函数负责计算相似度，表示定理说明最终只需有限个样本系数。</figcaption>
+</figure>
 <h3 id="sec-006-04">6.4 RKHS 的构造：从核函数到希尔伯特空间（Hilbert space）<a class="heading-link" href="#sec-006-04" aria-label="复制本节链接">#</a></h3>
 <p>先给定一个 核函数（kernel function） \(K\)。课件把一个数据点 \(x\in\mathcal X\) 看成一个实值函数：</p>
 <div class="math-block">$$
@@ -5636,6 +5660,10 @@ $$</div>
 
 $$</div>
 <p>课件强调的是离分离平面的最小距离 \(1/\|\beta\|\)。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_07/max_margin_geometry.png" alt="SVM 最大间隔分类器中分离超平面 间隔边界和支持向量的几何关系" loading="lazy" decoding="async">
+  <figcaption>图 7.1：SVM 的复习核心是最大间隔：分类面由最靠近边界的支持向量决定，最大化间隔等价于控制 \(\|\beta\|\)；考试时先画出两条 margin 支撑线。</figcaption>
+</figure>
 <h3 id="sec-007-05">7.5 拉格朗日乘子（Lagrange multiplier）：为什么要转成对偶问题<a class="heading-link" href="#sec-007-05" aria-label="复制本节链接">#</a></h3>
 <p>SVM 的标准求解会走 拉格朗日乘子（Lagrange multiplier） 和 dual problem。课件先复习了等式约束优化：</p>
 <div class="math-block">$$
@@ -5902,6 +5930,10 @@ $$</div>
 <li>\(C\) 通常用 交叉验证（cross-validation）选择。</li>
 </ol>
 <p>课件图中的标注说明：不可分情况下，一些点位于 margin 内，一些点甚至落在错误一侧；软间隔（soft margin） 允许这些情况，但会为它们付出 \(\xi_i\) 的代价。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_07/slack_variables_geometry.png" alt="软间隔 SVM 中松弛变量表示样本进入间隔或被错分的程度" loading="lazy" decoding="async">
+  <figcaption>图 7.2：这张图帮你记松弛变量：\(\xi_i=0\) 表示在 margin 外，\(0&lt;\xi_i&lt;1\) 表示进入 margin 但未错分，\(\xi_i&gt;1\) 表示错分；\(C\) 控制间隔宽度和错分惩罚的权衡。</figcaption>
+</figure>
 <h3 id="sec-007-09">7.9 带松弛变量（slack variables）的对偶问题与 KKT 分类<a class="heading-link" href="#sec-007-09" aria-label="复制本节链接">#</a></h3>
 <p>带 松弛变量（slack variables）的primal problem 是</p>
 <div class="math-block">$$
@@ -6071,6 +6103,16 @@ K(x,z)=\langle\Phi(x),\Phi(z)\rangle,
 
 $$</div>
 <p>那么我们就可以直接算 \(K(x,z)\)，不显式构造 \(\Phi(x)\)。这就是 核技巧（kernel trick）。</p>
+<div class="figure-grid">
+  <figure class="note-figure">
+    <img src="assets/textbook/lecture_07/kernel_original_space.png" alt="原始输入空间中非线性结构无法被直线分开的 SVM 示例" loading="lazy" decoding="async">
+    <figcaption>图 7.3：原始空间中的复习提示：样本可能不是线性可分，此时线性 SVM 的间隔边界不够用，需要考虑特征映射或核技巧。</figcaption>
+  </figure>
+  <figure class="note-figure">
+    <img src="assets/textbook/lecture_07/kernel_feature_space.png" alt="特征空间中通过核技巧将非线性结构变为线性可分的 SVM 示例" loading="lazy" decoding="async">
+    <figcaption>图 7.4：特征空间中的复习提示：核技巧把原空间的非线性边界变成高维空间中的线性间隔，预测仍只通过支持向量和 \(K(x_i,x)\) 计算。</figcaption>
+  </figure>
+</div>
 <p>因此非线性 SVM 的对偶形式就是把原来的内积替换成 kernel：</p>
 <div class="math-block">$$
 \max_\alpha
@@ -6303,6 +6345,10 @@ $$</div>
 <li>若 \(0&lt;yf(x)&lt;1\)，说明分类正确但进入 margin，loss 为 \(1-yf(x)\)。</li>
 <li>若 \(yf(x)\le0\)，说明点被错分，loss 至少为 1。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_07/loss_functions_comparison.png" alt="0-1 损失 铰链损失 逻辑损失和其他分类损失的曲线对比" loading="lazy" decoding="async">
+  <figcaption>图 7.5：这张图帮你记 hinge loss：SVM 不直接优化 0/1 loss，而是用可优化的铰链损失；\(yf(x)\ge1\) 时损失为 0，进入 margin 或错分时产生线性惩罚。</figcaption>
+</figure>
 <p>课件还列出其他分类 loss：</p>
 <ol>
 <li>Logistic loss：</li>
