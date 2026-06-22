@@ -6676,6 +6676,10 @@ $$</div>
 
 $$</div>
 <p>课件最后问：如果不用均匀分布（uniform distribution），而用别的形状来扩散每个点的概率质量，会怎样？这就引出核函数（kernel function）。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/histogram_kde.png" alt="从直方图的硬窗口估计过渡到核密度估计平滑曲线的示意图" loading="lazy" decoding="async">
+  <figcaption>图 8.1：这张图帮你记住 histogram 到 KDE 的过渡：直方图是硬窗口计数，KDE 是把每个样本扩散成平滑小峰后相加；考试时重点说清楚带宽 \(\lambda\) 控制窗口宽度。</figcaption>
+</figure>
 <h3 id="sec-008-04">8.4 核函数与带宽（kernel functions, bandwidth）<a class="heading-link" href="#sec-008-04" aria-label="复制本节链接">#</a></h3>
 <p>课件记 \(K\) 为以 0 为中心（centered at 0）的核函数（kernel function）。通常我们使用一个密度函数（density function） \(K(\cdot)\)，满足：</p>
 <div class="math-block">$$
@@ -6781,6 +6785,10 @@ $$</div>
 <li>高斯核（Gaussian kernel） 支持集无限，理论上所有点都有正权重，只是远处权重非常小。</li>
 <li>不同核函数（kernel）的形状会影响估计，但通常 带宽（bandwidth） 的影响更大。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/kernel_shapes.png" alt="Uniform Epanechnikov Gaussian 等常见核函数形状对比" loading="lazy" decoding="async">
+  <figcaption>图 8.2：这张图只需用来区分核函数的大致形状：有些核紧支撑，有些如 Gaussian 有无限尾部；复习重点仍是 bandwidth，核形状通常不是误差变化的主因。</figcaption>
+</figure>
 <h3 id="sec-008-06">8.6 Parzen 估计量（Parzen estimator）与高斯核密度估计（Gaussian KDE）<a class="heading-link" href="#sec-008-06" aria-label="复制本节链接">#</a></h3>
 <p>课件把 核密度估计量（kernel density estimator） 写成 Parzen 估计量（Parzen estimator）：</p>
 <div class="math-block">$$
@@ -7101,6 +7109,10 @@ $$</div>
 <li>核回归（kernel regression） 中每个点贡献的是响应值 \(y_i\)。</li>
 <li>分母 \(\sum_iK_\lambda(x,x_i)\) 用来归一化，使权重和为 1。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/kernel_regression_curves.png" alt="不同带宽下 Nadaraya-Watson 核回归拟合曲线的平滑程度变化" loading="lazy" decoding="async">
+  <figcaption>图 8.3：这张图帮你记 kernel regression 的本质：预测是附近 \(y_i\) 的加权平均；带宽越小越局部、曲线越抖，带宽越大越平滑但可能抹掉真实变化。</figcaption>
+</figure>
 <p>可以定义归一化权重：</p>
 <div class="math-block">$$
 \tilde w_i(x)
@@ -7137,6 +7149,10 @@ $$</div>
 <li>方差下降（variance decreases）。</li>
 </ol>
 <p>这和 KDE 完全同构。直觉是：小窗口只看附近少数点，能追踪局部变化，但容易被噪声影响；大窗口使用更多点，曲线稳定但可能抹掉真实结构。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/bandwidth_tradeoff.png" alt="核密度或核回归中带宽过小和过大导致方差与偏差变化的对比图" loading="lazy" decoding="async">
+  <figcaption>图 8.4：第八讲最常考的是 bandwidth 的偏差-方差权衡：小 \(\lambda\) 低偏差高方差，大 \(\lambda\) 高偏差低方差；选 \(\lambda\) 通常比选 kernel 形状更重要。</figcaption>
+</figure>
 <p>课件提到 Fan and Gijbels (1992, 1995) 给出过一些 最优 \(\lambda\) 的理论取值（theoretical values for optimal \(\lambda\)），但这些理论值在实践中可能失败，因为假设（assumptions） 可能被违反。因此实际中常用 交叉验证（cross-validation）选择 \(\lambda\)。</p>
 <h3 id="sec-008-14">8.14 局部平均的缺点：边界偏差（local averaging, boundary bias）<a class="heading-link" href="#sec-008-14" aria-label="复制本节链接">#</a></h3>
 <p>核平均（Kernel averaging）在定义域边界（domain boundary） 附近可能 偏差很大（badly biased）。原因是边界处 核函数（kernel）的左右信息不对称。</p>
@@ -7165,6 +7181,10 @@ $$</div>
 <li>N-W 核方法在边界处（N-W Kernel at Boundary）用局部常数平均，拟合容易偏离真实曲线。</li>
 <li>边界处的局部线性回归（Local Linear Regression at Boundary） 在局部拟合斜率，边界处更贴近真实趋势。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/boundary_bias.png" alt="核平滑在定义域边界处因单侧样本导致偏差的示意图" loading="lazy" decoding="async">
+  <figcaption>图 8.5：这张图帮你记边界偏差：边界处核窗口只有一侧有样本，局部常数平均会被内部点拉偏；局部线性回归能用斜率做一阶修正。</figcaption>
+</figure>
 <h3 id="sec-008-15">8.15 局部线性回归的矩阵形式（local linear regression）<a class="heading-link" href="#sec-008-15" aria-label="复制本节链接">#</a></h3>
 <p>课件把上一节的目标函数写成加权线性回归（weighted linear regression）（linear regression）。对目标点 \(x_0\)，定义权重矩阵</p>
 <div class="math-block">$$
@@ -7240,6 +7260,10 @@ $$</div>
 <li>代价是 更高方差（higher variance）。</li>
 </ol>
 <p>图“核方法的曲率偏差（Kernel Curvature Bias）”中，内部点的局部线性回归（Local Linear in Interior） 用直线逼近弯曲区域，可能低估或高估峰值；内部点的局部二次回归（Local Quadratic in Interior） 用二次曲线局部拟合，能更好贴合曲率，但由于参数更多，方差（variance）会更高。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_08/curvature_bias.png" alt="局部线性回归在曲率明显区域产生偏差而局部二次回归改善拟合的示意图" loading="lazy" decoding="async">
+  <figcaption>图 8.6：这张图帮你记曲率偏差：局部线性模型在弯曲处可能系统性偏离，局部二次能降低 bias，但参数更多会提高 variance。</figcaption>
+</figure>
 <p>这就是局部多项式的阶数选择问题：阶数太低，bias 大；阶数太高，variance 大，也更容易在局部噪声上波动。</p>
 <h3 id="sec-008-17">8.17 <code>loess</code> 与局部回归的 R 实现（R implementation）<a class="heading-link" href="#sec-008-17" aria-label="复制本节链接">#</a></h3>
 <p>课件列出 R 函数 <code>loess</code>，它用于拟合局部多项式回归（local polynomial regressions）。</p>
@@ -7475,6 +7499,10 @@ $$</div>
 
 $$</div>
 <p>课件图从圆形边界开始，逐步画出水平和竖直切割线，最后用多个矩形区域近似圆形区域。树不能一次画出一个圆，但可以用多个矩形拼出一个近似圆。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/cart_partition_circle_zh.png" alt="CART 通过水平和竖直矩形划分近似圆形分类边界的示意图" loading="lazy" decoding="async">
+  <figcaption>图 9.1：考试常问“树如何表达非线性边界”：CART 每一步只做坐标轴平行切分，不能直接画圆，但可以用许多矩形区域递归划分来近似圆形边界。</figcaption>
+</figure>
 <p>课件还给出 R 示例：</p>
 <ol>
 <li><code>library(rpart)</code>。</li>
@@ -7714,6 +7742,10 @@ $$</div>
 <li>它们倾向于创建更 pure 的节点。</li>
 <li>Misclassification error 可以用于评价一棵树，但建树时不够敏感。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/impurity_curves_zh.png" alt="二分类下 Gini entropy 和 misclassification error 随类别比例变化的曲线对比" loading="lazy" decoding="async">
+  <figcaption>图 9.2：考试常问不纯度比较：Gini 和 entropy 对节点纯度变化更敏感，适合搜索切分；misclassification error 较粗糙，常用于评价而不是优先生长树。</figcaption>
+</figure>
 <h3 id="sec-009-09">9.9 分类变量切分与回归树不纯度（impurity）<a class="heading-link" href="#sec-009-09" aria-label="复制本节链接">#</a></h3>
 <p>对 categorical predictor，设第 \(j\) 个变量取值在</p>
 <div class="math-block">$$
@@ -7804,6 +7836,10 @@ $$</div>
 <li>\(\alpha|T|\) 是复杂度惩罚。</li>
 </ol>
 <p>目标是寻找使 \(C_\alpha(T)\) 最小的子树 \(T\)。大的 \(\alpha\) 会产生小树，因为复杂树会受到更强惩罚。课件建议用 CV 选择 \(\alpha\)。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/cost_complexity_pruning_zh.png" alt="代价复杂度剪枝中训练误差 复杂度惩罚和交叉验证选择子树的示意图" loading="lazy" decoding="async">
+  <figcaption>图 9.3：考试常问剪枝流程：先长大树 \(T_{\max}\)，再用 \(C_\alpha(T)=C(T)+\alpha|T|\) 惩罚复杂度，最后用 CV 选择 \(\alpha\) 和子树大小。</figcaption>
+</figure>
 <h3 id="sec-009-11">9.11 最弱链接剪枝（Weakest-link cutting）、缺失值与单棵树优缺点<a class="heading-link" href="#sec-009-11" aria-label="复制本节链接">#</a></h3>
 <p>直接穷举 \(T_{\max}\) 的所有子树非常昂贵。课件说不需要穷举所有可能子树（exhaust all possible sub-trees），而是使用最弱链接剪枝（weakest-link cutting）。</p>
 <p>设 \(t\)是\(T_{\max}\) 中的一个 内部节点（internal node），从 \(t\) 开始的整个分支记为 \(T_t\)。比较两种操作：</p>
@@ -7887,6 +7923,10 @@ $$</div>
 
 $$</div>
 <p>自助聚合（Bagging） 能 显著降低单个学习器的方差（dramatically reduce the variance of individual learners）。CART 也可以替换成其他 弱学习器（weak learners）。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/bagging_variance_correlation_zh.png" alt="Bagging 通过平均多棵 bootstrap 树降低方差但受树间相关性限制的示意图" loading="lazy" decoding="async">
+  <figcaption>图 9.4：考试常问 bagging 为什么降方差：bootstrap 产生多棵不稳定树，平均后更稳定；但如果树之间相关性高，降方差有限，这正是随机森林引入 mtry 去相关的动机。</figcaption>
+</figure>
 <h3 id="sec-009-13">9.13 自助聚合（Bagging）的局限与随机森林（Random Forest）的 mtry<a class="heading-link" href="#sec-009-13" aria-label="复制本节链接">#</a></h3>
 <p>课件用图比较 CART 与自助聚合（Bagging）的对比（Bagging）。自助聚合（Bagging） 的边界比单棵树更稳定，测试误差（test error） 曲线通常低于原始单棵树（original tree），但仍可能不够满意。</p>
 <p>原因是：</p>
@@ -8007,6 +8047,10 @@ $$</div>
 <p>如果 \(\hat f\) 一致（consistent）且 \(x^{(j)}\) 与响应无关（irrelevant）。</p>
 <p>课件还强调，在很多实践领域，随机森林（random forests） 变量重要性度量（变量重要性（variable importance） measure） 使用非常广泛。通常用 误分类误差（misclassification error） 代替 基尼指数（Gini index）。更高的 VI 表示丢失 \(X^{(j)}\) 信息导致 准确率（accuracy）损失更大，因此变量更重要。</p>
 <p>课件图中在圆形分类例子基础上添加 48 个 噪声变量（noise variables）。变量重要性图显示 \(x_1\) 和 \(x_2\) 明显更重要，其他噪声变量的重要性围绕较低水平波动。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/variable_importance_demo_zh.png" alt="随机森林 OOB 置换变量重要性识别真实变量和噪声变量的示意图" loading="lazy" decoding="async">
+  <figcaption>图 9.5：考试常问 OOB permutation importance：用袋外样本测原始误差，再打乱某个变量看误差上升多少；误差上升越大，说明该变量越重要。</figcaption>
+</figure>
 <h3 id="sec-009-16">9.16 补充发展（Additional developments）：极端随机树（extra trees）与斜切随机森林（oblique random forests）<a class="heading-link" href="#sec-009-16" aria-label="复制本节链接">#</a></h3>
 <p>课件列出随机森林的两个发展方向。</p>
 <p>第一，随机切分点（random splitting point）。普通 CART 在每个变量上搜索所有候选切点（possible cuts）；极端随机树（extremely randomized trees），Geurts et al. (2006)，只生成若干 随机切点（random cutting points），然后从中选最好的。这对大数据集计算更快。</p>
@@ -8097,6 +8141,10 @@ $$</div>
 <li>切点（cutting point）更可能发生在潜在目标函数（underlying target function）的零曲率（zero curvature）附近。</li>
 <li>在高维稀疏模型（high-dimensional sparse model） 中，随机森林（random forests） 理论和实践上都可能优于 非自适应局部方法（non-adaptive local methods）。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_09/rf_kernel_adaptive_weights_zh.png" alt="随机森林作为自适应核时对目标点附近样本分配数据自适应权重的示意图" loading="lazy" decoding="async">
+  <figcaption>图 9.6：考试常问随机森林的 adaptive kernel 视角：同一叶节点内样本获得权重，多棵树权重叠加；mtry 和随机切分让邻域随重要变量和数据结构自适应变化。</figcaption>
+</figure>
 <p>这部分和上一讲 核平滑器（kernel smoother） 联系很紧密：普通 核平滑器（kernel smoother） 用固定 带宽（bandwidth）；随机森林（random forest）的带宽（bandwidth） 是局部、随机、数据自适应的。</p>
 <h3 id="sec-009-19">9.19 偏差、方差与一致性的直觉（bias, variance, consistency）<a class="heading-link" href="#sec-009-19" aria-label="复制本节链接">#</a></h3>
 <p>课件接着说，理解随机森林（random forest）或诱导核（induced kernel）很难，因为 树拟合过程（tree-fitting process） 里有太多 随机成分（random components），而且 切分规则高度依赖数据（splitting rule is highly data-dependent）。分析一致性（consistency）时，可以从 偏差-方差分解（bias-variance breakdown） 开始。</p>
