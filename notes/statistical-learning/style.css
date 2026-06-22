@@ -617,6 +617,11 @@ pre {
 }
 
 @media screen and (max-width: 760px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .page-shell {
     padding: 0;
   }
@@ -669,7 +674,22 @@ pre {
   .generated-toc .module-nav-table,
   .generated-toc .lecture-nav-table,
   .generated-toc .esl-link-table {
-    min-width: 540px;
+    width: 100%;
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .generated-toc .module-nav-table th,
+  .generated-toc .module-nav-table td,
+  .generated-toc .module-nav-table a,
+  .generated-toc .lecture-nav-table th,
+  .generated-toc .lecture-nav-table td,
+  .generated-toc .lecture-nav-table a,
+  .generated-toc .esl-link-table th,
+  .generated-toc .esl-link-table td,
+  .generated-toc .esl-link-table a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .back-to-top {
