@@ -2561,6 +2561,10 @@ $$</div>
 <li>二者都是控制“系数能有多大”的方式。</li>
 </ul>
 <p>P10 的图用二维等高线说明岭回归约束解：RSS 的椭圆等高线与圆形 \(\ell_2\) 约束区域相切，切点就是岭回归解。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_03/ridge_constraint.png" alt="岭回归的二次损失等高线与 L2 圆形约束区域相切" loading="lazy" decoding="async">
+  <figcaption>图 3.1：Ridge 的核心差异在于使用光滑的 \(\ell_2\) 圆形约束，它会连续压缩所有系数；复习时用这张图记住 Ridge 通常不是变量选择，而是整体收缩。</figcaption>
+</figure>
 <h4 id="sec-003-03-04">3.3.4 岭回归解决什么问题<a class="heading-link" href="#sec-003-03-04" aria-label="复制本节链接">#</a></h4>
 <p>课件说，岭回归主要用于处理高维数据中的 multi-collinearity。许多相关变量同时存在时，一个变量上巨大的正系数可能被另一个相关变量上巨大的负系数抵消。岭回归通过 size constraint 限制系数大小，从而缓解这一问题。</p>
 <p>本讲后面会讨论：</p>
@@ -2768,6 +2772,10 @@ $$</div>
 </ol>
 <p>当 \(d_j^2\) 小时，该方向的样本方差小，收缩因子更小，收缩更强。也就是说，ridge regression shrinks low-variance directions more than high-variance directions。</p>
 <p>P21的ESL 图展示了最大主成分方向和最小主成分方向。岭回归对最小主成分方向收缩更强，因为那类方向往往更容易被噪声放大。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_03/pca_components.png" alt="主成分方向与岭回归沿低方差方向更强收缩的示意图" loading="lazy" decoding="async">
+  <figcaption>图 3.2：从 PCA 视角看 Ridge，核心差异是它按主成分方向收缩，尤其压低低方差方向；考试时可用这张图解释为什么 Ridge 能缓解多重共线性。</figcaption>
+</figure>
 <h3 id="sec-003-06">3.6 岭回归（Ridge）的自由度、调参与贝叶斯解释<a class="heading-link" href="#sec-003-06" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P24-P29。ESL 阅读：3.4、7.10。</p>
 <h4 id="sec-003-06-01">3.6.1 岭回归的有效自由度<a class="heading-link" href="#sec-003-06-01" aria-label="复制本节链接">#</a></h4>
@@ -2803,6 +2811,10 @@ $$</div>
 <p>P26 展示了 Prostate Cancer Data的ridge regression 系数路径图。横轴是 自由度（Degrees of Freedom），纵轴是 coefficients。图中变量包括：</p>
 <p><code>lcavol</code>、<code>lweight</code>、<code>age</code>、<code>lbph</code>、<code>svi</code>、<code>lcp</code>、<code>gleason</code>、<code>pgg45</code>。</p>
 <p>当自由度较小时，对应 \(\lambda\) 较大，系数被压得更靠近 0；当自由度增大时，对应 \(\lambda\) 变小，系数逐渐接近 OLS 解。系数路径图可以帮助观察各变量在不同惩罚强度下的稳定性。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_03/prostate_ridge.png" alt="前列腺癌数据中岭回归系数随有效自由度变化的路径图" loading="lazy" decoding="async">
+  <figcaption>图 3.3：Ridge 路径的复习重点是“连续收缩”：\(\lambda\) 变大时系数整体靠近 0，但与 Lasso 不同，Ridge 通常不会把某个变量精确删掉。</figcaption>
+</figure>
 <h4 id="sec-003-06-03">3.6.3 如何选择 \(\lambda\)<a class="heading-link" href="#sec-003-06-03" aria-label="复制本节链接">#</a></h4>
 <p>课件提到：</p>
 <ul>
@@ -2988,6 +3000,10 @@ $$</div>
 <li>Ridge 的圆形边界没有尖角，通常只会把系数变小，不会精确变成 0。</li>
 </ul>
 <p>这就是为什么 Lasso 同时能 shrinkage 和 selection，而 Ridge 主要只做 shrinkage。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_03/lasso_vs_ridge.png" alt="Lasso 的 L1 菱形约束与 Ridge 的 L2 圆形约束对比" loading="lazy" decoding="async">
+  <figcaption>图 3.4：Lasso 与 Ridge 的核心差异是几何边界：Lasso 的 \(\ell_1\) 尖角容易产生 \(\beta_j=0\)，Ridge 的 \(\ell_2\) 光滑边界主要负责缩小系数。</figcaption>
+</figure>
 <h3 id="sec-003-10">3.10 Lasso 解的计算<a class="heading-link" href="#sec-003-10" aria-label="复制本节链接">#</a></h3>
 <p>对应课件：P40。ESL 阅读：3.8、3.9。</p>
 <p>课件列出三类算法：</p>
@@ -3035,6 +3051,10 @@ $$</div>
 <li>\(q&lt;1\)：形状更尖，更接近变量选择，但优化通常更困难、非凸；</li>
 <li>\(q=0\)：近似计数非零系数，对应 best subset。</li>
 </ul>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_03/lq_contours_zh.png" alt="不同 q 值下 Lq 惩罚等值线从圆形到尖角非凸形状的变化" loading="lazy" decoding="async">
+  <figcaption>图 3.5：\(\ell_q\) 惩罚的核心差异是几何形状：\(q=2\) 对应 Ridge 的平滑收缩，\(q=1\) 对应 Lasso 的稀疏尖角，\(q&lt;1\) 更接近子集选择但优化更难。</figcaption>
+</figure>
 <p>Elastic-net是\(\ell_1\) 和 \(\ell_2\) 的混合：</p>
 <div class="math-block">$$
 \lambda_1\|\beta\|_1+\lambda_2\|\beta\|_2^2.
@@ -3332,6 +3352,10 @@ $$</div>
 <li>如果 \(|\hat\beta_j^{\mathrm{ols}}|\) 很大，则 \(\lambda/(\hat\beta_j^{\mathrm{ols}})^2\) 很小，\(\hat d_j\) 接近 1，最终估计接近 OLS。</li>
 </ol>
 <p>课件中的 Lasso vs. Garrote 图强调：Lasso 对大系数也保持固定幅度的收缩，因此有持续偏差；Garrote 对大系数的收缩逐渐变弱，所以更像“先选择变量，再少偏地估计大信号”。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_04/lasso_vs_garrote.png" alt="Lasso 与非负 Garrote 在大系数处收缩强度不同的对比图" loading="lazy" decoding="async">
+  <figcaption>图 4.1：Garrote 与 Lasso 的核心差异是偏差修正：Lasso 对大系数仍固定收缩，Garrote 对大信号逐渐放松惩罚，复习时把它理解成“先筛选，再少偏估计”。</figcaption>
+</figure>
 <h3 id="sec-004-06">4.6 偏差修正之二：自适应 Lasso（Adaptive Lasso）<a class="heading-link" href="#sec-004-06" aria-label="复制本节链接">#</a></h3>
 <p>自适应 Lasso（Adaptive Lasso） 由 Zou (2006) 提出。假设先有一个 \(\sqrt n\) consistent 的初始估计 \(\tilde\beta\)。自适应 Lasso（Adaptive Lasso） 根据 \(\tilde\beta_j\) 的大小为不同变量设置不同惩罚权重：</p>
 <div class="math-block">$$
@@ -3460,6 +3484,10 @@ $$</div>
 $$</div>
 <p>优点很清楚：当 \(\hat\beta_j^{\mathrm{ols}}\) 足够大时，SCAD 估计就是 OLS 解。这比 Lasso 的固定幅度软阈值收缩更少偏。</p>
 <p>课件中的比较图显示：Ridge 的惩罚曲线是二次曲线；Lasso是V 形直线；SCAD在0 附近像 Lasso，但远离 0 后变平。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_04/lasso_vs_scad.png" alt="Lasso 与 SCAD 惩罚形状对比，SCAD 在大系数处趋于平坦" loading="lazy" decoding="async">
+  <figcaption>图 4.2：SCAD 与 Lasso 的核心差异是“大系数少偏”：SCAD 在 0 附近像 Lasso 保留稀疏性，远离 0 后惩罚变平，减少对强信号的收缩。</figcaption>
+</figure>
 <h3 id="sec-004-09">4.9 MCP 与惩罚导数<a class="heading-link" href="#sec-004-09" aria-label="复制本节链接">#</a></h3>
 <p>MCP是Zhang (2010) 提出的另一种无偏惩罚，全称是 minimax concave penalty。它使用同样的惩罚回归框架，但惩罚函数定义为</p>
 <div class="math-block">$$
@@ -3509,6 +3537,10 @@ $$</div>
 <li>MCP 从一开始就线性降低惩罚强度，到 \(\gamma\lambda\) 后为 0。</li>
 </ol>
 <p>因此 MCP 比 SCAD 更早放松惩罚，SCAD 则先保持一段 Lasso 式稀疏性再放松。课件强调：SCAD 和 MCP 都满足前面提到的无偏性、稀疏性和连续性要求。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_04/derivative_lasso_scad_mcp.png" alt="Lasso SCAD MCP 三种惩罚函数导数随系数大小变化的对比" loading="lazy" decoding="async">
+  <figcaption>图 4.3：看导数最容易区分 Lasso、SCAD、MCP：Lasso 惩罚强度恒定，SCAD 先保持再下降，MCP 从一开始就下降；考试时用它说明三者如何兼顾稀疏性和偏差修正。</figcaption>
+</figure>
 <h4 id="sec-004-09-02">4.9.2 Tuning parameters<a class="heading-link" href="#sec-004-09-02" aria-label="复制本节链接">#</a></h4>
 <p>Lasso 只有一个 调节参数（tuning parameter） \(\lambda\)，通常可用交叉验证选择。SCAD 与 MCP 还多了一个 \(\gamma\)：</p>
 <ol>
@@ -3574,6 +3606,10 @@ $$</div>
 $$</div>
 <p>如果 \(\beta_{11}=0\)，但组内另外两个参数有非零值，那么这个导数是 0。含义是：一旦组内某个参数已经被选中，组内其他仍为 0 的参数不会再受到把它们牢牢压在 0 的尖角惩罚，因此它们可以从 0 增长出来。这就是 组 Lasso（Group Lasso） 倾向于整组选择的原因。</p>
 <p>课件中的几何图比较了 individual Lasso 和 组 Lasso（Group Lasso）。普通 Lasso的\(\ell_1\) 约束在每个坐标轴上有尖角，因此容易让单个系数为 0；组 Lasso（Group Lasso） 的组内 \(\ell_2\) 范数让同一组参数作为一个整体被选择。</p>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_04/group_lasso_geometry.png" alt="普通 Lasso 的单变量稀疏与组 Lasso 的整组选择几何对比" loading="lazy" decoding="async">
+  <figcaption>图 4.4：Group Lasso 与普通 Lasso 的核心差异是选择单位：普通 Lasso 倾向于删掉单个系数，Group Lasso 用组内 \(\ell_2\) 范数让一组参数整体进入或整体退出。</figcaption>
+</figure>
 <h3 id="sec-004-12">4.12 融合 Lasso（Fused Lasso）<a class="heading-link" href="#sec-004-12" aria-label="复制本节链接">#</a></h3>
 <p>融合 Lasso（Fused Lasso） 处理的是有自然顺序的变量。例如基因组位置、时间序列、空间网格上的相邻区域等。课件的直觉是：</p>
 <ol>
@@ -3595,6 +3631,10 @@ $$</div>
 <li>\(\lambda_1\sum|\beta_j|\)：普通 Lasso 稀疏项，让很多系数为 0。</li>
 <li>\(\lambda_2\sum|\beta_j-\beta_{j-1}|\)：融合项，让相邻系数相等或接近。</li>
 </ol>
+<figure class="note-figure">
+  <img src="assets/textbook/lecture_04/fused_lasso_fit.png" alt="融合 Lasso 生成分段常数系数曲线的拟合示意图" loading="lazy" decoding="async">
+  <figcaption>图 4.5：Fused Lasso 与普通 Lasso 的核心差异是多了相邻差分惩罚：它不仅让系数稀疏，还会把相邻系数拉成平台，适合有时间、空间或基因位置顺序的数据。</figcaption>
+</figure>
 <p>课件中的图来自 Tibshirani et al. (2005)的融合 Lasso（Fused Lasso） fitting。横轴是 genome order，纵轴是 log2 ratio。红线呈分段常数形状，说明 fused penalty 会把相邻区域的估计拉成平台状，而不是让每个点都独立波动。</p>
 <h3 id="sec-004-13">4.13 协同回归（Collaborative Regression）<a class="heading-link" href="#sec-004-13" aria-label="复制本节链接">#</a></h3>
 <p>在很多生物医学研究中，协变量可能来自不同数据来源或不同测量技术。例如一个数据源是 DNA methylation，另一个数据源是 RNA expression，结局 \(Y\) 是癌症相关指标。</p>
