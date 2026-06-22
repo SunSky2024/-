@@ -170,11 +170,11 @@
 <main class="exam-wrap">
   <section class="exam-hero">
     <h1>统计学习期末模拟卷（三套）</h1>
-    <p>这版模拟卷重新按 2024、2025 回忆卷的题型比例调整：每套都有选择题、判断题、短计算、简述、证明和因果图。题目借鉴历年卷的短题风格和难度，不照搬原题，也不加入今年范围外内容。</p>
+    <p>第三版模拟卷只参考历年卷的“难度、题量和短问风格”，不再贴着历年题目顺序或题面改写。每套卷都含选择题、判断题、短计算、简述、证明和因果综合题；三套难度平级，但知识点排列和问法不同。</p>
     <div class="exam-meta">
       <div><strong>考试范围</strong><br>第 1 讲至第 11 讲 11.8，包括 IPTW 流程、证明思路与删失。</div>
-      <div><strong>不纳入范围</strong><br>第 11.9 之后、Cox MSM、SNM、工具变量 IV，以及历年卷中但今年未讲的 Cox 生存分析题。</div>
-      <div><strong>三套平级</strong><br>每套均为 8 大题、100 分，题型结构一致；建议 120 分钟闭卷完成。</div>
+      <div><strong>排除内容</strong><br>不考第 11.9 之后、Cox MSM、SNM、工具变量 IV，也不沿用历年卷中今年范围外的 Cox 生存分析题。</div>
+      <div><strong>卷面设计</strong><br>每套 8 大题、100 分；选择题约 20 分，判断题约 12 分，其余为计算、简述与证明。</div>
     </div>
   </section>
 
@@ -188,131 +188,165 @@
 
   <section id="paper-a" class="exam-paper">
     <h2>模拟卷 A</h2>
-    <p class="exam-note">题型结构：惩罚回归 15 分，分类计算 10 分，选择题 15 分，SVM/核方法 10 分，判断题 12 分，因果识别 12 分，双稳健 14 分，纵向 IPTW 12 分。</p>
+    <p class="exam-note">本卷偏“概念辨析 + 小计算 + 点处理因果证明”。题目覆盖面广，但每问都控制在历年回忆卷的短答难度附近。</p>
 
     <section class="question">
-      <h3>1. 简答与推导：Ridge、Lasso、Elastic Net <span class="points">（15 分）</span></h3>
+      <h3>1. 选择题 <span class="points">（20 分，每小题 2 分）</span></h3>
       <ol>
-        <li>简述 Ridge、Lasso、Elastic Net 的目标函数及主要区别。</li>
-        <li>设 \(X^\top X=I\)，推导正交设计下 Lasso 的估计形式。</li>
-        <li>Lasso 估计是否无偏？为什么？</li>
+        <li>在 kNN 回归中，\(k\) 增大通常会：
+          <ol class="choice-list">
+            <li>使估计更粗糙，方差增大</li>
+            <li>使估计更平滑，方差减小</li>
+            <li>使不可约误差消失</li>
+            <li>使训练误差必定增大到 1</li>
+          </ol>
+        </li>
+        <li>岭回归最直接的作用是：
+          <ol class="choice-list">
+            <li>对系数做收缩</li>
+            <li>删除所有非零变量</li>
+            <li>改变响应变量定义</li>
+            <li>保证训练误差为 0</li>
+          </ol>
+        </li>
+        <li>Lasso 相比 Ridge 更容易产生稀疏解，主要因为：
+          <ol class="choice-list">
+            <li>\(\ell_1\) 约束区域有尖角</li>
+            <li>\(\ell_2\) 约束区域有尖角</li>
+            <li>Lasso 没有调参参数</li>
+            <li>Lasso 不使用损失函数</li>
+          </ol>
+        </li>
+        <li>逻辑回归直接建模的是：
+          <ol class="choice-list">
+            <li>\(P(Y=1\mid X)\)</li>
+            <li>\(P(X\mid Y=1)\)</li>
+            <li>\(E(X)\)</li>
+            <li>样本距离</li>
+          </ol>
+        </li>
+        <li>软间隔 SVM 引入松弛变量主要是为了：
+          <ol class="choice-list">
+            <li>处理线性不可分或允许少量违反间隔</li>
+            <li>取消支持向量</li>
+            <li>使所有样本都在间隔线上</li>
+            <li>把分类问题变成聚类问题</li>
+          </ol>
+        </li>
+        <li>KDE 带宽太小通常导致：
+          <ol class="choice-list">
+            <li>估计过度平滑</li>
+            <li>估计很抖，方差较大</li>
+            <li>所有密度值相等</li>
+            <li>无法归一化</li>
+          </ol>
+        </li>
+        <li>随机森林中随机选择候选变量的目的之一是：
+          <ol class="choice-list">
+            <li>降低树之间相关性</li>
+            <li>让所有树完全相同</li>
+            <li>不再需要 bootstrap</li>
+            <li>保证每棵树不分裂</li>
+          </ol>
+        </li>
+        <li>一致性假设 \(Y=Y^A\) 的意思是：
+          <ol class="choice-list">
+            <li>实际接受的处理对应的潜在结果等于观测结果</li>
+            <li>所有人的潜在结果都相同</li>
+            <li>处理与协变量独立</li>
+            <li>不存在删失</li>
+          </ol>
+        </li>
+        <li>IPTW 主要依赖建模：
+          <ol class="choice-list">
+            <li>处理分配概率</li>
+            <li>核函数形状</li>
+            <li>树的最大深度</li>
+            <li>岭回归自由度</li>
+          </ol>
+        </li>
+        <li>纵向删失权重用于：
+          <ol class="choice-list">
+            <li>调整失访造成的选择偏差</li>
+            <li>把删失者的结局强制设为 0</li>
+            <li>替代所有处理权重</li>
+            <li>让样本量变大</li>
+          </ol>
+        </li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>2. 分类指标计算 <span class="points">（10 分）</span></h3>
-      <p>某二分类数据集中正例和负例各 100 个。分类器总体准确率为 82%，其中正例被错判为负例的比例为 12%。</p>
+      <h3>2. 短计算：分类指标与树切分 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>求灵敏度（sensitivity）。</li>
-        <li>求负例被正确判断的比例，即特异度（specificity）。</li>
-        <li>如果把阈值调低，一般灵敏度和特异度如何变化？</li>
+        <li>某二分类模型有 TP=36、FN=14、FP=20、TN=80。计算灵敏度、特异度和准确率。</li>
+        <li>某节点中正例 24 个、负例 16 个。切分后左节点正例 18 个、负例 2 个，右节点正例 6 个、负例 14 个。计算父节点与两个子节点的 Gini 指数，并说明切分是否降低不纯度。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>3. 选择题 <span class="points">（15 分，每小题 3 分）</span></h3>
-      <ol>
-        <li>增大正则化强度通常会使偏差、方差如何变化？
-          <ol class="choice-list">
-            <li>偏差减小，方差减小</li>
-            <li>偏差增大，方差减小</li>
-            <li>偏差减小，方差增大</li>
-            <li>偏差增大，方差增大</li>
-          </ol>
-        </li>
-        <li>以下哪种做法通常不能缓解过拟合？
-          <ol class="choice-list">
-            <li>增加样本量</li>
-            <li>减少变量个数</li>
-            <li>增加更高阶的多项式项</li>
-            <li>增加 \(L_2\) 正则化</li>
-          </ol>
-        </li>
-        <li>在 kNN 中，想得到更平滑的分类边界，应当：
-          <ol class="choice-list">
-            <li>增大 \(k\)</li>
-            <li>减小 \(k\)</li>
-            <li>去掉所有训练样本</li>
-            <li>只保留离群点</li>
-          </ol>
-        </li>
-        <li>不可约误差主要来自：
-          <ol class="choice-list">
-            <li>模型没有调参</li>
-            <li>训练样本太少</li>
-            <li>结局中的随机噪声或未观测因素</li>
-            <li>变量选择太多</li>
-          </ol>
-        </li>
-        <li>下列哪项最接近随机森林中 OOB 样本的用途？
-          <ol class="choice-list">
-            <li>强制每棵树完全相同</li>
-            <li>估计泛化误差和变量重要性</li>
-            <li>让训练误差恒为 0</li>
-            <li>替代所有正则化方法</li>
-          </ol>
-        </li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>4. SVM 与核技巧 <span class="points">（10 分）</span></h3>
-      <ol>
-        <li>SVM 可以用于线性不可分的数据吗？需要引入什么？</li>
-        <li>SVM 最终分类超平面是否只与支持向量有关？简要说明。</li>
-        <li>简述核技巧的作用。</li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>5. 判断题：树、随机森林与非参数方法 <span class="points">（12 分，每小题 3 分）</span></h3>
+      <h3>3. 判断题 <span class="points">（12 分，每小题 3 分）</span></h3>
       <p>判断正误，并给出一句理由。</p>
       <ol>
-        <li>如果 \(X_1\) 与 \(Y\) 边际独立，则 \(X_1\) 一定不会出现在树的切分中。</li>
-        <li>单棵树不剪枝时通常更容易过拟合。</li>
-        <li>随机森林是许多树预测结果的平均或投票，因此主要可以降低方差。</li>
-        <li>KDE 的带宽越小，估计一定越好。</li>
+        <li>训练误差下降并不保证测试误差下降。</li>
+        <li>QDA 允许不同类别有不同协方差矩阵。</li>
+        <li>Bagging 的主要作用之一是降低不稳定学习器的方差。</li>
+        <li>控制碰撞点一定能减少混杂偏差。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>6. 因果图、G 公式与 IPTW <span class="points">（12 分）</span></h3>
-      <p>判断识别 \(A\) 对 \(Y\) 的总效应时是否需要控制 \(L\)，并说明理由。</p>
-      <div class="dag">L ---> A ---> Y
-L ----------> Y</div>
+      <h3>4. 线性模型与惩罚方法 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>写出 \(ACE=E(Y^1)-E(Y^0)\) 的三个常用识别假设。</li>
-        <li>写出 G 公式。</li>
-        <li>写出点处理情形下的 IPTW 估计思想。</li>
+        <li>写出线性回归的正规方程，并说明 \(X^\top X\) 不可逆时会出现什么问题。</li>
+        <li>比较 Ridge、Lasso 与 Elastic Net 在“变量选择”和“相关变量处理”上的差异。</li>
+        <li>为什么 SCAD/MCP 被称为试图减少估计偏差的惩罚方法？</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>7. 双重稳健估计 <span class="points">（14 分）</span></h3>
-      <p>给定</p>
+      <h3>5. 核方法与 SVM <span class="points">（10 分）</span></h3>
+      <ol>
+        <li>写出核岭回归中表示定理给出的函数形式。</li>
+        <li>解释 SVM 中支持向量为什么关键。</li>
+        <li>简述核技巧为什么能处理非线性边界。</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>6. 因果图与识别 <span class="points">（12 分）</span></h3>
+      <p>考虑以下三个 DAG。判断识别 \(A\) 对 \(Y\) 的总效应时是否应该控制 \(X\)，并说明理由。</p>
+      <div class="dag">(a) X ---> A ---> Y
+    X ----------> Y</div>
+      <div class="dag">(b) A ---> X ---> Y</div>
+      <div class="dag">(c) A ---> X <--- Y</div>
+      <ol>
+        <li>分别指出 \(X\) 是混杂变量、中介变量还是碰撞点。</li>
+        <li>写出点处理 \(ACE=E(Y^1)-E(Y^0)\) 的三条常用识别假设。</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>7. 双重稳健证明思路 <span class="points">（12 分）</span></h3>
+      <p>设 \(\pi(L)=P(A=1\mid L)\)，\(m_1(L)=E(Y\mid A=1,L)\)。考虑</p>
       <div class="math-block">$$
-      \hat\psi_{DR,1}
-      =
-      \frac1n\sum_{i=1}^n
-      \left[
-      \frac{A_i}{\hat\pi(L_i)}
-      \{Y_i-\hat m_1(L_i)\}
+      \hat\psi_1=\frac1n\sum_{i=1}^n\left[
+      \frac{A_i}{\hat\pi(L_i)}\{Y_i-\hat m_1(L_i)\}
       +\hat m_1(L_i)
       \right].
       $$</div>
       <ol>
-        <li>说明 \(\pi(L)\) 和 \(m_1(L)\) 分别表示什么。</li>
-        <li>证明只要 \(\hat\pi(L)\) 或 \(\hat m_1(L)\) 有一个正确，该估计量就一致估计 \(E(Y^1)\)。</li>
-        <li>双重稳健是否意味着两个模型都可以错？</li>
+        <li>说明该估计量估计的目标量。</li>
+        <li>分别说明处理模型正确、结局模型正确时为什么仍一致。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>8. 纵向 IPTW 与删失 <span class="points">（12 分）</span></h3>
+      <h3>8. 纵向 IPTW 与删失 <span class="points">（10 分）</span></h3>
       <ol>
-        <li>写出两时间点处理 \((A_0,A_1)\) 下 sequential exchangeability 的直观含义。</li>
-        <li>简述使用 IPTW 拟合均值 MSM 的流程。</li>
-        <li>为什么出现失访/删失时还需要逆删失概率权重？</li>
+        <li>写出两时间点处理问题中 sequential exchangeability 的直观含义。</li>
+        <li>简述用 IPTW 拟合均值 MSM 的步骤。</li>
+        <li>如果删失依赖既往协变量，逆删失概率权重需要什么假设？</li>
       </ol>
     </section>
   </section>
@@ -321,128 +355,161 @@ L ----------> Y</div>
 
   <section id="paper-b" class="exam-paper">
     <h2>模拟卷 B</h2>
-    <p class="exam-note">本套卷与 A、C 平级：选择题和判断题占比相同，证明题仍以双重稳健为核心，但问法换成另一种常见形式。</p>
+    <p class="exam-note">本卷换成“方法选择 + 局部计算 + 纵向权重计算”。题型难度与 A 持平，但不沿用同一知识点顺序。</p>
 
     <section class="question">
-      <h3>1. 简答与推导：线性模型和惩罚回归 <span class="points">（15 分）</span></h3>
+      <h3>1. 选择题 <span class="points">（20 分，每小题 2 分）</span></h3>
       <ol>
-        <li>写出普通最小二乘的正规方程，并说明什么时候 \((X^\top X)^{-1}\) 不存在。</li>
-        <li>设 \(X^\top X=I\)，推导正交设计下 Ridge 的估计形式。</li>
-        <li>为什么 Lasso 更适合做变量选择，而 Ridge 通常不会把系数压成精确的 0？</li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>2. 分类指标计算 <span class="points">（10 分）</span></h3>
-      <p>某模型把所有样本都判为正例。数据中正例 60 个，负例 40 个。</p>
-      <ol>
-        <li>求灵敏度、特异度和准确率。</li>
-        <li>逻辑回归可以用于分类问题吗？它直接输出的是类别还是概率？</li>
-        <li>若类别极不平衡，为什么只看准确率可能误导？</li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>3. 选择题 <span class="points">（15 分，每小题 3 分）</span></h3>
-      <ol>
+        <li>若 \(p\) 接近或超过 \(n\)，普通最小二乘最直接的问题是：
+          <ol class="choice-list">
+            <li>\(X^\top X\) 可能不可逆或估计不稳定</li>
+            <li>所有变量都自动无关</li>
+            <li>训练误差必定等于测试误差</li>
+            <li>不需要正则化</li>
+          </ol>
+        </li>
         <li>BIC 相比 AIC 通常：
           <ol class="choice-list">
-            <li>惩罚更弱，更偏向复杂模型</li>
-            <li>惩罚更强，更偏向简单模型</li>
-            <li>完全不惩罚模型复杂度</li>
-            <li>只适用于分类树</li>
+            <li>对模型复杂度惩罚更强</li>
+            <li>完全不惩罚复杂度</li>
+            <li>只能用于 kNN</li>
+            <li>总是选择最大模型</li>
           </ol>
         </li>
-        <li>QDA 相比 LDA 的主要区别是：
+        <li>朴素贝叶斯的“朴素”主要指：
           <ol class="choice-list">
-            <li>QDA 假设各类均值相同</li>
-            <li>QDA 允许不同类别有不同协方差矩阵</li>
-            <li>QDA 不能用于分类</li>
-            <li>QDA 不需要训练数据</li>
+            <li>给定类别后各特征条件独立</li>
+            <li>所有类别概率相等</li>
+            <li>不用训练数据</li>
+            <li>只能处理连续变量</li>
           </ol>
         </li>
-        <li>下列哪项最能体现核技巧？
+        <li>ROC 曲线纵轴通常是：
           <ol class="choice-list">
-            <li>显式计算所有高维特征再回归</li>
-            <li>只通过 \(K(x_i,x_j)\) 计算高维内积</li>
-            <li>完全不使用训练样本</li>
-            <li>把所有核函数都设为 0</li>
-          </ol>
-        </li>
-        <li>在点处理因果推断中，正值性假设大致要求：
-          <ol class="choice-list">
-            <li>每个协变量层内都有接受和不接受处理的可能</li>
-            <li>所有结局都必须相同</li>
-            <li>处理必须连续</li>
-            <li>协变量不能影响处理</li>
-          </ol>
-        </li>
-        <li>纵向 IPTW 中，稳定权重的分母通常是：
-          <ol class="choice-list">
-            <li>边际处理概率</li>
-            <li>给定历史协变量和处理历史的处理概率</li>
-            <li>结局的无条件均值</li>
+            <li>灵敏度</li>
+            <li>特异度</li>
             <li>训练误差</li>
+            <li>模型自由度</li>
+          </ol>
+        </li>
+        <li>硬间隔 SVM 要求：
+          <ol class="choice-list">
+            <li>训练样本线性可分</li>
+            <li>所有样本权重相同</li>
+            <li>没有支持向量</li>
+            <li>不需要约束</li>
+          </ol>
+        </li>
+        <li>Nadaraya-Watson 估计量本质上是：
+          <ol class="choice-list">
+            <li>核加权局部平均</li>
+            <li>全局线性分类器</li>
+            <li>代价复杂度剪枝</li>
+            <li>后门路径准则</li>
+          </ol>
+        </li>
+        <li>随机森林中 OOB 样本是：
+          <ol class="choice-list">
+            <li>某棵树 bootstrap 抽样时未被抽到的样本</li>
+            <li>所有树都必须使用的样本</li>
+            <li>只用于计算训练误差的样本</li>
+            <li>被删除的异常值</li>
+          </ol>
+        </li>
+        <li>正值性假设被严重违反时，IPTW 常见问题是：
+          <ol class="choice-list">
+            <li>权重极端，估计不稳定</li>
+            <li>所有权重都等于 1</li>
+            <li>不再需要协变量</li>
+            <li>结局模型自动正确</li>
+          </ol>
+        </li>
+        <li>直接标准化主要建模：
+          <ol class="choice-list">
+            <li>结局回归 \(E(Y\mid A,L)\)</li>
+            <li>训练样本距离</li>
+            <li>树的随机切分</li>
+            <li>核函数积分</li>
+          </ol>
+        </li>
+        <li>边际结构模型中的“边际”强调：
+          <ol class="choice-list">
+            <li>目标是处理方案对总体潜在结局均值的模型</li>
+            <li>只研究协变量分布</li>
+            <li>只适用于无处理变量问题</li>
+            <li>只能用普通最小二乘直接调整所有 \(L_t\)</li>
           </ol>
         </li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>4. RKHS、KRR 与 SVM <span class="points">（10 分）</span></h3>
+      <h3>2. 局部计算：kNN 与核回归 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>解释 RKHS 中“再生性质”的含义。</li>
-        <li>表示定理说明核岭回归的解可以写成什么形式？</li>
-        <li>比较 hinge loss 与平方损失在分类问题中的角色。</li>
+        <li>测试点附近 5 个样本的类别为 \(1,0,1,1,0\)。写出 \(k=1,3,5\) 时的 kNN 分类结果。</li>
+        <li>写出 Nadaraya-Watson 核回归估计量。若带宽变大，局部性、偏差和方差通常如何变化？</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>5. 判断题：树、随机森林与核平滑 <span class="points">（12 分，每小题 3 分）</span></h3>
+      <h3>3. 判断题 <span class="points">（12 分，每小题 3 分）</span></h3>
       <p>判断正误，并给出一句理由。</p>
       <ol>
-        <li>分类树中 Gini、entropy 和 misclassification error 都可衡量节点不纯度。</li>
-        <li>Bagging 对高度不稳定的学习器通常更有帮助。</li>
-        <li>随机森林中 \(mtry\) 的作用之一是降低树与树之间的相关性。</li>
-        <li>核回归中带宽越大，估计越局部，方差越大。</li>
+        <li>Lasso 一定比 Ridge 有更小的预测误差。</li>
+        <li>局部线性回归可以缓解一部分边界偏差。</li>
+        <li>随机森林只能用于回归，不能用于分类。</li>
+        <li>如果 \(A\to X\to Y\)，控制 \(X\) 会改变“总效应”的目标。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>6. 因果图、混杂与碰撞点 <span class="points">（12 分）</span></h3>
-      <p>分别判断识别 \(A\) 对 \(Y\) 的总效应时是否应控制 \(X\)，并说明理由。</p>
-      <div class="dag">(1)  X ---> A ---> Y
-     X ----------> Y</div>
-      <div class="dag">(2)  A ---> X ---> Y</div>
-      <div class="dag">(3)  A ---> X <--- Y</div>
+      <h3>4. 惩罚回归与模型选择 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>指出 \(X\) 在三个图中分别扮演什么角色。</li>
-        <li>哪一种情况下控制 \(X\) 可能引入偏差？</li>
+        <li>写出 Ridge 的惩罚形式和约束形式。</li>
+        <li>说明有效自由度随 Ridge 参数 \(\lambda\) 增大如何变化。</li>
+        <li>简述交叉验证选择调参参数的基本步骤。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>7. 双重稳健估计 <span class="points">（14 分）</span></h3>
-      <p>点处理下，\(E(Y^1)-E(Y^0)\) 的双重稳健估计量可写成两个 \(E(Y^a)\) 的双重稳健估计之差。</p>
+      <h3>5. 分类与判别分析 <span class="points">（10 分）</span></h3>
       <ol>
-        <li>写出 \(E(Y^0)\) 对应的双重稳健估计量形式。</li>
-        <li>证明当处理模型 \(P(A=0\mid L)\) 正确时，即使结局模型错设，估计仍一致。</li>
-        <li>证明当结局模型 \(E(Y\mid A=0,L)\) 正确时，即使处理模型错设，估计仍一致。</li>
+        <li>写出贝叶斯分类规则。</li>
+        <li>比较逻辑回归、LDA、QDA 的决策边界特点。</li>
+        <li>解释 masking problem 的基本含义。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>8. 纵向 IPTW 与删失计算 <span class="points">（12 分）</span></h3>
-      <p>某个体两时间点处理概率估计为：</p>
+      <h3>6. 树与随机森林 <span class="points">（12 分）</span></h3>
+      <ol>
+        <li>解释代价复杂度剪枝中“拟合误差”和“树复杂度惩罚”的权衡。</li>
+        <li>为什么 bootstrap 后每棵树大约有一部分样本没有被抽到？这些样本有什么用途？</li>
+        <li>变量重要性的 OOB permutation 思想是什么？</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>7. 因果估计量辨析 <span class="points">（12 分）</span></h3>
+      <ol>
+        <li>写出 \(E(Y^a)\) 的 G 公式。</li>
+        <li>写出点处理下 \(E(Y^1)\) 的 IPTW 估计量。</li>
+        <li>如果结局模型正确但处理模型错误，双重稳健估计量为什么仍可一致？请给出证明思路。</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>8. 纵向权重计算与删失 <span class="points">（10 分）</span></h3>
+      <p>某个体有两次处理，估计概率为：</p>
       <ul class="formula-list">
-        <li>\(\hat P(A_0=a_0)=0.50,\quad \hat P(A_0=a_0\mid L_0)=0.25\)；</li>
-        <li>\(\hat P(A_1=a_1\mid A_0=a_0)=0.60,\quad \hat P(A_1=a_1\mid A_0=a_0,L_0,L_1)=0.30\)；</li>
-        <li>\(\hat P(C_0=0\mid L_0,A_0)=0.80,\quad \hat P(C_1=0\mid \bar L_1,\bar A_1,C_0=0)=0.75\)。</li>
+        <li>\(\hat P(A_0=a_0)=0.6,\quad \hat P(A_0=a_0\mid L_0)=0.3\)；</li>
+        <li>\(\hat P(A_1=a_1\mid A_0=a_0)=0.5,\quad \hat P(A_1=a_1\mid A_0=a_0,L_0,L_1)=0.25\)；</li>
+        <li>\(\hat P(C_0=0\mid L_0,A_0)=0.8,\quad \hat P(C_1=0\mid \bar L_1,\bar A_1,C_0=0)=0.5\)。</li>
       </ul>
       <ol>
         <li>计算稳定处理权重。</li>
         <li>计算逆删失概率权重。</li>
-        <li>写出合并权重，并说明其用途。</li>
+        <li>说明最终分析权重如何合并。</li>
       </ol>
     </section>
   </section>
@@ -451,132 +518,159 @@ L ----------> Y</div>
 
   <section id="paper-c" class="exam-paper">
     <h2>模拟卷 C</h2>
-    <p class="exam-note">本套卷仍与 A、B 平级，不再做“提升卷”。重点是换数据、换图、换表述，检验是否真正理解而不是记住题面。</p>
+    <p class="exam-note">本卷偏“混合选择 + 方法解释 + DAG 判断”。与 A、B 同级，但减少对单一历年热点的依赖。</p>
 
     <section class="question">
-      <h3>1. 简答与推导：模型选择与惩罚项 <span class="points">（15 分）</span></h3>
+      <h3>1. 选择题 <span class="points">（20 分，每小题 2 分）</span></h3>
       <ol>
-        <li>简述训练误差和测试误差为什么会随模型复杂度出现不同变化。</li>
-        <li>写出 Ridge 和 Lasso 的约束形式，并用几何直觉解释 Lasso 为什么更容易得到稀疏解。</li>
-        <li>SCAD/MCP 相比 Lasso 想解决什么问题？</li>
+        <li>测试误差的偏差-方差分解中，不可约误差通常：
+          <ol class="choice-list">
+            <li>无法通过换模型完全消除</li>
+            <li>等于训练误差</li>
+            <li>只由 Ridge 产生</li>
+            <li>只在分类问题中存在</li>
+          </ol>
+        </li>
+        <li>Elastic Net 同时使用：
+          <ol class="choice-list">
+            <li>\(\ell_1\) 与 \(\ell_2\) 惩罚</li>
+            <li>Gini 与 entropy</li>
+            <li>IPTW 与删失权重</li>
+            <li>ROC 与 AUC</li>
+          </ol>
+        </li>
+        <li>多分类 LDA 中 Fisher 判别坐标的目的之一是：
+          <ol class="choice-list">
+            <li>寻找有利于类别分离的低维方向</li>
+            <li>强制所有类别均值相等</li>
+            <li>取消协方差矩阵</li>
+            <li>把监督学习变成无监督学习</li>
+          </ol>
+        </li>
+        <li>支持向量通常指：
+          <ol class="choice-list">
+            <li>对分类边界起决定作用的训练样本</li>
+            <li>所有测试样本</li>
+            <li>被随机森林丢弃的变量</li>
+            <li>核函数的积分常数</li>
+          </ol>
+        </li>
+        <li>表示定理的核心含义是：
+          <ol class="choice-list">
+            <li>无限维函数优化可化为有限个核函数的线性组合</li>
+            <li>所有函数都必须是线性的</li>
+            <li>核函数不能用于回归</li>
+            <li>正则化项必须为 0</li>
+          </ol>
+        </li>
+        <li>分类树中节点越纯，Gini 指数通常：
+          <ol class="choice-list">
+            <li>越小</li>
+            <li>越大</li>
+            <li>恒等于 1</li>
+            <li>与类别比例无关</li>
+          </ol>
+        </li>
+        <li>DAG 中后门路径的起点方向通常是：
+          <ol class="choice-list">
+            <li>从 \(A\) 指向 \(A\) 的父节点方向，即进入 \(A\) 的箭头</li>
+            <li>从 \(A\) 指向 \(Y\) 的直接箭头</li>
+            <li>任何通过中介的路径</li>
+            <li>所有被阻断的路径</li>
+          </ol>
+        </li>
+        <li>双重稳健估计“稳健”的含义是：
+          <ol class="choice-list">
+            <li>处理模型或结局模型有一个正确即可一致</li>
+            <li>两个模型都错也必然一致</li>
+            <li>小样本一定无偏</li>
+            <li>不需要正值性</li>
+          </ol>
+        </li>
+        <li>时间变化混杂的困难在于某些 \(L_t\) 可能：
+          <ol class="choice-list">
+            <li>既影响后续处理，又受既往处理影响</li>
+            <li>完全独立于处理和结局</li>
+            <li>只能是连续变量</li>
+            <li>不能出现在 DAG 中</li>
+          </ol>
+        </li>
+        <li>逆删失概率权重适用的直观前提是：
+          <ol class="choice-list">
+            <li>给定已观测历史后，是否删失可视为随机</li>
+            <li>删失一定与所有变量无关</li>
+            <li>删失者的结局都为 0</li>
+            <li>删失概率不能被建模</li>
+          </ol>
+        </li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>2. 分类指标计算 <span class="points">（10 分）</span></h3>
-      <p>某二分类模型的混淆矩阵如下：TP=45，FN=15，FP=20，TN=120。</p>
+      <h3>2. 小计算：ROC 与 kNN <span class="points">（12 分）</span></h3>
       <ol>
-        <li>计算灵敏度、特异度和准确率。</li>
-        <li>如果研究目标更重视“不漏掉正例”，应更关注灵敏度还是特异度？</li>
-        <li>ROC 曲线横轴和纵轴分别是什么？</li>
+        <li>某模型 TP=50、FN=10、FP=30、TN=110。计算灵敏度、特异度和 false positive rate。</li>
+        <li>某点最近 7 个邻居的类别为 \(0,1,1,0,1,0,1\)。分别给出 \(k=3\) 与 \(k=7\) 的分类结果。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>3. 选择题 <span class="points">（15 分，每小题 3 分）</span></h3>
-      <ol>
-        <li>在 kNN 回归中，\(k=1\) 通常对应：
-          <ol class="choice-list">
-            <li>高偏差、低方差</li>
-            <li>低偏差、高方差</li>
-            <li>高偏差、高方差</li>
-            <li>不可约误差为 0</li>
-          </ol>
-        </li>
-        <li>Lasso 的主要特点之一是：
-          <ol class="choice-list">
-            <li>一定比 Ridge 无偏</li>
-            <li>可以产生精确零系数</li>
-            <li>不能用于高维数据</li>
-            <li>没有调参参数</li>
-          </ol>
-        </li>
-        <li>随机森林每次切分只考虑部分变量，主要目的是：
-          <ol class="choice-list">
-            <li>增加树之间的相关性</li>
-            <li>降低树之间的相关性</li>
-            <li>让每棵树变成线性模型</li>
-            <li>避免使用 bootstrap</li>
-          </ol>
-        </li>
-        <li>若 \(A\to X\to Y\)，识别 \(A\) 对 \(Y\) 的总效应时控制 \(X\) 会：
-          <ol class="choice-list">
-            <li>控制混杂</li>
-            <li>控制中介，通常改变总效应目标</li>
-            <li>一定提高总效应估计效率且无副作用</li>
-            <li>没有任何影响</li>
-          </ol>
-        </li>
-        <li>删失权重的直观作用是：
-          <ol class="choice-list">
-            <li>把删失者的结局补成 0</li>
-            <li>调整因失访导致的选择偏差</li>
-            <li>删除所有未删失者</li>
-            <li>替代处理权重</li>
-          </ol>
-        </li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>4. SVM、核函数与核密度估计 <span class="points">（10 分）</span></h3>
-      <ol>
-        <li>写出软间隔 SVM 中松弛变量的含义。</li>
-        <li>高斯核为什么可以得到非线性分类边界？</li>
-        <li>KDE 中带宽过大和过小分别会造成什么现象？</li>
-      </ol>
-    </section>
-
-    <section class="question">
-      <h3>5. 判断题：线性模型、分类与树模型 <span class="points">（12 分，每小题 3 分）</span></h3>
+      <h3>3. 判断题 <span class="points">（12 分，每小题 3 分）</span></h3>
       <p>判断正误，并给出一句理由。</p>
       <ol>
-        <li>增加变量个数一定会降低测试误差。</li>
-        <li>LDA 假设各类具有相同协方差矩阵，QDA 不要求这一点。</li>
-        <li>树模型可以用于回归，也可以用于分类。</li>
-        <li>随机森林中的 OOB 样本是每棵树 bootstrap 抽样时未被抽到的样本。</li>
+        <li>增加正则化强度通常会降低模型复杂度。</li>
+        <li>朴素贝叶斯要求所有特征在边际上独立。</li>
+        <li>剪枝可以看作对树复杂度的一种控制。</li>
+        <li>MSM 的参数通常直接解释为给定当前协变量后的条件效应。</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>6. 因果识别、G-computation 与 IPTW <span class="points">（12 分）</span></h3>
+      <h3>4. 非参数方法与树模型 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>给出一致性假设 \(Y=Y^A\) 的含义。</li>
-        <li>比较 G-computation 和 IPTW：一个主要建模什么，另一个主要建模什么？</li>
-        <li>在随机试验中，为什么调整强预测 \(Y\) 的基线协变量 \(L\) 可能降低方差？</li>
+        <li>比较 kNN 回归与核回归：二者的局部性分别由什么控制？</li>
+        <li>解释边界偏差和曲率偏差的来源。</li>
+        <li>随机森林为什么通常比单棵树稳定？</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>7. 双重稳健估计 <span class="points">（14 分）</span></h3>
-      <p>考虑</p>
-      <div class="math-block">$$
-      \hat\psi_{DR}
-      =
-      \frac1n\sum_{i=1}^n
-      \left[
-      \frac{A_i}{\hat\pi(L_i)}
-      \{Y_i-\hat m_1(L_i)\}
-      +\hat m_1(L_i)
-      -
-      \frac{1-A_i}{1-\hat\pi(L_i)}
-      \{Y_i-\hat m_0(L_i)\}
-      -\hat m_0(L_i)
-      \right].
-      $$</div>
+      <h3>5. 惩罚分类与核方法 <span class="points">（10 分）</span></h3>
       <ol>
-        <li>指出这是估计哪个因果参数。</li>
-        <li>说明 \(\hat m_1,\hat m_0,\hat\pi\) 分别是什么模型。</li>
-        <li>给出双重稳健证明的两种情况。</li>
+        <li>写出 hinge loss 的形式，并说明哪些样本会产生正损失。</li>
+        <li>高斯核为什么可以产生非常灵活的非线性边界？</li>
+        <li>核岭回归与普通岭回归的联系是什么？</li>
       </ol>
     </section>
 
     <section class="question">
-      <h3>8. 纵向 MSM、IPTW 流程与删失 <span class="points">（12 分）</span></h3>
+      <h3>6. 点处理因果推断 <span class="points">（12 分）</span></h3>
       <ol>
-        <li>为什么时间变化混杂会使普通回归调整变得困难？</li>
-        <li>写出 IPTW procedure 的三个主要步骤。</li>
-        <li>若删失依赖于既往协变量和处理历史，说明用逆删失概率权重需要什么假设。</li>
+        <li>写出 \(E(Y^a)\) 在无未测量混杂和正值性下的识别公式。</li>
+        <li>比较 G-computation 与 IPTW：一个主要估计什么，一个主要估计什么？</li>
+        <li>随机试验中调整强预测结局的基线协变量为什么可能提高效率？</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>7. DAG 与 d 分离 <span class="points">（12 分）</span></h3>
+      <p>考虑图：</p>
+      <div class="dag">L ---> A ---> Y
+L ---> M ---> Y
+A ---> M</div>
+      <ol>
+        <li>识别 \(A\) 对 \(Y\) 的总效应时，是否应控制 \(M\)？为什么？</li>
+        <li>是否应控制 \(L\)？为什么？</li>
+        <li>说明“总效应”和“直接效应”在调整变量选择上的区别。</li>
+      </ol>
+    </section>
+
+    <section class="question">
+      <h3>8. 双重稳健与纵向 IPTW <span class="points">（10 分）</span></h3>
+      <ol>
+        <li>写出 \(E(Y^1)-E(Y^0)\) 的双重稳健估计量由哪两类模型组成。</li>
+        <li>简述双重稳健证明的两条路线。</li>
+        <li>纵向 IPTW 中，处理权重和删失权重为什么通常要相乘进入最终加权分析？</li>
       </ol>
     </section>
   </section>
