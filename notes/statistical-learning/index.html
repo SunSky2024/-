@@ -8977,7 +8977,26 @@ $$</div>
 \end{aligned}
 
 $$</div>
-<p>课件指出悖论：利用已知 treatment mechanism的\(\tilde\psi\) 反而可能比“忽略”该信息并调整 \(L\)的\(\hat\psi\) 低效。解决悖论的关键是：\(\tilde\psi\) 虽然用了随机化概率，却没有利用 \(L\)是\(Y\) 的强预测变量这一信息。更多信息通常是好事，但如果使用方式低效，就不一定能提高效率。</p>
+<p>课件进一步把这个 G-computation 估计量写成“逆概率加权后的组内均值差”形式：</p>
+<div class="math-block">$$
+\begin{aligned}
+\hat\psi
+&amp;=
+\frac{\sum_{s=1}^n \mathbf 1(A_s=1)Y_s\hat f_{A\mid L}^{-1}(A_s\mid L_s)}
+{\sum_{s=1}^n \mathbf 1(A_s=1)\hat f_{A\mid L}^{-1}(A_s\mid L_s)}
+-
+\frac{\sum_{s=1}^n \mathbf 1(A_s=0)Y_s\hat f_{A\mid L}^{-1}(A_s\mid L_s)}
+{\sum_{s=1}^n \mathbf 1(A_s=0)\hat f_{A\mid L}^{-1}(A_s\mid L_s)}.
+\end{aligned}
+
+$$</div>
+<p>这里的 \(\hat f_{A\mid L}(A_s\mid L_s)\) 是根据数据估计出的“在协变量 \(L_s\) 下实际接受处理 \(A_s\) 的概率”。因此，上式可以理解为：在 \(A=1\) 组和 \(A=0\) 组内分别做逆概率加权平均，然后再相减。</p>
+<p>课件给出的效率比较为：</p>
+<div class="math-block">$$
+\operatorname{var}(\hat\psi)\le \operatorname{var}(\tilde\psi).
+
+$$</div>
+<p>课件指出悖论：利用已知处理机制（treatment mechanism）的\(\tilde\psi\) 反而可能比“忽略”该信息并调整 \(L\)的\(\hat\psi\) 低效。解决悖论的关键是：\(\tilde\psi\) 虽然用了随机化概率，却没有利用 \(L\)是\(Y\) 的强预测变量这一信息；而 \(\hat\psi\) 调整了能解释 \(Y\) 的基线协变量 \(L\)，所以在一致性仍成立的前提下通常可以降低方差。更多信息通常是好事，但如果使用方式低效，就不一定能提高效率。</p>
 <h3 id="sec-010-13">10.13 其他倾向评分（propensity score）方法与匹配（matching）<a class="heading-link" href="#sec-010-13" aria-label="复制本节链接">#</a></h3>
 <p>Propensity 得分（score） 有重要性质：</p>
 <div class="math-block">$$
