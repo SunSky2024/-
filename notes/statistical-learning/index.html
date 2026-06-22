@@ -8637,18 +8637,27 @@ $$</div>
 <ul>
 <li><strong>CA，一致性假设（Consistency Assumption）</strong>：</li>
 </ul>
-<p>$$ Y=Y^A\quad \text{w.p. }1.</p>
-<p>$$ 实际接受的处理 \(A\) 对应的潜在结果就是实际观测结果。</p>
+<div class="math-block">$$
+Y=Y^A\quad \text{w.p. }1.
+
+$$</div>
+<p>实际接受的处理 \(A\) 对应的潜在结果就是实际观测结果。</p>
 <ul>
 <li><strong>RA，随机化假设（Randomization Assumption）</strong>：</li>
 </ul>
-<p>$$ (Y^0,Y^1)\perp A.</p>
-<p>$$ 处理分配与潜在结果独立。</p>
+<div class="math-block">$$
+(Y^0,Y^1)\perp A.
+
+$$</div>
+<p>处理分配与潜在结果独立。</p>
 <ul>
 <li><strong>PA，正值性假设（Positivity Assumption）</strong>：</li>
 </ul>
-<p>$$ 0&lt;\Pr(A=1)&lt;1.</p>
-<p>$$ 每种处理都有正概率被观察到。</p>
+<div class="math-block">$$
+0<\Pr(A=1)<1.
+
+$$</div>
+<p>每种处理都有正概率被观察到。</p>
 <p>如果这些成立，则</p>
 <div class="math-block">$$
 \begin{aligned}
@@ -9779,8 +9788,11 @@ $$</div>
 <li>指定 \(f(A_0\mid L_0)\) 和 \(f(A_1\mid L_1,A_0,L_0)\) 的模型，例如 逻辑回归模型（logistic regressions），并得到 MLEs \(\hat\alpha_0,\hat\alpha_1\)。</li>
 <li>对每个个体计算</li>
 </ol>
-<p>$$ \hat W=\hat f(A_0\mid L_0;\hat\alpha_0)\hat f(A_1\mid L_1,A_0,L_0;\hat\alpha_1),</p>
-<p>$$ 这是该个体 观察到的处理（observed treatment） 的估计概率。</p>
+<div class="math-block">$$
+\hat W=\hat f(A_0\mid L_0;\hat\alpha_0)\hat f(A_1\mid L_1,A_0,L_0;\hat\alpha_1),
+
+$$</div>
+<p>这是该个体 观察到的处理（observed treatment） 的估计概率。</p>
 <ol start="3">
 <li>用权重（weights） \(\hat W^{-1}\) 对 \(Y\) 关于 \(A_0,A_1\) 做 加权最小二乘（weighted least squares）。</li>
 </ol>
