@@ -8540,6 +8540,10 @@ $$</div>
 </ul>
 <h2 id="lecture-10">第十讲：因果推断导论<a class="heading-link" href="#lecture-10" aria-label="复制本节链接">#</a></h2>
 <p>对应课件：<code>ppt/10.causal_intro_slides.pdf</code>，源 PDF 共 81 页；课件页脚编号为 1/78 到 78/78，部分 PDF 页面来自动画或导出分页。本讲从“预测”转向“因果效应”。统计学习里常见的问题是给定 \(X\) 预测 \(Y\)，而因果推断要回答的是：如果我们主动把处理 \(A\) 设成另一个值，\(Y\) 会怎样变化？</p>
+<blockquote class="callout callout-intuition">
+<p><strong>小白版学习路线</strong> 第十讲只围绕一个核心问题：什么时候观测数据里的差异 \(E(Y\mid A=1)-E(Y\mid A=0)\) 可以解释成“把处理从 0 改成 1”造成的因果效应？</p>
+<p>先把符号记牢：\(A\) 是处理或暴露，\(Y\) 是结局，\(L\) 是处理前协变量，\(Y^a\) 是“如果把处理强制设为 \(a\)”时的潜在结局，\(\psi=E(Y^1)-E(Y^0)\) 是平均因果效应。后面所有公式都在解决同一件事：我们看不到每个人的两个潜在结局，怎样用可观测的 \((L,A,Y)\) 把 \(\psi\) 识别并估计出来。</p>
+</blockquote>
 <h3 id="sec-010-01">10.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-010-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 主要讲预测建模，不系统讲因果推断。因此本讲里的 反事实（counterfactual）、G 公式（G-formula）、IPTW、d 分离（d-separation）、后门准则（backdoor criterion） 等内容大多不在 ESL 主线中。可辅助阅读的位置是：</p>
 <ul>
@@ -8556,6 +8560,9 @@ $$</div>
 <li><strong>原因的效应（effect of a cause）</strong>：先给定一个清楚定义的暴露或干预，再评估它对结果的影响。例如 吸烟（smoking）是否导致肺癌（lung cancer），AZT 是否能防止 HIV 感染者发展成 AIDS。</li>
 </ol>
 <p>本讲处理第二类问题，也就是原因的效应（effect of a cause）。这里“cause”必须是可定义的处理、暴露或干预，否则“如果把它改变”这句话没有数学意义。</p>
+<blockquote class="callout callout-note">
+<p><strong>先问干预是否说得清</strong> 因果题不要一上来套公式。先检查“把 \(A\) 改成 0 或 1”是否是一个明确操作。例如“是否吃药”“是否接受治疗”通常可以定义；但“家庭背景好不好”“性格是否乐观”如果没有明确干预版本，就很难直接作为本讲的 \(A\)。</p>
+</blockquote>
 <p>课件给出的因果推断范式包含四步：</p>
 <ol>
 <li>定义因果量（causal quantities），即要估计的因果量；本讲用 反事实（counterfactuals）/潜在结果（potential outcomes） 表达。</li>
@@ -8588,6 +8595,10 @@ Y^1-Y^0
 
 $$</div>
 <p>无法直接评估。这就是 因果推断的根本问题（fundamental problem of causal inference）：它本质上是一个 缺失数据问题（missing data problem），而且每个个体的 完整数据（full data） 以概率 1 都不会被完整观察。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>为什么说它是缺失数据问题</strong> 对每个人来说，现实只会发生一种处理状态：吃了药就看不到“不吃药会怎样”，没吃药就看不到“吃药会怎样”。所以因果推断不是单纯预测 \(Y\)，而是在补一个永远不会同时观测到的反事实均值。</p>
+<p>考试中如果问“为什么不能直接估计个体因果效应”，答案就是：同一个个体不能同时处在 \(A=1\) 和 \(A=0\)，所以 \(Y^1-Y^0\) 至少缺一个分量。</p>
+</blockquote>
 <h3 id="sec-010-04">10.4 反事实均值（Counterfactual means）、ACE 与 ATE<a class="heading-link" href="#sec-010-04" aria-label="复制本节链接">#</a></h3>
 <p>课件给出有限总体头痛例子：</p>
 <div class="table-wrap"><table>
@@ -8615,6 +8626,9 @@ $$</div>
 
 $$</div>
 <p>这个目标量（estimand）只依赖 \(Y^0\) 和 \(Y^1\) 的两个 边际分布（marginal distributions），不需要知道同一个人 \(Y^0,Y^1\)的联合分布（joint distribution）。这很重要：ATE 是总体平均意义上的因果量，不是要求每个人的因果效应都可观测。</p>
+<blockquote class="callout callout-note">
+<p><strong>ACE/ATE 的读法</strong> \(E(Y^1)\) 不是“处理组的均值”，而是“如果总体中所有人都被处理时的平均结局”；\(E(Y^0)\) 不是“对照组的均值”，而是“如果总体中所有人都不处理时的平均结局”。只有在随机化或可交换性假设成立时，它们才可以用观测组均值或调整后的观测均值替代。</p>
+</blockquote>
 <h3 id="sec-010-05">10.5 随机化如何识别因果效应<a class="heading-link" href="#sec-010-05" aria-label="复制本节链接">#</a></h3>
 <p>假设把头痛患者随机分配到 aspirin 或 no aspirin，每组概率都是 \(1/2\)。课件给出的随机化观测表为：</p>
 <div class="table-wrap"><table>
@@ -8670,6 +8684,9 @@ $$</div>
 
 $$</div>
 <p>直观解释：随机化让 \(A\) 像抛硬币一样决定，它与病人的 处理前特征（pretreatment characteristics） 无关。可以把 \((Y^0,Y^1)\) 看成处理前已经存在的潜在变量，因此随机分配不会偏向更容易好转或更不容易好转的人。</p>
+<blockquote class="callout callout-exam">
+<p><strong>随机化识别的推导顺序</strong> 看到随机试验题，先写三条：一致性把 \(Y^A\) 连接到观测 \(Y\)，随机化把 \(A\) 与潜在结果分开，正值性保证每个处理组都有样本。推导时常见顺序是：先用随机化把 \(E(Y^a)\) 换成 \(E(Y^a\mid A=a)\)，再用一致性换成 \(E(Y\mid A=a)\)。</p>
+</blockquote>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/dag_randomized_trial.svg" alt="随机试验中 A 由随机机制决定且与基线协变量 L 独立的 DAG" loading="lazy" decoding="async">
   <figcaption>图 10.1：随机试验的核心 DAG。要记住的是 \(L\) 可以影响 \(Y\)，但随机化使 \(L\) 不再决定 \(A\)，所以粗比较 \(E(Y\mid A=1)-E(Y\mid A=0)\) 有因果解释；调整 \(L\) 主要是为了提高效率。</figcaption>
@@ -8698,6 +8715,9 @@ $$</div>
 
 $$</div>
 <p>NUCA 是无未测混杂假设（no unmeasured confounding assumption），意思是：在 \(L\) 的每个水平内，处理分配好像一个随机试验，只是随机化概率可以依赖 \(L\)。概念上，这要求我们测量了 \(A\) 和 \(Y\) 的所有共同原因，也就是所有同时影响处理和结果的 混杂因素（confounders）。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>NUCA 的白话理解</strong> 观测研究中，吃药的人和不吃药的人本来可能不同。NUCA 说的是：只要把 \(L\) 固定住，在同一个 \(L\) 层内，谁吃药、谁不吃药就可以看成近似随机。它不是说 \(A\) 在总体上随机，而是说 \(A\) 在每个 \(L\) 层内可交换。</p>
+</blockquote>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/dag_observational_confounding.svg" alt="观测研究中 L 同时影响处理 A 和结局 Y 从而产生后门路径的 DAG" loading="lazy" decoding="async">
   <figcaption>图 10.2：观测研究的混杂 DAG。考试时看到 \(A\leftarrow L\to Y\)，就要想到后门路径；若 \(L\) 已包含所有共同原因且正值性成立，可以用 G 公式、IPTW 或双重稳健方法识别 \(A\) 对 \(Y\) 的效应。</figcaption>
@@ -8736,6 +8756,14 @@ E(Y^a)
 
 $$</div>
 <p>这也叫 \(E(Y\mid A=a,L)\)的直接标准化（direct standardization）。它是 longitudinal g 公式（g-formula） 的一个简单特例。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>G 公式怎么读</strong> 这个公式可以按三步理解：</p>
+<ol>
+<li>先在每个 \(L=l\) 的小人群中，比较“若处理固定为 \(a\)”时的平均结局 \(E(Y\mid A=a,L=l)\)。</li>
+<li>再不要使用处理组自己的 \(L\) 分布，而是使用整个总体的 \(L\) 分布 \(f_L(l)\)。</li>
+<li>最后把各层平均结果按总体构成加权相加，得到“全体人都设为 \(A=a\)”时的均值 \(E(Y^a)\)。</li>
+</ol>
+</blockquote>
 <p>为什么 crude 关联（association） 不一定是 causation？因为</p>
 <div class="math-block">$$
 \sum_l E(Y\mid A=a,L=l)f_L(l)=E(Y^a)
@@ -8747,6 +8775,9 @@ E(Y\mid A=a)=\sum_l E(Y\mid A=a,L=l)f_L(l\mid A=a).
 
 $$</div>
 <p>两者权重不同：因果均值用总体 \(L\) 分布 \(f_L(l)\)，粗关联用处理组内部的 \(L\) 分布 \(f_L(l\mid A=a)\)。如果 NUCA 成立且满足下面任一条件，则 \(L\) 不是混杂变量，粗关联等于因果效应：</p>
+<blockquote class="callout callout-note">
+<p><strong>粗关联为什么会错</strong> \(E(Y\mid A=a)\) 的权重是 \(f_L(l\mid A=a)\)，也就是“实际接受 \(a\) 的人里 \(L\) 怎么分布”。但 \(E(Y^a)\) 的权重是 \(f_L(l)\)，也就是“总体里 \(L\) 怎么分布”。如果处理组中高风险人群更多，粗均值就把高风险人群的构成差异混进了处理效应里。</p>
+</blockquote>
 <div class="math-block">$$
 Y\perp L\mid A \quad \text{或}\quad A\perp L.
 
@@ -8818,6 +8849,16 @@ $$</div>
 
 $$</div>
 <p>初学者可以把 G-computation 看成两步：先在每个 \(L\) 分层里估计“如果 \(A=a\) 的平均结果”，再把这些分层均值按总体 \(L\) 分布平均。</p>
+<blockquote class="callout callout-exam">
+<p><strong>G-computation 做题模板</strong></p>
+<ol>
+<li>写出目标：\(\hat\psi=\hat g(1)-\hat g(0)\)。</li>
+<li>估计结局回归：\(\hat b(a,l)=\widehat E(Y\mid A=a,L=l)\)。</li>
+<li>对每个样本复制两份预测：\(\hat b(1,L_i)\) 和 \(\hat b(0,L_i)\)。</li>
+<li>分别取样本平均：\(\hat g(a)=n^{-1}\sum_i\hat b(a,L_i)\)。</li>
+</ol>
+<p>记忆重点：G-computation 主要依赖结局模型。如果结局模型错得严重，估计会偏。</p>
+</blockquote>
 <h3 id="sec-010-10">10.10 IPTW/IPW：不建结局模型（outcome model）的另一条路<a class="heading-link" href="#sec-010-10" aria-label="复制本节链接">#</a></h3>
 <p>IPTW/IPW 是逆概率处理加权（inverse probability treatment weighting）。它估计 G 公式（G-formula） 的思路不直接建模</p>
 <div class="math-block">$$
@@ -8871,6 +8912,10 @@ W=\frac1{f(a\mid L)}.
 
 $$</div>
 <p>由于 \(0&lt;f(a\mid L)&lt;1\)，所以 \(W&gt;1\)。每个被观察到 \(Y^a\) 的人不仅代表自己，还代表同一 \(L\) 层里那些没有接受 \(a\)、因此缺失 \(Y^a\) 的人。权重构造出一个伪总体（pseudo-population），使加权样本中不再有 \(L\) 引起的混杂。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>IPTW 的伪总体直觉</strong> 如果某人在自己的 \(L\) 条件下很不容易接受实际处理，例如 \(f(A=a\mid L)=0.1\)，那么他代表了许多同类人中少数走到这条处理分支的人，所以权重大约是 10。加权后，每个 \(L\) 层中处理分布被重新平衡，像人为复制出一个处理不再受 \(L\) 影响的伪总体。</p>
+<p>记忆区别：G-computation 建模 \(Y\mid A,L\)；IPTW 建模 \(A\mid L\)。前者靠“预测反事实结局”，后者靠“重建可比较人群”。</p>
+</blockquote>
 <h3 id="sec-010-11">10.11 IPTW 数值例子与对偶表示（dual representation）<a class="heading-link" href="#sec-010-11" aria-label="复制本节链接">#</a></h3>
 <p>课件设 \(L\) 为二元变量，观测：</p>
 <div class="table-wrap"><table>
@@ -8954,6 +8999,9 @@ $$</div>
 
 $$</div>
 <p>如果 \(f_{A\mid L}(a\mid L_i)=f_A(a)\)，则 \(E(Y\mid A=a)=E(Y^a)\)，关联就是因果（association is causation）。若 \(f_{A\mid L}(a\mid L_i)\ne f_A(a)\) 且 \(L\)是\(Y\) 的风险因素，就必须用 \(\hat f_{A\mid L}^{-1}(a\mid L_i)\) 加权来调整 \(L\) 引起的混杂。</p>
+<blockquote class="callout callout-note">
+<p><strong>对偶表示不要背成玄学</strong> 低维离散 \(L\) 时，G-computation 和 IPTW 都在做同一件事：让每个 \(L\) 层按总体构成贡献结果。G-computation 是“先算层内均值再加权”；IPTW 是“先给个体加权再求均值”。所以它们在完全非参数、分层足够清楚时会给出同一个点估计。</p>
+</blockquote>
 <h3 id="sec-010-12">10.12 随机试验中的 IPTW 效率悖论（efficiency paradox）<a class="heading-link" href="#sec-010-12" aria-label="复制本节链接">#</a></h3>
 <p>回到随机化情形，设 \(L\) 是处理前分类协变量（pre-treatment categorical covariate），且强烈预测 \(Y\)。随机化给出</p>
 <div class="math-block">$$
@@ -9006,6 +9054,9 @@ $$</div>
 
 $$</div>
 <p>课件指出悖论：利用已知处理机制（treatment mechanism）的\(\tilde\psi\) 反而可能比“忽略”该信息并调整 \(L\)的\(\hat\psi\) 低效。解决悖论的关键是：\(\tilde\psi\) 虽然用了随机化概率，却没有利用 \(L\)是\(Y\) 的强预测变量这一信息；而 \(\hat\psi\) 调整了能解释 \(Y\) 的基线协变量 \(L\)，所以在一致性仍成立的前提下通常可以降低方差。更多信息通常是好事，但如果使用方式低效，就不一定能提高效率。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>效率悖论怎么想</strong> 随机化保证“不调整也不偏”，但不保证“不调整最精确”。如果 \(L\) 很能预测 \(Y\)，调整 \(L\) 相当于先解释掉一部分结果波动，再比较处理差异，因此方差可能更小。这不违背随机化，只是在随机化识别之外又利用了预后信息。</p>
+</blockquote>
 <h3 id="sec-010-13">10.13 其他倾向评分（propensity score）方法与匹配（matching）<a class="heading-link" href="#sec-010-13" aria-label="复制本节链接">#</a></h3>
 <p>Propensity 得分（score） 有重要性质：</p>
 <div class="math-block">$$
@@ -9101,6 +9152,9 @@ $$</div>
 $$</div>
 <p>其中 \(P_n\) 表示样本平均。</p>
 <p>双重稳健的意思是：只要 倾向评分模型（propensity score model） \(\hat f(A\mid L)\) 或 结局回归（outcome regression） \(\hat E(Y\mid A,L)\) 至少一个正确，估计仍一致。课件证明先看 \(\psi=E(Y^1)\)，\(Y^0\) 同理。定义极限模型 \(\tilde f,\tilde E\)：</p>
+<blockquote class="callout callout-note">
+<p><strong>双重稳健不是“双重随便”</strong> DR 的含义是两条建模路线中至少一条要正确：要么倾向评分 \(f(A\mid L)\) 正确，要么结局回归 \(E(Y\mid A,L)\) 正确。它不是说两个模型都可以乱写。考试中最好写成“one of the two nuisance models is correctly specified”。</p>
+</blockquote>
 <div class="math-block">$$
 \tilde\psi_{DR}
 =
@@ -9180,6 +9234,9 @@ E\left[
 
 $$</div>
 <p>偏差是两个误差的乘积：倾向评分误差乘 结局回归（outcome regression） 误差。所以如果其中一个误差为 0，总偏差为 0；如果两个都小，乘积通常更小。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>DR 公式的读法</strong> DR 估计量可以看成“结局模型预测值 + IPTW 残差修正”。如果结局模型已经对了，残差平均为 0，修正项不影响一致性；如果结局模型错了，但倾向评分对了，残差修正会把错掉的部分按正确权重补回来。</p>
+</blockquote>
 <h3 id="sec-010-15">10.15 G 估计（G-estimation）<a class="heading-link" href="#sec-010-15" aria-label="复制本节链接">#</a></h3>
 <p>G 估计（G-estimation） 从 blip 函数（blip function） 表达个体或条件平均因果效应。课件写：</p>
 <div class="math-block">$$
@@ -9253,6 +9310,9 @@ $$</div>
 
 $$</div>
 <p>G 估计（G-estimation）是半参数方法（semiparametric approach）：在 倾向评分模型（propensity score model） \(M_\pi\) 正确时，不需要建模 结局分布（outcome distribution） 就能估计 \(\psi_0\)。在 \(M_\pi\) 下，还可加入任意 \(t(L)\) 扩增项：</p>
+<blockquote class="callout callout-note">
+<p><strong>G-estimation 的核心句</strong> 先假设一个处理效应模型 \(\gamma(A,L;\psi)\)，再把观测结果 \(Y\) “扣掉”这个处理效应，得到 \(H(\psi)=Y-\gamma(A,L;\psi)\)。当 \(\psi\) 正确时，\(H(\psi)\) 应该像未处理潜在结果 \(Y^0\)，给定 \(L\) 后不再和处理 \(A\) 有关。</p>
+</blockquote>
 <div class="math-block">$$
 P_n[H(\hat\psi_g)\{A-\hat\pi(L)\}m(L)]
 +P_n[t(L)\{A-\hat\pi(L)\}]=0.
@@ -9336,6 +9396,15 @@ A\to C,\quad A\to E,\quad B\to C,\quad B\to D,\quad C\to E,\quad C\to D,\quad E\
 
 $$</div>
 <p>图中的 点（points）是顶点/节点（vertices/nodes），连接变量的线或箭头是 弧/边（arcs/edges）。箭头表示从 cause 到 结果（effect）的直接连接（direct link），且不被其他变量中介。例如 \(A\to C\) 表示 \(A\) 对 \(C\) 的直接效应。</p>
+<blockquote class="callout callout-exam">
+<p><strong>DAG 做题顺序</strong></p>
+<ol>
+<li>先确定目标效应：是哪一个 \(A\to Y\) 或 \(E\to D\)。</li>
+<li>列出所有从处理到结局的路径，区分有向因果路径和后门路径。</li>
+<li>判断路径上有没有碰撞点；碰撞点默认阻断，调整碰撞点或其后代会打开路径。</li>
+<li>选择调整集时，只阻断后门路径，不要调整处理的后代或中介。</li>
+</ol>
+</blockquote>
 <p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial 空气污染（air pollution）） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
 <figure class="note-figure">
   <img src="assets/slides/lecture_10/dag_asthma_example.svg" alt="抗组胺药与哮喘例子的因果 DAG 节点和箭头示意" loading="lazy" decoding="async">
@@ -9486,6 +9555,9 @@ $$</div>
 S=\{A,C\}\quad \text{或}\quad S=\{B,C\}.
 
 $$</div>
+<blockquote class="callout callout-intuition">
+<p><strong>d-separation 的最短记法</strong> chain \(X\to M\to Y\) 和 fork \(X\leftarrow M\to Y\)：不调整 \(M\) 时通，调整 \(M\) 时断。collider \(X\to M\leftarrow Y\)：不调整 \(M\) 时断，调整 \(M\) 或其后代时通。多数考试题就是在考这三种结构的组合。</p>
+</blockquote>
 <h3 id="sec-010-21">10.21 课件末尾 DAG 练习图与数值例子<a class="heading-link" href="#sec-010-21" aria-label="复制本节链接">#</a></h3>
 <p>课件最后几页给出一些 DAG 示例，重点是判断 \(Z\)是混杂因素（confounder）、中介变量（mediator）、碰撞点（collider）、后代节点（descendant），还是只是预测变量。</p>
 <ol>
@@ -9541,6 +9613,10 @@ $$</div>
 </ul></div></details>
 <h2 id="lecture-11">第十一讲：纵向因果模型<a class="heading-link" href="#lecture-11" aria-label="复制本节链接">#</a></h2>
 <p>对应课件：<code>ppt/11.causal_longitudinal_slides.pdf</code>，源 PDF 共 42 页；课件页脚编号为 1/41 到 41/41，其中一页由动画导出导致页脚编号重复。本讲是在第十讲“单时间点处理 \(A\)”基础上的纵向扩展：处理会在多个时间点变化，协变量也会随时间变化，而且过去处理可能影响未来协变量，未来协变量又会影响后续处理和最终结果。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>小白版学习路线</strong> 第十一讲的难点不是多了几个下标，而是多了“时间顺序”。第十讲只有一次处理 \(A\)，第十一讲有 \(A_0,A_1,\ldots,A_K\)，并且每次处理前后都会出现新的协变量 \(L_k\)。</p>
+<p>最重要的句子是：\(L_k\) 可能既是过去处理 \(A_{k-1}\) 的结果，又是未来处理 \(A_k\) 和最终结局 \(Y\) 的共同原因。因此普通回归里“把所有 \(L_k\) 都调进去”可能会错误调整中介路径；MSM/IPTW 和 SNM 就是为这种时间变化混杂设计的。</p>
+</blockquote>
 <h3 id="sec-011-01">11.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-011-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 不系统覆盖 纵向因果推断（longitudinal causal inference）、MSM、SNM、序贯随机化（sequential randomization） 或 时间变化处理的逆概率加权（inverse probability weighting for 时间变化处理（time-varying treatment）s）。这些是因果推断专门内容，不属于 ESL 的主线。可作为背景阅读的是：</p>
 <ul>
@@ -9567,6 +9643,9 @@ $$</div>
 
 $$</div>
 <p>\(\bar A_k\) 是截至 \(k\) 时刻的处理历史，\(\bar L_k\) 是截至 \(k\) 时刻的协变量历史。纵向因果推断困难在于：\(L_k\) 既可能是过去处理的结果，又可能是未来处理和最终结果的共同原因。普通“把所有 \(L_k\) 放进回归”的方法可能会调整掉中介路径，或者引入选择偏差。</p>
+<blockquote class="callout callout-note">
+<p><strong>上划线记号怎么读</strong> \(\bar A_k\) 不是平均值，而是“历史”：\(\bar A_k=(A_0,\ldots,A_k)\)。同理，\(\bar L_k\) 是从基线到第 \(k\) 时刻的协变量历史。看到 \(Y^{\bar a}\) 时，要读成“如果整个处理路径都被固定为 \(\bar a\)，最终会观察到的潜在结局”。</p>
+</blockquote>
 <h3 id="sec-011-03">11.3 纵向识别假设<a class="heading-link" href="#sec-011-03" aria-label="复制本节链接">#</a></h3>
 <p>本讲使用三个识别假设。</p>
 <p><strong>一致性（Consistency）</strong>：如果实际处理历史等于某条处理路径 \(\bar a\)，则观测结果等于该路径下的潜在结果：</p>
@@ -9591,6 +9670,15 @@ f_{A_k\mid \bar A_{k-1},\bar L_k}
 
 $$</div>
 <p>初学者可以把它理解为：每一种可比较的历史状态中，都必须真的有人走过每条处理分支，否则无法从数据中估计该分支的结果。</p>
+<blockquote class="callout callout-exam">
+<p><strong>纵向识别三假设怎么写</strong> 答题时可以按时间点重复第十讲逻辑：</p>
+<ol>
+<li>一致性：实际走过路径 \(\bar a\) 的人满足 \(Y=Y^{\bar a}\)。</li>
+<li>序贯随机化：给定过去历史后，当期处理 \(A_k\) 与未来潜在结果独立。</li>
+<li>正值性：每个可出现的历史下，每个处理分支都有正概率。</li>
+</ol>
+<p>其中第二条最关键，因为它把“一次随机化”推广成“每个时间点的条件随机化”。</p>
+</blockquote>
 <h3 id="sec-011-04">11.4 因果 DAG（Causal DAGs）与纵向 g 公式（g-formula）<a class="heading-link" href="#sec-011-04" aria-label="复制本节链接">#</a></h3>
 <p>课件的 纵向因果 DAG（longitudinal causal DAG） 包含节点 \(L_k,A_k,L_{k+1},A_{k+1},Y\)，并有未观测因素 \(U\)。图中表达的信息是：协变量和处理沿时间演化，过去处理会影响未来协变量，未来协变量会影响未来处理和结局，未观测 \(U\) 可能影响若干后续变量。识别假设的作用就是把这个复杂时间过程转化为可估计的干预分布。</p>
 <figure class="note-figure">
@@ -9622,6 +9710,9 @@ E(Y^{a_0,a_1})
 
 $$</div>
 <p>第一步用全期望公式；第二步用 序贯随机化（sequential randomization）；第三步展开 \(L_1\)；最后一步用一致性（consistency）。纵向 g 公式（g-formula） 的思想与第十讲单时间点版本一致，只是现在每个时间点的协变量分布都要按过去干预历史递推。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>纵向 g 公式的读法</strong> 第十讲的 G 公式是“按 \(L\) 分层后加权平均”。第十一讲只是把这个动作沿时间展开：先固定 \(A_0=a_0\)，让 \(L_1\) 按这个干预后的分布生成；再固定 \(A_1=a_1\)，继续往后推。它不是简单把 \(L_0,L_1\) 一起塞进回归，而是在模拟“若我们按指定路径干预，协变量会怎样演化”。</p>
+</blockquote>
 <h3 id="sec-011-05">11.5 零效应悖论（Null paradox）<a class="heading-link" href="#sec-011-05" aria-label="复制本节链接">#</a></h3>
 <p>课件指出，直接给 g 公式（g-formula） 的所有组成部分建标准参数模型会遇到零效应悖论（null paradox）：在标准参数化下，模型中没有一个单独参数能编码“\((a_0,a_1)\) 无联合效应（joint effect）”的原假设。</p>
 <p>考虑图中 \(L_1\) 为二元变量、\(Y\) 为连续变量。g 公式（g-formula） 为</p>
@@ -9727,6 +9818,9 @@ $$</div>
 
 $$</div>
 <p>MSM 的优势是把 因果零假设（causal null） 写成参数限制，而不是隐藏在多个 辅助模型（nuisance models） 的组合里。</p>
+<blockquote class="callout callout-note">
+<p><strong>MSM 为什么适合考试</strong> MSM 直接建模 \(E(Y^{\bar a})\)，所以参数通常能直接解释为不同处理路径之间的边际因果差异。例如 \(\psi_1=0,\psi_2=0\) 就可以表达“两个时间点处理都没有平均因果效应”。这比在 g 公式的多个条件模型里寻找零效应限制更清楚。</p>
+</blockquote>
 <figure class="note-figure">
   <img src="assets/slides/lecture_11/p15_mean_msm_weights.png" alt="均值边际结构模型的估计方程和 IPTW 权重定义" loading="lazy" decoding="async">
   <figcaption>图 11.2：Mean MSM 的估计方程和权重形式，课件截图（来源：11.causal_longitudinal_slides.pdf P15）。</figcaption>
@@ -9798,8 +9892,14 @@ $$</div>
 E_{ps}(Y\mid \bar A=\bar a).
 
 $$</div>
+<blockquote class="callout callout-intuition">
+<p><strong>纵向 IPTW 在平衡什么</strong> 单时间点 IPTW 平衡 \(L\) 与 \(A\)；纵向 IPTW 要在每个时间点平衡“当前处理 \(A_k\)”与“截至当前的协变量历史 \(\bar L_k\)”。权重是每个时间点处理概率的乘积，所以极端概率会被连乘放大，这也是纵向 IPTW 容易不稳定的原因。</p>
+</blockquote>
 <h3 id="sec-011-08">11.8 IPTW 流程（IPTW procedure）、证明思路（proof sketch）与删失（censoring）<a class="heading-link" href="#sec-011-08" aria-label="复制本节链接">#</a></h3>
 <p>两时间点时，课件给出 IPTW 操作流程：</p>
+<blockquote class="callout callout-exam">
+<p><strong>11.8 考试版流程</strong> 两时间点 IPTW 可以背成四步：先拟合 \(A_0\mid L_0\)，再拟合 \(A_1\mid L_1,A_0,L_0\)，然后把两个实际处理概率相乘得到 \(\hat W\)，最后用 \(\hat W^{-1}\) 做加权回归估计 MSM。若还有失访，再额外乘上“保持未删失”的逆概率权重。</p>
+</blockquote>
 <ol>
 <li>指定 \(f(A_0\mid L_0)\) 和 \(f(A_1\mid L_1,A_0,L_0)\) 的模型，例如 逻辑回归模型（logistic regressions），并得到 MLEs \(\hat\alpha_0,\hat\alpha_1\)。</li>
 <li>对每个个体计算</li>
@@ -9847,6 +9947,9 @@ SW^+
 
 $$</div>
 <p>这部分的直觉是：如果随访缺失取决于既往协变量和处理历史，就需要像处理分配一样为“仍被观察到”这件事建模，并用权重修正选择偏差。</p>
+<blockquote class="callout callout-note">
+<p><strong>删失权重怎么理解</strong> 失访不是单纯少了一些样本。如果失访概率和病情、处理历史有关，剩下的人就不再代表原来的目标人群。删失权重让“仍被观察到的人”代表那些在相似历史下本来也可能失访的人，逻辑上和处理权重完全平行。</p>
+</blockquote>
 <h3 id="sec-011-09">11.9 Cox 边际结构模型（Cox MSMs）<a class="heading-link" href="#sec-011-09" aria-label="复制本节链接">#</a></h3>
 <p>当结果是生存时间或事件时间时，可使用 Cox MSM。一般形式为</p>
 <div class="math-block">$$
@@ -9908,6 +10011,9 @@ E\{\exp(\psi A(t))\{W(t)\}^{-1}I(Y\ge t)\}
 
 $$</div>
 <p>这与普通 Cox 部分似然的风险集思想类似，只是风险集中每个个体带有时间变化 IPTW（time-varying IPTW）权重。</p>
+<blockquote class="callout callout-note">
+<p><strong>Cox MSM 的最小理解</strong> 如果暂时不熟生存分析，只要记住：普通 Cox 模型比较同一风险集内谁先发生事件；Cox MSM 在这个比较里给每个人加上时间变化 IPTW 权重，使风险集比较更像目标伪总体中的比较。</p>
+</blockquote>
 <h3 id="sec-011-10">11.10 结构均值模型（Structural Mean Model）：点暴露情形<a class="heading-link" href="#sec-011-10" aria-label="复制本节链接">#</a></h3>
 <p>结构均值模型（Structural Mean Model） (SMM)在点暴露（point exposure） 情形下建模的是条件因果对比：</p>
 <div class="math-block">$$
@@ -9926,6 +10032,9 @@ E(Y^a\mid L=l,A=a)-E(Y^0\mid L=l,A=a)
 
 $$</div>
 <p>这意味着处理效应可以随 \(L\) 线性变化，且当 \(a=0\) 时效应为 0。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>SMM 和 MSM 的直观区别</strong> MSM 问的是“如果全体人都走某条处理路径，平均结局是多少”；SMM 问的是“在给定 \(L=l,A=a\) 的这类人中，把处理从 \(0\) 改成 \(a\)，平均差多少”。前者是边际路径均值，后者是给定历史的局部结构对比。</p>
+</blockquote>
 <p>SMM 的弱可忽略性假设为：</p>
 <div class="math-block">$$
 Y^0\perp A\mid L.
@@ -10128,6 +10237,9 @@ Y_1^{(a_0,0)}-Y_1^{(0,0)}
 
 $$</div>
 <p>第一条参数化 \(A_1\) 对 \(Y_2\) 的效应；第二条参数化 \(A_0\) 对 \(Y_2\) 的效应；第三条参数化 \(A_0\) 对 \(Y_1\) 的效应。所有对比都条件于所考虑时间点之前的 covariates 和 treatments。</p>
+<blockquote class="callout callout-note">
+<p><strong>两阶段 SNM 怎么读</strong> 不要被三个方程吓到。它们只是分别描述：晚期处理 \(A_1\) 对最终结局 \(Y_2\) 的增量效应，早期处理 \(A_0\) 对最终结局 \(Y_2\) 的增量效应，以及早期处理 \(A_0\) 对中间结局 \(Y_1\) 的增量效应。SNM 的“nested”就是把这些局部增量一层一层嵌套起来。</p>
+</blockquote>
 <figure class="note-figure">
   <img src="assets/slides/lecture_11/p34_two_stage_snm.png" alt="两阶段线性结构嵌套模型中三个嵌套潜在结果对比方程" loading="lazy" decoding="async">
   <figcaption>图 11.5：两阶段线性 SNM 的三个嵌套对比方程，课件截图（来源：11.causal_longitudinal_slides.pdf P34）。</figcaption>
@@ -10293,6 +10405,16 @@ $$</div>
 
 $$</div>
 <p>因此 MSM 参数是边际干预均值中的效应；SNM 参数是给定历史条件下的局部嵌套效应。二者可以转换，但转换依赖中间协变量 \(L_1\) 的分布以及效应修饰。</p>
+<blockquote class="callout callout-exam">
+<p><strong>MSM vs SNM 速记</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>方法</th><th>建模对象</th><th>参数含义</th><th>常用估计思想</th></tr></thead>
+<tbody>
+<tr><td>MSM</td><td>\(E(Y^{\bar a})\)</td><td>不同处理路径的边际平均效应</td><td>IPTW 构造伪总体后加权回归</td></tr>
+<tr><td>SMM/SNM</td><td>给定历史下的嵌套因果对比</td><td>局部处理效应或 blip effect</td><td>扣除处理效应后做正交/估计方程</td></tr>
+</tbody></table></div>
+<p>考试中若题目强调“边际结构模型参数”，优先想到 \(E(Y^{\bar a})\)；若强调“给定历史、移除后续处理效应”，优先想到 SNM。</p>
+</blockquote>
 <h3 id="sec-011-17">11.17 本讲易错点<a class="heading-link" href="#sec-011-17" aria-label="复制本节链接">#</a></h3>
 <section class="exam-card">
 <ol>
@@ -10332,6 +10454,10 @@ $$</div>
 </ul>
 <h2 id="lecture-12">第十二讲：工具变量<a class="heading-link" href="#lecture-12" aria-label="复制本节链接">#</a></h2>
 <p>对应课件：<code>ppt/12.iv_slides.pdf</code>，源 PDF 共 56 页。本讲从上一讲的因果识别问题继续推进：当 \(A\) 和 \(Y\) 之间存在未观测混杂 \(U\) 时，如果我们能找到一个影响 \(A\)、但不直接影响 \(Y\)、且不与 \(Y\) 的未观测原因相关的变量 \(Z\)，就可以用 工具变量（instrumental variable），简称 IV，识别某些因果效应。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>小白版学习路线</strong> 第十二讲的核心是：如果 \(A\) 不是随机的，而且 \(A\) 与 \(Y\) 之间有看不见的混杂 \(U\)，那直接比较 \(A\) 与 \(Y\) 会偏。工具变量 \(Z\) 的作用是提供一部分“外生的 \(A\) 的变化”，也就是由 \(Z\) 推动、而不是由 \(U\) 推动的处理变化。</p>
+<p>最短记忆：\(Z\) 要能推动 \(A\)，但不能绕过 \(A\) 直接影响 \(Y\)，也不能和 \(Y\) 的未观测原因 \(U\) 有关。Wald 和 2SLS 都是在利用 \(Z\) 推动的这部分 \(A\) 变化来估计因果效应。</p>
+</blockquote>
 <h3 id="sec-012-01">12.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-012-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 不系统讲工具变量、CACE、Wald 目标量（Wald estimand）、2SLS 的因果解释或 IV 假设检验。本讲可参考的 ESL-CN 背景是：</p>
 <ul>
@@ -10350,6 +10476,9 @@ $$</div>
 <p>社会科学和健康科学常希望估计 点暴露（point exposure）的因果效应（causal effect）。双盲随机试验仍是无偏评估暴露效应的 金标准（gold standard），但因为实际或伦理原因，很多研究只能做 观测研究（observational studies）。观测研究的主要问题是：暴露组与未暴露组的结果差异，可能来自选择暴露状态时的 系统性背景差异（systematic background differences），而这些背景差异也预测结果。</p>
 <p>这种混杂（confounding） 不只出现在观测研究中，也会出现在有不依从（non-compliance） 的随机试验中：个体可能因为研究者不知道的原因不遵守分配的治疗。课件强调，混杂偏倚是统计学、管理学、计量经济学、生物统计、流行病学、社会学等多个领域共同关注的问题。</p>
 <p>IV 方法（IV approach） 指一类方法：在存在 未测混杂（unmeasured confounding） 时，只要满足某些假设，就能恢复 暴露（exposure） 的某种 因果效应（causal effect）。这个思路在 计量经济学（econometrics） 中有很长传统，可追溯到 Wright (1928) 和 Goldberger (1972)的线性结构方程建模（linear structural equation modeling）。</p>
+<blockquote class="callout callout-note">
+<p><strong>IV 不是万能修正器</strong> IV 的优势是可以处理未测混杂，但代价是需要很强的因果假设。它通常识别的是 CACE、ETT 或在额外同质性下的 ACE，而不是自动给出“所有人的平均处理效应”。所以 IV 题最重要的不是算回归，而是先说清楚估计量到底对应哪个目标量。</p>
+</blockquote>
 <p>之后 Imbens and Angrist (1994)、Robins (1994)、Angrist, Imbens and Rubin (1996)、Heckman (1997)用潜在结果（potential outcomes）/反事实变量（counterfactual variables） 形式化了这些思想。</p>
 <h3 id="sec-012-03">12.3 工具变量的基本 DAG 与例子<a class="heading-link" href="#sec-012-03" aria-label="复制本节链接">#</a></h3>
 <p>IV 的关键贡献是：用 反事实语言（counterfactual language） 正式定义感兴趣的因果效应，并清楚写出识别所需假设。所有 IV 方法的核心是找到一个 暴露前无混杂的（pre-exposure unconfounded） 工具变量（instrumental variable） \(Z\)，并满足 排除限制（exclusion restriction）：\(Z\) 对 \(Y\) 的影响只能通过 \(A\) 发生。</p>
@@ -10366,6 +10495,15 @@ Z\to A\to Y,\qquad U\to A,\qquad U\to Y,
 
 $$</div>
 <p>并且没有 \(Z\to Y\) 的直接箭头，也没有 \(U\to Z\) 的共同原因路径。有效 IV 很难找；但如果找到，它能缩小 观测研究（observational study）与实验研究（experimental study） 之间的证据差距。</p>
+<blockquote class="callout callout-exam">
+<p><strong>IV DAG 三句话</strong></p>
+<ol>
+<li>相关性：\(Z\to A\)，否则分母接近 0，工具变量没有推动处理。</li>
+<li>排除限制：没有 \(Z\to Y\) 的直接箭头，\(Z\) 只能通过 \(A\) 影响 \(Y\)。</li>
+<li>独立性：没有 \(Z\leftarrow U\to Y\) 或其它让 \(Z\) 与 \(Y\) 未测原因相关的路径。</li>
+</ol>
+<p>画 DAG 时，只要出现 \(Z\) 直接到 \(Y\) 的箭头，或 \(Z\) 与 \(U\) 有共同原因，就要说明 IV 假设可能失败。</p>
+</blockquote>
 <figure class="note-figure">
   <img src="assets/slides/lecture_12/p12_iv_dag.png" alt="工具变量 DAG 中 Z 影响 A A 影响 Y U 混杂 A 和 Y 的结构" loading="lazy" decoding="async">
   <figcaption>图 12.1：IV 基本 DAG：\(Z\) 只通过 \(A\) 影响 \(Y\)，且 \(Z\) 与未观测混杂 \(U\) 无共同原因，课件截图（来源：12.iv_slides.pdf P12）。</figcaption>
@@ -10406,6 +10544,9 @@ Y\not\perp Z\mid A.
 
 $$</div>
 <p>为什么？因为 \(Z\to A\leftarrow U\to Y\) 中 \(A\)是碰撞点（collider）。给定 \(A\) 会打开 \(Z\) 与 \(U\) 的关联，从而让 \(Z\) 与 \(Y\) 相关。因此“给定 \(A\) 后 \(Z\) 仍与 \(Y\) 相关”并不能自动说明 IV 无效。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>为什么不能直接检验排除限制</strong> 排除限制说的是“如果把 \(A\) 固定住，\(Z\) 不该直接改变 \(Y\)”。但真实数据里 \(A\) 本身受 \(Z\) 和 \(U\) 共同决定，条件化 \(A\) 会打开碰撞点路径 \(Z\to A\leftarrow U\to Y\)。所以用普通条件相关检验很容易误判。</p>
+</blockquote>
 <h3 id="sec-012-06">12.6 线性模型中的 IV 目标量（IV estimand）<a class="heading-link" href="#sec-012-06" aria-label="复制本节链接">#</a></h3>
 <p>许多 因果目标量（causal estimands）在IV 框架下可识别，但即便有 有效 IV（valid IV），通常还需要额外假设。最简单情形是假设 \(Y\) 和 \(A\) 的模型是线性的：</p>
 <div class="math-block">$$
@@ -10470,6 +10611,9 @@ $$</div>
 
 $$</div>
 <p>这个比值就是 工具变量目标量（instrumental variable estimand）。它告诉我们：工具变量对结果的总影响，除以工具变量对处理的影响，可以恢复处理对结果的因果效应。但这是在线性和强同质性假设下成立的解释。</p>
+<blockquote class="callout callout-note">
+<p><strong>比值估计的直觉</strong> 如果 \(Z\) 让处理 \(A\) 平均增加了 0.2，同时让结局 \(Y\) 平均增加了 1，那么“每增加 1 个单位 \(A\)”对应的结局变化大约是 \(1/0.2=5\)。这个想法只有在 \(Z\) 对 \(Y\) 的影响确实完全通过 \(A\) 传递时才有因果解释。</p>
+</blockquote>
 <p>课件还指出线性模型</p>
 <div class="math-block">$$
 E(Y\mid A,U,Z)=\beta_0+\beta_AA+\beta_UU
@@ -10510,6 +10654,15 @@ $$</div>
 
 $$</div>
 <p>分子是意向治疗效应（ITT effect），分母是随机分配对依从性（compliance）的影响。课件提醒：分母若小，Wald 目标量（Wald estimand） 会被放大，也更不稳定。</p>
+<blockquote class="callout callout-exam">
+<p><strong>Wald 做题模板</strong></p>
+<ol>
+<li>先写分子：\(\Delta_Y=E(Y\mid Z=1)-E(Y\mid Z=0)\)，表示 \(Z\) 对结果的总影响。</li>
+<li>再写分母：\(\Delta_A=E(A\mid Z=1)-E(A\mid Z=0)\)，表示 \(Z\) 对处理的推动程度。</li>
+<li>最后写比值：\(\Delta_Y/\Delta_A\)。</li>
+<li>解释时不要直接说它是 ACE，要看额外假设：单调性给 CACE，无当前处理值交互给 ETT，更强同质性才可能给 ACE。</li>
+</ol>
+</blockquote>
 <p>不加额外假设时，Wald 目标量（Wald estimand） 不自动有因果解释。课件会在后面依次说明：在不同额外假设下，同一个 Wald 比值可解释为 CACE、ETT/ATT 或 ACE。</p>
 <figure class="note-figure">
   <img src="assets/slides/lecture_12/p21_wald_estimand.png" alt="二元处理下 Wald estimand 等于 Z 对 Y 的效应除以 Z 对 A 的效应" loading="lazy" decoding="async">
@@ -10517,6 +10670,9 @@ $$</div>
 </figure>
 <h3 id="sec-012-09">12.9 IV 的形式化定义（Formal definition of IV）<a class="heading-link" href="#sec-012-09" aria-label="复制本节链接">#</a></h3>
 <p>课件给出 IV 的三个基础假设：</p>
+<blockquote class="callout callout-note">
+<p><strong>三个基础假设的中文名</strong> 相关性保证“工具有力”，排除限制保证“工具不直接打到结局”，无共同原因保证“工具本身像随机”。这三条少任何一条，Wald 或 2SLS 的因果解释都会出问题。</p>
+</blockquote>
 <p><strong>假设 IV.1（Assumption IV.1）：相关性。</strong> \(Z\) 与 暴露（exposure） \(A\) 相关：</p>
 <div class="math-block">$$
 Z\not\perp A.
@@ -10565,6 +10721,9 @@ $$</div>
   <figcaption>图 12.3：四类 compliance types：never takers、always takers、defiers、compliers，课件截图（来源：12.iv_slides.pdf P25）。</figcaption>
 </figure>
 <p>这也写成：不存在 \(A_0=1,A_1=0\) 的个体。随机试验中，defier 是指总是做与分配相反事情的人。单调性是强假设，需要逐个应用场景论证。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>四类依从者怎么记</strong> 把 \(Z=0\) 和 \(Z=1\) 看成两个开关位置：never-taker 两边都是 0；always-taker 两边都是 1；complier 从 0 变 1；defier 从 1 变 0。单调性就是禁止最后一种“反着来”的人。</p>
+</blockquote>
 <p>单调性可被经验反驳，因为它推出</p>
 <div class="math-block">$$
 \Pr(A=1\mid Z=1)\ge \Pr(A=1\mid Z=0).
@@ -10633,6 +10792,9 @@ $$</div>
   <figcaption>图 12.4：CACE 识别结论：Wald 比值识别依从者中的平均因果效应，课件截图（来源：12.iv_slides.pdf P29）。</figcaption>
 </figure>
 <p>在随机试验中，这就是会遵守分配的人群中的 因果效应（causal effect）。MTO 中对应“如果给 住房券（voucher） 就会搬家、不给 住房券（voucher） 就不会搬家”的家庭所经历的效应。</p>
+<blockquote class="callout callout-note">
+<p><strong>CACE 的人群是谁</strong> CACE 不是所有人，也不是实际处理者，而是“会被工具变量改变处理状态的人”。随机分配到治疗会接受、随机分配到对照不会接受的人，才是 compliers。Wald 分母估计的就是这类人的比例。</p>
+</blockquote>
 <p>CACE 的限制是：依从者（compliers） 不能被直接识别，因为同一个人永远不能同时观察 \(A_0,A_1\)。此外，在随机试验中发现的 依从者（compliers） 未必代表总体中的 依从者（compliers）；改变试验规则或激励后，依从者（compliers） 比例也可能改变。可在 单调性（monotonicity） 下估计 依从者比例（complier proportion）：</p>
 <div class="math-block">$$
 \Pr(A_1&gt;A_0)=\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0).
@@ -10797,6 +10959,17 @@ $$</div>
 
 $$</div>
 <p>这个 2.40 kg 如何解释取决于假设：若满足 IV DAG 和 单调性（monotonicity），它是 CACE；若满足 IV DAG 和 无当前处理值交互（no current treatment value interaction），它是 ETT；若再满足额外同质性假设，可解释为 ACE。若 IV DAG 不成立，例如未观测因素同时影响 \(Z\) 和 \(Y\)，或 \(Z\) 直接影响 \(Y\)，这个估计没有目标因果解释。</p>
+<blockquote class="callout callout-exam">
+<p><strong>同一个 Wald 比值的三种解释</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>额外假设</th><th>Wald 可解释为</th><th>直观含义</th></tr></thead>
+<tbody>
+<tr><td>单调性，无 defiers</td><td>CACE</td><td>被 \(Z\) 改变处理状态的人中的平均效应</td></tr>
+<tr><td>无当前处理值交互</td><td>ETT/ATT</td><td>实际接受处理者中的平均效应</td></tr>
+<tr><td>更强同质性</td><td>ACE</td><td>总体平均处理效应</td></tr>
+</tbody></table></div>
+<p>考试中如果题目没有给额外同质性，不要把 IV 结果直接说成 ACE。</p>
+</blockquote>
 <h3 id="sec-012-15">12.15 协变量的作用<a class="heading-link" href="#sec-012-15" aria-label="复制本节链接">#</a></h3>
 <p>若除了 \((A,Z,Y)\) 还观察到向量 \(C\)，其中包含 \((A,Y,Z)\) 的一些共同原因，则在 IV 中可以用 \(C\) 来：</p>
 <ol>
@@ -10866,6 +11039,10 @@ $$</div>
 
 $$</div>
 <p>在这个新线性回归中，\(\varepsilon\) 与 \(E(A\mid Z,C)\) 和 \(C\) 不相关，因此 \(E(A\mid Z,C)\) 的回归系数就是感兴趣的因果效应 \(\beta_1\)。这个结果需要 \(E(A\mid Z,C)\) 依赖 \(Z\)，即 IV.1。</p>
+<blockquote class="callout callout-intuition">
+<p><strong>2SLS 的两阶段不要误解</strong> 第一阶段不是为了“更好预测 \(A\)”本身，而是提取 \(A\) 中由 \(Z\) 和 \(C\) 解释、相对外生的那部分变化。第二阶段用 \(\hat A\) 解释 \(Y\)，本质上是在问：由工具变量推动的处理变化，会带来多少结局变化。</p>
+<p>注意：第二阶段的标准误不能把 \(\hat A\) 当普通观测变量手算，软件里的 IV/2SLS 程序会处理第一阶段估计带来的不确定性。</p>
+</blockquote>
 <p>实际中 \(E(A\mid Z,C)\) 未知，第一阶段用 2SLS 估计。通常假设第一阶段回归对 \(A\) 是线性的；即使 \(A,Z,C\) 不都连续，这仍是常用方法。课件指出，只要第一阶段线性回归包含 \(Z\)，2SLS 对第一阶段建模误差通常较稳健。</p>
 <h3 id="sec-012-17">12.17 评估 IV 假设（Evaluating IV assumptions）<a class="heading-link" href="#sec-012-17" aria-label="复制本节链接">#</a></h3>
 <p>在 孟德尔随机化（Mendelian randomization） 中，用 表型（phenotype） 识别 疾病的因果效应（causal effects） 所需的强假设往往不完全成立。这些假设在 MR 应用中也不总是被系统评估，但评估可以增加 MR 的可信度。</p>
@@ -10877,6 +11054,9 @@ $$</div>
 <li>过度识别检验（overidentification tests） 使用多个 工具变量（instruments）。</li>
 </ul>
 <p>证伪检验（falsification tests） 即便 IV.2 和 IV.3 被违反，也可能不能拒绝某个 工具变量（instrument）；但执行这些测试仍可能增加对 IV 有效性的信心。</p>
+<blockquote class="callout callout-note">
+<p><strong>检验只能证伪，不能证明</strong> IV inequality、过度识别检验、分层检验只能发现某些明显违反。没检出问题不等于 IV 一定有效；它只表示在这些有限检验下没有被反驳。真正的 IV 有效性仍依赖研究设计和专业背景论证。</p>
+</blockquote>
 <p><strong>利用关于混杂的已有假设（leveraging prior assumptions about confounding）。</strong> 研究者有时只关心 传统效应估计（conventional effect estimate） 是否有偏：另一个方向的偏差可能不相关或不可信。可比较 IV 效应估计（IV effect estimate） 和 传统效应估计（conventional effect estimate）。例如如果传统估计（conventional estimate）存在正向混杂，则应有 IV 估计小于传统估计（IV &lt; conventional）。</p>
 <p>该方法依赖对混杂方向（confounding direction） 的假设；如果不知道方向，测试不提供信息。在 非线性因果结构（nonlinear causal structures） 中也不能保证一致。</p>
 <p><strong>修饰因素（Modifying factors）.</strong> 识别会修改 IV-暴露（exposure） 关系的因素。在这些因素分层内比较 Wald 效应估计（Wald effect estimate），看 \(Z\) 与 \(A\) 的总体关联是否被消除或反向。只有当 偏倚路径（biasing 路径（path）way） 在两个 子组（subgroup） 中都活跃时，这种测试才可能发现 工具变量（instrument） 偏倚。</p>
