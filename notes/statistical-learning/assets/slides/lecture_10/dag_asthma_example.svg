@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" role="img" aria-labelledby="title desc">
+  <title id="title">Asthma example causal DAG</title>
+  <desc id="desc">Causal DAG for air pollution, sex, bronchial reactivity, antihistamine treatment, and asthma.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .treat{fill:#eef6f8;stroke:#0b6b78;stroke-width:2.5}
+      .out{fill:#fff1f2;stroke:#b5475d;stroke-width:2.5}
+      .label{font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:13px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="788" height="398" rx="18" fill="#f8fbfa" stroke="#d7e2df"/>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="150" cy="130" r="48"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="150" y="127">A</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="150" y="150">pollution</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="150" cy="300" r="48"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="150" y="297">B</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="150" y="320">sex</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="370" cy="220" r="54"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="370" y="214">C</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="370" y="237">reactivity</text>
+  <circle style="fill:#eef6f8;stroke:#0b6b78;stroke-width:2.5" cx="585" cy="130" r="52"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="585" y="127">E</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="585" y="150">antihistamine</text>
+  <circle style="fill:#fff1f2;stroke:#b5475d;stroke-width:2.5" cx="650" cy="300" r="52"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="650" y="297">D</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="650" y="320">asthma</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M196 147 C245 165 287 183 319 199"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M199 130 H525"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M197 283 C245 265 288 248 318 235"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M199 300 H590"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M423 198 C463 178 496 159 536 142"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M418 247 C482 279 542 293 589 298"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M608 179 C618 204 627 229 637 252"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="390" y="58">Edges: A->C, A->E, B->C, B->D, C->E, C->D, E->D</text>
+</svg>

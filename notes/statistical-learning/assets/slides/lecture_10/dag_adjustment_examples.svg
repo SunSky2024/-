@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Adjustment examples for Z</title>
+  <desc id="desc">Six DAG examples showing when Z is a mediator descendant, mediator cause, treatment cause, treatment descendant, outcome cause, or outcome descendant.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .panel{fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5}
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .z{fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5}
+      .label{font:700 16px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:13px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="868" height="528" rx="18" fill="#fff" stroke="#d7e2df"/>
+  <g transform="translate(40,58)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z descendant of mediator</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="45" cy="70" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="76">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="125" cy="70" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="76">M</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="205" cy="70" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="76">Y</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="125" cy="110" r="20"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="116">Z</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 70 H96"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M150 70 H176"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M125 94 V90"/>
+  </g>
+  <g transform="translate(325,58)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z causes mediator</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="45" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="88">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="125" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="88">M</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="205" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="88">Y</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="125" cy="42" r="20"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="48">Z</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 82 H96"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M150 82 H176"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M125 62 V58"/>
+  </g>
+  <g transform="translate(610,58)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z causes treatment only</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="45" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="88">Z</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="125" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="88">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="205" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="88">Y</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 82 H96"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M150 82 H176"/>
+  </g>
+  <g transform="translate(40,238)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z descendant of treatment</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="45" cy="72" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="78">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="205" cy="72" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="78">Y</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="125" cy="110" r="20"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="116">Z</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 72 H176"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M65 88 C86 106 100 112 105 112"/>
+  </g>
+  <g transform="translate(325,238)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z predicts outcome only</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="45" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="88">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="205" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="88">Y</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="125" cy="42" r="20"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="48">Z</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 82 H176"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M140 55 C160 65 176 72 184 76"/>
+  </g>
+  <g transform="translate(610,238)">
+    <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" width="250" height="135" rx="12"/><text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="125" y="24">Z descendant of outcome</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="45" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="45" y="88">A</text>
+    <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="125" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="125" y="88">Y</text>
+    <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:2.5" cx="205" cy="82" r="24"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="205" y="88">Z</text>
+    <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M70 82 H96"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M150 82 H176"/>
+  </g>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="450" y="500">For total effect of A on Y: avoid mediators and descendants; adjust true common causes of A and Y.</text>
+</svg>

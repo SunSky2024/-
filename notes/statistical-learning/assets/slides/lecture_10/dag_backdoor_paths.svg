@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" role="img" aria-labelledby="title desc">
+  <title id="title">Backdoor and collider paths in asthma DAG</title>
+  <desc id="desc">The open backdoor path E left A right C right D and the collider-blocked path E left A right C left B right D.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .collider{fill:#fff7ed;stroke:#c26a1b;stroke-width:3}
+      .treat{fill:#eef6f8;stroke:#0b6b78;stroke-width:2.5}
+      .out{fill:#fff1f2;stroke:#b5475d;stroke-width:2.5}
+      .label{font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:13px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.2;fill:none;marker-end:url(#arrow)}
+      .open{stroke:#0b6b78;stroke-width:5;fill:none;opacity:.82}
+      .blocked{stroke:#c26a1b;stroke-width:5;fill:none;stroke-dasharray:10 7;opacity:.82}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="788" height="398" rx="18" fill="#f8fbfa" stroke="#d7e2df"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="410" y="54">Target effect: E -&gt; D. Backdoor paths start with an arrow into E.</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="130" cy="145" r="42"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="130" y="151">A</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="130" cy="300" r="42"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="130" y="306">B</text>
+  <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:3" cx="350" cy="225" r="48"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="350" y="231">C</text>
+  <circle style="fill:#eef6f8;stroke:#0b6b78;stroke-width:2.5" cx="560" cy="145" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="560" y="151">E</text>
+  <circle style="fill:#fff1f2;stroke:#b5475d;stroke-width:2.5" cx="645" cy="300" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="645" y="306">D</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M172 160 C226 178 272 197 306 212"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M172 145 H509"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M172 285 C226 267 274 247 307 235"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M172 300 H594"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M397 205 C444 184 487 165 514 154"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M397 247 C468 281 535 296 596 300"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M581 188 C594 215 608 244 621 267"/>
+  <path style="stroke:#0b6b78;stroke-width:5;fill:none;opacity:.82" d="M545 180 C500 204 445 220 398 225"/>
+  <path style="stroke:#0b6b78;stroke-width:5;fill:none;opacity:.82" d="M303 225 C250 210 199 186 153 162"/>
+  <path style="stroke:#c26a1b;stroke-width:5;fill:none;stroke-dasharray:10 7;opacity:.82" d="M545 180 C500 204 445 220 398 225"/>
+  <path style="stroke:#c26a1b;stroke-width:5;fill:none;stroke-dasharray:10 7;opacity:.82" d="M303 225 C245 246 198 272 156 293"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="356" y="350">Open example: E &lt;- C -&gt; D or E &lt;- A -&gt; C -&gt; D; collider example: A -&gt; C &lt;- B.</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="350" y="288">C can be a collider on A -&gt; C &lt;- B.</text>
+</svg>

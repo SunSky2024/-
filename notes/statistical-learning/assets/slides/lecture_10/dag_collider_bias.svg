@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="title desc">
+  <title id="title">Conditioning on a collider opens a path</title>
+  <desc id="desc">A and B are marginally independent causes of collider C; conditioning on C opens association between A and B.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .collider{fill:#fff7ed;stroke:#c26a1b;stroke-width:3}
+      .label{font:700 20px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)}
+      .opened{stroke:#c26a1b;stroke-width:3;fill:none;stroke-dasharray:8 7}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="728" height="328" rx="18" fill="#f8fbfa" stroke="#d7e2df"/>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="150" cy="120" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="150" y="127">A</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="150" cy="250" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="150" y="257">E</text>
+  <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:3" cx="380" cy="180" r="52"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="380" y="187">C</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="610" cy="120" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="610" y="127">B</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="610" cy="250" r="46"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="610" y="257">D</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M194 131 C247 146 292 160 329 170"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M566 131 C513 146 468 160 431 170"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M150 166 V200"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M610 166 V200"/>
+  <path style="stroke:#c26a1b;stroke-width:3;fill:none;stroke-dasharray:8 7" d="M196 250 C310 300 493 300 565 250"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="380" y="68">Conditioning on collider C opens A -- B association.</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="380" y="320">Then E can be associated with D through E &lt;- A -- B -&gt; D.</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="380" y="245">condition on C</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="title desc">
+  <title id="title">Observational confounding DAG</title>
+  <desc id="desc">Baseline covariate L affects both treatment A and outcome Y, creating a backdoor path from A to Y.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .conf{fill:#fff7ed;stroke:#b86b1e;stroke-width:2.4}
+      .label{font:700 20px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)}
+      .backdoor{stroke:#b86b1e;stroke-width:3.2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="728" height="328" rx="18" fill="#f8fbfa" stroke="#d7e2df"/>
+  <circle style="fill:#fff7ed;stroke:#b86b1e;stroke-width:2.4" cx="185" cy="180" r="48"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="185" y="187">L</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="380" cy="105" r="48"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="380" y="112">A</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="590" cy="180" r="48"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="590" y="187">Y</text>
+  <path style="stroke:#b86b1e;stroke-width:3.2;fill:none;marker-end:url(#arrow)" d="M231 162 C278 142 309 126 333 115"/>
+  <path style="stroke:#b86b1e;stroke-width:3.2;fill:none;marker-end:url(#arrow)" d="M233 194 C338 239 460 239 546 194"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M426 122 C470 139 506 153 545 166"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="248" y="111">treatment selection</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="390" y="254">prognostic path</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="487" y="119">causal effect</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="370" y="314">Backdoor path: A &lt;- L -&gt; Y; adjust for L if NUCA is plausible.</text>
+</svg>

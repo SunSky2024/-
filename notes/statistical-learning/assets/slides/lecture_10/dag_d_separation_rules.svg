@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">d-separation rules</title>
+  <desc id="desc">Chain, fork, and collider rules for d-separation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .panel{fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5}
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .cond{fill:#fff7ed;stroke:#c26a1b;stroke-width:3}
+      .label{font:700 17px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:13px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.3;fill:none;marker-end:url(#arrow)}
+      .bar{stroke:#b5475d;stroke-width:4}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="868" height="328" rx="18" fill="#fff" stroke="#d7e2df"/>
+  <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" x="40" y="54" width="250" height="250" rx="14"/>
+  <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" x="325" y="54" width="250" height="250" rx="14"/>
+  <rect style="fill:#f8fbfa;stroke:#d7e2df;stroke-width:1.5" x="610" y="54" width="250" height="250" rx="14"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="165" y="84">Chain: condition on middle blocks</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="85" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="85" y="181">A</text>
+  <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:3" cx="165" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="165" y="181">Q</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="245" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="245" y="181">Y</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M116 175 H132"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M196 175 H212"/>
+  <line style="stroke:#b5475d;stroke-width:4" x1="150" y1="220" x2="180" y2="130"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="450" y="84">Fork: condition on common cause blocks</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="370" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="370" y="181">A</text>
+  <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:3" cx="450" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="450" y="181">Q</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="530" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="530" y="181">Y</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M420 175 H404"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M481 175 H497"/>
+  <line style="stroke:#b5475d;stroke-width:4" x1="435" y1="220" x2="465" y2="130"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="735" y="84">Collider: unconditioned blocks; conditioning opens</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="655" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="655" y="181">A</text>
+  <circle style="fill:#fff7ed;stroke:#c26a1b;stroke-width:3" cx="735" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="735" y="181">Q</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="815" cy="175" r="30"/><text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="815" y="181">Y</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M686 175 H702"/><path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M784 175 H768"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="735" y="245">Do not condition unless intended.</text>
+</svg>

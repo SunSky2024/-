@@ -8670,6 +8670,10 @@ $$</div>
 
 $$</div>
 <p>直观解释：随机化让 \(A\) 像抛硬币一样决定，它与病人的 处理前特征（pretreatment characteristics） 无关。可以把 \((Y^0,Y^1)\) 看成处理前已经存在的潜在变量，因此随机分配不会偏向更容易好转或更不容易好转的人。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/dag_randomized_trial.svg" alt="随机试验中 A 由随机机制决定且与基线协变量 L 独立的 DAG" loading="lazy" decoding="async">
+  <figcaption>图 10.1：随机试验的核心 DAG。要记住的是 \(L\) 可以影响 \(Y\)，但随机化使 \(L\) 不再决定 \(A\)，所以粗比较 \(E(Y\mid A=1)-E(Y\mid A=0)\) 有因果解释；调整 \(L\) 主要是为了提高效率。</figcaption>
+</figure>
 <h3 id="sec-010-06">10.6 随机试验中的基线协变量（baseline covariates）<a class="heading-link" href="#sec-010-06" aria-label="复制本节链接">#</a></h3>
 <p>随机试验中常同时观察处理前风险因素 \(L\)。由于随机化，\(L\perp A\)，于是</p>
 <div class="math-block">$$
@@ -8694,6 +8698,10 @@ $$</div>
 
 $$</div>
 <p>NUCA 是无未测混杂假设（no unmeasured confounding assumption），意思是：在 \(L\) 的每个水平内，处理分配好像一个随机试验，只是随机化概率可以依赖 \(L\)。概念上，这要求我们测量了 \(A\) 和 \(Y\) 的所有共同原因，也就是所有同时影响处理和结果的 混杂因素（confounders）。</p>
+<figure class="note-figure">
+  <img src="assets/slides/lecture_10/dag_observational_confounding.svg" alt="观测研究中 L 同时影响处理 A 和结局 Y 从而产生后门路径的 DAG" loading="lazy" decoding="async">
+  <figcaption>图 10.2：观测研究的混杂 DAG。考试时看到 \(A\leftarrow L\to Y\)，就要想到后门路径；若 \(L\) 已包含所有共同原因且正值性成立，可以用 G 公式、IPTW 或双重稳健方法识别 \(A\) 对 \(Y\) 的效应。</figcaption>
+</figure>
 <p>观测研究还需要条件版 正值性（positivity）：</p>
 <div class="math-block">$$
 f_L(l)&gt;0 \quad\Longrightarrow\quad \Pr(A=a\mid L=l)&gt;0.
@@ -9330,8 +9338,8 @@ $$</div>
 <p>图中的 点（points）是顶点/节点（vertices/nodes），连接变量的线或箭头是 弧/边（arcs/edges）。箭头表示从 cause 到 结果（effect）的直接连接（direct link），且不被其他变量中介。例如 \(A\to C\) 表示 \(A\) 对 \(C\) 的直接效应。</p>
 <p>没有箭头表示没有 直接因果效应（direct causal effect）（causal effect）。例如没有 \(A\to D\)，对应假设 工业空气污染（industrial 空气污染（air pollution）） 对 哮喘（asthma）的影响不直接发生，而是通过 \(E\) 和 \(C\)。</p>
 <figure class="note-figure">
-  <img src="assets/slides/lecture_10/p55_causal_dag.png" alt="抗组胺药与哮喘例子的因果 DAG 节点和箭头示意" loading="lazy" decoding="async">
-  <figcaption>图 10.1：因果 DAG 的节点、箭头和无箭头含义示意，课件截图（来源：10.causal_intro_slides.pdf P55）。</figcaption>
+  <img src="assets/slides/lecture_10/dag_asthma_example.svg" alt="抗组胺药与哮喘例子的因果 DAG 节点和箭头示意" loading="lazy" decoding="async">
+  <figcaption>图 10.3：抗组胺药与哮喘例子的完整 DAG。要记住每条箭头都是一个直接因果假设；没有 \(A\to D\) 表示污染对哮喘不直接作用，而是经由 \(C\) 或 \(E\) 影响 \(D\)。（根据 10.causal_intro_slides.pdf P55 重绘）</figcaption>
 </figure>
 <p>路径（path） 是连接变量的路径。一个节点若位于路径内部，称为截住路径（intercept the path）。例如 \(C\) 截住 \(A-C-D\) 和 \(E-C-D\) 这两条路径。</p>
 <p>若存在从 \(X\) 出发到 \(Y\)的有向路径（directed path），则 \(X\)是\(Y\)的祖先节点/原因（ancestor/cause），\(Y\)是\(X\)的后代节点/结果（后代节点（descendant）/effect）。上图中 \(A,B,C\)是\(E,D\)的祖先节点（ancestors），而 \(E,D\)是\(A,B,C\)的后代节点（descendants）。</p>
@@ -9350,8 +9358,8 @@ E-A-C-D
 $$</div>
 <p>没有碰撞点（collider），因此是未阻断的后门路径（unblocked backdoor path）。</p>
 <figure class="note-figure">
-  <img src="assets/slides/lecture_10/p58_backdoor_collider_path.png" alt="DAG 中后门路径 碰撞点和阻断路径的示意图" loading="lazy" decoding="async">
-  <figcaption>图 10.2：后门路径、碰撞点和阻断路径的基本判别，课件截图（来源：10.causal_intro_slides.pdf P58）。</figcaption>
+  <img src="assets/slides/lecture_10/dag_backdoor_paths.svg" alt="抗组胺药 DAG 中后门路径和碰撞点路径的重绘示意图" loading="lazy" decoding="async">
+  <figcaption>图 10.4：后门路径与碰撞点路径。考试时先看目标效应 \(E\to D\)，再找所有以箭头指向 \(E\) 开头的路径；经过 \(A\to C\leftarrow B\) 的路径默认被碰撞点 \(C\) 阻断。（根据 10.causal_intro_slides.pdf P58 重绘）</figcaption>
 </figure>
 <p>有向（Directed） 无环（Acyclic） Graph (DAG) 的含义：</p>
 <ul>
@@ -9425,8 +9433,8 @@ $$</div>
 <p>这是 碰撞点（collider）/选择偏倚（selection bias） 的基本规则：如果 \(C\)是\(A\) 和 \(B\) 的共同结果，则在 \(C\) 的水平内，\(A\) 与 \(B\) 的关联通常不同于边际关联。</p>
 <p>回到原 DAG，条件化于（conditioning on） \(C\) 会创造从 \(E\) 到 \(D\) 的未阻断后门路径（unblocked backdoor path）：\(A\) 与 \(B\)在\(C\) 层内的关联会使 \(A\) 通过 \(B\) 间接关联到 \(D\)。因此只调整 \(A\)、只调整 \(B\)、或只调整 \(C\) 都不足以控制混杂；调整 \(\{A,C\}\) 或 \(\{B,C\}\) 是充分的。</p>
 <figure class="note-figure">
-  <img src="assets/slides/lecture_10/p71_conditioning_on_collider.png" alt="条件化于碰撞点会打开后门路径并引入偏倚的 DAG 示例" loading="lazy" decoding="async">
-  <figcaption>图 10.3：条件化于碰撞点会打开原本阻断的后门路径，课件截图（来源：10.causal_intro_slides.pdf P71）。</figcaption>
+  <img src="assets/slides/lecture_10/dag_collider_bias.svg" alt="条件化于碰撞点 C 会打开 A 与 B 之间关联并引入偏倚的 DAG" loading="lazy" decoding="async">
+  <figcaption>图 10.5：条件化于碰撞点会打开原本阻断的路径。要记住：\(A\to C\leftarrow B\) 中 \(C\) 默认阻断路径；一旦调整或分层 \(C\)，\(A\) 与 \(B\) 会在 \(C\) 层内产生关联，可能形成选择偏倚。（根据 10.causal_intro_slides.pdf P71 重绘）</figcaption>
 </figure>
 <p>课件还给出一个“传统经验（conventional wisdom） 会出错”的例子：图中唯一 后门路径（backdoor path）</p>
 <div class="math-block">$$
@@ -9465,8 +9473,8 @@ $$</div>
 <li>给定 \(\{Q\}\) 后，也可能打开涉及 \(Q\) 或其 后代节点（descendant）的碰撞点（collider） 路径，使 \(A\) 与 \(Y\) 重新 d 连通（d-connected）。</li>
 </ul>
 <figure class="note-figure">
-  <img src="assets/slides/lecture_10/p73_d_separation.png" alt="d 分离中 chain fork collider 路径阻断和打开的规则图" loading="lazy" decoding="async">
-  <figcaption>图 10.4：d-separation 的路径阻断规则示意，课件截图（来源：10.causal_intro_slides.pdf P73）。</figcaption>
+  <img src="assets/slides/lecture_10/dag_d_separation_rules.svg" alt="d 分离中 chain fork collider 三种结构的阻断和打开规则图" loading="lazy" decoding="async">
+  <figcaption>图 10.6：d-separation 的三条核心规则。Chain 和 fork 中调整中间点会阻断路径；collider 默认阻断，调整碰撞点或其后代反而会打开路径。（根据 10.causal_intro_slides.pdf P73 重绘）</figcaption>
 </figure>
 <p>后门路径准则（backdoor path criterion）：在给定 DAG 下，一个变量集合 \(S\) 足以控制混杂（confounding），如果：</p>
 <ol>
@@ -9489,8 +9497,8 @@ $$</div>
 <li>图 \(A\to Y\to Z\)。\(Z\)是outcome的后代节点（descendant）；通常不用于控制 \(A\) 对 \(Y\) 的混杂。</li>
 </ol>
 <figure class="note-figure">
-  <img src="assets/slides/lecture_10/p78_dag_adjustment_examples.png" alt="DAG 练习中区分中介 后代 混杂和预测变量的示例图" loading="lazy" decoding="async">
-  <figcaption>图 10.5：课件末尾 DAG 练习图，用于判断是否应调整 \(Z\)，课件截图（来源：10.causal_intro_slides.pdf P78）。</figcaption>
+  <img src="assets/slides/lecture_10/dag_adjustment_examples.svg" alt="DAG 练习中区分 Z 是中介后代 中介原因 处理原因 处理后代 结局原因和结局后代的示例图" loading="lazy" decoding="async">
+  <figcaption>图 10.7：课件末尾 \(Z\) 的调整判断练习。核心记忆：估计 \(A\) 对 \(Y\) 的总效应时，不要调整中介及其后代，也不要调整处理或结局的后代；真正需要优先考虑的是 \(A\) 与 \(Y\) 的共同原因。（根据 10.causal_intro_slides.pdf P78 重绘）</figcaption>
 </figure>
 <p>最后一页是一个中文表格，展示按 sex 分层与总体合并会得到相反方向的比较：</p>
 <div class="table-wrap"><table>

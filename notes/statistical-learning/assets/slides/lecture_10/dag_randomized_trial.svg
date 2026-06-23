@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="title desc">
+  <title id="title">Randomized trial DAG</title>
+  <desc id="desc">Treatment A is randomized and independent of baseline covariate L, while both A and L can affect outcome Y.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24434b"/>
+    </marker>
+    <style>
+      .node{fill:#fff;stroke:#24434b;stroke-width:2}
+      .random{fill:#eef6f8;stroke:#0b6b78;stroke-width:2}
+      .label{font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle}
+      .small{font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle}
+      .edge{stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)}
+      .noedge{stroke:#b35a5a;stroke-width:2;stroke-dasharray:6 6;fill:none}
+    </style>
+  </defs>
+  <rect x="16" y="16" width="728" height="328" rx="18" fill="#f8fbfa" stroke="#d7e2df"/>
+  <circle style="fill:#eef6f8;stroke:#0b6b78;stroke-width:2" cx="160" cy="90" r="44"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="160" y="86">R</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="160" y="110">randomizer</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="370" cy="90" r="44"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="370" y="96">A</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="370" cy="260" r="44"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="370" y="266">L</text>
+  <circle style="fill:#fff;stroke:#24434b;stroke-width:2" cx="600" cy="175" r="44"/>
+  <text style="font:700 18px Arial,sans-serif;fill:#132f36;text-anchor:middle" x="600" y="181">Y</text>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M205 90 H318"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M408 113 C455 142 503 156 550 166"/>
+  <path style="stroke:#24434b;stroke-width:2.4;fill:none;marker-end:url(#arrow)" d="M411 244 C466 221 505 202 551 187"/>
+  <path style="stroke:#b35a5a;stroke-width:2;stroke-dasharray:6 6;fill:none" d="M370 138 V212"/>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="230" y="58">random assignment</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="448" y="70">causal effect</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="490" y="245">baseline risk</text>
+  <text style="font:14px Arial,sans-serif;fill:#4b6168;text-anchor:middle" x="286" y="180">no L -> A arrow</text>
+</svg>
