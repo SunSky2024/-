@@ -7,6 +7,7 @@
 - 第 10 讲新增反事实、ACE/ATE、G 公式、G-computation、IPTW、双重稳健、G-estimation 与 DAG 判断流程的初学者提示块。
 - 第 11 讲新增纵向历史记号、序贯随机化、纵向 g 公式、MSM/IPTW、删失权重、SMM/SNM 与 MSM/SNM 对比的解释块。
 - 第 12 讲新增 IV 直觉、IV DAG 三假设、Wald 目标量、依从类型、CACE、2SLS 与 IV 假设检验的解释块。
+- 为第 10、11、12 讲补充符号速查表；为第 10 讲补充方法选择表，为第 11 讲补充权重诊断提醒，为第 12 讲补充弱工具变量提醒。
 - 本次只增强文字讲解和复习提示，不改变原有公式含义、章节顺序、图片、目录、MathJax、ESL 链接和 PPT 链接。
 
 ## 2026-06-22 Final quality check

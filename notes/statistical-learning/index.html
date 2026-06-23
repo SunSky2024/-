@@ -8544,6 +8544,20 @@ $$</div>
 <p><strong>小白版学习路线</strong> 第十讲只围绕一个核心问题：什么时候观测数据里的差异 \(E(Y\mid A=1)-E(Y\mid A=0)\) 可以解释成“把处理从 0 改成 1”造成的因果效应？</p>
 <p>先把符号记牢：\(A\) 是处理或暴露，\(Y\) 是结局，\(L\) 是处理前协变量，\(Y^a\) 是“如果把处理强制设为 \(a\)”时的潜在结局，\(\psi=E(Y^1)-E(Y^0)\) 是平均因果效应。后面所有公式都在解决同一件事：我们看不到每个人的两个潜在结局，怎样用可观测的 \((L,A,Y)\) 把 \(\psi\) 识别并估计出来。</p>
 </blockquote>
+<blockquote class="callout callout-summary">
+<p><strong>本讲符号速查</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>符号</th><th>中文含义</th><th>初学者读法</th></tr></thead>
+<tbody>
+<tr><td>\(A\)</td><td>处理、暴露、干预</td><td>我们想改变的变量，例如吃药/不吃药</td></tr>
+<tr><td>\(Y\)</td><td>观测结局</td><td>真实世界最后看到的结果</td></tr>
+<tr><td>\(Y^a\)</td><td>潜在结局/反事实结局</td><td>如果强制设 \(A=a\)，这个人的结局会是多少</td></tr>
+<tr><td>\(L\)</td><td>处理前协变量</td><td>可能同时影响 \(A\) 和 \(Y\) 的背景变量</td></tr>
+<tr><td>\(\psi\)</td><td>平均因果效应</td><td>通常指 \(E(Y^1)-E(Y^0)\)</td></tr>
+<tr><td>\(b(a,l)\)</td><td>结局回归</td><td>\(E(Y\mid A=a,L=l)\)</td></tr>
+<tr><td>\(f(A\mid L)\)</td><td>倾向评分/处理机制</td><td>给定 \(L\) 后接受实际处理的概率</td></tr>
+</tbody></table></div>
+</blockquote>
 <h3 id="sec-010-01">10.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-010-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 主要讲预测建模，不系统讲因果推断。因此本讲里的 反事实（counterfactual）、G 公式（G-formula）、IPTW、d 分离（d-separation）、后门准则（backdoor criterion） 等内容大多不在 ESL 主线中。可辅助阅读的位置是：</p>
 <ul>
@@ -9237,6 +9251,18 @@ $$</div>
 <blockquote class="callout callout-intuition">
 <p><strong>DR 公式的读法</strong> DR 估计量可以看成“结局模型预测值 + IPTW 残差修正”。如果结局模型已经对了，残差平均为 0，修正项不影响一致性；如果结局模型错了，但倾向评分对了，残差修正会把错掉的部分按正确权重补回来。</p>
 </blockquote>
+<blockquote class="callout callout-summary">
+<p><strong>四类估计方法怎么选</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>方法</th><th>主要建模对象</th><th>直观动作</th><th>主要风险</th></tr></thead>
+<tbody>
+<tr><td>G-computation</td><td>\(E(Y\mid A,L)\)</td><td>预测每个人在 \(A=1\) 和 \(A=0\) 下的结局再平均</td><td>结局模型错设</td></tr>
+<tr><td>IPTW</td><td>\(\Pr(A\mid L)\)</td><td>按处理概率倒数加权，构造伪总体</td><td>倾向评分错设或极端权重</td></tr>
+<tr><td>双重稳健</td><td>结局模型和处理模型</td><td>预测值加上加权残差修正</td><td>两个模型都错时仍会偏</td></tr>
+<tr><td>匹配</td><td>相似性或倾向评分</td><td>给每个个体找相似对照</td><td>匹配质量差或缺少共同支持</td></tr>
+</tbody></table></div>
+<p>这张表的重点不是背优缺点，而是看到题目给的是 \(Y\mid A,L\) 还是 \(A\mid L\)，就知道它更接近哪条估计路线。</p>
+</blockquote>
 <h3 id="sec-010-15">10.15 G 估计（G-estimation）<a class="heading-link" href="#sec-010-15" aria-label="复制本节链接">#</a></h3>
 <p>G 估计（G-estimation） 从 blip 函数（blip function） 表达个体或条件平均因果效应。课件写：</p>
 <div class="math-block">$$
@@ -9617,6 +9643,21 @@ $$</div>
 <p><strong>小白版学习路线</strong> 第十一讲的难点不是多了几个下标，而是多了“时间顺序”。第十讲只有一次处理 \(A\)，第十一讲有 \(A_0,A_1,\ldots,A_K\)，并且每次处理前后都会出现新的协变量 \(L_k\)。</p>
 <p>最重要的句子是：\(L_k\) 可能既是过去处理 \(A_{k-1}\) 的结果，又是未来处理 \(A_k\) 和最终结局 \(Y\) 的共同原因。因此普通回归里“把所有 \(L_k\) 都调进去”可能会错误调整中介路径；MSM/IPTW 和 SNM 就是为这种时间变化混杂设计的。</p>
 </blockquote>
+<blockquote class="callout callout-summary">
+<p><strong>第十一讲符号速查</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>符号</th><th>中文含义</th><th>初学者读法</th></tr></thead>
+<tbody>
+<tr><td>\(A_k\)</td><td>第 \(k\) 时刻处理</td><td>第 \(k\) 次治疗/暴露状态</td></tr>
+<tr><td>\(L_k\)</td><td>第 \(k\) 时刻协变量</td><td>该时刻已知的病情、风险因素或历史信息</td></tr>
+<tr><td>\(\bar A_k\)</td><td>截至 \(k\) 的处理历史</td><td>\((A_0,\ldots,A_k)\)</td></tr>
+<tr><td>\(\bar L_k\)</td><td>截至 \(k\) 的协变量历史</td><td>\((L_0,\ldots,L_k)\)</td></tr>
+<tr><td>\(Y^{\bar a}\)</td><td>路径 \(\bar a\) 下的潜在结局</td><td>如果全程按 \(\bar a\) 处理，最终会怎样</td></tr>
+<tr><td>\(W,SW\)</td><td>逆概率权重/稳定化权重</td><td>把纵向数据重加权成伪总体的工具</td></tr>
+<tr><td>MSM</td><td>边际结构模型</td><td>直接建模 \(E(Y^{\bar a})\)</td></tr>
+<tr><td>SNM</td><td>结构嵌套模型</td><td>建模给定历史下的局部处理增量</td></tr>
+</tbody></table></div>
+</blockquote>
 <h3 id="sec-011-01">11.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-011-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 不系统覆盖 纵向因果推断（longitudinal causal inference）、MSM、SNM、序贯随机化（sequential randomization） 或 时间变化处理的逆概率加权（inverse probability weighting for 时间变化处理（time-varying treatment）s）。这些是因果推断专门内容，不属于 ESL 的主线。可作为背景阅读的是：</p>
 <ul>
@@ -9949,6 +9990,15 @@ $$</div>
 <p>这部分的直觉是：如果随访缺失取决于既往协变量和处理历史，就需要像处理分配一样为“仍被观察到”这件事建模，并用权重修正选择偏差。</p>
 <blockquote class="callout callout-note">
 <p><strong>删失权重怎么理解</strong> 失访不是单纯少了一些样本。如果失访概率和病情、处理历史有关，剩下的人就不再代表原来的目标人群。删失权重让“仍被观察到的人”代表那些在相似历史下本来也可能失访的人，逻辑上和处理权重完全平行。</p>
+</blockquote>
+<blockquote class="callout callout-exam">
+<p><strong>权重题常见检查点</strong> 如果题目给出权重分布，不要只说“用了 IPTW”。要检查：</p>
+<ul>
+<li>权重均值是否大致接近 1，特别是稳定化权重；</li>
+<li>最大值和高分位数是否过大，过大提示正值性差或模型不稳；</li>
+<li>是否存在某些历史层次几乎没人接受某处理；</li>
+<li>必要时可讨论截尾（truncation）或重新定义目标人群，但这会改变估计的实际含义。</li>
+</ul>
 </blockquote>
 <h3 id="sec-011-09">11.9 Cox 边际结构模型（Cox MSMs）<a class="heading-link" href="#sec-011-09" aria-label="复制本节链接">#</a></h3>
 <p>当结果是生存时间或事件时间时，可使用 Cox MSM。一般形式为</p>
@@ -10458,6 +10508,21 @@ $$</div>
 <p><strong>小白版学习路线</strong> 第十二讲的核心是：如果 \(A\) 不是随机的，而且 \(A\) 与 \(Y\) 之间有看不见的混杂 \(U\)，那直接比较 \(A\) 与 \(Y\) 会偏。工具变量 \(Z\) 的作用是提供一部分“外生的 \(A\) 的变化”，也就是由 \(Z\) 推动、而不是由 \(U\) 推动的处理变化。</p>
 <p>最短记忆：\(Z\) 要能推动 \(A\)，但不能绕过 \(A\) 直接影响 \(Y\)，也不能和 \(Y\) 的未观测原因 \(U\) 有关。Wald 和 2SLS 都是在利用 \(Z\) 推动的这部分 \(A\) 变化来估计因果效应。</p>
 </blockquote>
+<blockquote class="callout callout-summary">
+<p><strong>第十二讲符号速查</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>符号</th><th>中文含义</th><th>初学者读法</th></tr></thead>
+<tbody>
+<tr><td>\(Z\)</td><td>工具变量</td><td>推动 \(A\) 变化的外生来源</td></tr>
+<tr><td>\(A\)</td><td>实际处理/暴露</td><td>真正想估计其因果效应的变量</td></tr>
+<tr><td>\(Y\)</td><td>结局</td><td>处理可能影响的结果</td></tr>
+<tr><td>\(U\)</td><td>未观测混杂</td><td>同时影响 \(A\) 和 \(Y\)，但数据中看不到</td></tr>
+<tr><td>\(A_z\)</td><td>\(Z=z\) 时的潜在处理</td><td>若工具变量取某值，此人会不会处理</td></tr>
+<tr><td>\(Y_a\)</td><td>\(A=a\) 时的潜在结局</td><td>若处理被设为 \(a\)，结局会怎样</td></tr>
+<tr><td>CACE</td><td>依从者平均因果效应</td><td>被 \(Z\) 改变处理状态的人中的平均效应</td></tr>
+<tr><td>2SLS</td><td>两阶段最小二乘</td><td>先用 \(Z\) 预测 \(A\)，再用预测出的外生部分解释 \(Y\)</td></tr>
+</tbody></table></div>
+</blockquote>
 <h3 id="sec-012-01">12.1 本讲定位与 ESL-CN 对应阅读<a class="heading-link" href="#sec-012-01" aria-label="复制本节链接">#</a></h3>
 <p>ESL-CN 不系统讲工具变量、CACE、Wald 目标量（Wald estimand）、2SLS 的因果解释或 IV 假设检验。本讲可参考的 ESL-CN 背景是：</p>
 <ul>
@@ -10654,6 +10719,9 @@ $$</div>
 
 $$</div>
 <p>分子是意向治疗效应（ITT effect），分母是随机分配对依从性（compliance）的影响。课件提醒：分母若小，Wald 目标量（Wald estimand） 会被放大，也更不稳定。</p>
+<blockquote class="callout callout-note">
+<p><strong>弱工具变量提醒</strong> 如果分母 \(\Pr(A=1\mid Z=1)-\Pr(A=1\mid Z=0)\) 很小，说明 \(Z\) 对 \(A\) 推动力弱。此时比值会非常不稳定，小小的分子噪声就可能被放大。考试中看到“第一阶段很弱”“分母接近 0”，要主动写出弱工具变量风险。</p>
+</blockquote>
 <blockquote class="callout callout-exam">
 <p><strong>Wald 做题模板</strong></p>
 <ol>
