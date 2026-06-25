@@ -367,6 +367,10 @@ ol {
   margin-bottom: 0;
 }
 
+.math-env.table-env {
+  max-width: 100%;
+}
+
 .env-title,
 .math-env > h3:first-child,
 .math-env > h4:first-child {
@@ -443,7 +447,7 @@ ol {
 
 .math-env .formula {
   max-width: none;
-  margin: var(--space-3) 0 var(--space-4);
+  margin: var(--space-4) 0 var(--space-5);
   background: rgba(255, 253, 248, 0.82);
 }
 
@@ -467,11 +471,27 @@ ol {
 
 .formula {
   max-width: 100%;
-  margin: var(--space-4) 0 var(--space-5);
-  padding: 11px 14px;
+  margin: var(--space-5) 0 var(--space-6);
+  padding: 16px 18px;
   overflow-x: auto;
+  overflow-y: hidden;
   border: 1px solid var(--rule);
   background: #fffdf8;
+  text-align: center;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.formula mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  width: max-content;
+  min-width: min-content;
+  max-width: none;
+  margin: 0 auto !important;
+  padding: 0.05em 0.1em;
+  overflow: visible;
+  text-align: center;
 }
 
 .factor-map {
@@ -520,28 +540,91 @@ ol {
 }
 
 table {
+  display: block;
   width: 100%;
-  margin: var(--space-4) 0 var(--space-6);
+  max-width: 100%;
+  margin: var(--space-5) 0 var(--space-6);
+  overflow-x: auto;
+  overflow-y: hidden;
   border-collapse: collapse;
-  border: 1px solid var(--rule-strong);
+  border: 0;
+  border-top: 1.5px solid var(--rule-strong);
+  border-bottom: 1.5px solid var(--rule-strong);
   background: #fffdf8;
   font-size: 14.5px;
   line-height: 1.58;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+table thead,
+table tbody,
+table tr {
+  width: 100%;
+}
+
+table thead,
+table tbody {
+  display: table;
+  min-width: 100%;
+  border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 9px 10px;
-  border: 1px solid var(--rule);
-  vertical-align: top;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 th {
   color: var(--ink-strong);
-  background: #eee8dc;
+  background: rgba(238, 232, 220, 0.58);
   font-family: var(--font-ui);
   font-weight: 700;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.review-table {
+  font-size: 14px;
+}
+
+.review-table thead,
+.review-table tbody {
+  min-width: 720px;
+}
+
+.review-table th:nth-child(1),
+.review-table td:nth-child(1) {
+  width: 18%;
+  min-width: 130px;
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+
+.review-table th:nth-child(2),
+.review-table td:nth-child(2) {
+  width: 22%;
+  min-width: 150px;
+}
+
+.review-table th:nth-child(3),
+.review-table td:nth-child(3) {
+  width: 34%;
+  min-width: 230px;
+}
+
+.review-table th:nth-child(4),
+.review-table td:nth-child(4) {
+  width: 26%;
+  min-width: 190px;
 }
 
 .two-col {
@@ -599,6 +682,18 @@ mjx-container[jax="SVG"][display="true"] {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.1em 0;
+}
+
+mjx-container[jax="SVG"]:not([display="true"]) {
+  max-width: 100%;
+  margin: 0 0.08em;
+  font-size: 0.98em;
+  vertical-align: -0.08em;
+}
+
+td mjx-container[jax="SVG"]:not([display="true"]),
+th mjx-container[jax="SVG"]:not([display="true"]) {
+  margin: 0 0.06em;
 }
 
 .footer {
@@ -739,7 +834,12 @@ mjx-container[jax="SVG"][display="true"] {
   table {
     display: block;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: normal;
+  }
+
+  .review-table thead,
+  .review-table tbody {
+    min-width: 760px;
   }
 }
 
