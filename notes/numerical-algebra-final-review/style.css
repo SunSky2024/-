@@ -295,6 +295,104 @@ ol {
   padding: 0;
 }
 
+.math-env {
+  --env-color: var(--accent);
+  --env-bg: #fffdf8;
+  max-width: 76ch;
+  margin: var(--space-5) 0;
+  padding: 13px 16px 14px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--env-color);
+  background: var(--env-bg);
+}
+
+.math-env > :last-child {
+  margin-bottom: 0;
+}
+
+.env-title,
+.math-env > h3:first-child {
+  margin: 0 0 0.55em;
+  color: var(--ink-strong);
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.math-env.definition {
+  --env-color: #5c7158;
+  --env-bg: #f4f5ee;
+}
+
+.math-env.theorem {
+  --env-color: #5e5875;
+  --env-bg: #f3f1f6;
+}
+
+.math-env.proposition {
+  --env-color: #536b79;
+  --env-bg: #eef4f5;
+}
+
+.math-env.lemma {
+  --env-color: #747052;
+  --env-bg: #f5f3e7;
+}
+
+.math-env.corollary {
+  --env-color: #6b6252;
+  --env-bg: #f7f3ea;
+}
+
+.math-env.proof {
+  --env-color: #66625b;
+  --env-bg: #faf8f1;
+}
+
+.math-env.proof::after {
+  content: "□";
+  display: block;
+  margin-top: 0.4em;
+  color: var(--muted);
+  text-align: right;
+}
+
+.math-env.example {
+  --env-color: #58725f;
+  --env-bg: #f1f5ef;
+}
+
+.math-env.remark {
+  --env-color: #6b7274;
+  --env-bg: #f2f4f3;
+}
+
+.math-env.warning {
+  --env-color: #956333;
+  --env-bg: #f6eee2;
+}
+
+.math-env.algorithm {
+  --env-color: #406d68;
+  --env-bg: #eef5f2;
+}
+
+.math-env.exam-tip {
+  --env-color: #7b3f22;
+  --env-bg: #f6efe6;
+}
+
+.math-env .formula {
+  max-width: none;
+  margin: var(--space-3) 0 var(--space-4);
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.math-env table {
+  margin-bottom: 0;
+}
+
 .callout {
   max-width: 76ch;
   margin: var(--space-5) 0;
@@ -304,7 +402,7 @@ ol {
   background: #f2f5f2;
 }
 
-.warning {
+.callout.warning {
   border-left-color: var(--accent);
   background: var(--accent-soft);
 }

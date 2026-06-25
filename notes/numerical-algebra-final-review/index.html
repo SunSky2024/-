@@ -121,391 +121,490 @@
         </div>
       </figure>
 
-      <table>
-        <thead>
-          <tr>
-            <th>题型信号</th>
-            <th>优先方法</th>
-            <th>关键结论</th>
-            <th>易错点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>一般稠密线性方程组</td>
-            <td>列主元 Gaussian 消去，$PA=LU$</td>
-            <td>代价约 $\frac{2}{3}n^3$；解三角方程约 $O(n^2)$</td>
-            <td>没有选主元时小主元会放大误差</td>
-          </tr>
-          <tr>
-            <td>对称正定矩阵</td>
-            <td>Cholesky：$A=LL\trans$</td>
-            <td>无需主元，代价约 $\frac{1}{3}n^3$</td>
-            <td>只对对称正定成立；半正定会出现零主元</td>
-          </tr>
-          <tr>
-            <td>最小二乘</td>
-            <td>Householder QR</td>
-            <td>$Ax\approx b$，若 $A=QR$，则 $Rx=Q\trans b$ 的前 $n$ 行</td>
-            <td>法方程会使 $\kappa_2(A\trans A)=\kappa_2(A)^2$</td>
-          </tr>
-          <tr>
-            <td>低秩逼近或伪逆</td>
-            <td>SVD</td>
-            <td>$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans$ 是最佳秩 $k$ 逼近</td>
-            <td>奇异值按降序排列；零奇异值决定秩亏</td>
-          </tr>
-          <tr>
-            <td>迭代格式 $x^{(k+1)}=Bx^{(k)}+c$</td>
-            <td>看谱半径 $\rho(B)$</td>
-            <td>对任意初值收敛当且仅当 $\rho(B)<1$</td>
-            <td>矩阵范数小于 1 是充分条件，不是必要条件</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="math-env exam-tip">
+        <p class="env-title">考试提醒：题型信号与方法选择</p>
+        <table>
+          <thead>
+            <tr>
+              <th>题型信号</th>
+              <th>优先方法</th>
+              <th>关键结论</th>
+              <th>易错点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>一般稠密线性方程组</td>
+              <td>列主元 Gaussian 消去，$PA=LU$</td>
+              <td>代价约 $\frac{2}{3}n^3$；解三角方程约 $O(n^2)$</td>
+              <td>没有选主元时小主元会放大误差</td>
+            </tr>
+            <tr>
+              <td>对称正定矩阵</td>
+              <td>Cholesky：$A=LL\trans$</td>
+              <td>无需主元，代价约 $\frac{1}{3}n^3$</td>
+              <td>只对对称正定成立；半正定会出现零主元</td>
+            </tr>
+            <tr>
+              <td>最小二乘</td>
+              <td>Householder QR</td>
+              <td>$Ax\approx b$，若 $A=QR$，则 $Rx=Q\trans b$ 的前 $n$ 行</td>
+              <td>法方程会使 $\kappa_2(A\trans A)=\kappa_2(A)^2$</td>
+            </tr>
+            <tr>
+              <td>低秩逼近或伪逆</td>
+              <td>SVD</td>
+              <td>$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans$ 是最佳秩 $k$ 逼近</td>
+              <td>奇异值按降序排列；零奇异值决定秩亏</td>
+            </tr>
+            <tr>
+              <td>迭代格式 $x^{(k+1)}=Bx^{(k)}+c$</td>
+              <td>看谱半径 $\rho(B)$</td>
+              <td>对任意初值收敛当且仅当 $\rho(B)<1$</td>
+              <td>矩阵范数小于 1 是充分条件，不是必要条件</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="error" class="section">
       <h2>2. 浮点运算、误差与稳定性</h2>
       <h3>2.1 浮点模型</h3>
-      <p>标准舍入模型把一次基本运算写成</p>
-      <div class="formula">
-        $$\fl(x \circ y)=(x\circ y)(1+\delta),\qquad |\delta|\le u,$$
-      </div>
-      <p>其中 $\circ\in\{+,-,\times,\div\}$，$u$ 是单位舍入误差，常与机器精度 $\eps$ 同阶。连续多步运算时，常用</p>
-      <div class="formula">
-        $$(1+\delta_1)\cdots(1+\delta_k)=1+\theta_k,\qquad |\theta_k|\le \gamma_k=\frac{ku}{1-ku},\quad ku<1.$$
+      <div class="math-env definition">
+        <p class="env-title">定义：标准舍入模型</p>
+        <p>标准舍入模型把一次基本运算写成</p>
+        <div class="formula">
+          $$\fl(x \circ y)=(x\circ y)(1+\delta),\qquad |\delta|\le u,$$
+        </div>
+        <p>其中 $\circ\in\{+,-,\times,\div\}$，$u$ 是单位舍入误差，常与机器精度 $\eps$ 同阶。连续多步运算时，常用</p>
+        <div class="formula">
+          $$(1+\delta_1)\cdots(1+\delta_k)=1+\theta_k,\qquad |\theta_k|\le \gamma_k=\frac{ku}{1-ku},\quad ku<1.$$
+        </div>
       </div>
 
       <h3>2.2 前向误差、后向误差与条件数</h3>
-      <p>设真问题为 $y=f(x)$，算法输出 $\widehat y$。</p>
-      <ul>
-        <li><strong>前向误差</strong>：$\norm{\widehat y-y}/\norm{y}$，衡量答案离真值多远。</li>
-        <li><strong>后向误差</strong>：寻找最小扰动 $\Delta x$，使 $\widehat y=f(x+\Delta x)$，衡量算法等价于解了多接近的原问题。</li>
-        <li><strong>条件数</strong>：问题本身对输入扰动的敏感程度；算法稳定也不能拯救严重病态的问题。</li>
-      </ul>
+      <div class="math-env definition">
+        <p class="env-title">定义：前向误差、后向误差与条件数</p>
+        <p>设真问题为 $y=f(x)$，算法输出 $\widehat y$。</p>
+        <ul>
+          <li><strong>前向误差</strong>：$\norm{\widehat y-y}/\norm{y}$，衡量答案离真值多远。</li>
+          <li><strong>后向误差</strong>：寻找最小扰动 $\Delta x$，使 $\widehat y=f(x+\Delta x)$，衡量算法等价于解了多接近的原问题。</li>
+          <li><strong>条件数</strong>：问题本身对输入扰动的敏感程度；算法稳定也不能拯救严重病态的问题。</li>
+        </ul>
+      </div>
 
-      <div class="callout">
-        考题判断顺序：先看问题是否病态，再看算法是否后向稳定。小残差只说明近似解几乎满足方程；若 $A$ 病态，前向误差仍可能很大。
+      <div class="math-env exam-tip">
+        <p class="env-title">考试提醒：误差判断顺序</p>
+        <p>考题判断顺序：先看问题是否病态，再看算法是否后向稳定。小残差只说明近似解几乎满足方程；若 $A$ 病态，前向误差仍可能很大。</p>
       </div>
 
       <h3>2.3 消去中的误差放大</h3>
-      <p>Gaussian 消去的主要风险来自小主元和增长因子。列主元策略每一步选当前列中绝对值最大的可用元素作主元，通常显著降低误差放大。</p>
-      <div class="formula">
-        $$PA=LU,\qquad Ly=Pb,\qquad Ux=y.$$
+      <div class="math-env warning">
+        <p class="env-title">易错点：小主元与误差放大</p>
+        <p>Gaussian 消去的主要风险来自小主元和增长因子。列主元策略每一步选当前列中绝对值最大的可用元素作主元，通常显著降低误差放大。</p>
       </div>
-      <p>如果题目让解释“为什么要选主元”，答案不是为了让精确算术可行，而是为了在浮点算术中避免除以很小的数，控制乘子大小。</p>
+      <div class="math-env algorithm">
+        <p class="env-title">算法：列主元分解后的求解形式</p>
+        <div class="formula">
+          $$PA=LU,\qquad Ly=Pb,\qquad Ux=y.$$
+        </div>
+      </div>
+      <div class="math-env warning">
+        <p class="env-title">易错点：为什么要选主元</p>
+        <p>如果题目让解释“为什么要选主元”，答案不是为了让精确算术可行，而是为了在浮点算术中避免除以很小的数，控制乘子大小。</p>
+      </div>
     </section>
 
     <section id="norms" class="section">
       <h2>3. 矩阵范数、谱半径与条件数</h2>
       <h3>3.1 向量范数与诱导矩阵范数</h3>
-      <div class="two-col">
-        <div class="mini-card">
-          <h3>向量范数</h3>
-          <ul>
-            <li>$\norm{x}_1=\sum_i |x_i|$</li>
-            <li>$\norm{x}_2=(\sum_i x_i^2)^{1/2}$</li>
-            <li>$\norm{x}_\infty=\max_i |x_i|$</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h3>诱导矩阵范数</h3>
-          <ul>
-            <li>$\norm{A}=\max_{x\ne0}\norm{Ax}/\norm{x}$</li>
-            <li>$\norm{A}_1$ 是最大列和</li>
-            <li>$\norm{A}_\infty$ 是最大行和</li>
-            <li>$\norm{A}_2=\sigma_{\max}(A)$</li>
-          </ul>
+      <div class="math-env definition">
+        <p class="env-title">定义：常用向量范数与诱导矩阵范数</p>
+        <div class="two-col">
+          <div class="mini-card">
+            <h3>向量范数</h3>
+            <ul>
+              <li>$\norm{x}_1=\sum_i |x_i|$</li>
+              <li>$\norm{x}_2=(\sum_i x_i^2)^{1/2}$</li>
+              <li>$\norm{x}_\infty=\max_i |x_i|$</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>诱导矩阵范数</h3>
+            <ul>
+              <li>$\norm{A}=\max_{x\ne0}\norm{Ax}/\norm{x}$</li>
+              <li>$\norm{A}_1$ 是最大列和</li>
+              <li>$\norm{A}_\infty$ 是最大行和</li>
+              <li>$\norm{A}_2=\sigma_{\max}(A)$</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <h3>3.2 谱半径</h3>
-      <p>谱半径定义为</p>
-      <div class="formula">
-        $$\rho(A)=\max_i |\lambda_i(A)|.$$
+      <div class="math-env definition">
+        <p class="env-title">定义：谱半径</p>
+        <p>谱半径定义为</p>
+        <div class="formula">
+          $$\rho(A)=\max_i |\lambda_i(A)|.$$
+        </div>
       </div>
-      <p>对任何相容矩阵范数都有 $\rho(A)\le \norm{A}$。迭代法中最重要的判据是：$x^{(k+1)}=Bx^{(k)}+c$ 对任意初值收敛，当且仅当 $\rho(B)<1$。</p>
+      <div class="math-env lemma">
+        <p class="env-title">引理：谱半径与相容矩阵范数</p>
+        <p>对任何相容矩阵范数都有 $\rho(A)\le \norm{A}$。</p>
+      </div>
+      <div class="math-env theorem">
+        <p class="env-title">定理：固定点迭代的收敛判据</p>
+        <p>迭代法中最重要的判据是：$x^{(k+1)}=Bx^{(k)}+c$ 对任意初值收敛，当且仅当 $\rho(B)<1$。</p>
+      </div>
 
       <h3>3.3 条件数</h3>
-      <p>非奇异矩阵 $A$ 的条件数为</p>
-      <div class="formula">
-        $$\kappa(A)=\norm{A}\norm{A^{-1}},\qquad \kappa_2(A)=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}.$$
+      <div class="math-env definition">
+        <p class="env-title">定义：矩阵条件数</p>
+        <p>非奇异矩阵 $A$ 的条件数为</p>
+        <div class="formula">
+          $$\kappa(A)=\norm{A}\norm{A^{-1}},\qquad \kappa_2(A)=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}.$$
+        </div>
       </div>
-      <p>线性方程组 $Ax=b$ 中，如果 $\widehat x$ 的残差为 $r=b-A\widehat x$，则常用误差估计为</p>
-      <div class="formula">
-        $$\frac{\norm{x-\widehat x}}{\norm{x}}\le \kappa(A)\frac{\norm{r}}{\norm{b}}.$$
+      <div class="math-env corollary">
+        <p class="env-title">推论：残差与前向误差的关系</p>
+        <p>线性方程组 $Ax=b$ 中，如果 $\widehat x$ 的残差为 $r=b-A\widehat x$，则常用误差估计为</p>
+        <div class="formula">
+          $$\frac{\norm{x-\widehat x}}{\norm{x}}\le \kappa(A)\frac{\norm{r}}{\norm{b}}.$$
+        </div>
+        <p>这个式子解释了为什么病态矩阵会让“小残差”变成“大解误差”。</p>
       </div>
-      <p>这个式子解释了为什么病态矩阵会让“小残差”变成“大解误差”。</p>
     </section>
 
     <section id="factorization" class="section">
       <h2>4. 直接法：LU、选主元与 Cholesky</h2>
       <h3>4.1 Gaussian 消去与 LU</h3>
-      <p>若消去过程不换行，$A=LU$，其中 $L$ 为单位下三角矩阵，$U$ 为上三角矩阵。实际计算通常使用列主元，得到 $PA=LU$。</p>
-      <div class="formula">
-        $$Ax=b \quad\Rightarrow\quad PAx=Pb,\quad LUx=Pb.$$
+      <div class="math-env algorithm">
+        <p class="env-title">算法：列主元 LU 求解线性方程组</p>
+        <p>若消去过程不换行，$A=LU$，其中 $L$ 为单位下三角矩阵，$U$ 为上三角矩阵。实际计算通常使用列主元，得到 $PA=LU$。</p>
+        <div class="formula">
+          $$Ax=b \quad\Rightarrow\quad PAx=Pb,\quad LUx=Pb.$$
+        </div>
+        <ol>
+          <li>先解 $Ly=Pb$。</li>
+          <li>再解 $Ux=y$。</li>
+          <li>如果同一个 $A$ 对多个右端 $b$ 求解，只需分解一次。</li>
+        </ol>
       </div>
-      <ol>
-        <li>先解 $Ly=Pb$。</li>
-        <li>再解 $Ux=y$。</li>
-        <li>如果同一个 $A$ 对多个右端 $b$ 求解，只需分解一次。</li>
-      </ol>
 
       <h3>4.2 Cholesky 分解</h3>
-      <p>若 $A$ 对称正定，则存在唯一的下三角矩阵 $L$，且对角元为正，使</p>
-      <div class="formula">
-        $$A=LL\trans.$$
+      <div class="math-env theorem">
+        <p class="env-title">定理：Cholesky 分解</p>
+        <p>若 $A$ 对称正定，则存在唯一的下三角矩阵 $L$，且对角元为正，使</p>
+        <div class="formula">
+          $$A=LL\trans.$$
+        </div>
+        <p>Cholesky 比一般 LU 更省，且数值稳定。判断正定的常见条件包括：所有特征值为正、所有顺序主子式为正、$x\trans A x>0$ 对任意 $x\ne0$ 成立。</p>
       </div>
-      <p>Cholesky 比一般 LU 更省，且数值稳定。判断正定的常见条件包括：所有特征值为正、所有顺序主子式为正、$x\trans A x>0$ 对任意 $x\ne0$ 成立。</p>
 
       <h3>4.3 直接法考点</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>问题</th>
-            <th>答题要点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>为什么列主元稳定性更好？</td>
-            <td>它避免除以很小的主元，使消去乘子绝对值通常不超过 1，降低舍入误差增长。</td>
-          </tr>
-          <tr>
-            <td>LU 什么时候不需要换行？</td>
-            <td>若所有顺序主子式非零，则可以无换行完成 LU。</td>
-          </tr>
-          <tr>
-            <td>Cholesky 失败说明什么？</td>
-            <td>在精确算术下说明矩阵不是正定；在浮点算术中也可能提示近似半正定或严重病态。</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="math-env exam-tip">
+        <p class="env-title">考试提醒：直接法常问点</p>
+        <table>
+          <thead>
+            <tr>
+              <th>问题</th>
+              <th>答题要点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>为什么列主元稳定性更好？</td>
+              <td>它避免除以很小的主元，使消去乘子绝对值通常不超过 1，降低舍入误差增长。</td>
+            </tr>
+            <tr>
+              <td>LU 什么时候不需要换行？</td>
+              <td>若所有顺序主子式非零，则可以无换行完成 LU。</td>
+            </tr>
+            <tr>
+              <td>Cholesky 失败说明什么？</td>
+              <td>在精确算术下说明矩阵不是正定；在浮点算术中也可能提示近似半正定或严重病态。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="least-squares" class="section">
       <h2>5. QR 分解与最小二乘</h2>
       <h3>5.1 正交矩阵为什么重要</h3>
-      <p>若 $Q\trans Q=I$，则 $\norm{Qx}_2=\norm{x}_2$。正交变换不放大 2-范数误差，因此 QR 是求解最小二乘问题的稳定工具。</p>
+      <div class="math-env proposition">
+        <p class="env-title">命题：正交变换保持 2-范数</p>
+        <p>若 $Q\trans Q=I$，则 $\norm{Qx}_2=\norm{x}_2$。正交变换不放大 2-范数误差，因此 QR 是求解最小二乘问题的稳定工具。</p>
+      </div>
 
       <h3>5.2 Gram-Schmidt、改进 Gram-Schmidt 与 Householder</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>方法</th>
-            <th>特点</th>
-            <th>考试判断</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>经典 Gram-Schmidt</td>
-            <td>概念直观，但数值正交性较差</td>
-            <td>容易被舍入误差破坏正交性</td>
-          </tr>
-          <tr>
-            <td>改进 Gram-Schmidt</td>
-            <td>同样生成 $A=QR$，数值表现更好</td>
-            <td>可用于手算或小规模推导</td>
-          </tr>
-          <tr>
-            <td>Householder 反射</td>
-            <td>稳定，适合软件实现</td>
-            <td>期末常问“为什么比法方程好”</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="math-env exam-tip">
+        <p class="env-title">考试提醒：QR 构造方法的稳定性比较</p>
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>特点</th>
+              <th>考试判断</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>经典 Gram-Schmidt</td>
+              <td>概念直观，但数值正交性较差</td>
+              <td>容易被舍入误差破坏正交性</td>
+            </tr>
+            <tr>
+              <td>改进 Gram-Schmidt</td>
+              <td>同样生成 $A=QR$，数值表现更好</td>
+              <td>可用于手算或小规模推导</td>
+            </tr>
+            <tr>
+              <td>Householder 反射</td>
+              <td>稳定，适合软件实现</td>
+              <td>期末常问“为什么比法方程好”</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>5.3 最小二乘</h3>
-      <p>对满列秩 $A\in\R^{m\times n}$，$m\ge n$，最小二乘问题</p>
-      <div class="formula">
-        $$\min_x \norm{Ax-b}_2$$
+      <div class="math-env proposition">
+        <p class="env-title">命题：最小二乘与法方程</p>
+        <p>对满列秩 $A\in\R^{m\times n}$，$m\ge n$，最小二乘问题</p>
+        <div class="formula">
+          $$\min_x \norm{Ax-b}_2$$
+        </div>
+        <p>满足法方程</p>
+        <div class="formula">
+          $$A\trans A x=A\trans b.$$
+        </div>
       </div>
-      <p>满足法方程</p>
-      <div class="formula">
-        $$A\trans A x=A\trans b.$$
+      <div class="math-env algorithm">
+        <p class="env-title">算法：QR 求解最小二乘</p>
+        <p>但数值上更推荐 QR。若 $A=QR=[Q_1\ Q_2]\begin{bmatrix}R_1\\0\end{bmatrix}$，则</p>
+        <div class="formula">
+          $$x=R_1^{-1}Q_1\trans b,\qquad r=b-Ax=(I-Q_1Q_1\trans)b.$$
+        </div>
       </div>
-      <p>但数值上更推荐 QR。若 $A=QR=[Q_1\ Q_2]\begin{bmatrix}R_1\\0\end{bmatrix}$，则</p>
-      <div class="formula">
-        $$x=R_1^{-1}Q_1\trans b,\qquad r=b-Ax=(I-Q_1Q_1\trans)b.$$
-      </div>
-      <div class="warning callout">
-        法方程的主要风险是条件数平方：$\kappa_2(A\trans A)=\kappa_2(A)^2$。当 $A$ 已经病态时，法方程会明显损失精度。
+      <div class="math-env warning">
+        <p class="env-title">易错点：法方程会平方条件数</p>
+        <p>法方程的主要风险是条件数平方：$\kappa_2(A\trans A)=\kappa_2(A)^2$。当 $A$ 已经病态时，法方程会明显损失精度。</p>
       </div>
     </section>
 
     <section id="eigen-svd" class="section">
       <h2>6. 特征值、幂法、QR 算法与 SVD</h2>
       <h3>6.1 幂法与反幂法</h3>
-      <p>幂法用于求模最大的特征值对应特征向量。若 $|\lambda_1|>|\lambda_2|\ge\cdots$，则收敛速度大致由 $|\lambda_2/\lambda_1|$ 控制。</p>
-      <div class="formula">
-        $$y^{(k)}=Ax^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+      <div class="math-env algorithm">
+        <p class="env-title">算法：幂法</p>
+        <p>幂法用于求模最大的特征值对应特征向量。若 $|\lambda_1|>|\lambda_2|\ge\cdots$，则收敛速度大致由 $|\lambda_2/\lambda_1|$ 控制。</p>
+        <div class="formula">
+          $$y^{(k)}=Ax^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+        </div>
       </div>
-      <p>反幂法对 $A^{-1}$ 做幂法，因此靠近零的特征值会变成最大模特征值。带位移反幂法求靠近 $\mu$ 的特征值：</p>
-      <div class="formula">
-        $$(A-\mu I)y^{(k)}=x^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+      <div class="math-env algorithm">
+        <p class="env-title">算法：反幂法与带位移反幂法</p>
+        <p>反幂法对 $A^{-1}$ 做幂法，因此靠近零的特征值会变成最大模特征值。带位移反幂法求靠近 $\mu$ 的特征值：</p>
+        <div class="formula">
+          $$(A-\mu I)y^{(k)}=x^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+        </div>
       </div>
 
       <h3>6.2 QR 算法</h3>
-      <p>基本 QR 迭代为</p>
-      <div class="formula">
-        $$A_k=Q_kR_k,\qquad A_{k+1}=R_kQ_k=Q_k\trans A_k Q_k.$$
+      <div class="math-env algorithm">
+        <p class="env-title">算法：基本 QR 迭代</p>
+        <p>基本 QR 迭代为</p>
+        <div class="formula">
+          $$A_k=Q_kR_k,\qquad A_{k+1}=R_kQ_k=Q_k\trans A_k Q_k.$$
+        </div>
       </div>
-      <p>因为每一步都是正交相似变换，特征值保持不变。实际算法会先化为 Hessenberg 形，并使用位移加速收敛。</p>
+      <div class="math-env proposition">
+        <p class="env-title">命题：QR 迭代保持特征值</p>
+        <p>因为每一步都是正交相似变换，特征值保持不变。实际算法会先化为 Hessenberg 形，并使用位移加速收敛。</p>
+      </div>
 
       <h3>6.3 SVD</h3>
-      <p>任意 $A\in\R^{m\times n}$ 都有奇异值分解</p>
-      <div class="formula">
-        $$A=U\Sigma V\trans,\qquad \sigma_1\ge\sigma_2\ge\cdots\ge0.$$
+      <div class="math-env definition">
+        <p class="env-title">定义：奇异值分解</p>
+        <p>任意 $A\in\R^{m\times n}$ 都有奇异值分解</p>
+        <div class="formula">
+          $$A=U\Sigma V\trans,\qquad \sigma_1\ge\sigma_2\ge\cdots\ge0.$$
+        </div>
+        <ul>
+          <li>$\rank(A)$ 等于非零奇异值个数。</li>
+          <li>$\norm{A}_2=\sigma_1$，$\norm{A}_F=(\sum_i\sigma_i^2)^{1/2}$。</li>
+          <li>若 $A$ 满列秩，$\kappa_2(A)=\sigma_1/\sigma_n$。</li>
+          <li>伪逆为 $A^+=V\Sigma^+U\trans$。</li>
+        </ul>
       </div>
-      <ul>
-        <li>$\rank(A)$ 等于非零奇异值个数。</li>
-        <li>$\norm{A}_2=\sigma_1$，$\norm{A}_F=(\sum_i\sigma_i^2)^{1/2}$。</li>
-        <li>若 $A$ 满列秩，$\kappa_2(A)=\sigma_1/\sigma_n$。</li>
-        <li>伪逆为 $A^+=V\Sigma^+U\trans$。</li>
-      </ul>
-      <p>Eckart-Young 定理：截断 SVD 给出最佳秩 $k$ 逼近。</p>
-      <div class="formula">
-        $$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans,\qquad
-        \norm{A-A_k}_2=\sigma_{k+1}.$$
+      <div class="math-env theorem">
+        <p class="env-title">定理：Eckart-Young</p>
+        <p>Eckart-Young 定理：截断 SVD 给出最佳秩 $k$ 逼近。</p>
+        <div class="formula">
+          $$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans,\qquad
+          \norm{A-A_k}_2=\sigma_{k+1}.$$
+        </div>
       </div>
     </section>
 
     <section id="iterative" class="section">
       <h2>7. 线性方程组迭代法与共轭梯度</h2>
       <h3>7.1 统一形式</h3>
-      <p>把 $A=M-N$，则 $Ax=b$ 可写成</p>
-      <div class="formula">
-        $$Mx^{(k+1)}=Nx^{(k)}+b,\qquad x^{(k+1)}=Bx^{(k)}+c,$$
+      <div class="math-env theorem">
+        <p class="env-title">定理：线性迭代的统一形式与收敛判据</p>
+        <p>把 $A=M-N$，则 $Ax=b$ 可写成</p>
+        <div class="formula">
+          $$Mx^{(k+1)}=Nx^{(k)}+b,\qquad x^{(k+1)}=Bx^{(k)}+c,$$
+        </div>
+        <p>其中 $B=M^{-1}N$。误差满足 $e^{(k+1)}=Be^{(k)}$，所以收敛当且仅当 $\rho(B)<1$。</p>
       </div>
-      <p>其中 $B=M^{-1}N$。误差满足 $e^{(k+1)}=Be^{(k)}$，所以收敛当且仅当 $\rho(B)<1$。</p>
 
       <h3>7.2 Jacobi、Gauss-Seidel 与 SOR</h3>
-      <p>设 $A=D-L-U$，其中 $D$ 为对角部分，$L,U$ 分别对应严格下三角和严格上三角的相反数记号。</p>
-      <table>
-        <thead>
-          <tr>
-            <th>方法</th>
-            <th>迭代矩阵</th>
-            <th>常见结论</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jacobi</td>
-            <td>$B_J=D^{-1}(L+U)$</td>
-            <td>可并行；严格对角占优时收敛</td>
-          </tr>
-          <tr>
-            <td>Gauss-Seidel</td>
-            <td>$B_{GS}=(D-L)^{-1}U$</td>
-            <td>利用新分量；对称正定时收敛</td>
-          </tr>
-          <tr>
-            <td>SOR</td>
-            <td>$B_\omega=(D-\omega L)^{-1}[(1-\omega)D+\omega U]$</td>
-            <td>对称正定时通常需 $0<\omega<2$</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="math-env algorithm">
+        <p class="env-title">算法：Jacobi、Gauss-Seidel 与 SOR</p>
+        <p>设 $A=D-L-U$，其中 $D$ 为对角部分，$L,U$ 分别对应严格下三角和严格上三角的相反数记号。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>迭代矩阵</th>
+              <th>常见结论</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jacobi</td>
+              <td>$B_J=D^{-1}(L+U)$</td>
+              <td>可并行；严格对角占优时收敛</td>
+            </tr>
+            <tr>
+              <td>Gauss-Seidel</td>
+              <td>$B_{GS}=(D-L)^{-1}U$</td>
+              <td>利用新分量；对称正定时收敛</td>
+            </tr>
+            <tr>
+              <td>SOR</td>
+              <td>$B_\omega=(D-\omega L)^{-1}[(1-\omega)D+\omega U]$</td>
+              <td>对称正定时通常需 $0<\omega<2$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>7.3 共轭梯度法</h3>
-      <p>CG 用于对称正定系统 $Ax=b$。它在 Krylov 子空间</p>
-      <div class="formula">
-        $$\mathcal K_k(A,r_0)=\span\{r_0,Ar_0,\dots,A^{k-1}r_0\}$$
+      <div class="math-env definition">
+        <p class="env-title">定义：CG 与 Krylov 子空间</p>
+        <p>CG 用于对称正定系统 $Ax=b$。它在 Krylov 子空间</p>
+        <div class="formula">
+          $$\mathcal K_k(A,r_0)=\span\{r_0,Ar_0,\dots,A^{k-1}r_0\}$$
+        </div>
+        <p>中最小化 $A$-范数误差。常用误差界为</p>
       </div>
-      <p>中最小化 $A$-范数误差。常用误差界为</p>
-      <div class="formula">
-        $$\frac{\norm{x_k-x_*}_A}{\norm{x_0-x_*}_A}
-        \le 2\left(\frac{\sqrt{\kappa_2(A)}-1}{\sqrt{\kappa_2(A)}+1}\right)^k.$$
+      <div class="math-env proposition">
+        <p class="env-title">命题：CG 常用误差界</p>
+        <div class="formula">
+          $$\frac{\norm{x_k-x_*}_A}{\norm{x_0-x_*}_A}
+          \le 2\left(\frac{\sqrt{\kappa_2(A)}-1}{\sqrt{\kappa_2(A)}+1}\right)^k.$$
+        </div>
       </div>
-      <p>预条件的目标是把原系统变成条件数更小、谱更聚集的等价系统，从而加快迭代收敛。</p>
+      <div class="math-env remark">
+        <p class="env-title">注：预条件的作用</p>
+        <p>预条件的目标是把原系统变成条件数更小、谱更聚集的等价系统，从而加快迭代收敛。</p>
+      </div>
     </section>
 
     <section class="section">
       <h2>8. 期末答题模板</h2>
-      <h3>8.1 算法选择题</h3>
-      <ol>
-        <li>先识别矩阵结构：稠密/稀疏、对称、正定、满秩、病态。</li>
-        <li>再选算法：一般方程组用列主元 LU；SPD 用 Cholesky 或 CG；最小二乘用 QR；低秩和伪逆用 SVD。</li>
-        <li>最后解释稳定性和代价：正交变换稳定，法方程条件数平方，迭代法看谱半径。</li>
-      </ol>
+      <div class="math-env exam-tip">
+        <p class="env-title">考试提醒：8.1 算法选择题</p>
+        <ol>
+          <li>先识别矩阵结构：稠密/稀疏、对称、正定、满秩、病态。</li>
+          <li>再选算法：一般方程组用列主元 LU；SPD 用 Cholesky 或 CG；最小二乘用 QR；低秩和伪逆用 SVD。</li>
+          <li>最后解释稳定性和代价：正交变换稳定，法方程条件数平方，迭代法看谱半径。</li>
+        </ol>
+      </div>
 
-      <h3>8.2 证明题</h3>
-      <ul>
-        <li>证明范数不等式时，从诱导范数定义出发。</li>
-        <li>证明迭代收敛时，写误差递推 $e^{(k)}=B^k e^{(0)}$，再用 $\rho(B)<1$。</li>
-        <li>证明最小二乘正交性时，写 $A\trans(b-Ax)=0$，即残差正交于 $\operatorname{col}(A)$。</li>
-        <li>证明 SVD 结论时，连接 $A\trans A=V\Sigma\trans\Sigma V\trans$。</li>
-      </ul>
+      <div class="math-env proof">
+        <p class="env-title">证明：8.2 证明题</p>
+        <ul>
+          <li>证明范数不等式时，从诱导范数定义出发。</li>
+          <li>证明迭代收敛时，写误差递推 $e^{(k)}=B^k e^{(0)}$，再用 $\rho(B)<1$。</li>
+          <li>证明最小二乘正交性时，写 $A\trans(b-Ax)=0$，即残差正交于 $\operatorname{col}(A)$。</li>
+          <li>证明 SVD 结论时，连接 $A\trans A=V\Sigma\trans\Sigma V\trans$。</li>
+        </ul>
+      </div>
 
-      <h3>8.3 计算题</h3>
-      <ul>
-        <li>LU/Cholesky 手算时，每一步写清主元、乘子和更新矩阵。</li>
-        <li>QR 手算时，二维或三维题通常用 Gram-Schmidt；概念题强调 Householder 更稳定。</li>
-        <li>幂法题要归一化，并用 Rayleigh 商 $\rho(x)=x\trans Ax/(x\trans x)$ 估计特征值。</li>
-        <li>迭代法题要先写出 $B$，再算 $\rho(B)$ 或给出充分收敛条件。</li>
-      </ul>
+      <div class="math-env algorithm">
+        <p class="env-title">算法：8.3 计算题</p>
+        <ul>
+          <li>LU/Cholesky 手算时，每一步写清主元、乘子和更新矩阵。</li>
+          <li>QR 手算时，二维或三维题通常用 Gram-Schmidt；概念题强调 Householder 更稳定。</li>
+          <li>幂法题要归一化，并用 Rayleigh 商 $\rho(x)=x\trans Ax/(x\trans x)$ 估计特征值。</li>
+          <li>迭代法题要先写出 $B$，再算 $\rho(B)$ 或给出充分收敛条件。</li>
+        </ul>
+      </div>
     </section>
 
     <section id="practice" class="section">
       <h2>9. 考前自测题</h2>
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 1：前向误差与后向误差</h3>
         <p>已知算法输出 $\widehat x$，残差 $r=b-A\widehat x$ 很小。能否断定 $\widehat x$ 很接近真解？</p>
         <div class="answer"><strong>要点：</strong>不能。由 $\norm{x-\widehat x}/\norm{x}\le\kappa(A)\norm{r}/\norm{b}$ 可知，还要看 $\kappa(A)$。若 $A$ 病态，小残差可能对应大前向误差。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 2：法方程风险</h3>
         <p>为什么求最小二乘时不推荐直接解 $A\trans A x=A\trans b$？</p>
         <div class="answer"><strong>要点：</strong>$A\trans A$ 的 2-范数条件数是 $\kappa_2(A)^2$，会放大病态性；QR 使用正交变换，数值稳定性更好。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 3：Cholesky 适用条件</h3>
         <p>矩阵 $A$ 满足 $A=A\trans$。是否一定能做 Cholesky 分解？</p>
         <div class="answer"><strong>要点：</strong>不一定。还必须正定，即 $x\trans A x>0$ 对所有非零 $x$ 成立；等价地，所有特征值为正。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 4：迭代收敛</h3>
         <p>若 $x^{(k+1)}=Bx^{(k)}+c$，给出对任意初值收敛的充要条件。</p>
         <div class="answer"><strong>要点：</strong>误差 $e^{(k)}=B^k e^{(0)}$。对任意初值收敛当且仅当 $B^k\to0$，等价于 $\rho(B)<1$。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 5：幂法速度</h3>
         <p>矩阵特征值满足 $|\lambda_1|>|\lambda_2|\ge\cdots$。幂法收敛速度由什么决定？</p>
         <div class="answer"><strong>要点：</strong>主要由 $|\lambda_2/\lambda_1|$ 决定。该比值越小，主特征向量方向越快占优。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 6：SVD 低秩逼近</h3>
         <p>若 $A=U\Sigma V\trans$，最佳秩 $k$ 逼近是什么？2-范数误差是多少？</p>
         <div class="answer"><strong>要点：</strong>$A_k=\sum_{i=1}^k\sigma_i u_i v_i\trans$；由 Eckart-Young 定理，$\norm{A-A_k}_2=\sigma_{k+1}$。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 7：正交矩阵</h3>
         <p>为什么 QR 分解中的正交矩阵对数值稳定性有帮助？</p>
         <div class="answer"><strong>要点：</strong>正交矩阵保持 2-范数：$\norm{Qx}_2=\norm{x}_2$，不会放大误差。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 8：列主元</h3>
         <p>Gaussian 消去中列主元策略的核心目的是什么？</p>
         <div class="answer"><strong>要点：</strong>避免小主元，控制消去乘子和误差增长，提高浮点计算稳定性。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 9：CG 适用条件</h3>
         <p>共轭梯度法最标准的适用对象是什么？预条件的目的是什么？</p>
         <div class="answer"><strong>要点：</strong>CG 标准适用于对称正定系统。预条件用于降低条件数、聚集特征值，从而加快收敛。</div>
       </div>
 
-      <div class="problem">
+      <div class="math-env example">
         <h3>题 10：矩阵范数</h3>
         <p>$\norm{A}_1$、$\norm{A}_\infty$、$\norm{A}_2$ 分别如何快速识别？</p>
         <div class="answer"><strong>要点：</strong>$\norm{A}_1$ 是最大列和，$\norm{A}_\infty$ 是最大行和，$\norm{A}_2$ 是最大奇异值。</div>
