@@ -372,6 +372,61 @@ ol {
   max-width: 100%;
 }
 
+.review-component {
+  max-width: 76ch;
+  margin: var(--space-5) 0;
+  padding: 12px 15px 13px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--component-color, var(--accent-blue));
+  background: var(--component-bg, #f5f6f2);
+}
+
+.component-title {
+  margin: 0 0 0.45em;
+  color: var(--ink-strong);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.review-component > :last-child {
+  margin-bottom: 0;
+}
+
+.quick-summary {
+  --component-color: var(--accent-blue);
+  --component-bg: #f1f5f5;
+}
+
+.math-env.key-formula .formula,
+.formula.key-formula {
+  border-color: rgba(185, 173, 156, 0.9);
+  background: #fffdf5;
+}
+
+.meta-item.exam-signal strong {
+  color: #6b5529;
+}
+
+.factor-map.method-choice {
+  max-width: 100%;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--rule);
+}
+
+.factor-map.method-choice figcaption {
+  color: #4f654f;
+}
+
+.math-env.checklist ul {
+  padding-left: 1.25em;
+}
+
+.math-env.checklist li::marker {
+  color: var(--accent-blue);
+}
+
 .env-title,
 .math-env > h3:first-child,
 .math-env > h4:first-child {
@@ -444,6 +499,39 @@ ol {
 .math-env.exam-tip {
   --env-color: var(--accent);
   --env-bg: #f6efe6;
+}
+
+.math-env.quick-summary {
+  --env-color: var(--accent-blue);
+  --env-bg: #f1f5f5;
+}
+
+.math-env.key-formula {
+  --env-color: var(--accent-blue);
+  --env-bg: #fbf8ef;
+}
+
+.math-env.exam-signal {
+  --env-color: #806934;
+  --env-bg: #f7f2e4;
+}
+
+.math-env.common-mistake {
+  --env-color: var(--warning);
+  --env-bg: #f7eeea;
+}
+
+.math-env.method-choice {
+  --env-color: var(--accent-green);
+}
+
+.math-env.exam-signal.method-choice {
+  --env-color: #806934;
+}
+
+.math-env.checklist {
+  --env-color: var(--accent-blue);
+  --env-bg: #f1f5f6;
 }
 
 .math-env .formula {

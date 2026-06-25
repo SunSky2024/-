@@ -66,7 +66,7 @@
           <strong>10</strong>
           <span>道自测题</span>
         </div>
-        <div class="meta-item">
+        <div class="meta-item exam-signal">
           <strong>期末</strong>
           <span>以计算题、证明题和算法选择题为主</span>
         </div>
@@ -135,9 +135,12 @@
 
     <section id="summary" class="section">
       <h2>1. 总览与速查表</h2>
-      <p>数值代数的主线是：把数学问题转化为可计算算法，同时控制舍入误差、病态性和运算量。期末题通常不只问“结果是多少”，还会追问为什么这个方法稳定、什么时候会失败、怎样估计误差。</p>
+      <div class="review-component quick-summary">
+        <p class="component-title">本节速记</p>
+        <p>数值代数的主线是：把数学问题转化为可计算算法，同时控制舍入误差、病态性和运算量。期末题通常不只问“结果是多少”，还会追问为什么这个方法稳定、什么时候会失败、怎样估计误差。</p>
+      </div>
 
-      <figure class="factor-map">
+      <figure class="factor-map method-choice">
         <figcaption>常见问题与对应工具</figcaption>
         <div class="factor-grid">
           <div class="factor-card">
@@ -167,7 +170,7 @@
         </div>
       </figure>
 
-      <div class="math-env exam-tip table-env">
+      <div class="math-env exam-tip table-env exam-signal method-choice">
         <p class="env-title">考试提醒：题型信号与方法选择</p>
         <table class="review-table">
           <thead>
@@ -240,13 +243,13 @@
         </ul>
       </div>
 
-      <div class="math-env exam-tip">
+      <div class="math-env exam-tip quick-summary exam-signal">
         <p class="env-title">考试提醒：误差判断顺序</p>
         <p>考题判断顺序：先看问题是否病态，再看算法是否后向稳定。小残差只说明近似解几乎满足方程；若 $A$ 病态，前向误差仍可能很大。</p>
       </div>
 
       <h3 id="elimination-error">2.3 消去中的误差放大</h3>
-      <div class="math-env warning">
+      <div class="math-env warning common-mistake">
         <p class="env-title">易错点：小主元与误差放大</p>
         <p>Gaussian 消去的主要风险来自小主元和增长因子。列主元策略每一步选当前列中绝对值最大的可用元素作主元，通常显著降低误差放大。</p>
       </div>
@@ -256,7 +259,7 @@
           $$PA=LU,\qquad Ly=Pb,\qquad Ux=y.$$
         </div>
       </div>
-      <div class="math-env warning">
+      <div class="math-env warning common-mistake">
         <p class="env-title">易错点：为什么要选主元</p>
         <p>如果题目让解释“为什么要选主元”，答案不是为了让精确算术可行，而是为了在浮点算术中避免除以很小的数，控制乘子大小。</p>
       </div>
@@ -265,7 +268,7 @@
     <section id="norms" class="section">
       <h2>3. 矩阵范数、谱半径与条件数</h2>
       <h3 id="vector-matrix-norms">3.1 向量范数与诱导矩阵范数</h3>
-      <div class="math-env definition">
+      <div class="math-env definition key-formula">
         <p class="env-title">定义：常用向量范数与诱导矩阵范数</p>
         <div class="two-col">
           <div class="mini-card">
@@ -289,7 +292,7 @@
       </div>
 
       <h3 id="spectral-radius">3.2 谱半径</h3>
-      <div class="math-env definition">
+      <div class="math-env definition key-formula">
         <p class="env-title">定义：谱半径</p>
         <p>谱半径定义为</p>
         <div class="formula">
@@ -300,20 +303,20 @@
         <p class="env-title">引理：谱半径与相容矩阵范数</p>
         <p>对任何相容矩阵范数都有 $\rho(A)\le \norm{A}$。</p>
       </div>
-      <div class="math-env theorem">
+      <div class="math-env theorem key-formula">
         <p class="env-title">定理：固定点迭代的收敛判据</p>
         <p>迭代法中最重要的判据是：$x^{(k+1)}=Bx^{(k)}+c$ 对任意初值收敛，当且仅当 $\rho(B)<1$。</p>
       </div>
 
       <h3 id="condition-number">3.3 条件数</h3>
-      <div class="math-env definition">
+      <div class="math-env definition key-formula">
         <p class="env-title">定义：矩阵条件数</p>
         <p>非奇异矩阵 $A$ 的条件数为</p>
         <div class="formula">
           $$\kappa(A)=\norm{A}\norm{A^{-1}},\qquad \kappa_2(A)=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}.$$
         </div>
       </div>
-      <div class="math-env corollary">
+      <div class="math-env corollary key-formula">
         <p class="env-title">推论：残差与前向误差的关系</p>
         <p>线性方程组 $Ax=b$ 中，如果 $\widehat x$ 的残差为 $r=b-A\widehat x$，则常用误差估计为</p>
         <div class="formula">
@@ -340,7 +343,7 @@
       </div>
 
       <h3 id="cholesky-factorization">4.2 Cholesky 分解</h3>
-      <div class="math-env theorem">
+      <div class="math-env theorem key-formula">
         <p class="env-title">定理：Cholesky 分解</p>
         <p>若 $A$ 对称正定，则存在唯一的下三角矩阵 $L$，且对角元为正，使</p>
         <div class="formula">
@@ -350,7 +353,7 @@
       </div>
 
       <h3 id="direct-method-exam-points">4.3 直接法考点</h3>
-      <div class="math-env exam-tip table-env">
+      <div class="math-env exam-tip table-env exam-signal method-choice">
         <p class="env-title">考试提醒：直接法常问点</p>
         <table>
           <thead>
@@ -380,13 +383,13 @@
     <section id="least-squares" class="section">
       <h2>5. QR 分解与最小二乘</h2>
       <h3 id="orthogonal-transform">5.1 正交矩阵为什么重要</h3>
-      <div class="math-env proposition">
+      <div class="math-env proposition key-formula">
         <p class="env-title">命题：正交变换保持 2-范数</p>
         <p>若 $Q\trans Q=I$，则 $\norm{Qx}_2=\norm{x}_2$。正交变换不放大 2-范数误差，因此 QR 是求解最小二乘问题的稳定工具。</p>
       </div>
 
       <h3 id="qr-construction">5.2 Gram-Schmidt、改进 Gram-Schmidt 与 Householder</h3>
-      <div class="math-env exam-tip table-env">
+      <div class="math-env exam-tip table-env exam-signal method-choice">
         <p class="env-title">考试提醒：QR 构造方法的稳定性比较</p>
         <table>
           <thead>
@@ -417,7 +420,7 @@
       </div>
 
       <h3 id="least-squares-solution">5.3 最小二乘</h3>
-      <div class="math-env proposition">
+      <div class="math-env proposition key-formula">
         <p class="env-title">命题：最小二乘与法方程</p>
         <p>对满列秩 $A\in\R^{m\times n}$，$m\ge n$，最小二乘问题</p>
         <div class="formula">
@@ -428,14 +431,14 @@
           $$A\trans A x=A\trans b.$$
         </div>
       </div>
-      <div class="math-env algorithm">
+      <div class="math-env algorithm method-choice key-formula">
         <p class="env-title">算法：QR 求解最小二乘</p>
         <p>但数值上更推荐 QR。若 $A=QR=[Q_1\ Q_2]\begin{bmatrix}R_1\\0\end{bmatrix}$，则</p>
         <div class="formula">
           $$x=R_1^{-1}Q_1\trans b,\qquad r=b-Ax=(I-Q_1Q_1\trans)b.$$
         </div>
       </div>
-      <div class="math-env warning">
+      <div class="math-env warning common-mistake">
         <p class="env-title">易错点：法方程会平方条件数</p>
         <p>法方程的主要风险是条件数平方：$\kappa_2(A\trans A)=\kappa_2(A)^2$。当 $A$ 已经病态时，法方程会明显损失精度。</p>
       </div>
@@ -486,7 +489,7 @@
           <li>伪逆为 $A^+=V\Sigma^+U\trans$。</li>
         </ul>
       </div>
-      <div class="math-env theorem">
+      <div class="math-env theorem key-formula">
         <p class="env-title">定理：Eckart-Young</p>
         <p>Eckart-Young 定理：截断 SVD 给出最佳秩 $k$ 逼近。</p>
         <div class="formula">
@@ -499,7 +502,7 @@
     <section id="iterative" class="section">
       <h2>7. 线性方程组迭代法与共轭梯度</h2>
       <h3 id="iteration-framework">7.1 统一形式</h3>
-      <div class="math-env theorem">
+      <div class="math-env theorem key-formula">
         <p class="env-title">定理：线性迭代的统一形式与收敛判据</p>
         <p>把 $A=M-N$，则 $Ax=b$ 可写成</p>
         <div class="formula">
@@ -509,7 +512,7 @@
       </div>
 
       <h3 id="classical-iterations">7.2 Jacobi、Gauss-Seidel 与 SOR</h3>
-      <div class="math-env algorithm table-env">
+      <div class="math-env algorithm table-env method-choice">
         <p class="env-title">算法：Jacobi、Gauss-Seidel 与 SOR</p>
         <p>设 $A=D-L-U$，其中 $D$ 为对角部分，$L,U$ 分别对应严格下三角和严格上三角的相反数记号。</p>
         <table>
@@ -549,7 +552,7 @@
         </div>
         <p>中最小化 $A$-范数误差。常用误差界为</p>
       </div>
-      <div class="math-env proposition">
+      <div class="math-env proposition key-formula">
         <p class="env-title">命题：CG 常用误差界</p>
         <div class="formula">
           $$\frac{\norm{x_k-x_*}_A}{\norm{x_0-x_*}_A}
@@ -564,7 +567,7 @@
 
     <section id="exam-template" class="section">
       <h2>8. 期末答题模板</h2>
-      <div class="math-env exam-tip">
+      <div class="math-env exam-tip exam-signal method-choice">
         <p class="env-title">考试提醒：8.1 算法选择题</p>
         <ol>
           <li>先识别矩阵结构：稠密/稀疏、对称、正定、满秩、病态。</li>
@@ -583,8 +586,8 @@
         </ul>
       </div>
 
-      <div class="math-env algorithm">
-        <p class="env-title">算法：8.3 计算题</p>
+      <div class="math-env algorithm checklist">
+        <p class="env-title">考前检查表：8.3 计算题</p>
         <ul>
           <li>LU/Cholesky 手算时，每一步写清主元、乘子和更新矩阵。</li>
           <li>QR 手算时，二维或三维题通常用 Gram-Schmidt；概念题强调 Householder 更稳定。</li>
