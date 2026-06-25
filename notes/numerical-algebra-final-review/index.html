@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数值代数期末复习 - Sun Sky</title>
+  <meta name="description" content="数值代数期末复习讲义：浮点误差、矩阵范数、条件数、LU、Cholesky、QR、最小二乘、特征值、SVD 与迭代法。">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        macros: {
+          R: "\\mathbb{R}",
+          fl: "\\operatorname{fl}",
+          cond: "\\operatorname{cond}",
+          rank: "\\operatorname{rank}",
+          diag: "\\operatorname{diag}",
+          span: "\\operatorname{span}",
+          argmin: "\\operatorname*{arg\\,min}",
+          norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+          abs: ["\\left\\lvert #1 \\right\\rvert", 1],
+          eps: "\\varepsilon_{\\mathrm{mach}}",
+          trans: "^{\\mathsf T}"
+        }
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="../statistical-learning/vendor/mathjax/tex-svg-full.js"></script>
+  <style>
+    :root {
+      --bg: #f5f7f4;
+      --panel: #ffffff;
+      --panel-soft: #f9fbfa;
+      --text: #1d2d31;
+      --muted: #667276;
+      --heading: #15383e;
+      --line: #d9e2de;
+      --line-strong: #b8c7c2;
+      --accent: #b85f35;
+      --accent-soft: #f6e8df;
+      --teal: #1d6870;
+      --teal-soft: #e8f3f2;
+      --gold-soft: #fff4cc;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #fbf7f1 0, rgba(245, 247, 244, 0) 360px),
+        var(--bg);
+      font-family: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      font-size: 16.5px;
+      line-height: 1.82;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(245, 247, 244, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 14px 24px;
+    }
+
+    .brand {
+      color: var(--heading);
+      font-size: 19px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .topbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    main {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 42px 24px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 34px;
+      align-items: end;
+      padding: 34px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--heading);
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 14em;
+      margin: 0;
+      font-size: clamp(34px, 6vw, 62px);
+    }
+
+    h2 {
+      margin: 54px 0 16px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line);
+      font-size: 26px;
+    }
+
+    h3 {
+      margin: 32px 0 10px;
+      font-size: 20px;
+    }
+
+    h4 {
+      margin: 22px 0 8px;
+      font-size: 17px;
+    }
+
+    p,
+    li {
+      max-width: 78ch;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .meta-item {
+      min-height: 84px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .meta-item strong,
+    .meta-item span {
+      display: block;
+    }
+
+    .meta-item strong {
+      color: var(--heading);
+      font-size: 22px;
+      line-height: 1.18;
+    }
+
+    .meta-item span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .toc {
+      margin: 32px 0 42px;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .toc h2 {
+      margin: 0 0 10px;
+      padding: 0;
+      border: 0;
+      font-size: 22px;
+    }
+
+    .toc ol {
+      columns: 2;
+      column-gap: 28px;
+      margin: 0;
+      padding-left: 1.35em;
+    }
+
+    .toc li {
+      break-inside: avoid;
+      margin: 5px 0;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .callout {
+      max-width: 78ch;
+      margin: 18px 0 24px;
+      padding: 14px 17px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      background: var(--teal-soft);
+    }
+
+    .warning {
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .formula {
+      max-width: 84ch;
+      margin: 18px 0;
+      padding: 16px 18px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .factor-map {
+      margin: 30px 0 38px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .factor-map figcaption {
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .factor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .factor-card {
+      min-height: 132px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, #f7faf9);
+    }
+
+    .factor-card strong {
+      display: block;
+      color: var(--heading);
+      font-size: 18px;
+    }
+
+    .factor-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table {
+      width: 100%;
+      margin: 16px 0 28px;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--heading);
+      background: #eef4f2;
+      font-weight: 800;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 18px 0 28px;
+    }
+
+    .mini-card {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .problem {
+      margin: 20px 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+    }
+
+    .problem h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .answer {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: #34464a;
+    }
+
+    code {
+      padding: 0.08em 0.28em;
+      border-radius: 4px;
+      background: #eef3f1;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .topbar-inner,
+      .hero,
+      .two-col {
+        display: block;
+      }
+
+      .topbar nav {
+        margin-top: 8px;
+      }
+
+      main {
+        padding: 28px 16px 56px;
+      }
+
+      .meta-grid {
+        margin-top: 24px;
+      }
+
+      .toc ol {
+        columns: 1;
+      }
+
+      .factor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      main {
+        width: auto;
+        padding: 0;
+      }
+
+      .toc,
+      .factor-map,
+      .mini-card,
+      .problem,
+      .formula {
+        break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../../index.html">Sun Sky</a>
+      <nav aria-label="页面导航">
+        <a href="#summary">总览</a>
+        <a href="#error">误差</a>
+        <a href="#factorization">分解</a>
+        <a href="#least-squares">最小二乘</a>
+        <a href="#iterative">迭代法</a>
+        <a href="#practice">练习</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Numerical Algebra · Final Review</p>
+        <h1>数值代数期末复习</h1>
+        <p class="lead">把“算法怎么做、为什么稳定、误差怎么估、题目怎么选方法”串成一份考前讲义。适合先通读，再按表格和练习题回查薄弱点。</p>
+      </div>
+      <div class="meta-grid" aria-label="讲义摘要">
+        <div class="meta-item">
+          <strong>8</strong>
+          <span>个核心模块</span>
+        </div>
+        <div class="meta-item">
+          <strong>30+</strong>
+          <span>个常考公式与结论</span>
+        </div>
+        <div class="meta-item">
+          <strong>10</strong>
+          <span>道自测题</span>
+        </div>
+        <div class="meta-item">
+          <strong>期末</strong>
+          <span>以计算题、证明题和算法选择题为主</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">复习目录</h2>
+      <ol>
+        <li><a href="#summary">总览与速查表</a></li>
+        <li><a href="#error">浮点运算、误差与稳定性</a></li>
+        <li><a href="#norms">矩阵范数、谱半径与条件数</a></li>
+        <li><a href="#factorization">直接法：LU、选主元与 Cholesky</a></li>
+        <li><a href="#least-squares">QR 分解与最小二乘</a></li>
+        <li><a href="#eigen-svd">特征值、幂法、QR 算法与 SVD</a></li>
+        <li><a href="#iterative">线性方程组迭代法与共轭梯度</a></li>
+        <li><a href="#practice">考前自测题</a></li>
+      </ol>
+    </nav>
+
+    <section id="summary" class="section">
+      <h2>1. 总览与速查表</h2>
+      <p>数值代数的主线是：把数学问题转化为可计算算法，同时控制舍入误差、病态性和运算量。期末题通常不只问“结果是多少”，还会追问为什么这个方法稳定、什么时候会失败、怎样估计误差。</p>
+
+      <figure class="factor-map">
+        <figcaption>常见问题与对应工具</figcaption>
+        <div class="factor-grid">
+          <div class="factor-card">
+            <strong>$Ax=b$</strong>
+            <span>用 $PA=LU$ 或 Cholesky。关注主元、病态矩阵、残差与后向误差。</span>
+          </div>
+          <div class="factor-card">
+            <strong>$\min_x \norm{Ax-b}_2$</strong>
+            <span>优先 QR；法方程 $A\trans A x=A\trans b$ 会把条件数平方。</span>
+          </div>
+          <div class="factor-card">
+            <strong>$Av=\lambda v$</strong>
+            <span>幂法、反幂法、带位移反幂法和 QR 算法。关注收敛比。</span>
+          </div>
+          <div class="factor-card">
+            <strong>$A=U\Sigma V\trans$</strong>
+            <span>SVD 给出秩、伪逆、低秩逼近和 2-范数条件数。</span>
+          </div>
+          <div class="factor-card">
+            <strong>大规模稀疏 $Ax=b$</strong>
+            <span>Jacobi、Gauss-Seidel、SOR、CG。核心判据是 $\rho(B)<1$。</span>
+          </div>
+          <div class="factor-card">
+            <strong>误差分析</strong>
+            <span>先区分前向误差、后向误差、条件数和算法稳定性。</span>
+          </div>
+        </div>
+      </figure>
+
+      <table>
+        <thead>
+          <tr>
+            <th>题型信号</th>
+            <th>优先方法</th>
+            <th>关键结论</th>
+            <th>易错点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>一般稠密线性方程组</td>
+            <td>列主元 Gaussian 消去，$PA=LU$</td>
+            <td>代价约 $\frac{2}{3}n^3$；解三角方程约 $O(n^2)$</td>
+            <td>没有选主元时小主元会放大误差</td>
+          </tr>
+          <tr>
+            <td>对称正定矩阵</td>
+            <td>Cholesky：$A=LL\trans$</td>
+            <td>无需主元，代价约 $\frac{1}{3}n^3$</td>
+            <td>只对对称正定成立；半正定会出现零主元</td>
+          </tr>
+          <tr>
+            <td>最小二乘</td>
+            <td>Householder QR</td>
+            <td>$Ax\approx b$，若 $A=QR$，则 $Rx=Q\trans b$ 的前 $n$ 行</td>
+            <td>法方程会使 $\kappa_2(A\trans A)=\kappa_2(A)^2$</td>
+          </tr>
+          <tr>
+            <td>低秩逼近或伪逆</td>
+            <td>SVD</td>
+            <td>$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans$ 是最佳秩 $k$ 逼近</td>
+            <td>奇异值按降序排列；零奇异值决定秩亏</td>
+          </tr>
+          <tr>
+            <td>迭代格式 $x^{(k+1)}=Bx^{(k)}+c$</td>
+            <td>看谱半径 $\rho(B)$</td>
+            <td>对任意初值收敛当且仅当 $\rho(B)<1$</td>
+            <td>矩阵范数小于 1 是充分条件，不是必要条件</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="error" class="section">
+      <h2>2. 浮点运算、误差与稳定性</h2>
+      <h3>2.1 浮点模型</h3>
+      <p>标准舍入模型把一次基本运算写成</p>
+      <div class="formula">
+        $$\fl(x \circ y)=(x\circ y)(1+\delta),\qquad |\delta|\le u,$$
+      </div>
+      <p>其中 $\circ\in\{+,-,\times,\div\}$，$u$ 是单位舍入误差，常与机器精度 $\eps$ 同阶。连续多步运算时，常用</p>
+      <div class="formula">
+        $$(1+\delta_1)\cdots(1+\delta_k)=1+\theta_k,\qquad |\theta_k|\le \gamma_k=\frac{ku}{1-ku},\quad ku<1.$$
+      </div>
+
+      <h3>2.2 前向误差、后向误差与条件数</h3>
+      <p>设真问题为 $y=f(x)$，算法输出 $\widehat y$。</p>
+      <ul>
+        <li><strong>前向误差</strong>：$\norm{\widehat y-y}/\norm{y}$，衡量答案离真值多远。</li>
+        <li><strong>后向误差</strong>：寻找最小扰动 $\Delta x$，使 $\widehat y=f(x+\Delta x)$，衡量算法等价于解了多接近的原问题。</li>
+        <li><strong>条件数</strong>：问题本身对输入扰动的敏感程度；算法稳定也不能拯救严重病态的问题。</li>
+      </ul>
+
+      <div class="callout">
+        考题判断顺序：先看问题是否病态，再看算法是否后向稳定。小残差只说明近似解几乎满足方程；若 $A$ 病态，前向误差仍可能很大。
+      </div>
+
+      <h3>2.3 消去中的误差放大</h3>
+      <p>Gaussian 消去的主要风险来自小主元和增长因子。列主元策略每一步选当前列中绝对值最大的可用元素作主元，通常显著降低误差放大。</p>
+      <div class="formula">
+        $$PA=LU,\qquad Ly=Pb,\qquad Ux=y.$$
+      </div>
+      <p>如果题目让解释“为什么要选主元”，答案不是为了让精确算术可行，而是为了在浮点算术中避免除以很小的数，控制乘子大小。</p>
+    </section>
+
+    <section id="norms" class="section">
+      <h2>3. 矩阵范数、谱半径与条件数</h2>
+      <h3>3.1 向量范数与诱导矩阵范数</h3>
+      <div class="two-col">
+        <div class="mini-card">
+          <h3>向量范数</h3>
+          <ul>
+            <li>$\norm{x}_1=\sum_i |x_i|$</li>
+            <li>$\norm{x}_2=(\sum_i x_i^2)^{1/2}$</li>
+            <li>$\norm{x}_\infty=\max_i |x_i|$</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>诱导矩阵范数</h3>
+          <ul>
+            <li>$\norm{A}=\max_{x\ne0}\norm{Ax}/\norm{x}$</li>
+            <li>$\norm{A}_1$ 是最大列和</li>
+            <li>$\norm{A}_\infty$ 是最大行和</li>
+            <li>$\norm{A}_2=\sigma_{\max}(A)$</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>3.2 谱半径</h3>
+      <p>谱半径定义为</p>
+      <div class="formula">
+        $$\rho(A)=\max_i |\lambda_i(A)|.$$
+      </div>
+      <p>对任何相容矩阵范数都有 $\rho(A)\le \norm{A}$。迭代法中最重要的判据是：$x^{(k+1)}=Bx^{(k)}+c$ 对任意初值收敛，当且仅当 $\rho(B)<1$。</p>
+
+      <h3>3.3 条件数</h3>
+      <p>非奇异矩阵 $A$ 的条件数为</p>
+      <div class="formula">
+        $$\kappa(A)=\norm{A}\norm{A^{-1}},\qquad \kappa_2(A)=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}.$$
+      </div>
+      <p>线性方程组 $Ax=b$ 中，如果 $\widehat x$ 的残差为 $r=b-A\widehat x$，则常用误差估计为</p>
+      <div class="formula">
+        $$\frac{\norm{x-\widehat x}}{\norm{x}}\le \kappa(A)\frac{\norm{r}}{\norm{b}}.$$
+      </div>
+      <p>这个式子解释了为什么病态矩阵会让“小残差”变成“大解误差”。</p>
+    </section>
+
+    <section id="factorization" class="section">
+      <h2>4. 直接法：LU、选主元与 Cholesky</h2>
+      <h3>4.1 Gaussian 消去与 LU</h3>
+      <p>若消去过程不换行，$A=LU$，其中 $L$ 为单位下三角矩阵，$U$ 为上三角矩阵。实际计算通常使用列主元，得到 $PA=LU$。</p>
+      <div class="formula">
+        $$Ax=b \quad\Rightarrow\quad PAx=Pb,\quad LUx=Pb.$$
+      </div>
+      <ol>
+        <li>先解 $Ly=Pb$。</li>
+        <li>再解 $Ux=y$。</li>
+        <li>如果同一个 $A$ 对多个右端 $b$ 求解，只需分解一次。</li>
+      </ol>
+
+      <h3>4.2 Cholesky 分解</h3>
+      <p>若 $A$ 对称正定，则存在唯一的下三角矩阵 $L$，且对角元为正，使</p>
+      <div class="formula">
+        $$A=LL\trans.$$
+      </div>
+      <p>Cholesky 比一般 LU 更省，且数值稳定。判断正定的常见条件包括：所有特征值为正、所有顺序主子式为正、$x\trans A x>0$ 对任意 $x\ne0$ 成立。</p>
+
+      <h3>4.3 直接法考点</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>问题</th>
+            <th>答题要点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>为什么列主元稳定性更好？</td>
+            <td>它避免除以很小的主元，使消去乘子绝对值通常不超过 1，降低舍入误差增长。</td>
+          </tr>
+          <tr>
+            <td>LU 什么时候不需要换行？</td>
+            <td>若所有顺序主子式非零，则可以无换行完成 LU。</td>
+          </tr>
+          <tr>
+            <td>Cholesky 失败说明什么？</td>
+            <td>在精确算术下说明矩阵不是正定；在浮点算术中也可能提示近似半正定或严重病态。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="least-squares" class="section">
+      <h2>5. QR 分解与最小二乘</h2>
+      <h3>5.1 正交矩阵为什么重要</h3>
+      <p>若 $Q\trans Q=I$，则 $\norm{Qx}_2=\norm{x}_2$。正交变换不放大 2-范数误差，因此 QR 是求解最小二乘问题的稳定工具。</p>
+
+      <h3>5.2 Gram-Schmidt、改进 Gram-Schmidt 与 Householder</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>特点</th>
+            <th>考试判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>经典 Gram-Schmidt</td>
+            <td>概念直观，但数值正交性较差</td>
+            <td>容易被舍入误差破坏正交性</td>
+          </tr>
+          <tr>
+            <td>改进 Gram-Schmidt</td>
+            <td>同样生成 $A=QR$，数值表现更好</td>
+            <td>可用于手算或小规模推导</td>
+          </tr>
+          <tr>
+            <td>Householder 反射</td>
+            <td>稳定，适合软件实现</td>
+            <td>期末常问“为什么比法方程好”</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>5.3 最小二乘</h3>
+      <p>对满列秩 $A\in\R^{m\times n}$，$m\ge n$，最小二乘问题</p>
+      <div class="formula">
+        $$\min_x \norm{Ax-b}_2$$
+      </div>
+      <p>满足法方程</p>
+      <div class="formula">
+        $$A\trans A x=A\trans b.$$
+      </div>
+      <p>但数值上更推荐 QR。若 $A=QR=[Q_1\ Q_2]\begin{bmatrix}R_1\\0\end{bmatrix}$，则</p>
+      <div class="formula">
+        $$x=R_1^{-1}Q_1\trans b,\qquad r=b-Ax=(I-Q_1Q_1\trans)b.$$
+      </div>
+      <div class="warning callout">
+        法方程的主要风险是条件数平方：$\kappa_2(A\trans A)=\kappa_2(A)^2$。当 $A$ 已经病态时，法方程会明显损失精度。
+      </div>
+    </section>
+
+    <section id="eigen-svd" class="section">
+      <h2>6. 特征值、幂法、QR 算法与 SVD</h2>
+      <h3>6.1 幂法与反幂法</h3>
+      <p>幂法用于求模最大的特征值对应特征向量。若 $|\lambda_1|>|\lambda_2|\ge\cdots$，则收敛速度大致由 $|\lambda_2/\lambda_1|$ 控制。</p>
+      <div class="formula">
+        $$y^{(k)}=Ax^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+      </div>
+      <p>反幂法对 $A^{-1}$ 做幂法，因此靠近零的特征值会变成最大模特征值。带位移反幂法求靠近 $\mu$ 的特征值：</p>
+      <div class="formula">
+        $$(A-\mu I)y^{(k)}=x^{(k)},\qquad x^{(k+1)}=\frac{y^{(k)}}{\norm{y^{(k)}}}.$$
+      </div>
+
+      <h3>6.2 QR 算法</h3>
+      <p>基本 QR 迭代为</p>
+      <div class="formula">
+        $$A_k=Q_kR_k,\qquad A_{k+1}=R_kQ_k=Q_k\trans A_k Q_k.$$
+      </div>
+      <p>因为每一步都是正交相似变换，特征值保持不变。实际算法会先化为 Hessenberg 形，并使用位移加速收敛。</p>
+
+      <h3>6.3 SVD</h3>
+      <p>任意 $A\in\R^{m\times n}$ 都有奇异值分解</p>
+      <div class="formula">
+        $$A=U\Sigma V\trans,\qquad \sigma_1\ge\sigma_2\ge\cdots\ge0.$$
+      </div>
+      <ul>
+        <li>$\rank(A)$ 等于非零奇异值个数。</li>
+        <li>$\norm{A}_2=\sigma_1$，$\norm{A}_F=(\sum_i\sigma_i^2)^{1/2}$。</li>
+        <li>若 $A$ 满列秩，$\kappa_2(A)=\sigma_1/\sigma_n$。</li>
+        <li>伪逆为 $A^+=V\Sigma^+U\trans$。</li>
+      </ul>
+      <p>Eckart-Young 定理：截断 SVD 给出最佳秩 $k$ 逼近。</p>
+      <div class="formula">
+        $$A_k=\sum_{i=1}^k \sigma_i u_i v_i\trans,\qquad
+        \norm{A-A_k}_2=\sigma_{k+1}.$$
+      </div>
+    </section>
+
+    <section id="iterative" class="section">
+      <h2>7. 线性方程组迭代法与共轭梯度</h2>
+      <h3>7.1 统一形式</h3>
+      <p>把 $A=M-N$，则 $Ax=b$ 可写成</p>
+      <div class="formula">
+        $$Mx^{(k+1)}=Nx^{(k)}+b,\qquad x^{(k+1)}=Bx^{(k)}+c,$$
+      </div>
+      <p>其中 $B=M^{-1}N$。误差满足 $e^{(k+1)}=Be^{(k)}$，所以收敛当且仅当 $\rho(B)<1$。</p>
+
+      <h3>7.2 Jacobi、Gauss-Seidel 与 SOR</h3>
+      <p>设 $A=D-L-U$，其中 $D$ 为对角部分，$L,U$ 分别对应严格下三角和严格上三角的相反数记号。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>迭代矩阵</th>
+            <th>常见结论</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jacobi</td>
+            <td>$B_J=D^{-1}(L+U)$</td>
+            <td>可并行；严格对角占优时收敛</td>
+          </tr>
+          <tr>
+            <td>Gauss-Seidel</td>
+            <td>$B_{GS}=(D-L)^{-1}U$</td>
+            <td>利用新分量；对称正定时收敛</td>
+          </tr>
+          <tr>
+            <td>SOR</td>
+            <td>$B_\omega=(D-\omega L)^{-1}[(1-\omega)D+\omega U]$</td>
+            <td>对称正定时通常需 $0<\omega<2$</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>7.3 共轭梯度法</h3>
+      <p>CG 用于对称正定系统 $Ax=b$。它在 Krylov 子空间</p>
+      <div class="formula">
+        $$\mathcal K_k(A,r_0)=\span\{r_0,Ar_0,\dots,A^{k-1}r_0\}$$
+      </div>
+      <p>中最小化 $A$-范数误差。常用误差界为</p>
+      <div class="formula">
+        $$\frac{\norm{x_k-x_*}_A}{\norm{x_0-x_*}_A}
+        \le 2\left(\frac{\sqrt{\kappa_2(A)}-1}{\sqrt{\kappa_2(A)}+1}\right)^k.$$
+      </div>
+      <p>预条件的目标是把原系统变成条件数更小、谱更聚集的等价系统，从而加快迭代收敛。</p>
+    </section>
+
+    <section class="section">
+      <h2>8. 期末答题模板</h2>
+      <h3>8.1 算法选择题</h3>
+      <ol>
+        <li>先识别矩阵结构：稠密/稀疏、对称、正定、满秩、病态。</li>
+        <li>再选算法：一般方程组用列主元 LU；SPD 用 Cholesky 或 CG；最小二乘用 QR；低秩和伪逆用 SVD。</li>
+        <li>最后解释稳定性和代价：正交变换稳定，法方程条件数平方，迭代法看谱半径。</li>
+      </ol>
+
+      <h3>8.2 证明题</h3>
+      <ul>
+        <li>证明范数不等式时，从诱导范数定义出发。</li>
+        <li>证明迭代收敛时，写误差递推 $e^{(k)}=B^k e^{(0)}$，再用 $\rho(B)<1$。</li>
+        <li>证明最小二乘正交性时，写 $A\trans(b-Ax)=0$，即残差正交于 $\operatorname{col}(A)$。</li>
+        <li>证明 SVD 结论时，连接 $A\trans A=V\Sigma\trans\Sigma V\trans$。</li>
+      </ul>
+
+      <h3>8.3 计算题</h3>
+      <ul>
+        <li>LU/Cholesky 手算时，每一步写清主元、乘子和更新矩阵。</li>
+        <li>QR 手算时，二维或三维题通常用 Gram-Schmidt；概念题强调 Householder 更稳定。</li>
+        <li>幂法题要归一化，并用 Rayleigh 商 $\rho(x)=x\trans Ax/(x\trans x)$ 估计特征值。</li>
+        <li>迭代法题要先写出 $B$，再算 $\rho(B)$ 或给出充分收敛条件。</li>
+      </ul>
+    </section>
+
+    <section id="practice" class="section">
+      <h2>9. 考前自测题</h2>
+      <div class="problem">
+        <h3>题 1：前向误差与后向误差</h3>
+        <p>已知算法输出 $\widehat x$，残差 $r=b-A\widehat x$ 很小。能否断定 $\widehat x$ 很接近真解？</p>
+        <div class="answer"><strong>要点：</strong>不能。由 $\norm{x-\widehat x}/\norm{x}\le\kappa(A)\norm{r}/\norm{b}$ 可知，还要看 $\kappa(A)$。若 $A$ 病态，小残差可能对应大前向误差。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 2：法方程风险</h3>
+        <p>为什么求最小二乘时不推荐直接解 $A\trans A x=A\trans b$？</p>
+        <div class="answer"><strong>要点：</strong>$A\trans A$ 的 2-范数条件数是 $\kappa_2(A)^2$，会放大病态性；QR 使用正交变换，数值稳定性更好。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 3：Cholesky 适用条件</h3>
+        <p>矩阵 $A$ 满足 $A=A\trans$。是否一定能做 Cholesky 分解？</p>
+        <div class="answer"><strong>要点：</strong>不一定。还必须正定，即 $x\trans A x>0$ 对所有非零 $x$ 成立；等价地，所有特征值为正。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 4：迭代收敛</h3>
+        <p>若 $x^{(k+1)}=Bx^{(k)}+c$，给出对任意初值收敛的充要条件。</p>
+        <div class="answer"><strong>要点：</strong>误差 $e^{(k)}=B^k e^{(0)}$。对任意初值收敛当且仅当 $B^k\to0$，等价于 $\rho(B)<1$。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 5：幂法速度</h3>
+        <p>矩阵特征值满足 $|\lambda_1|>|\lambda_2|\ge\cdots$。幂法收敛速度由什么决定？</p>
+        <div class="answer"><strong>要点：</strong>主要由 $|\lambda_2/\lambda_1|$ 决定。该比值越小，主特征向量方向越快占优。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 6：SVD 低秩逼近</h3>
+        <p>若 $A=U\Sigma V\trans$，最佳秩 $k$ 逼近是什么？2-范数误差是多少？</p>
+        <div class="answer"><strong>要点：</strong>$A_k=\sum_{i=1}^k\sigma_i u_i v_i\trans$；由 Eckart-Young 定理，$\norm{A-A_k}_2=\sigma_{k+1}$。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 7：正交矩阵</h3>
+        <p>为什么 QR 分解中的正交矩阵对数值稳定性有帮助？</p>
+        <div class="answer"><strong>要点：</strong>正交矩阵保持 2-范数：$\norm{Qx}_2=\norm{x}_2$，不会放大误差。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 8：列主元</h3>
+        <p>Gaussian 消去中列主元策略的核心目的是什么？</p>
+        <div class="answer"><strong>要点：</strong>避免小主元，控制消去乘子和误差增长，提高浮点计算稳定性。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 9：CG 适用条件</h3>
+        <p>共轭梯度法最标准的适用对象是什么？预条件的目的是什么？</p>
+        <div class="answer"><strong>要点：</strong>CG 标准适用于对称正定系统。预条件用于降低条件数、聚集特征值，从而加快收敛。</div>
+      </div>
+
+      <div class="problem">
+        <h3>题 10：矩阵范数</h3>
+        <p>$\norm{A}_1$、$\norm{A}_\infty$、$\norm{A}_2$ 分别如何快速识别？</p>
+        <div class="answer"><strong>要点：</strong>$\norm{A}_1$ 是最大列和，$\norm{A}_\infty$ 是最大行和，$\norm{A}_2$ 是最大奇异值。</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Sun Sky · 数值代数期末复习。建议打印时先阅读目录和速查表，再按练习题回查对应章节。</p>
+    </footer>
+  </main>
+</body>
+</html>
